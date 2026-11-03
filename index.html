@@ -1610,128 +1610,79 @@
          JAVASCRIPT LOGIC & DATABASE ENGINE
     =========================================== -->
     <script>
-        /* ========================================================
-           [1. DATA FOTO GALERI WINTER]
-           Tambahkan link foto baru di dalam array di bawah ini.
-           Format: { url: 'LINK_GAMBAR.jpg', date: 'TANGGAL', loc: 'LOKASI' },
-           ======================================================== */
-        let galleryPhotos = [
-            {
-                url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop',
-                date: 'Hari ini, 14:22',
-                loc: 'SM Practice Room, Seoul'
-            },
-            {
-                url: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800&auto=format&fit=crop',
-                date: 'Kemarin, 21:05',
-                loc: 'Tokyo Dome Backstage'
-            },
-            {
-                url: 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=800&auto=format&fit=crop',
-                date: '25 Okt, 19:40',
-                loc: 'Whiplash MV Set'
-            },
-            {
-                url: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop',
-                date: '24 Okt, 16:12',
-                loc: 'Incheon Airport Terminal 2'
-            },
-            {
-                url: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=800&auto=format&fit=crop',
-                date: '22 Okt, 23:18',
-                loc: 'Dorm with Members'
-            },
-            {
-                url: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800&auto=format&fit=crop',
-                date: '20 Okt, 12:00',
-                loc: 'Studio Recording'
-            },
-            {
-                url: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=800&auto=format&fit=crop',
-                date: '18 Okt, 15:45',
-                loc: 'Whiplash Concept Shoot'
-            },
-            {
-                url: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop',
-                date: '15 Okt, 18:20',
-                loc: 'Kwangya World'
-            },
-            {
-                url: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=800&auto=format&fit=crop',
-                date: '10 Okt, 08:30',
-                loc: 'Cheongdam-dong Cafe'
-            }
-            /* <-- TAMBAHKAN FOTO BARU DI ATAS TANDA KURUNG SIKU INI */
-        ];
+        /* ==========================================================================
+           ⭐ [PUSAT PENGATURAN SEMUA FOTO & WALLPAPER] ⭐
+           CUKUP EDIT DI BAGIAN KOTAK INI SAJA! 
+           Tidak perlu lagi scroll ke atas atau ke bawah.
+           ========================================================================== */
 
-        /* ========================================================
-           [2. DATA INSTAGRAM WINTER (@imwinter)]
-           Ganti bio, avatar, dan foto feed di sini.
-           ======================================================== */
-        const winterProfile = {
-            username: 'imwinter',
-            name: 'WINTER',
-            bio: 'aespa ❄️ 에스파\nArmageddon & Whiplash Out Now! 🛸',
-            avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop', /* Avatar profil */
-            postsCount: 42,
-            followers: '8.4M',
-            following: '4'
+        const PUSAT_FOTO = {
+            // 1. WALLPAPER LOCKSCREEN & HOMESCREEN
+            wallpaperLockscreen: "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=1000&auto=format&fit=crop",
+            wallpaperHomescreen: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1000&auto=format&fit=crop",
+
+            // 2. FOTO PROFIL WINTER (Instagram, Bubble, Apple ID)
+            fotoProfilWinter: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop",
+
+            // 3. DAFTAR SEMUA FOTO GALERI WINTER
+            // Cara menambah: tambahkan link baru di bawahnya dengan tanda petik "link_foto.jpg",
+            galeriWinter: [
+                "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=800&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=800&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=800&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=800&auto=format&fit=crop"
+                // <-- TAMBAHKAN LINK FOTO GALERI BARU DI SINI
+            ],
+
+            // 4. POSTINGAN FEED INSTAGRAM (@imwinter)
+            instagramPosts: [
+                {
+                    image: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=800&auto=format&fit=crop",
+                    caption: "Whiplash practice day with my girls 🖤✨ #aespa #Whiplash",
+                    likes: "1,248,302"
+                },
+                {
+                    image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800&auto=format&fit=crop",
+                    caption: "Tokyo Dome concert memory 💫 Thank you MY!",
+                    likes: "1,894,520"
+                },
+                {
+                    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop",
+                    caption: "❄️🤍",
+                    likes: "2,104,119"
+                },
+                {
+                    image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=800&auto=format&fit=crop",
+                    caption: "Armageddon era 🛸💥",
+                    likes: "1,540,991"
+                },
+                {
+                    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800&auto=format&fit=crop",
+                    caption: "Sunny autumn day in Seoul 🍂",
+                    likes: "1,780,240"
+                },
+                {
+                    image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop",
+                    caption: "With Jiminie unnie 👯‍♀️",
+                    likes: "2,401,902"
+                }
+                // <-- TAMBAHKAN POSTINGAN FEED INSTAGRAM DI SINI
+            ]
         };
 
-        const winterPosts = [
-            {
-                id: 1,
-                image: 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=800&auto=format&fit=crop',
-                caption: 'Whiplash practice day with my girls 🖤✨ #aespa #Whiplash',
-                likes: '1,248,302',
-                date: '2 JAM LALU'
-            },
-            {
-                id: 2,
-                image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800&auto=format&fit=crop',
-                caption: 'Tokyo Dome concert memory 💫 Thank you MY!',
-                likes: '1,894,520',
-                date: '1 HARI LALU'
-            },
-            {
-                id: 3,
-                image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop',
-                caption: '❄️🤍',
-                likes: '2,104,119',
-                date: '3 HARI LALU'
-            },
-            {
-                id: 4,
-                image: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=800&auto=format&fit=crop',
-                caption: 'Armageddon era 🛸💥',
-                likes: '1,540,991',
-                date: '1 MINGGU LALU'
-            },
-            {
-                id: 5,
-                image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800&auto=format&fit=crop',
-                caption: 'Sunny autumn day in Seoul 🍂',
-                likes: '1,780,240',
-                date: '2 MINGGU LALU'
-            },
-            {
-                id: 6,
-                image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop',
-                caption: 'With Jiminie unnie 👯‍♀️',
-                likes: '2,401,902',
-                date: '3 MINGGU LALU'
-            }
-            /* <-- Tambah foto postingan Instagram baru di sini */
-        ];
-
         /* ========================================================
-           [3. DATA CHAT & KONTAK (KARINA, GISELLE, NINGNING, MANAGER)]
+           DATA CHAT & KONTAK (KARINA, GISELLE, NINGNING, MANAGER)
            ======================================================== */
         const chatConversations = {
             karina: {
                 name: 'Jiminie Unnie 💙',
                 avatar: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=200&auto=format&fit=crop',
-                status: 'Sedang mengetik...',
+                status: 'online',
                 messages: [
                     { sender: 'them', text: 'Minjeong-ah! Udah siap buat latihan hari ini?', time: '13:50' },
                     { sender: 'me', text: 'Udah unnie, aku baru aja minum iced americano di kafe bawah ☕', time: '13:55' },
@@ -1769,7 +1720,7 @@
         };
 
         /* ========================================================
-           [4. DATA MUSIK AESPA]
+           DATA MUSIK AESPA
            ======================================================== */
         const playlist = [
             {
@@ -1805,30 +1756,63 @@
         ];
 
         /* ========================================================
-           [5. STATE SYSTEM & LOGIKA SIMULATOR]
+           ENGINE LOGIKA SIMULATOR iOS 18
            ======================================================== */
         let isPhoneLocked = true;
-        let isScreenOn = true;
         let enteredPin = "";
-        const correctPin = "0101"; // Tanggal ultah Winter: 1 Januari
+        const correctPin = "0101"; // Ultah Winter: 01-01
         let activeApp = null;
         let activeChatContact = null;
         let isPlayingMusic = false;
         let currentTrackIndex = 0;
-        let musicProgress = 45;
         let isFlashlightOn = false;
         let currentSelectedPhotoIndex = 0;
+        let galleryPhotos = [];
+        let winterPosts = [];
 
-        // Inisialisasi Jam dan Tampilan saat dimuat
+        // Inisialisasi saat web selesai dimuat
         window.addEventListener('DOMContentLoaded', () => {
             updateSystemClocks();
             setInterval(updateSystemClocks, 1000);
-            renderGallery();
-            renderInstagramPosts();
+            terapkanSemuaFoto();
             setupHardwareButtons();
         });
 
-        // Update Jam Status Bar & Lock Screen
+        // FUNGSI OTOMATIS: Terapkan wallpaper & foto dari PUSAT_FOTO
+        function terapkanSemuaFoto() {
+            // 1. Set Wallpaper Lockscreen
+            const lockBg = document.querySelector('#lockScreen > div.absolute.inset-0.bg-cover');
+            if (lockBg) lockBg.style.backgroundImage = `url('${PUSAT_FOTO.wallpaperLockscreen}')`;
+
+            // 2. Set Wallpaper Homescreen
+            const homeBg = document.querySelector('#homeScreen > div.absolute.inset-0.bg-cover');
+            if (homeBg) homeBg.style.backgroundImage = `url('${PUSAT_FOTO.wallpaperHomescreen}')`;
+
+            // 3. Set Avatar Profil Instagram
+            const instaAvatar = document.getElementById('instaProfileAvatar');
+            if (instaAvatar) instaAvatar.src = PUSAT_FOTO.fotoProfilWinter;
+
+            // 4. Siapkan Galeri dari list galeriWinter
+            galleryPhotos = PUSAT_FOTO.galeriWinter.map((url, i) => ({
+                url: url,
+                date: `Foto ke-${i + 1}`,
+                loc: 'Winter Collection ❄️'
+            }));
+
+            // 5. Siapkan Postingan Instagram
+            winterPosts = PUSAT_FOTO.instagramPosts.map((p, i) => ({
+                id: i + 1,
+                image: p.image,
+                caption: p.caption,
+                likes: p.likes,
+                date: 'Baru saja'
+            }));
+
+            renderGallery();
+            renderInstagramPosts();
+        }
+
+        // Jam Sistem Realtime
         function updateSystemClocks() {
             const now = new Date();
             let hours = String(now.getHours()).padStart(2, '0');
@@ -1844,7 +1828,7 @@
             document.getElementById('lockDate').innerText = dateStr;
         }
 
-        // Buka Kunci Layar (Swipe / Click)
+        // Buka Kunci / PIN Passcode
         function triggerUnlockAttempt() {
             const passcodeScreen = document.getElementById('passcodeScreen');
             passcodeScreen.classList.remove('opacity-0', 'pointer-events-none');
@@ -1868,7 +1852,6 @@
                         if (enteredPin === correctPin) {
                             unlockPhone();
                         } else {
-                            // PIN Salah: Efek goyang
                             const dots = document.querySelectorAll('.passcode-dot');
                             dots.forEach(d => d.classList.add('bg-red-500'));
                             setTimeout(() => {
@@ -1916,7 +1899,7 @@
             document.getElementById('lockScreen').style.opacity = '1';
         }
 
-        // Buka Aplikasi
+        // Buka / Tutup Aplikasi
         function openApp(appId) {
             if (isPhoneLocked) return;
             const appMap = {
@@ -1957,7 +1940,6 @@
             if (activeApp) {
                 closeApp();
             } else if (!isPhoneLocked) {
-                // Goyangkan home screen sekejap seperti iOS haptic
                 document.getElementById('homeScreen').style.transform = 'scale(0.98)';
                 setTimeout(() => {
                     document.getElementById('homeScreen').style.transform = 'scale(1)';
@@ -1967,10 +1949,9 @@
             }
         }
 
-        // Control Center & Senter
+        // Pusat Kontrol & Flashlight
         function toggleControlCenter() {
-            const cc = document.getElementById('controlCenterPanel');
-            cc.classList.toggle('open');
+            document.getElementById('controlCenterPanel').classList.toggle('open');
         }
 
         function closeControlCenter() {
@@ -1995,7 +1976,7 @@
             }
         }
 
-        // Dynamic Island & Notification Banner
+        // Banner Notifikasi
         function showNotificationBanner(sender, text) {
             const banner = document.getElementById('notificationBanner');
             document.getElementById('notifSender').innerText = sender;
@@ -2006,7 +1987,7 @@
             }, 3500);
         }
 
-        // Fitur Pemutar Musik & Dynamic Island State
+        // Pemutar Musik & Dynamic Island
         function togglePlayMusic(e) {
             if (e) e.stopPropagation();
             isPlayingMusic = !isPlayingMusic;
@@ -2016,14 +1997,14 @@
             const island = document.getElementById('dynamicIsland');
 
             if (isPlayingMusic) {
-                playIcon.classList.replace('fa-play', 'fa-pause');
+                if (playIcon) playIcon.classList.replace('fa-play', 'fa-pause');
                 if (ccPlayBtn) ccPlayBtn.classList.replace('fa-play', 'fa-pause');
                 if (islandPlayIcon) islandPlayIcon.classList.replace('fa-play', 'fa-pause');
                 island.classList.remove('state-compact');
                 island.classList.add('state-music');
                 document.getElementById('islandRightContent').classList.remove('opacity-0');
             } else {
-                playIcon.classList.replace('fa-pause', 'fa-play');
+                if (playIcon) playIcon.classList.replace('fa-pause', 'fa-play');
                 if (ccPlayBtn) ccPlayBtn.classList.replace('fa-pause', 'fa-play');
                 if (islandPlayIcon) islandPlayIcon.classList.replace('fa-pause', 'fa-play');
                 island.classList.remove('state-music');
@@ -2060,7 +2041,7 @@
             document.getElementById('islandExpandedCover').src = track.cover;
         }
 
-        // Galeri Rendering & Preview
+        // Render Galeri
         function renderGallery() {
             const container = document.getElementById('photosGridContainer');
             if (!container) return;
@@ -2091,10 +2072,9 @@
         function setAsWallpaperFromGallery() {
             const photo = galleryPhotos[currentSelectedPhotoIndex];
             if (photo) {
-                // Pasang sebagai wallpaper homescreen
                 const homeBg = document.querySelector('#homeScreen > div.absolute.inset-0.bg-cover');
                 if (homeBg) homeBg.style.backgroundImage = `url('${photo.url}')`;
-                showNotificationBanner('Wallpaper Berhasil Diubah', 'Foto galeri telah dipasang ke Layar Utama ✨');
+                showNotificationBanner('Wallpaper Diubah', 'Foto galeri telah dipasang ke Layar Utama ✨');
                 closePhotoPreview();
             }
         }
@@ -2108,7 +2088,7 @@
             }
         }
 
-        // Instagram Posts Rendering
+        // Render Instagram Feed
         function renderInstagramPosts() {
             const grid = document.getElementById('instaPostsGrid');
             if (!grid) return;
@@ -2122,7 +2102,7 @@
             });
         }
 
-        // Chat iMessage System
+        // Fitur Chat iMessage
         function openConversation(contactKey) {
             activeChatContact = contactKey;
             const contact = chatConversations[contactKey];
@@ -2183,7 +2163,6 @@
             input.value = "";
             renderMessages();
 
-            // Balasan otomatis dari Kontak aespa setelah 1 detik
             setTimeout(() => {
                 const replies = [
                     "Okee siap Minjeong-ah! 🤍",
@@ -2201,7 +2180,7 @@
             }, 1000);
         }
 
-        // Bubble Idol Chat Send
+        // Fitur Bubble Chat Idol
         function sendBubbleMessage() {
             const input = document.getElementById('bubbleInputField');
             const val = input.value.trim();
@@ -2219,7 +2198,6 @@
             input.value = "";
             container.scrollTop = container.scrollHeight;
 
-            // Respon manis otomatis dari Winter
             setTimeout(() => {
                 const winterReplies = [
                     "Aww makasih banyak MY! Aku baca semuanya kok 🤍",
@@ -2230,7 +2208,7 @@
                 const replyDiv = document.createElement('div');
                 replyDiv.className = "flex items-start space-x-2";
                 replyDiv.innerHTML = `
-                    <img src="${winterProfile.avatar}" class="w-8 h-8 rounded-full object-cover flex-shrink-0 border border-pink-400" alt="Winter">
+                    <img src="${PUSAT_FOTO.fotoProfilWinter}" class="w-8 h-8 rounded-full object-cover flex-shrink-0 border border-pink-400" alt="Winter">
                     <div>
                         <div class="text-[10px] text-pink-300 font-semibold mb-0.5">WINTER ❄️</div>
                         <div class="bg-pink-500/20 border border-pink-500/40 text-pink-50 p-2.5 rounded-2xl rounded-tl-none max-w-[240px]">
@@ -2243,7 +2221,7 @@
             }, 1200);
         }
 
-        // Kamera Simulator Snapshot
+        // Kamera Simulator
         function takePhotoSnapshot() {
             const flash = document.getElementById('cameraViewfinder');
             flash.style.filter = "brightness(3)";
@@ -2251,7 +2229,6 @@
                 flash.style.filter = "brightness(1)";
             }, 120);
 
-            // Tambahkan foto jepretan kamera baru ke Galeri
             const newPhoto = {
                 url: document.getElementById('cameraStreamImg').src,
                 date: 'Hari ini, Baru saja',
@@ -2279,7 +2256,6 @@
 
         // Tombol Fisik Hardware Samping iPhone
         function setupHardwareButtons() {
-            // Power Button (Kunci / Buka Layar)
             document.getElementById('powerBtn').addEventListener('click', () => {
                 if (!isPhoneLocked) {
                     lockPhone();
@@ -2288,12 +2264,10 @@
                 }
             });
 
-            // Action Button (Toggle Senter)
             document.getElementById('actionBtn').addEventListener('click', () => {
                 toggleFlashlight();
             });
 
-            // Volume Buttons
             document.getElementById('volUpBtn').addEventListener('click', () => {
                 showNotificationBanner('Volume', 'Volume dinaikkan 85%');
             });
@@ -2301,14 +2275,12 @@
                 showNotificationBanner('Volume', 'Volume diturunkan 70%');
             });
 
-            // Camera Control Button (Buka Kamera Langsung)
             document.getElementById('camCtrlBtn').addEventListener('click', () => {
                 unlockPhone();
                 openApp('camera');
             });
         }
 
-        // General Helper Notifications
         function playMockVideo(title = "Whiplash") {
             showNotificationBanner('YouTube', `Memutar MV aespa - ${title} (HD 4K)`);
         }
