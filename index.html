@@ -4,13 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Winter's iPhone 16 Pro ❄️ | iOS 18 Simulator</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome 6 Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Inter & SF Pro Display style fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
     <style>
         :root {
             --ios-blue: #007AFF;
@@ -19,274 +15,362 @@
             --ios-yellow: #FFCC00;
             --ios-gray: #8E8E93;
             --ios-bg-gray: #F2F2F7;
+            --winter-blue: #A5D8FF;
+            --winter-pink: #FFB6C1;
         }
 
         * {
             box-sizing: border-box;
             -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter', sans-serif;
-            background: radial-gradient(circle at 50% 25%, #1e293b 0%, #090d16 60%, #020617 100%);
+            background: linear-gradient(135deg, #0c0c1e 0%, #1a1a3e 50%, #0f0f2d 100%);
             min-height: 100vh;
-            margin: 0;
             overflow: hidden;
             user-select: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        /* Hide scrollbars inside iOS screens */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
+        /* Animated Background Particles */
+        .bg-particles {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
         }
 
-        /* ==========================================
-           iPHONE 16 PRO TITANIUM HARDWARE CHASSIS
-        =========================================== */
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(165, 216, 255, 0.6);
+            border-radius: 50%;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* iPhone 16 Pro Chassis - Enhanced */
         .iphone-16-pro {
             width: 393px;
             height: 852px;
             border-radius: 62px;
             padding: 11px;
-            background: linear-gradient(135deg, #f4f4f5 0%, #a1a1aa 22%, #d4d4d8 48%, #52525b 78%, #e4e4e7 100%);
+            background: linear-gradient(145deg, #e8e8ec 0%, #b8b8c0 25%, #d0d0d8 50%, #888890 75%, #e0e0e8 100%);
             box-shadow:
-                0 40px 95px -15px rgba(0, 0, 0, 0.9),
-                0 0 55px rgba(186, 230, 253, 0.14),
-                inset 0 0 2px 1.5px rgba(255, 255, 255, 0.85);
+                0 50px 100px -20px rgba(0, 0, 0, 0.8),
+                0 0 80px rgba(165, 216, 255, 0.15),
+                inset 0 0 3px 2px rgba(255, 255, 255, 0.9),
+                inset 0 -2px 10px rgba(0, 0, 0, 0.1);
             position: relative;
-            transition: transform 0.3s ease, box-shadow 0.35s ease;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             flex-shrink: 0;
+        }
+
+        .iphone-16-pro:hover {
+            transform: scale(1.02);
+            box-shadow:
+                0 60px 120px -20px rgba(0, 0, 0, 0.9),
+                0 0 100px rgba(165, 216, 255, 0.25),
+                inset 0 0 3px 2px rgba(255, 255, 255, 0.95);
         }
 
         .iphone-16-pro.flashlight-on {
             box-shadow:
-                0 0 130px 42px rgba(255, 255, 255, 0.82),
-                0 0 70px rgba(186, 230, 253, 0.95);
+                0 0 150px 50px rgba(255, 255, 255, 0.9),
+                0 0 100px rgba(165, 216, 255, 1);
         }
 
-        /* Inner Black Bezel */
+        /* Titanium Frame Shine Effect */
+        .iphone-16-pro::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 62px;
+            background: linear-gradient(135deg, 
+                transparent 0%, 
+                rgba(255,255,255,0.4) 25%, 
+                transparent 50%, 
+                rgba(255,255,255,0.2) 75%, 
+                transparent 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Inner Bezel */
         .iphone-bezel {
             width: 100%;
             height: 100%;
-            background: #000000;
+            background: #000;
             border-radius: 52px;
             padding: 7px;
             position: relative;
-            box-shadow: inset 0 0 4px rgba(255,255,255,0.16);
+            box-shadow: 
+                inset 0 0 6px rgba(255,255,255,0.2),
+                inset 0 0 20px rgba(0,0,0,0.5);
         }
 
-        /* Top Earpiece Speaker Slit */
+        /* Earpiece */
         .earpiece-slit {
             position: absolute;
-            top: 4px;
+            top: 5px;
             left: 50%;
             transform: translateX(-50%);
-            width: 50px;
-            height: 3px;
-            background: #18181b;
+            width: 55px;
+            height: 4px;
+            background: linear-gradient(90deg, #1a1a1a, #2a2a2a, #1a1a1a);
             border-radius: 4px;
             z-index: 80;
+            box-shadow: inset 0 1px 2px rgba(255,255,255,0.1);
         }
 
-        /* Actual OLED Display Area */
+        /* Display */
         .iphone-display {
             width: 100%;
             height: 100%;
             border-radius: 45px;
             position: relative;
             overflow: hidden;
-            background-color: #000;
+            background: #000;
             background-size: cover;
             background-position: center;
-            transition: background-image 0.4s ease, filter 0.2s ease;
+            transition: all 0.4s ease;
         }
 
-        /* Physical Side Buttons (Titanium) */
+        /* Screen Reflection */
+        .iphone-display::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 40%;
+            background: linear-gradient(180deg, 
+                rgba(255,255,255,0.15) 0%, 
+                rgba(255,255,255,0.05) 50%, 
+                transparent 100%);
+            border-radius: 45px 45px 0 0;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        /* Side Buttons - Enhanced */
         .hw-btn {
             position: absolute;
-            background: linear-gradient(180deg, #e4e4e7, #71717a, #a1a1aa);
-            box-shadow: -1px 0 2px rgba(0,0,0,0.55);
+            background: linear-gradient(180deg, #e8e8ec, #9898a0, #c0c0c8);
+            box-shadow: 
+                -1px 0 3px rgba(0,0,0,0.6),
+                inset 0 1px 1px rgba(255,255,255,0.5);
             cursor: pointer;
-        }
-        .hw-action-btn {
-            left: -3.5px;
-            top: 128px;
-            width: 3.5px;
-            height: 30px;
-            border-radius: 4px 0 0 4px;
-        }
-        .hw-vol-up {
-            left: -3.5px;
-            top: 178px;
-            width: 3.5px;
-            height: 56px;
-            border-radius: 4px 0 0 4px;
-        }
-        .hw-vol-down {
-            left: -3.5px;
-            top: 246px;
-            width: 3.5px;
-            height: 56px;
-            border-radius: 4px 0 0 4px;
-        }
-        .hw-power-btn {
-            right: -3.5px;
-            top: 205px;
-            width: 3.5px;
-            height: 86px;
-            border-radius: 0 4px 4px 0;
-            box-shadow: 1px 0 2px rgba(0,0,0,0.55);
+            transition: all 0.15s ease;
         }
 
-        /* ==========================================
-           iOS 18 DYNAMIC ISLAND
-        =========================================== */
+        .hw-btn:active {
+            transform: scaleX(0.9);
+            filter: brightness(0.8);
+        }
+
+        .hw-action-btn { left: -4px; top: 130px; width: 4px; height: 32px; border-radius: 4px 0 0 4px; }
+        .hw-vol-up { left: -4px; top: 180px; width: 4px; height: 58px; border-radius: 4px 0 0 4px; }
+        .hw-vol-down { left: -4px; top: 250px; width: 4px; height: 58px; border-radius: 4px 0 0 4px; }
+        .hw-power-btn { 
+            right: -4px; 
+            top: 210px; 
+            width: 4px; 
+            height: 90px; 
+            border-radius: 0 4px 4px 0;
+            box-shadow: 
+                1px 0 3px rgba(0,0,0,0.6),
+                inset 0 1px 1px rgba(255,255,255,0.5);
+        }
+
+        /* Dynamic Island - Enhanced */
         .dynamic-island {
             position: absolute;
-            top: 11px;
+            top: 12px;
             left: 50%;
             transform: translateX(-50%);
-            width: 122px;
-            height: 35px;
-            background: #000000;
-            border-radius: 24px;
+            width: 126px;
+            height: 36px;
+            background: #000;
+            border-radius: 25px;
             z-index: 92;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 11px;
+            padding: 0 12px;
             cursor: pointer;
-            transition: all 0.42s cubic-bezier(0.32, 1.45, 0.58, 1);
-            box-shadow: 0 6px 18px rgba(0,0,0,0.5), inset 0 0 1px rgba(255,255,255,0.22);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 
+                0 8px 24px rgba(0,0,0,0.6),
+                inset 0 0 2px rgba(255,255,255,0.3),
+                0 0 0 1px rgba(255,255,255,0.1);
             overflow: hidden;
         }
 
         .dynamic-island:hover {
-            transform: translateX(-50%) scale(1.03);
+            transform: translateX(-50%) scale(1.05);
+            box-shadow: 
+                0 12px 32px rgba(0,0,0,0.7),
+                inset 0 0 3px rgba(255,255,255,0.4),
+                0 0 20px rgba(165, 216, 255, 0.3);
         }
 
         .dynamic-island.expanded {
-            width: 344px;
-            height: 150px;
-            border-radius: 38px;
-            padding: 16px 18px;
-            background: rgba(10, 10, 14, 0.96);
-            backdrop-filter: blur(32px) saturate(200%);
-            -webkit-backdrop-filter: blur(32px) saturate(200%);
-            box-shadow: 0 24px 48px rgba(0,0,0,0.75), inset 0 1px 0 rgba(255,255,255,0.2);
+            width: 350px;
+            height: 160px;
+            border-radius: 40px;
+            padding: 18px 20px;
+            background: rgba(15, 15, 25, 0.98);
+            backdrop-filter: blur(40px) saturate(200%);
+            box-shadow: 
+                0 30px 60px rgba(0,0,0,0.8),
+                inset 0 1px 0 rgba(255,255,255,0.25),
+                0 0 40px rgba(165, 216, 255, 0.2);
         }
 
-        /* Front Camera Lens Reflection inside Island */
+        /* Camera Dot */
         .island-camera-dot {
-            width: 11px;
-            height: 11px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
-            background: radial-gradient(circle at 35% 35%, #2563eb 0%, #0f172a 55%, #000 100%);
-            border: 1.5px solid #18181b;
+            background: radial-gradient(circle at 30% 30%, #3b82f6 0%, #1e3a8a 50%, #000 100%);
+            border: 2px solid #1a1a1a;
             flex-shrink: 0;
+            box-shadow: 
+                inset 0 1px 2px rgba(255,255,255,0.3),
+                0 0 4px rgba(59, 130, 246, 0.5);
         }
 
-        /* Equalizer Animation in Dynamic Island */
+        /* Equalizer Animation */
         @keyframes eqBar {
-            0%, 100% { height: 4px; }
-            50% { height: 13px; }
+            0%, 100% { height: 4px; opacity: 0.6; }
+            50% { height: 14px; opacity: 1; }
         }
+
         .eq-bar {
-            width: 2.5px;
-            background: #38bdf8;
+            width: 3px;
+            background: linear-gradient(180deg, #38bdf8, #0ea5e9);
             border-radius: 2px;
             display: inline-block;
-            animation: eqBar 0.7s ease-in-out infinite;
+            animation: eqBar 0.8s ease-in-out infinite;
             animation-play-state: paused;
+            box-shadow: 0 0 4px rgba(56, 189, 248, 0.5);
         }
-        .eq-playing .eq-bar {
-            animation-play-state: running;
-        }
-        .eq-bar:nth-child(2) { animation-delay: 0.2s; background: #a855f7; }
-        .eq-bar:nth-child(3) { animation-delay: 0.4s; background: #38bdf8; }
-        .eq-bar:nth-child(4) { animation-delay: 0.1s; background: #ec4899; }
 
-        /* =========================================================
-           AUTHENTIC APPLE iOS 18 FROSTED GLASSMORPHISM MATERIALS
-        ========================================================== */
+        .eq-playing .eq-bar { animation-play-state: running; }
+        .eq-bar:nth-child(2) { animation-delay: 0.15s; background: linear-gradient(180deg, #a855f7, #9333ea); }
+        .eq-bar:nth-child(3) { animation-delay: 0.3s; background: linear-gradient(180deg, #38bdf8, #0ea5e9); }
+        .eq-bar:nth-child(4) { animation-delay: 0.1s; background: linear-gradient(180deg, #ec4899, #db2777); }
+
+        /* iOS Glassmorphism - Enhanced */
         .ios-blur {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.26) 0%, rgba(255, 255, 255, 0.14) 100%);
-            backdrop-filter: blur(36px) saturate(200%) brightness(1.05);
-            -webkit-backdrop-filter: blur(36px) saturate(200%) brightness(1.05);
-            border: 1px solid rgba(255, 255, 255, 0.26);
-            box-shadow:
-                inset 0 1px 0 0 rgba(255, 255, 255, 0.38),
-                0 10px 28px rgba(0, 0, 0, 0.22);
+            background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.15) 100%);
+            backdrop-filter: blur(40px) saturate(200%) brightness(1.1);
+            border: 1px solid rgba(255,255,255,0.3);
+            box-shadow: 
+                inset 0 1px 0 0 rgba(255,255,255,0.4),
+                0 12px 32px rgba(0,0,0,0.25);
         }
 
         .ios-blur-dark {
-            background: linear-gradient(145deg, rgba(38, 40, 52, 0.62) 0%, rgba(20, 22, 30, 0.54) 100%);
-            backdrop-filter: blur(40px) saturate(210%);
-            -webkit-backdrop-filter: blur(40px) saturate(210%);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            box-shadow:
-                inset 0 1px 0 0 rgba(255, 255, 255, 0.26),
-                0 12px 32px rgba(0, 0, 0, 0.34);
+            background: linear-gradient(145deg, rgba(40,42,55,0.7) 0%, rgba(25,27,35,0.6) 100%);
+            backdrop-filter: blur(45px) saturate(220%);
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 
+                inset 0 1px 0 0 rgba(255,255,255,0.3),
+                0 15px 40px rgba(0,0,0,0.4);
         }
 
-        /* iOS Control Center Module Glass */
+        /* Control Center Module */
         .cc-module {
-            background: rgba(34, 36, 46, 0.52);
-            backdrop-filter: blur(38px) saturate(200%);
-            -webkit-backdrop-filter: blur(38px) saturate(200%);
-            border: 1px solid rgba(255, 255, 255, 0.16);
-            box-shadow:
-                inset 0 1px 0 0 rgba(255, 255, 255, 0.24),
-                0 10px 24px rgba(0, 0, 0, 0.25);
+            background: rgba(35,37,48,0.6);
+            backdrop-filter: blur(40px) saturate(200%);
+            border: 1px solid rgba(255,255,255,0.18);
+            box-shadow: 
+                inset 0 1px 0 0 rgba(255,255,255,0.28),
+                0 12px 28px rgba(0,0,0,0.3);
+            transition: all 0.2s ease;
         }
 
-        /* iOS Lock Screen Notification Banner Glass */
+        .cc-module:active {
+            transform: scale(0.95);
+            filter: brightness(1.2);
+        }
+
+        /* Notification Glass */
         .ios-notif-glass {
-            background: linear-gradient(135deg, rgba(44, 46, 58, 0.62) 0%, rgba(28, 30, 40, 0.52) 100%);
-            backdrop-filter: blur(36px) saturate(210%);
-            -webkit-backdrop-filter: blur(36px) saturate(210%);
-            border: 1px solid rgba(255, 255, 255, 0.22);
-            box-shadow:
-                inset 0 1px 0 0 rgba(255, 255, 255, 0.3),
-                0 10px 28px rgba(0, 0, 0, 0.32);
+            background: linear-gradient(135deg, rgba(45,47,60,0.7) 0%, rgba(30,32,42,0.6) 100%);
+            backdrop-filter: blur(40px) saturate(220%);
+            border: 1px solid rgba(255,255,255,0.25);
+            box-shadow: 
+                inset 0 1px 0 0 rgba(255,255,255,0.35),
+                0 12px 32px rgba(0,0,0,0.35);
+            transition: all 0.2s ease;
         }
 
+        .ios-notif-glass:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                inset 0 1px 0 0 rgba(255,255,255,0.4),
+                0 16px 40px rgba(0,0,0,0.45);
+        }
+
+        /* Dock */
         .ios-dock {
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.16) 100%);
-            backdrop-filter: blur(42px) saturate(210%);
-            -webkit-backdrop-filter: blur(42px) saturate(210%);
-            border-radius: 34px;
-            border: 1px solid rgba(255, 255, 255, 0.28);
-            box-shadow:
-                inset 0 1px 0 0 rgba(255, 255, 255, 0.4),
-                0 14px 34px rgba(0, 0, 0, 0.35);
+            background: linear-gradient(180deg, rgba(255,255,255,0.32) 0%, rgba(255,255,255,0.18) 100%);
+            backdrop-filter: blur(45px) saturate(220%);
+            border-radius: 36px;
+            border: 1px solid rgba(255,255,255,0.32);
+            box-shadow: 
+                inset 0 1px 0 0 rgba(255,255,255,0.45),
+                0 16px 40px rgba(0,0,0,0.4);
         }
 
-        /* Authentic iOS Squircle App Icon */
+        /* App Icons - Enhanced */
         .ios-app-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 14.5px;
+            width: 62px;
+            height: 62px;
+            border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            box-shadow:
-                0 8px 18px rgba(0, 0, 0, 0.26),
-                inset 0 1px 0.5px rgba(255, 255, 255, 0.45);
-            transition: transform 0.16s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.16s ease;
+            box-shadow: 
+                0 10px 24px rgba(0,0,0,0.3),
+                inset 0 1px 1px rgba(255,255,255,0.5),
+                inset 0 -1px 1px rgba(0,0,0,0.1);
+            transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .ios-app-btn:hover .ios-app-icon {
+            transform: scale(1.1);
+            box-shadow: 
+                0 15px 35px rgba(0,0,0,0.4),
+                inset 0 1px 1px rgba(255,255,255,0.6);
         }
 
         .ios-app-btn:active .ios-app-icon {
-            transform: scale(0.86);
-            filter: brightness(0.82);
+            transform: scale(0.9);
+            filter: brightness(0.85);
         }
 
-        /* iOS App Opening Spring Transition */
+        /* App Window */
         .ios-app-window {
             position: absolute;
             inset: 0;
@@ -295,10 +379,10 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            transform: scale(0.86) translateY(25px);
+            transform: scale(0.85) translateY(30px);
             opacity: 0;
             pointer-events: none;
-            transition: transform 0.34s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .ios-app-window.open {
@@ -307,10 +391,7 @@
             pointer-events: auto;
         }
 
-        /* =========================================================
-           FIXED iOS 18 LOCK SCREEN & HOME SCREEN ISOLATION
-           Prevents Home Screen icons from bleeding through Lock Screen!
-        ========================================================== */
+        /* Lock Screen */
         .ios-lockscreen {
             position: absolute;
             inset: 0;
@@ -320,184 +401,110 @@
             justify-content: space-between;
             overflow: hidden;
             border-radius: 45px;
-            background-color: #090d16;
+            background: #0a0a15;
             background-size: cover;
             background-position: center;
-            transition: transform 0.58s cubic-bezier(0.32, 0.72, 0, 1), opacity 0.45s ease;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
+
         .ios-lockscreen.unlocked {
-            transform: translateY(-104%);
+            transform: translateY(-105%) scale(0.95);
             opacity: 0;
             pointer-events: none;
         }
 
-        /* Home Screen hides completely while phone is locked so it NEVER overlaps */
+        /* Home Screen */
         .ios-homescreen {
-            transition: transform 0.52s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease, visibility 0.4s;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
+
         .ios-homescreen.locked-hidden {
             opacity: 0 !important;
             visibility: hidden !important;
             pointer-events: none !important;
-            transform: scale(0.91);
+            transform: scale(0.9);
         }
 
-        /* iOS Control Center Pull-down */
+        /* Control Center */
         .ios-control-center {
             position: absolute;
             inset: 0;
             z-index: 86;
-            background: rgba(14, 16, 24, 0.46);
-            backdrop-filter: blur(48px) saturate(210%);
-            -webkit-backdrop-filter: blur(48px) saturate(210%);
+            background: rgba(15,17,25,0.5);
+            backdrop-filter: blur(50px) saturate(220%);
             transform: translateY(-105%);
             opacity: 0;
             pointer-events: none;
-            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.28s ease;
+            transition: all 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
+
         .ios-control-center.open {
             transform: translateY(0);
             opacity: 1;
             pointer-events: auto;
         }
 
-        /* Mobile Viewport Responsiveness */
+        /* Hide Scrollbars */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Responsive */
         @media (max-width: 430px) {
-            body {
-                padding: 0 !important;
-                background: #000;
-            }
-            .iphone-16-pro {
-                width: 100vw;
-                height: 100dvh;
-                border-radius: 0;
-                padding: 0;
-                box-shadow: none;
-            }
-            .iphone-bezel {
-                border-radius: 0;
-                padding: 0;
-            }
-            .iphone-display, .ios-app-window, .ios-lockscreen {
-                border-radius: 0;
-            }
-            .hw-btn, .earpiece-slit {
-                display: none;
-            }
+            body { padding: 0; background: #000; }
+            .iphone-16-pro { width: 100vw; height: 100dvh; border-radius: 0; padding: 0; box-shadow: none; }
+            .iphone-bezel { border-radius: 0; padding: 0; }
+            .iphone-display, .ios-app-window, .ios-lockscreen { border-radius: 0; }
+            .hw-btn, .earpiece-slit { display: none; }
+            .iphone-display::after { border-radius: 0; }
         }
 
-        /* Auto-scale iPhone smoothly on smaller laptop screens so it never clips */
         @media (min-width: 431px) and (max-height: 900px) {
-            .iphone-16-pro {
-                transform: scale(0.9);
-            }
+            .iphone-16-pro { transform: scale(0.88); }
         }
+
         @media (min-width: 431px) and (max-height: 780px) {
-            .iphone-16-pro {
-                transform: scale(0.8);
-            }
+            .iphone-16-pro { transform: scale(0.78); }
+        }
+
+        /* Custom Animations */
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(165, 216, 255, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(165, 216, 255, 0.6); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .shimmer-text {
+            background: linear-gradient(90deg, #fff 0%, #a5d8ff 50%, #fff 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 3s linear infinite;
+        }
+
+        /* Snowflake Animation */
+        @keyframes snowfall {
+            0% { transform: translateY(-10px) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+
+        .snowflake {
+            position: fixed;
+            color: rgba(255,255,255,0.8);
+            font-size: 1em;
+            animation: snowfall 10s linear infinite;
+            pointer-events: none;
+            z-index: 1000;
         }
     </style>
 </head>
-<body class="text-slate-100 flex items-center justify-center min-h-screen w-screen overflow-hidden p-0 m-0 relative">
+<body class="text-slate-100">
 
-    <!-- Subtle Ambient Glow Behind the iPhone -->
-    <div class="hidden sm:block fixed inset-0 pointer-events-none overflow-hidden z-0">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[520px] h-[520px] bg-sky-500/10 rounded-full blur-[130px]"></div>
-    </div>
-
-    <!-- ==========================================================
-         STANDALONE CENTERED iPHONE 16 PRO SIMULATOR (NO SIDEBAR)
-    =========================================================== -->
-    <main class="z-10 flex items-center justify-center w-full h-full">
-        <div id="iphoneChassis" class="iphone-16-pro">
-            <!-- Physical Titanium Side Buttons -->
-            <div class="hw-btn hw-action-btn" onclick="toggleFlashlight()" title="Action Button: Senter"></div>
-            <div class="hw-btn hw-vol-up" onclick="adjustVolume(10)" title="Volume Up"></div>
-            <div class="hw-btn hw-vol-down" onclick="adjustVolume(-10)" title="Volume Down"></div>
-            <div class="hw-btn hw-power-btn" onclick="toggleLockState()" title="Power Button: Lock/Unlock"></div>
-
-            <div class="iphone-bezel">
-                <div class="earpiece-slit"></div>
-
-                <!-- MAIN OLED SCREEN -->
-                <div id="iphoneDisplay" class="iphone-display">
-
-                    <!-- Subtle Dark Vignette for iOS Contrast -->
-                    <div class="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/35 pointer-events-none z-0"></div>
-
-                    <!-- ==========================================
-                         iOS STATUS BAR (Always on Top)
-                    =========================================== -->
-                    <header class="relative z-[88] flex items-center justify-between px-7 pt-3.5 pb-1 text-white text-[13px] font-semibold tracking-tight select-none">
-                        <!-- Left: Time -->
-                        <div class="w-20 flex items-center">
-                            <span id="iosStatusTime" class="font-bold tracking-tight drop-shadow">09:41</span>
-                        </div>
-
-                        <!-- Right: Authentic iOS Cellular Bars, Wi-Fi/5G, Battery (Click to open Control Center) -->
-                        <div onclick="toggleControlCenter()" class="w-24 flex items-center justify-end gap-1.5 cursor-pointer hover:opacity-80 transition" title="Klik untuk membuka Control Center">
-                            <!-- Authentic iOS 4-bar Signal SVG -->
-                            <svg class="w-4 h-3 fill-white" viewBox="0 0 18 12">
-                                <rect x="0" y="8" width="3" height="4" rx="1"/>
-                                <rect x="4.5" y="6" width="3" height="6" rx="1"/>
-                                <rect x="9" y="3" width="3" height="9" rx="1"/>
-                                <rect x="13.5" y="0" width="3" height="12" rx="1"/>
-                            </svg>
-                            <span class="text-[11px] font-bold tracking-tighter">5G</span>
-                            <!-- Authentic iOS Battery Icon with Nub -->
-                            <div class="flex items-center">
-                                <div class="w-[23px] h-[11.5px] rounded-[3.5px] border border-white/85 p-[1.5px] flex items-center">
-                                    <div class="w-full h-full bg-white rounded-[1.5px]"></div>
-                                </div>
-                                <div class="w-[1.5px] h-[4px] bg-white/80 rounded-r-full ml-[1px]"></div>
-                            </div>
-                        </div>
-                    </header>
-
-                    <!-- ==========================================
-                         DYNAMIC ISLAND (Interactive Live Activity)
-                    =========================================== -->
-                    <div id="dynamicIsland" class="dynamic-island" onclick="toggleIslandExpand(event)">
-                        <!-- Collapsed State -->
-                        <div id="islandCollapsedView" class="w-full flex items-center justify-between">
-                            <div class="flex items-center gap-2">
-                                <img id="islandMiniThumb" src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=120&q=80" class="w-5 h-5 rounded-full object-cover border border-white/30" alt="art">
-                            </div>
-                            <div class="island-camera-dot"></div>
-                            <div id="islandEqContainer" class="flex items-end gap-[2px] h-3.5">
-                                <span class="eq-bar"></span>
-                                <span class="eq-bar"></span>
-                                <span class="eq-bar"></span>
-                                <span class="eq-bar"></span>
-                            </div>
-                        </div>
-
-                        <!-- Expanded State (Music & Status Live Activity) -->
-                        <div id="islandExpandedView" class="hidden w-full h-full flex-col justify-between text-white">
-                            <div class="flex items-center gap-3">
-                                <img id="islandBigCover" src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=200&q=80" class="w-14 h-14 rounded-2xl object-cover shadow-md border border-white/20" alt="Album">
-                                <div class="flex-1 min-w-0">
-                                    <div class="flex items-center gap-1.5">
-                                        <i class="fa-brands fa-apple text-[11px] text-rose-400"></i>
-                                        <span class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Apple Music • Winter</span>
-                                    </div>
-                                    <p id="islandBigTitle" class="text-sm font-bold text-white truncate mt-0.5">Spark (Winter Solo)</p>
-                                    <p id="islandBigArtist" class="text-xs text-slate-300 truncate">aespa • SYNK: PARALLEL LINE</p>
-                                </div>
-                                <button onclick="event.stopPropagation(); openApp('app-music'); collapseIsland();" class="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center text-xs hover:bg-white/25">
-                                    <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
-                                </button>
-                            </div>
-
-                            <!-- Progress & Media Controls inside Dynamic Island -->
-                            <div class="flex items-center justify-between gap-4 pt-2 border-t border-white/10">
-                                <span id="islandCurTime" class="text-[10px] text-slate-400 font-mono">01:04</span>
-                                <div class="flex-1 h-1 bg-white/20 rounded-full overflow-hidden">
-                                    <div id="islandProgFill" class="w-1/3 h-full bg-white rounded-full"></div>
-                                </div>
-                                <div class="flex items-center gap-4 text-base">
-                                    <button onclick="event.stopPropagation(); prevSong()"><i class="fa-solid fa-backward-step"></i></button>
                                     <button onclick="event.stopPropagation(); togglePlayMusic()" class="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center">
                                         <i id="islandPlayBtnIcon" class="fa-solid fa-play text-xs"></i>
                                     </button>
@@ -516,7 +523,7 @@
                             <div class="flex items-center justify-between mb-3.5 px-1">
                                 <div class="flex items-center gap-1.5 text-white/85 text-xs font-semibold">
                                     <i class="fa-brands fa-apple text-sm"></i>
-                                    <span>Winter's iPhone • 5G</span>
+                                    <span>Winter's iPhone â€¢ 5G</span>
                                 </div>
                                 <button onclick="toggleControlCenter()" class="w-7 h-7 rounded-full bg-white/15 flex items-center justify-center text-xs hover:bg-white/25 transition">
                                     <i class="fa-solid fa-chevron-up"></i>
@@ -555,7 +562,7 @@
                                     </div>
                                     <div class="my-1">
                                         <p id="ccSongTitle" class="text-xs font-bold text-white truncate">Spark (Winter Solo)</p>
-                                        <p id="ccSongArtist" class="text-[10px] text-white/65 truncate">Winter • aespa</p>
+                                        <p id="ccSongArtist" class="text-[10px] text-white/65 truncate">Winter â€¢ aespa</p>
                                     </div>
                                     <div class="flex items-center justify-between px-1 pt-1 text-base">
                                         <button onclick="prevSong()" class="hover:opacity-75 active:scale-90 transition"><i class="fa-solid fa-backward-step"></i></button>
@@ -589,7 +596,7 @@
                                         </div>
                                         <div class="min-w-0">
                                             <p class="text-[11px] font-bold text-white truncate">Fokus</p>
-                                            <p class="text-[9px] text-indigo-200 truncate">Latihan aespa ⭐️</p>
+                                            <p class="text-[9px] text-indigo-200 truncate">Latihan aespa â­ï¸</p>
                                         </div>
                                     </button>
                                 </div>
@@ -666,14 +673,14 @@
                             <div class="flex items-center justify-center gap-2.5 mt-3.5">
                                 <div class="ios-blur px-3 py-1.5 rounded-2xl flex items-center gap-1.5 text-white text-xs font-semibold">
                                     <i class="fa-solid fa-snowflake text-sky-200 text-xs"></i>
-                                    <span>Seoul -2°C</span>
+                                    <span>Seoul -2Â°C</span>
                                 </div>
                                 <div class="ios-blur px-3 py-1.5 rounded-2xl flex items-center gap-1.5 text-white text-xs font-semibold">
                                     <i class="fa-solid fa-battery-full text-emerald-300 text-xs"></i>
                                     <span>98%</span>
                                 </div>
                                 <div class="ios-blur px-3 py-1.5 rounded-2xl flex items-center gap-1.5 text-white text-xs font-semibold">
-                                    <span>⭐️</span>
+                                    <span>â­ï¸</span>
                                     <span>0101 Winter</span>
                                 </div>
                             </div>
@@ -713,7 +720,7 @@
                                     <img id="lockMusicCover" src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=120&q=80" class="w-11 h-11 rounded-xl object-cover border border-white/20" alt="cover">
                                     <div class="flex-1 min-w-0">
                                         <p id="lockMusicTitle" class="text-xs font-bold truncate">Spark (Winter Solo)</p>
-                                        <p id="lockMusicArtist" class="text-[10px] text-sky-200 truncate">Winter • aespa</p>
+                                        <p id="lockMusicArtist" class="text-[10px] text-sky-200 truncate">Winter â€¢ aespa</p>
                                     </div>
                                     <div class="flex items-center gap-3 text-sm pr-1">
                                         <button onclick="prevSong()"><i class="fa-solid fa-backward-step"></i></button>
@@ -730,24 +737,24 @@
                                         <span class="w-5 h-5 rounded-[6px] bg-gradient-to-b from-[#5BF675] to-[#0ECC33] flex items-center justify-center text-white text-[10px] shadow-sm">
                                             <i class="fa-solid fa-comment"></i>
                                         </span>
-                                        <span class="tracking-tight">PESAN • KARINA 💙</span>
+                                        <span class="tracking-tight">PESAN â€¢ KARINA ðŸ’™</span>
                                     </div>
                                     <span class="text-white/65 text-[10px]">Baru saja</span>
                                 </div>
-                                <p class="text-xs font-bold text-white">Karina (Yoo Jimin) 💙</p>
-                                <p class="text-xs text-white/90 truncate">Minjeong-ah, jangan lupa latihan jam 2 siang! Bawa jaket hangat ❄️</p>
+                                <p class="text-xs font-bold text-white">Karina (Yoo Jimin) ðŸ’™</p>
+                                <p class="text-xs text-white/90 truncate">Minjeong-ah, jangan lupa latihan jam 2 siang! Bawa jaket hangat â„ï¸</p>
                             </div>
 
                             <!-- Bubble Notification Banner -->
                             <div onclick="unlockAndOpenApp('app-messages')" class="ios-notif-glass p-3.5 rounded-[24px] cursor-pointer hover:brightness-110 active:scale-[0.98] transition">
                                 <div class="flex items-center justify-between text-[11px] text-white/85 font-semibold mb-1">
                                     <div class="flex items-center gap-1.5">
-                                        <span class="w-5 h-5 rounded-[6px] bg-gradient-to-b from-sky-400 to-blue-600 flex items-center justify-center text-white text-[10px] shadow-sm">🫧</span>
-                                        <span class="tracking-tight">DearU bubble • MYs</span>
+                                        <span class="w-5 h-5 rounded-[6px] bg-gradient-to-b from-sky-400 to-blue-600 flex items-center justify-center text-white text-[10px] shadow-sm">ðŸ«§</span>
+                                        <span class="tracking-tight">DearU bubble â€¢ MYs</span>
                                     </div>
                                     <span class="text-white/65 text-[10px]">10m lalu</span>
                                 </div>
-                                <p class="text-xs font-bold text-white">MYs Menunggu Pesanmu ⭐️</p>
+                                <p class="text-xs font-bold text-white">MYs Menunggu Pesanmu â­ï¸</p>
                                 <p class="text-xs text-white/90 truncate">Kirim foto selca terbaru ke MYs hari ini yuk!</p>
                             </div>
 
@@ -759,7 +766,7 @@
 
                                 <div class="flex flex-col items-center gap-1">
                                     <button onclick="unlockPhone()" class="px-5 py-2 rounded-full ios-blur text-white font-bold text-xs tracking-tight hover:bg-white/30 active:scale-95 transition">
-                                        Klik untuk Buka iPhone ⭐️
+                                        Klik untuk Buka iPhone â­ï¸
                                     </button>
                                     <button onclick="showPasscodeBox()" class="text-[10px] text-white/75 hover:text-white transition">
                                         Passcode: 0101
@@ -787,14 +794,14 @@
                                         <p class="text-[11px] font-bold text-sky-300 flex items-center gap-1">
                                             <i class="fa-solid fa-location-arrow text-[9px]"></i> SEOUL
                                         </p>
-                                        <p class="text-2xl font-extrabold text-white tracking-tight">-2°C</p>
+                                        <p class="text-2xl font-extrabold text-white tracking-tight">-2Â°C</p>
                                     </div>
                                     <i class="fa-solid fa-snowflake text-2xl text-sky-200 animate-spin" style="animation-duration: 12s;"></i>
                                 </div>
                                 <div class="pt-2 border-t border-white/15">
-                                    <p class="text-[10px] font-bold text-amber-300 uppercase">Catatan Minjeong ⭐️</p>
+                                    <p class="text-[10px] font-bold text-amber-300 uppercase">Catatan Minjeong â­ï¸</p>
                                     <p id="homeWidgetQuote" class="text-[11px] text-white/95 font-medium line-clamp-2 leading-snug mt-0.5">
-                                        "Pengen makan tanghulu stroberi & es krim mint choco! 🍓🍦"
+                                        "Pengen makan tanghulu stroberi & es krim mint choco! ðŸ“ðŸ¦"
                                     </p>
                                 </div>
                             </div>
@@ -808,7 +815,7 @@
                                         <i class="fa-solid fa-heart text-rose-400 text-xs"></i>
                                     </div>
                                     <div>
-                                        <p class="text-xs font-bold text-white leading-tight">Kenangan Winter ❄️</p>
+                                        <p class="text-xs font-bold text-white leading-tight">Kenangan Winter â„ï¸</p>
                                         <p id="homeWidgetPhotoCount" class="text-[10px] text-sky-200">Ketuk untuk buka Photos</p>
                                     </div>
                                 </div>
@@ -968,7 +975,7 @@
                         <div class="px-5 pt-1 pb-2 flex items-center justify-between border-b border-slate-200">
                             <div>
                                 <h2 class="text-xl font-extrabold tracking-tight">Photos</h2>
-                                <p id="photosSubtitleCount" class="text-[11px] text-slate-500 font-medium">Koleksi Pribadi Winter ❄️</p>
+                                <p id="photosSubtitleCount" class="text-[11px] text-slate-500 font-medium">Koleksi Pribadi Winter â„ï¸</p>
                             </div>
                             <div class="flex items-center gap-2">
                                 <button onclick="openApp('app-settings'); switchSettingsTab('tab-add-photo')" class="px-3 py-1 rounded-full bg-[#007AFF] text-white text-xs font-semibold">
@@ -983,11 +990,11 @@
                         <!-- Album Filter Pills -->
                         <div class="flex gap-1.5 px-4 py-2.5 overflow-x-auto no-scrollbar bg-slate-50 border-b border-slate-100 shrink-0">
                             <button onclick="filterPhotos('Semua')" class="photo-filter-pill px-3 py-1 rounded-full text-xs font-semibold bg-[#007AFF] text-white">Semua</button>
-                            <button onclick="filterPhotos('Selca ❄️')" class="photo-filter-pill px-3 py-1 rounded-full text-xs font-semibold bg-slate-200 text-slate-700">Selca ❄️</button>
-                            <button onclick="filterPhotos('Stage ⭐')" class="photo-filter-pill px-3 py-1 rounded-full text-xs font-semibold bg-slate-200 text-slate-700">Stage ⭐</button>
-                            <button onclick="filterPhotos('aespa 🦋')" class="photo-filter-pill px-3 py-1 rounded-full text-xs font-semibold bg-slate-200 text-slate-700">aespa 🦋</button>
-                            <button onclick="filterPhotos('Daily 🐶')" class="photo-filter-pill px-3 py-1 rounded-full text-xs font-semibold bg-slate-200 text-slate-700">Daily 🐶</button>
-                            <button onclick="filterPhotos('Favorit ❤️')" class="photo-filter-pill px-3 py-1 rounded-full text-xs font-semibold bg-slate-200 text-slate-700">Favorit ❤️</button>
+                            <button onclick="filterPhotos('Selca â„ï¸')" class="photo-filter-pill px-3 py-1 rounded-full text-xs font-semibold bg-slate-200 text-slate-700">Selca â„ï¸</button>
+                            <button onclick="filterPhotos('Stage â­')" class="photo-filter-pill px-3 py-1 rounded-full text-xs font-semibold bg-slate-200 text-slate-700">Stage â­</button>
+                            <button onclick="filterPhotos('aespa ðŸ¦‹')" class="photo-filter-pill px-3 py-1 rounded-full text-xs font-semibold bg-slate-200 text-slate-700">aespa ðŸ¦‹</button>
+                            <button onclick="filterPhotos('Daily ðŸ¶')" class="photo-filter-pill px-3 py-1 rounded-full text-xs font-semibold bg-slate-200 text-slate-700">Daily ðŸ¶</button>
+                            <button onclick="filterPhotos('Favorit â¤ï¸')" class="photo-filter-pill px-3 py-1 rounded-full text-xs font-semibold bg-slate-200 text-slate-700">Favorit â¤ï¸</button>
                         </div>
 
                         <!-- 3-Column iOS Photo Grid -->
@@ -1001,7 +1008,7 @@
                                 <i class="fa-solid fa-images text-sm"></i>
                                 <span>Library</span>
                             </button>
-                            <button onclick="filterPhotos('Favorit ❤️')" class="flex flex-col items-center gap-0.5 hover:text-[#007AFF]">
+                            <button onclick="filterPhotos('Favorit â¤ï¸')" class="flex flex-col items-center gap-0.5 hover:text-[#007AFF]">
                                 <i class="fa-solid fa-heart text-sm"></i>
                                 <span>For You</span>
                             </button>
@@ -1018,7 +1025,7 @@
                                     <i class="fa-solid fa-chevron-left"></i> Kembali
                                 </button>
                                 <div class="text-center">
-                                    <p id="viewerPhotoAlbum" class="text-xs font-bold text-slate-900">Selca ❄️</p>
+                                    <p id="viewerPhotoAlbum" class="text-xs font-bold text-slate-900">Selca â„ï¸</p>
                                     <p id="viewerPhotoDate" class="text-[10px] text-slate-400">3 November 2026</p>
                                 </div>
                                 <button onclick="setCurrentPhotoAsWallpaper()" class="text-xs font-semibold text-[#007AFF]">
@@ -1089,7 +1096,7 @@
 
                                 <div class="flex flex-col items-center">
                                     <img id="activeChatAvatar" src="" class="w-9 h-9 rounded-full object-cover border border-slate-200" alt="avatar">
-                                    <p id="activeChatName" class="text-[11px] font-bold text-slate-900 mt-0.5">Karina 💙</p>
+                                    <p id="activeChatName" class="text-[11px] font-bold text-slate-900 mt-0.5">Karina ðŸ’™</p>
                                 </div>
 
                                 <button onclick="triggerCallFromChat()" class="w-8 h-8 rounded-full bg-slate-200/70 text-[#007AFF] flex items-center justify-center text-xs">
@@ -1134,7 +1141,7 @@
                             <button onclick="closeAllApps()" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-xs">
                                 <i class="fa-solid fa-chevron-down"></i>
                             </button>
-                            <span class="text-[11px] font-bold tracking-wider uppercase text-white/70"> Music • Winter's Playlist</span>
+                            <span class="text-[11px] font-bold tracking-wider uppercase text-white/70">ï£¿ Music â€¢ Winter's Playlist</span>
                             <button onclick="openApp('app-settings'); switchSettingsTab('tab-add-song')" class="text-xs bg-white/15 px-2.5 py-1 rounded-full font-semibold">
                                 + Lagu
                             </button>
@@ -1150,7 +1157,7 @@
                             <div class="flex items-center justify-between mt-2">
                                 <div class="min-w-0 pr-2">
                                     <h3 id="musicAppTitle" class="text-lg font-extrabold text-white truncate">Spark (Winter Solo)</h3>
-                                    <p id="musicAppArtist" class="text-xs text-sky-300 font-medium truncate">aespa • SYNK: PARALLEL LINE</p>
+                                    <p id="musicAppArtist" class="text-xs text-sky-300 font-medium truncate">aespa â€¢ SYNK: PARALLEL LINE</p>
                                 </div>
                                 <button onclick="this.classList.toggle('text-rose-500')" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-sm">
                                     <i class="fa-solid fa-star"></i>
@@ -1198,6 +1205,7 @@
                         <!-- Hidden HTML5 Audio Element for Custom MP3 URLs -->
                         <audio id="customAudioPlayer" onended="nextSong()"></audio>
                     </section>
+
 
                     <!-- =================================================================
                          APP 4: iOS NOTES APP (Yellow Accents, List & Editor)
@@ -1247,7 +1255,7 @@
 
                         <div class="flex-1 overflow-y-auto p-4 space-y-4 no-scrollbar">
                             <div>
-                                <p class="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2"> ⭐️ Kontak Favorit Winter (Ketuk untuk Telepon)</p>
+                                <p class="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2"> â­ï¸ Kontak Favorit Winter (Ketuk untuk Telepon)</p>
                                 <div id="phoneContactsList" class="divide-y divide-slate-100 bg-slate-50 rounded-2xl border border-slate-200/70 overflow-hidden">
                                     <!-- Populated by JS -->
                                 </div>
@@ -1268,7 +1276,7 @@
                                     <button onclick="appendDial('9')" class="h-11 rounded-full bg-white shadow-sm font-bold text-sm">9</button>
                                     <button onclick="clearDial()" class="h-11 rounded-full bg-slate-200 text-xs font-semibold">Hapus</button>
                                     <button onclick="appendDial('0')" class="h-11 rounded-full bg-white shadow-sm font-bold text-sm">0</button>
-                                    <button onclick="startSimulatedCall('Nomor Kustom', 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80', 'Halo? Ini siapa yaa? ❄️')" class="h-11 rounded-full bg-[#34C759] text-white text-base">
+                                    <button onclick="startSimulatedCall('Nomor Kustom', 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80', 'Halo? Ini siapa yaa? â„ï¸')" class="h-11 rounded-full bg-[#34C759] text-white text-base">
                                         <i class="fa-solid fa-phone"></i>
                                     </button>
                                 </div>
@@ -1278,8 +1286,8 @@
                         <!-- ACTIVE iOS INCOMING / OUTGOING CALL OVERLAY -->
                         <div id="iosCallOverlay" class="hidden absolute inset-0 z-50 bg-gradient-to-b from-slate-900 via-slate-950 to-black text-white p-6 pt-14 flex flex-col justify-between text-center">
                             <div>
-                                <span class="text-xs text-emerald-400 font-semibold uppercase tracking-widest"> FaceTime Audio</span>
-                                <h3 id="callContactName" class="text-2xl font-extrabold mt-1">Karina 💙</h3>
+                                <span class="text-xs text-emerald-400 font-semibold uppercase tracking-widest">ï£¿ FaceTime Audio</span>
+                                <h3 id="callContactName" class="text-2xl font-extrabold mt-1">Karina ðŸ’™</h3>
                                 <p id="callTimerText" class="text-xs text-slate-300 mt-1">Memanggil...</p>
                             </div>
 
@@ -1355,9 +1363,9 @@
                                     </div>
                                 </div>
                                 <div class="mt-2.5 text-xs">
-                                    <p class="font-bold">WINTER (김민정) ⭐️</p>
-                                    <p class="text-slate-500 text-[11px]">Artist • @aespa_official ❄️🎸</p>
-                                    <p id="igBioQuote" class="text-slate-700 text-[11px] mt-0.5">0101 • Baby Maltese 🐶🤍</p>
+                                    <p class="font-bold">WINTER (ê¹€ë¯¼ì •) â­ï¸</p>
+                                    <p class="text-slate-500 text-[11px]">Artist â€¢ @aespa_official â„ï¸ðŸŽ¸</p>
+                                    <p id="igBioQuote" class="text-slate-700 text-[11px] mt-0.5">0101 â€¢ Baby Maltese ðŸ¶ðŸ¤</p>
                                 </div>
                             </div>
 
@@ -1400,9 +1408,9 @@
                                         <span id="igModalCaption" class="text-slate-700"></span>
                                     </p>
                                     <div class="pt-2 border-t border-slate-100 space-y-1.5 text-[11px]">
-                                        <p><span class="font-bold">katarinabluu</span> Cantik banget adikku ❄️💙</p>
-                                        <p><span class="font-bold">imnotningning</span> Unnie beliin aku tanghulu juga!! 🍓</p>
-                                        <p><span class="font-bold">aerichandesu</span> Super star Minjeong ⭐️🎸</p>
+                                        <p><span class="font-bold">katarinabluu</span> Cantik banget adikku â„ï¸ðŸ’™</p>
+                                        <p><span class="font-bold">imnotningning</span> Unnie beliin aku tanghulu juga!! ðŸ“</p>
+                                        <p><span class="font-bold">aerichandesu</span> Super star Minjeong â­ï¸ðŸŽ¸</p>
                                     </div>
                                 </div>
                             </div>
@@ -1423,29 +1431,29 @@
                         <div class="flex-1 overflow-y-auto p-5 space-y-3 no-scrollbar">
                             <div class="p-4 rounded-3xl bg-rose-50 border border-rose-100">
                                 <span class="text-[10px] font-extrabold uppercase text-[#FF3B30]">Spesial D-Day</span>
-                                <h3 class="text-base font-extrabold text-slate-900 mt-0.5">🎂 Ulang Tahun Winter (1 Januari)</h3>
-                                <p class="text-xs text-slate-600 mt-1">Rayakan Winter Day setiap 01.01 bersama seluruh MYs! ⭐️❄️</p>
+                                <h3 class="text-base font-extrabold text-slate-900 mt-0.5">ðŸŽ‚ Ulang Tahun Winter (1 Januari)</h3>
+                                <p class="text-xs text-slate-600 mt-1">Rayakan Winter Day setiap 01.01 bersama seluruh MYs! â­ï¸â„ï¸</p>
                             </div>
 
                             <p class="text-xs font-bold text-slate-400 uppercase tracking-wider pt-2">Jadwal Hari Ini</p>
                             <div class="space-y-2.5">
                                 <div class="p-3.5 rounded-2xl bg-slate-50 border-l-4 border-[#007AFF] flex justify-between items-center">
                                     <div>
-                                        <p class="text-xs font-bold text-slate-900">Latihan Vokal & Gitar Elektrik 🎸</p>
-                                        <p class="text-[11px] text-slate-500">SM Entertainment Studio • Seoul</p>
+                                        <p class="text-xs font-bold text-slate-900">Latihan Vokal & Gitar Elektrik ðŸŽ¸</p>
+                                        <p class="text-[11px] text-slate-500">SM Entertainment Studio â€¢ Seoul</p>
                                     </div>
                                     <span class="text-xs font-bold text-[#007AFF]">14:00</span>
                                 </div>
                                 <div class="p-3.5 rounded-2xl bg-slate-50 border-l-4 border-pink-500 flex justify-between items-center">
                                     <div>
-                                        <p class="text-xs font-bold text-slate-900">Pemotretan Konsep Album Baru 📸</p>
+                                        <p class="text-xs font-bold text-slate-900">Pemotretan Konsep Album Baru ðŸ“¸</p>
                                         <p class="text-[11px] text-slate-500">Bersama Karina, Giselle, Ningning</p>
                                     </div>
                                     <span class="text-xs font-bold text-pink-500">17:30</span>
                                 </div>
                                 <div class="p-3.5 rounded-2xl bg-slate-50 border-l-4 border-emerald-500 flex justify-between items-center">
                                     <div>
-                                        <p class="text-xs font-bold text-slate-900">Live & Kirim Selca di Bubble 🫧</p>
+                                        <p class="text-xs font-bold text-slate-900">Live & Kirim Selca di Bubble ðŸ«§</p>
                                         <p class="text-[11px] text-slate-500">Menyapa MYs sebelum tidur</p>
                                     </div>
                                     <span class="text-xs font-bold text-emerald-600">22:00</span>
@@ -1462,7 +1470,7 @@
                             <button onclick="closeAllApps()" class="text-amber-400 text-xs font-bold flex items-center gap-1">
                                 <i class="fa-solid fa-chevron-left"></i> Home
                             </button>
-                            <span class="text-xs font-bold tracking-widest uppercase text-amber-400">PHOTO • POLAROID</span>
+                            <span class="text-xs font-bold tracking-widest uppercase text-amber-400">PHOTO â€¢ POLAROID</span>
                             <i class="fa-solid fa-bolt text-xs text-white/70"></i>
                         </div>
 
@@ -1473,17 +1481,17 @@
                                     <img id="cameraPreviewImg" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover" alt="Camera View">
                                     <div class="absolute inset-0 p-3 flex flex-col justify-between pointer-events-none">
                                         <div class="flex justify-between text-lg">
-                                            <span>❄️</span>
-                                            <span>⭐️</span>
+                                            <span>â„ï¸</span>
+                                            <span>â­ï¸</span>
                                         </div>
                                         <div class="flex justify-between items-end">
                                             <span class="bg-sky-400 text-slate-950 text-[9px] font-extrabold px-2 py-0.5 rounded-full">0101 MINJEONG</span>
-                                            <span class="text-lg">🐶</span>
+                                            <span class="text-lg">ðŸ¶</span>
                                         </div>
                                     </div>
                                 </div>
                                 <p id="cameraPolaroidText" class="text-center font-bold text-xs text-slate-800 mt-3">
-                                    Winter with MYs ⭐️❄️
+                                    Winter with MYs â­ï¸â„ï¸
                                 </p>
                             </div>
 
@@ -1525,17 +1533,17 @@
                                     <h3 class="text-sm font-extrabold text-slate-900">Kim Minjeong (WINTER)</h3>
                                     <p class="text-[11px] text-slate-500 truncate">Apple Account, iCloud+, KWANGYA Sync</p>
                                     <span class="inline-block mt-1 text-[10px] font-bold bg-sky-100 text-[#007AFF] px-2 py-0.5 rounded-full">
-                                        ✨ Studio Pengelola Konten HP
+                                        âœ¨ Studio Pengelola Konten HP
                                     </span>
                                 </div>
                             </div>
 
                             <!-- CMS Category Selector Tabs -->
                             <div class="grid grid-cols-4 gap-1.5 bg-slate-200/80 p-1 rounded-2xl">
-                                <button onclick="switchSettingsTab('tab-add-photo')" class="settings-tab-btn py-1.5 rounded-xl font-bold text-[11px] bg-white text-[#007AFF] shadow-sm">📸 Foto</button>
-                                <button onclick="switchSettingsTab('tab-add-chat')" class="settings-tab-btn py-1.5 rounded-xl font-bold text-[11px] text-slate-600">💬 Chat</button>
-                                <button onclick="switchSettingsTab('tab-add-song')" class="settings-tab-btn py-1.5 rounded-xl font-bold text-[11px] text-slate-600">🎵 Musik</button>
-                                <button onclick="switchSettingsTab('tab-wallpaper')" class="settings-tab-btn py-1.5 rounded-xl font-bold text-[11px] text-slate-600">💾 Backup</button>
+                                <button onclick="switchSettingsTab('tab-add-photo')" class="settings-tab-btn py-1.5 rounded-xl font-bold text-[11px] bg-white text-[#007AFF] shadow-sm">ðŸ“¸ Foto</button>
+                                <button onclick="switchSettingsTab('tab-add-chat')" class="settings-tab-btn py-1.5 rounded-xl font-bold text-[11px] text-slate-600">ðŸ’¬ Chat</button>
+                                <button onclick="switchSettingsTab('tab-add-song')" class="settings-tab-btn py-1.5 rounded-xl font-bold text-[11px] text-slate-600">ðŸŽµ Musik</button>
+                                <button onclick="switchSettingsTab('tab-wallpaper')" class="settings-tab-btn py-1.5 rounded-xl font-bold text-[11px] text-slate-600">ðŸ’¾ Backup</button>
                             </div>
 
                             <!-- TAB 1: TAMBAH FOTO KE PHOTOS & IG -->
@@ -1555,10 +1563,10 @@
                                     <div>
                                         <label class="block text-[11px] font-semibold text-slate-600 mb-1">Album</label>
                                         <select id="cmsPhotoAlbumInput" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-2.5 py-2">
-                                            <option value="Selca ❄️">Selca ❄️</option>
-                                            <option value="Stage ⭐">Stage ⭐</option>
-                                            <option value="aespa 🦋">aespa 🦋</option>
-                                            <option value="Daily 🐶">Daily 🐶</option>
+                                            <option value="Selca â„ï¸">Selca â„ï¸</option>
+                                            <option value="Stage â­">Stage â­</option>
+                                            <option value="aespa ðŸ¦‹">aespa ðŸ¦‹</option>
+                                            <option value="Daily ðŸ¶">Daily ðŸ¶</option>
                                         </select>
                                     </div>
                                     <div>
@@ -1629,15 +1637,15 @@
 
                             <!-- TAB 4: WALLPAPER & EXPORT/IMPORT JSON -->
                             <div id="tab-wallpaper" class="settings-panel hidden bg-white p-4 rounded-2xl shadow-sm space-y-3">
-                                <h4 class="font-extrabold text-slate-900 text-xs">🎨 Ganti Wallpaper & Status iPhone</h4>
+                                <h4 class="font-extrabold text-slate-900 text-xs">ðŸŽ¨ Ganti Wallpaper & Status iPhone</h4>
                                 <div>
                                     <label class="block text-[11px] font-semibold text-slate-600 mb-1">URL Gambar Wallpaper iOS</label>
                                     <input id="cmsWallpaperInput" type="text" placeholder="Tempel link gambar wallpaper..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2">
                                 </div>
                                 <div class="grid grid-cols-3 gap-1.5">
-                                    <button onclick="applyWallpaperUrl('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=900&q=80')" class="py-1.5 rounded-lg bg-sky-100 text-[#007AFF] font-bold text-[10px]">❄️ Icy Star</button>
-                                    <button onclick="applyWallpaperUrl('https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=900&q=80')" class="py-1.5 rounded-lg bg-indigo-100 text-indigo-700 font-bold text-[10px]">🌌 iOS Dark</button>
-                                    <button onclick="applyWallpaperUrl('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80')" class="py-1.5 rounded-lg bg-pink-100 text-pink-700 font-bold text-[10px]">🌅 Soft Sky</button>
+                                    <button onclick="applyWallpaperUrl('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=900&q=80')" class="py-1.5 rounded-lg bg-sky-100 text-[#007AFF] font-bold text-[10px]">â„ï¸ Icy Star</button>
+                                    <button onclick="applyWallpaperUrl('https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=900&q=80')" class="py-1.5 rounded-lg bg-indigo-100 text-indigo-700 font-bold text-[10px]">ðŸŒŒ iOS Dark</button>
+                                    <button onclick="applyWallpaperUrl('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80')" class="py-1.5 rounded-lg bg-pink-100 text-pink-700 font-bold text-[10px]">ðŸŒ… Soft Sky</button>
                                 </div>
                                 <div>
                                     <label class="block text-[11px] font-semibold text-slate-600 mb-1">Kutipan Widget Home Screen</label>
@@ -1648,7 +1656,7 @@
                                 </button>
 
                                 <hr class="border-slate-200 my-2">
-                                <h4 class="font-extrabold text-slate-900 text-xs">💾 Backup / Ekspor Data JSON</h4>
+                                <h4 class="font-extrabold text-slate-900 text-xs">ðŸ’¾ Backup / Ekspor Data JSON</h4>
                                 <p class="text-[10px] text-slate-500 leading-relaxed">
                                     Salin data JSON di bawah ini untuk menyimpan cadangan seluruh foto, chat, dan lagu yang sudah kamu kumpulkan.
                                 </p>
@@ -1686,147 +1694,147 @@
         // Default Pre-loaded Content for Winter (Kim Minjeong)
         const defaultData = {
             wallpaper: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=900&q=80',
-            quote: '"Pengen makan tanghulu stroberi & es krim mint choco! 🍓🍦"',
+            quote: '"Pengen makan tanghulu stroberi & es krim mint choco! ðŸ“ðŸ¦"',
             avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80',
             photos: [
                 {
                     id: 1,
                     url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80',
-                    album: 'Selca ❄️',
+                    album: 'Selca â„ï¸',
                     date: '3 Nov 2026',
                     fav: true,
-                    caption: 'Selesai rekaman di studio! MYs sudah makan malam belum? Jangan sampai telat makan yaa ⭐️❄️'
+                    caption: 'Selesai rekaman di studio! MYs sudah makan malam belum? Jangan sampai telat makan yaa â­ï¸â„ï¸'
                 },
                 {
                     id: 2,
                     url: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80',
-                    album: 'Stage ⭐',
+                    album: 'Stage â­',
                     date: '29 Okt 2026',
                     fav: true,
-                    caption: 'Backstage SYNK: PARALLEL LINE! Senang banget bisa tampil membawakan lagu solo Spark sambil pegang gitar biru favoritku 🎸💙'
+                    caption: 'Backstage SYNK: PARALLEL LINE! Senang banget bisa tampil membawakan lagu solo Spark sambil pegang gitar biru favoritku ðŸŽ¸ðŸ’™'
                 },
                 {
                     id: 3,
                     url: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=600&q=80',
-                    album: 'aespa 🦋',
+                    album: 'aespa ðŸ¦‹',
                     date: '21 Okt 2026',
                     fav: true,
-                    caption: 'Mirror selfie bareng Karina unnie, Giselle unnie & Ningning sehabis latihan Whiplash! 🌶️⭐️🌙🦋'
+                    caption: 'Mirror selfie bareng Karina unnie, Giselle unnie & Ningning sehabis latihan Whiplash! ðŸŒ¶ï¸â­ï¸ðŸŒ™ðŸ¦‹'
                 },
                 {
                     id: 4,
                     url: 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=600&q=80',
-                    album: 'Daily 🐶',
+                    album: 'Daily ðŸ¶',
                     date: '14 Okt 2026',
                     fav: false,
-                    caption: 'Ketemu anak anjing Maltese lucu banget waktu jalan sore!! Mirip aku nggak kata MYs? 🐶🤍'
+                    caption: 'Ketemu anak anjing Maltese lucu banget waktu jalan sore!! Mirip aku nggak kata MYs? ðŸ¶ðŸ¤'
                 },
                 {
                     id: 5,
                     url: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=600&q=80',
-                    album: 'Stage ⭐',
+                    album: 'Stage â­',
                     date: '2 Okt 2026',
                     fav: true,
-                    caption: 'Lautan lightstick MYs dari atas panggung selalu kelihatan seperti bintang di galaksi ✨'
+                    caption: 'Lautan lightstick MYs dari atas panggung selalu kelihatan seperti bintang di galaksi âœ¨'
                 },
                 {
                     id: 6,
                     url: 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=600&q=80',
-                    album: 'Daily 🐶',
+                    album: 'Daily ðŸ¶',
                     date: '19 Sep 2026',
                     fav: false,
-                    caption: 'Traktiran es krim mint choco porsi ekstra sehabis jadwal pemotretan! Tim Mint Choco mana suaranya~ 🍦🌿'
+                    caption: 'Traktiran es krim mint choco porsi ekstra sehabis jadwal pemotretan! Tim Mint Choco mana suaranya~ ðŸ¦ðŸŒ¿'
                 }
             ],
             threads: [
                 {
                     id: 'karina',
-                    name: 'Karina 💙',
+                    name: 'Karina ðŸ’™',
                     role: 'Member aespa',
                     pinned: true,
                     avatar: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=200&q=80',
-                    voiceLine: 'Minjeong-ah! Aku sudah pesan tteokbokki buat kita makan di ruang latihan yaa~ 💙',
+                    voiceLine: 'Minjeong-ah! Aku sudah pesan tteokbokki buat kita makan di ruang latihan yaa~ ðŸ’™',
                     messages: [
                         { from: 'them', time: '13:10', text: 'Minjeong-ah, kamu sudah berangkat ke gedung SM?' },
-                        { from: 'me', time: '13:12', text: 'Sudah di mobil unnie! Aku lagi mampir beli tanghulu stroberi sebentar 🍓' },
-                        { from: 'them', time: '13:14', text: 'Asik!! Jangan lupa bawa jaket tebal ya, di luar lagi dingin banget ❄️' }
+                        { from: 'me', time: '13:12', text: 'Sudah di mobil unnie! Aku lagi mampir beli tanghulu stroberi sebentar ðŸ“' },
+                        { from: 'them', time: '13:14', text: 'Asik!! Jangan lupa bawa jaket tebal ya, di luar lagi dingin banget â„ï¸' }
                     ]
                 },
                 {
                     id: 'ningning',
-                    name: 'Ningning 🦋',
+                    name: 'Ningning ðŸ¦‹',
                     role: 'Maknae aespa',
                     pinned: true,
                     avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=200&q=80',
-                    voiceLine: 'Unnie!! Ayo malam ini kita makan hotpot bareng lagi! 🦋🍲',
+                    voiceLine: 'Unnie!! Ayo malam ini kita makan hotpot bareng lagi! ðŸ¦‹ðŸ²',
                     messages: [
-                        { from: 'them', time: '11:40', text: 'Winter unnie! Lihat deh foto kucing lucu yang baru aku temuin 🐱' },
+                        { from: 'them', time: '11:40', text: 'Winter unnie! Lihat deh foto kucing lucu yang baru aku temuin ðŸ±' },
                         { from: 'me', time: '11:42', text: 'Lucu bangeet!! Nanti sore kita latihan vokal bareng kan?' },
-                        { from: 'them', time: '11:45', text: 'Iya dong! Nitip kopi es americano satu yaa unnie hehe ☕️' }
+                        { from: 'them', time: '11:45', text: 'Iya dong! Nitip kopi es americano satu yaa unnie hehe â˜•ï¸' }
                     ]
                 },
                 {
                     id: 'giselle',
-                    name: 'Giselle 🌙',
+                    name: 'Giselle ðŸŒ™',
                     role: 'Member aespa',
                     pinned: true,
                     avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80',
-                    voiceLine: 'That’s hot! Minjeong, lagu baru yang kamu rekomendasikan enak banget didengar! 🌙🎧',
+                    voiceLine: 'Thatâ€™s hot! Minjeong, lagu baru yang kamu rekomendasikan enak banget didengar! ðŸŒ™ðŸŽ§',
                     messages: [
-                        { from: 'them', time: 'Kemarin', text: 'Minjeong, headphone kamu ketinggalan di sofa ruang tunggu nih 🎧' },
-                        { from: 'me', time: 'Kemarin', text: 'Astaga untung unnie lihat!! Tolong simpankan dulu yaa Aeri unnie 🤍' }
+                        { from: 'them', time: 'Kemarin', text: 'Minjeong, headphone kamu ketinggalan di sofa ruang tunggu nih ðŸŽ§' },
+                        { from: 'me', time: 'Kemarin', text: 'Astaga untung unnie lihat!! Tolong simpankan dulu yaa Aeri unnie ðŸ¤' }
                     ]
                 },
                 {
                     id: 'bubble',
-                    name: 'MYs Bubble 🫧',
+                    name: 'MYs Bubble ðŸ«§',
                     role: 'DearU bubble Official',
                     pinned: true,
                     avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
-                    voiceLine: 'Kami selalu mendukungmu setiap hari, Kim Minjeong! ⭐️❄️',
+                    voiceLine: 'Kami selalu mendukungmu setiap hari, Kim Minjeong! â­ï¸â„ï¸',
                     messages: [
-                        { from: 'me', time: '21:00', text: 'MYs~~ lagi ngapain sekarang?? ❄️' },
+                        { from: 'me', time: '21:00', text: 'MYs~~ lagi ngapain sekarang?? â„ï¸' },
                         { from: 'me', time: '21:01', text: 'Hari ini udaranya dingin, jangan lupa pakai selimut hangat ya waktu tidur!' },
-                        { from: 'them', time: '21:02', text: 'Minjeong-ah! Kami lagi streaming lagu Spark & Whiplash nih! ⭐️' }
+                        { from: 'them', time: '21:02', text: 'Minjeong-ah! Kami lagi streaming lagu Spark & Whiplash nih! â­ï¸' }
                     ]
                 },
                 {
                     id: 'manager',
-                    name: 'Manager SM 📋',
+                    name: 'Manager SM ðŸ“‹',
                     role: 'SM Entertainment',
                     pinned: false,
                     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80',
                     voiceLine: 'Halo Winter, mobil jemputan sudah menunggu di lobi bawah ya.',
                     messages: [
                         { from: 'them', time: '09:00', text: '[Jadwal aespa] Pukul 14:00 latihan studio lantai 4, dilanjutkan fitting kostum pukul 17:30.' },
-                        { from: 'me', time: '09:05', text: 'Siap kak! Terima kasih infonya 🙏' }
+                        { from: 'me', time: '09:05', text: 'Siap kak! Terima kasih infonya ðŸ™' }
                     ]
                 }
             ],
             notes: [
                 {
                     id: 101,
-                    title: '🍓 Daftar Camilan & Jajanan Favorit',
-                    date: 'Hari ini • 18:30',
+                    title: 'ðŸ“ Daftar Camilan & Jajanan Favorit',
+                    date: 'Hari ini â€¢ 18:30',
                     body: '1. Tanghulu stroberi & anggur hijau\n2. Es krim Mint Choco 2 cup\n3. Tteokbokki rose level sedang bareng member\n4. Susu pisang dingin sehabis latihan dance'
                 },
                 {
                     id: 102,
-                    title: '🎸 Catatan Latihan Gitar Konser',
-                    date: 'Kemarin • 21:15',
+                    title: 'ðŸŽ¸ Catatan Latihan Gitar Konser',
+                    date: 'Kemarin â€¢ 21:15',
                     body: 'Jangan lupa cek tuning gitar elektrik biru sebelum soundcheck. Latihan bagian solo intro lagu Spark & Armageddon Rock Version!'
                 },
                 {
                     id: 103,
-                    title: '💌 Surat Kecil untuk MYs',
-                    date: '1 Januari • 00:01',
-                    body: 'Terima kasih sudah selalu menjadi musim semi yang hangat buat Winter. Ayo terus buat kenangan indah bersama-sama! ⭐️❄️'
+                    title: 'ðŸ’Œ Surat Kecil untuk MYs',
+                    date: '1 Januari â€¢ 00:01',
+                    body: 'Terima kasih sudah selalu menjadi musim semi yang hangat buat Winter. Ayo terus buat kenangan indah bersama-sama! â­ï¸â„ï¸'
                 }
             ],
             songs: [
                 {
                     title: 'Spark (Winter Solo)',
-                    artist: 'Winter • SYNK: PARALLEL LINE',
+                    artist: 'Winter â€¢ SYNK: PARALLEL LINE',
                     cover: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=400&q=80',
                     lyrics: 'Tiny little spark, menyala terang di tengah dinginnya malam...',
                     duration: '03:18',
@@ -1834,7 +1842,7 @@
                 },
                 {
                     title: 'Whiplash',
-                    artist: 'aespa • The 5th Mini Album',
+                    artist: 'aespa â€¢ The 5th Mini Album',
                     cover: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=400&q=80',
                     lyrics: 'One look give \'em Whiplash! Beat drop with a big flash...',
                     duration: '03:03',
@@ -1842,7 +1850,7 @@
                 },
                 {
                     title: 'Supernova',
-                    artist: 'aespa • Armageddon',
+                    artist: 'aespa â€¢ Armageddon',
                     cover: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=400&q=80',
                     lyrics: 'Su-su-su-Supernova! Nova, can\'t stop hyperstellar...',
                     duration: '02:58',
@@ -1850,7 +1858,7 @@
                 },
                 {
                     title: 'Armageddon',
-                    artist: 'aespa • The 1st Album',
+                    artist: 'aespa â€¢ The 1st Album',
                     cover: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=400&q=80',
                     lyrics: 'I\'ma get \'em, Shoot! Watch Uh, Imma bite back...',
                     duration: '03:16',
@@ -1858,9 +1866,9 @@
                 },
                 {
                     title: 'Live My Life',
-                    artist: 'aespa • Armageddon',
+                    artist: 'aespa â€¢ Armageddon',
                     cover: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=400&q=80',
-                    lyrics: 'I live my life, tidak ada jawaban pasti, jalani saja langkahku sendiri! 🎸',
+                    lyrics: 'I live my life, tidak ada jawaban pasti, jalani saja langkahku sendiri! ðŸŽ¸',
                     duration: '02:40',
                     audioUrl: ''
                 }
@@ -1998,7 +2006,7 @@
                     if (currentPinInput === '0101') {
                         setTimeout(unlockPhone, 150);
                     } else {
-                        showToast('PIN Salah! Gunakan 0101 ⭐️');
+                        showToast('PIN Salah! Gunakan 0101 â­ï¸');
                         setTimeout(clearPinInput, 350);
                     }
                 }
@@ -2082,7 +2090,7 @@
             const chassis = document.getElementById('iphoneChassis');
             chassis.classList.toggle('flashlight-on');
             const isOn = chassis.classList.contains('flashlight-on');
-            showToast(isOn ? '🔦 Senter iPhone Menyala' : '🔦 Senter Dimatikan');
+            showToast(isOn ? 'ðŸ”¦ Senter iPhone Menyala' : 'ðŸ”¦ Senter Dimatikan');
         }
 
         function setScreenBrightness(val) {
@@ -2120,7 +2128,7 @@
             const slider = document.getElementById('ccVolumeSlider');
             let next = Math.min(100, Math.max(0, parseInt(slider.value, 10) + delta));
             setVolumeSlider(next);
-            showToast(`🔊 Volume: ${next}%`);
+            showToast(`ðŸ”Š Volume: ${next}%`);
         }
 
         /* ==========================================
@@ -2143,11 +2151,11 @@
             const grid = document.getElementById('iosPhotosGrid');
             const filtered = phoneData.photos.filter(p => {
                 if (activePhotoFilter === 'Semua') return true;
-                if (activePhotoFilter === 'Favorit ❤️') return p.fav;
+                if (activePhotoFilter === 'Favorit â¤ï¸') return p.fav;
                 return p.album === activePhotoFilter;
             });
 
-            document.getElementById('photosSubtitleCount').textContent = `${filtered.length} Foto • Koleksi Winter ❄️`;
+            document.getElementById('photosSubtitleCount').textContent = `${filtered.length} Foto â€¢ Koleksi Winter â„ï¸`;
             document.getElementById('homeWidgetPhotoCount').textContent = `${phoneData.photos.length} Foto di Library`;
 
             if (phoneData.photos.length > 0) {
@@ -2177,7 +2185,7 @@
             const photo = phoneData.photos.find(p => p.id === photoId);
             if (!photo) return;
             document.getElementById('igModalImg').src = photo.url;
-            document.getElementById('igModalDate').textContent = `${photo.album} • ${photo.date}`;
+            document.getElementById('igModalDate').textContent = `${photo.album} â€¢ ${photo.date}`;
             document.getElementById('igModalCaption').textContent = photo.caption;
             document.getElementById('igPostModal').classList.remove('hidden');
         }
@@ -2198,6 +2206,7 @@
             playUiClick();
             const photo = phoneData.photos.find(p => p.id === photoId);
             if (!photo) return;
+
             currentViewingPhotoId = photoId;
             document.getElementById('viewerPhotoAlbum').textContent = photo.album;
             document.getElementById('viewerPhotoDate').textContent = photo.date;
@@ -2220,7 +2229,7 @@
             photo.fav = !photo.fav;
             savePhoneData();
             openPhotoViewer(currentViewingPhotoId);
-            showToast(photo.fav ? '❤️ Ditambahkan ke Favorit' : 'Dihapus dari Favorit');
+            showToast(photo.fav ? 'â¤ï¸ Ditambahkan ke Favorit' : 'Dihapus dari Favorit');
         }
 
         function setCurrentPhotoAsWallpaper() {
@@ -2228,7 +2237,7 @@
             if (!photo) return;
             phoneData.wallpaper = photo.url;
             savePhoneData();
-            showToast('✨ Wallpaper iPhone Berhasil Diganti!');
+            showToast('âœ¨ Wallpaper iPhone Berhasil Diganti!');
         }
 
         function deleteCurrentPhoto() {
@@ -2239,7 +2248,7 @@
             phoneData.photos = phoneData.photos.filter(p => p.id !== currentViewingPhotoId);
             closePhotoViewer();
             savePhoneData();
-            showToast('🗑️ Foto Dihapus');
+            showToast('ðŸ—‘ï¸ Foto Dihapus');
         }
 
         function sendCurrentPhotoToChat() {
@@ -2249,14 +2258,14 @@
             thread.messages.push({
                 from: 'me',
                 time: 'Baru saja',
-                text: photo.caption || 'Lihat foto ini deh! ⭐️',
+                text: photo.caption || 'Lihat foto ini deh! â­ï¸',
                 image: photo.url
             });
             closePhotoViewer();
             savePhoneData();
             openApp('app-messages');
             openChatThread(thread.id);
-            showToast(`📸 Foto dikirim ke ${thread.name}`);
+            showToast(`ðŸ“¸ Foto dikirim ke ${thread.name}`);
         }
 
         /* ==========================================
@@ -2560,13 +2569,13 @@
             document.getElementById('quickNoteBody').value = '';
             document.getElementById('quickNoteForm').classList.add('hidden');
             savePhoneData();
-            showToast('📝 Catatan disimpan ke iOS Notes!');
+            showToast('ðŸ“ Catatan disimpan ke iOS Notes!');
         }
 
         function deleteNoteItem(id) {
             phoneData.notes = phoneData.notes.filter(n => n.id !== id);
             savePhoneData();
-            showToast('🗑️ Catatan dihapus');
+            showToast('ðŸ—‘ï¸ Catatan dihapus');
         }
 
         /* ==========================================
@@ -2575,7 +2584,7 @@
         function renderPhoneContacts() {
             const list = document.getElementById('phoneContactsList');
             list.innerHTML = phoneData.threads.map(t => `
-                <div onclick="startSimulatedCall('${t.name}', '${t.avatar}', '${(t.voiceLine || 'Halo Minjeong-ah! ❄️').replace(/'/g, "\\'")}')" class="p-3 flex items-center justify-between hover:bg-slate-100 cursor-pointer transition">
+                <div onclick="startSimulatedCall('${t.name}', '${t.avatar}', '${(t.voiceLine || 'Halo Minjeong-ah! â„ï¸').replace(/'/g, "\\'")}')" class="p-3 flex items-center justify-between hover:bg-slate-100 cursor-pointer transition">
                     <div class="flex items-center gap-3">
                         <img src="${t.avatar}" class="w-10 h-10 rounded-full object-cover" alt="${t.name}">
                         <div>
@@ -2629,7 +2638,7 @@
             const thread = phoneData.threads.find(t => t.id === activeThreadId);
             if (!thread) return;
             openApp('app-phone');
-            startSimulatedCall(thread.name, thread.avatar, thread.voiceLine || 'Halo Minjeong-ah! ❄️');
+            startSimulatedCall(thread.name, thread.avatar, thread.voiceLine || 'Halo Minjeong-ah! â„ï¸');
         }
 
         /* ==========================================
@@ -2641,7 +2650,7 @@
             cameraPhotoIndex = (cameraPhotoIndex + 1) % phoneData.photos.length;
             const p = phoneData.photos[cameraPhotoIndex];
             document.getElementById('cameraPreviewImg').src = p.url;
-            document.getElementById('cameraPolaroidText').textContent = `${p.album} • ${p.date}`;
+            document.getElementById('cameraPolaroidText').textContent = `${p.album} â€¢ ${p.date}`;
         }
 
         /* ==========================================
@@ -2667,7 +2676,7 @@
             const urlInput = document.getElementById('cmsPhotoUrlInput').value.trim();
             const album = document.getElementById('cmsPhotoAlbumInput').value;
             const date = document.getElementById('cmsPhotoDateInput').value.trim() || 'Hari ini';
-            const caption = document.getElementById('cmsPhotoCaptionInput').value.trim() || 'Koleksi foto Winter ⭐️❄️';
+            const caption = document.getElementById('cmsPhotoCaptionInput').value.trim() || 'Koleksi foto Winter â­ï¸â„ï¸';
 
             const finalizePhoto = (finalUrl) => {
                 phoneData.photos.unshift({
@@ -2682,7 +2691,7 @@
                 document.getElementById('cmsPhotoCaptionInput').value = '';
                 fileInput.value = '';
                 savePhoneData();
-                showToast('📸 Foto berhasil ditambahkan ke Photos!');
+                showToast('ðŸ“¸ Foto berhasil ditambahkan ke Photos!');
                 openApp('app-photos');
             };
 
@@ -2702,7 +2711,7 @@
         function cmsAddContactThread() {
             const name = document.getElementById('cmsContactName').value.trim();
             const avatar = document.getElementById('cmsContactAvatar').value.trim() || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80';
-            const firstMsg = document.getElementById('cmsContactFirstMsg').value.trim() || 'Halo Minjeong-ah! ⭐️';
+            const firstMsg = document.getElementById('cmsContactFirstMsg').value.trim() || 'Halo Minjeong-ah! â­ï¸';
 
             if (!name) {
                 showToast('Isi nama kontak terlebih dahulu!');
@@ -2726,7 +2735,7 @@
             document.getElementById('cmsContactAvatar').value = '';
             document.getElementById('cmsContactFirstMsg').value = '';
             savePhoneData();
-            showToast(`💬 Ruang chat ${name} berhasil dibuat!`);
+            showToast(`ðŸ’¬ Ruang chat ${name} berhasil dibuat!`);
             openApp('app-messages');
         }
 
@@ -2735,7 +2744,7 @@
             const artist = document.getElementById('cmsSongArtist').value.trim() || 'aespa';
             const cover = document.getElementById('cmsSongCover').value.trim() || 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=400&q=80';
             const audioUrl = document.getElementById('cmsSongAudioUrl').value.trim();
-            const lyrics = document.getElementById('cmsSongLyrics').value.trim() || 'SYNK with Winter ⭐️❄️';
+            const lyrics = document.getElementById('cmsSongLyrics').value.trim() || 'SYNK with Winter â­ï¸â„ï¸';
 
             if (!title) {
                 showToast('Isi judul lagu terlebih dahulu!');
@@ -2756,7 +2765,7 @@
             document.getElementById('cmsSongAudioUrl').value = '';
             document.getElementById('cmsSongLyrics').value = '';
             savePhoneData();
-            showToast(`🎵 Lagu "${title}" ditambahkan!`);
+            showToast(`ðŸŽµ Lagu "${title}" ditambahkan!`);
             openApp('app-music');
         }
 
@@ -2764,7 +2773,7 @@
             document.getElementById('cmsWallpaperInput').value = url;
             phoneData.wallpaper = url;
             savePhoneData();
-            showToast('🎨 Wallpaper diperbarui!');
+            showToast('ðŸŽ¨ Wallpaper diperbarui!');
         }
 
         function cmsSaveAppearance() {
@@ -2773,7 +2782,7 @@
             if (wall) phoneData.wallpaper = wall;
             if (quote) phoneData.quote = quote;
             savePhoneData();
-            showToast('✨ Tema & Status berhasil disimpan!');
+            showToast('âœ¨ Tema & Status berhasil disimpan!');
         }
 
         function exportPhoneJson() {
@@ -2781,7 +2790,7 @@
             area.value = JSON.stringify(phoneData, null, 2);
             area.select();
             document.execCommand('copy');
-            showToast('📋 JSON berhasil disalin ke Clipboard!');
+            showToast('ðŸ“‹ JSON berhasil disalin ke Clipboard!');
         }
 
         function importPhoneJson() {
@@ -2795,7 +2804,7 @@
                 if (parsed && parsed.photos && parsed.threads) {
                     phoneData = parsed;
                     savePhoneData();
-                    showToast('✅ Data JSON berhasil dimuat!');
+                    showToast('âœ… Data JSON berhasil dimuat!');
                 } else {
                     showToast('Format JSON tidak sesuai!');
                 }
@@ -2808,7 +2817,7 @@
             localStorage.removeItem(STORAGE_KEY);
             phoneData = JSON.parse(JSON.stringify(defaultData));
             savePhoneData();
-            showToast('🔄 Dikembalikan ke isi awal HP Winter');
+            showToast('ðŸ”„ Dikembalikan ke isi awal HP Winter');
         }
 
         /* ==========================================
@@ -2840,3 +2849,4 @@
     </script>
 </body>
 </html>
+
