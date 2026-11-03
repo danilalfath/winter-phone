@@ -43,9 +43,81 @@
             galeriFoto: [
                 // <--- TAMBAHKAN LINK DI SINI UNTUK MENAMBAH FOTO BARU KE GALERI
                 {
+                    id: 109,
+                    url: "466713493_861576189524302_1272611508323697674_n.jpg", // <--- Pastikan file foto ini di-upload ke repo GitHub Anda atau ganti dengan Link URL
+                    date: "2026-11-04",
+                    album: "Stage ⭐",
+                    fav: true,
+                    caption: "Blonde Minjeong backstage sebelum naik panggung 🤍⭐️"
+                },
+                {
+                    id: 108,
+                    url: "466975285_1123634529324951_8804112329718250000_n.jpg",
+                    date: "2026-11-04",
+                    album: "Stage ⭐",
+                    fav: true,
+                    caption: "High angle di tangga merah selesai perform ❄️🖤"
+                },
+                {
+                    id: 107,
+                    url: "475877473_17933509874989784_5192112465416768215_n.jpg",
+                    date: "2026-11-03",
+                    album: "Selca ❄️",
+                    fav: true,
+                    caption: "Blurry night vibes ⭐️🌙"
+                },
+                {
+                    id: 106,
+                    url: "470917123_3471061219865041_609425942212094060_n.jpg",
+                    date: "2026-11-02",
+                    album: "Daily 🐶",
+                    fav: true,
+                    caption: "Jalan malam pakai syal hijau hangat & celana pink 🧣🩷"
+                },
+                {
+                    id: 105,
+                    url: "470902836_1342850063737459_5148817222177893315_n.jpg",
+                    date: "2026-11-01",
+                    album: "Daily 🐶",
+                    fav: true,
+                    caption: "Tepar di lantai backstage sehabis latihan koreografi seharian 😭💤"
+                },
+                {
+                    id: 104,
+                    url: "470489673_877879894510820_4299989236624800102_n.jpg",
+                    date: "2026-10-31",
+                    album: "Selca ❄️",
+                    fav: true,
+                    caption: "Selca di mobil waktu perjalanan pulang, MYs selamat malam~ 🩷✨"
+                },
+                {
+                    id: 103,
+                    url: "467234945_1286744995597071_7120031485916992747_n.jpg",
+                    date: "2026-10-30",
+                    album: "Selca ❄️",
+                    fav: true,
+                    caption: "Late night selca pakai kemeja putih & dasi 👔🌙"
+                },
+                {
+                    id: 102,
+                    url: "467110683_927134589336407_7541096885383531722_n.jpg",
+                    date: "2026-10-28",
+                    album: "Daily 🐶",
+                    fav: false,
+                    caption: "Makan malam sukiyaki daging & tahu hangat bareng member! 🍲🥩"
+                },
+                {
+                    id: 101,
+                    url: "467024609_575684668321375_1506685490415379292_n.jpg",
+                    date: "2026-10-27",
+                    album: "Daily 🐶",
+                    fav: false,
+                    caption: "Makan nasi kepal (jumeokbap) hangat di mobil menuju jadwal berikutnya 🍙🚗"
+                },
+                {
                     id: 1,
                     url: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80", // <--- TEMPEL LINK FOTO 1 DI SINI
-                    date: "2026-11-03",
+                    date: "2026-10-25",
                     album: "Selca ❄️",
                     fav: true,
                     caption: "Selesai rekaman di studio! MYs sudah makan malam belum? Jangan sampai telat makan yaa ⭐️❄️"
@@ -1562,9 +1634,10 @@
                         <h1 class="text-[34px] font-bold leading-none tracking-tight">Library</h1>
                         <small id="pdt" class="text-[15px] font-bold text-slate-700 mt-1 block">3 Nov 2026</small>
                     </div>
-                    <div class="flex items-center gap-2">
-                        <button class="gb text-sm" onclick="filterPhotos('Favorit ❤️')">❤️</button>
-                        <button class="gb text-sm" onclick="closeAllApps()">✕</button>
+                    <div class="flex items-center gap-1.5">
+                        <button class="gb text-xs px-3 bg-[#007AFF] text-white border-0" onclick="openAddPhotoModal()" title="Tambah Foto ke Galeri">＋ Foto</button>
+                        <button class="gb text-sm px-3" onclick="filterPhotos('Favorit ❤️')" title="Filter Favorit">❤️</button>
+                        <button class="gb text-sm px-3" onclick="closeAllApps()" title="Tutup">✕</button>
                     </div>
                 </div>
 
@@ -1573,7 +1646,7 @@
 
                 <!-- Floating Glass Bottom Controls (.bt & .gb.seg from style.css) -->
                 <div class="absolute bottom-6 left-4 right-4 flex items-center justify-between gap-2.5 z-10">
-                    <button class="gb" onclick="setPhotoViewMode('a')" title="All Photos">🖼</button>
+                    <button class="gb" onclick="openAddPhotoModal()" title="Tambah Foto">＋</button>
 
                     <div class="gb seg flex-1" id="pseg">
                         <span data-v="y" onclick="setPhotoViewMode('y')">Years</span>
@@ -1584,23 +1657,101 @@
                     <button class="gb" onclick="closeAllApps()" title="Back Home">‹</button>
                 </div>
 
+                <!-- MODAL TAMBAH FOTO GALERI + AUTO-COMMIT GITHUB -->
+                <div id="addPhotoModal" class="hidden absolute inset-0 z-50 bg-black/45 backdrop-blur-sm flex flex-col justify-end">
+                    <div class="bg-[#F2F2F7] rounded-t-[32px] p-5 pb-8 space-y-3 max-h-[88%] overflow-y-auto no-scrollbar shadow-2xl">
+                        <div class="flex items-center justify-between border-b border-slate-200 pb-2.5">
+                            <button onclick="closeAddPhotoModal()" class="text-xs font-semibold text-slate-500">Batal</button>
+                            <b class="text-sm text-slate-900">📸 Tambah Foto ke Galeri</b>
+                            <button onclick="resetCustomGalleryPhotos()" class="text-[11px] font-semibold text-rose-500">Reset</button>
+                        </div>
+
+                        <!-- 1. Input via Link URL -->
+                        <div class="bg-white p-3.5 rounded-2xl shadow-sm space-y-2">
+                            <label class="block text-[11px] font-bold text-slate-700">1. Masukkan Link URL Foto (Atau Nama File di GitHub):</label>
+                            <input id="newPhotoUrlInput" type="text" placeholder="https://... atau nama_foto.jpg" class="w-full bg-slate-100 rounded-xl px-3 py-2 text-xs outline-none border border-slate-200 focus:border-[#007AFF]">
+
+                            <div class="pt-1">
+                                <label class="block text-[11px] font-bold text-[#007AFF] cursor-pointer bg-sky-50 hover:bg-sky-100 rounded-xl py-2 text-center border border-sky-200 transition">
+                                    <i class="fa-solid fa-cloud-arrow-up mr-1"></i> Atau Pilih File Foto dari HP / Laptop
+                                    <input id="newPhotoFileInput" type="file" accept="image/*" class="hidden" onchange="handleGalleryFileSelect(event)">
+                                </label>
+                                <p id="selectedFileNameLabel" class="text-[10px] text-emerald-600 font-semibold text-center mt-1 hidden"></p>
+                            </div>
+                        </div>
+
+                        <!-- 2. Detail Album, Tanggal & Caption -->
+                        <div class="bg-white p-3.5 rounded-2xl shadow-sm space-y-2.5 text-xs">
+                            <div class="grid grid-cols-2 gap-2">
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-500 mb-1">Album</label>
+                                    <select id="newPhotoAlbumInput" class="w-full bg-slate-100 rounded-xl px-2.5 py-2 text-xs outline-none border border-slate-200">
+                                        <option value="Selca ❄️">Selca ❄️</option>
+                                        <option value="Stage ⭐">Stage ⭐</option>
+                                        <option value="Daily 🐶">Daily 🐶</option>
+                                        <option value="aespa 🦋">aespa 🦋</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-500 mb-1">Tanggal</label>
+                                    <input id="newPhotoDateInput" type="date" value="2026-11-04" class="w-full bg-slate-100 rounded-xl px-2.5 py-1.5 text-xs outline-none border border-slate-200">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-500 mb-1">Caption Cerita Foto</label>
+                                <input id="newPhotoCaptionInput" type="text" placeholder="Tulis caption foto Winter..." class="w-full bg-slate-100 rounded-xl px-3 py-2 text-xs outline-none border border-slate-200">
+                            </div>
+                        </div>
+
+                        <!-- 3. Opsi Auto-Push langsung ke Kode GitHub -->
+                        <div class="bg-white p-3.5 rounded-2xl shadow-sm space-y-2 text-xs border border-sky-100">
+                            <div class="flex items-center justify-between">
+                                <span class="font-bold text-slate-800 text-[11px] flex items-center gap-1.5">
+                                    <i class="fa-brands fa-github text-sm"></i> Auto-Simpan ke Kode GitHub
+                                </span>
+                                <span class="text-[10px] bg-sky-100 text-[#007AFF] px-2 py-0.5 rounded-full font-bold">Opsional</span>
+                            </div>
+                            <p class="text-[10px] text-slate-500 leading-relaxed">
+                                Isi <b>GitHub Token (Classic repo)</b> di bawah ini jika ingin foto yang kamu tambahkan otomatis tertulis permanen ke file <code>index.html</code> di GitHub kamu:
+                            </p>
+                            <div class="grid grid-cols-2 gap-1.5">
+                                <input id="ghRepoInput" type="text" value="danilalfath/winter-phone" placeholder="username/repo" class="bg-slate-100 rounded-lg px-2.5 py-1.5 text-[11px] outline-none border border-slate-200">
+                                <input id="ghTokenInput" type="password" placeholder="Token: ghp_xxxx..." class="bg-slate-100 rounded-lg px-2.5 py-1.5 text-[11px] outline-none border border-slate-200">
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="space-y-2 pt-1">
+                            <button id="btnSubmitNewPhoto" onclick="submitNewGalleryPhoto()" class="w-full py-3 rounded-2xl bg-[#007AFF] text-white font-bold text-xs shadow-lg shadow-blue-500/25 active:scale-[0.98] transition">
+                                ＋ Tambahkan ke Galeri (& Push ke GitHub)
+                            </button>
+                            <button onclick="copyGalleryCodeForGithub()" class="w-full py-2 rounded-xl bg-slate-200 text-slate-700 font-semibold text-[11px] hover:bg-slate-300 transition">
+                                📋 Salin Kode JSON Galeri (Untuk Paste Manual)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Fullscreen Photo Detail Modal (#big + caption bar) -->
                 <div id="photoDetailViewer" class="hidden absolute inset-0 z-50 bg-white flex flex-col justify-between pt-14 pb-7">
                     <div class="px-4 pb-2 flex items-center justify-between">
                         <button onclick="closePhotoViewer()" class="gb">‹</button>
                         <span id="viewerPhotoDate" class="gb text-sm font-semibold">3 Nov 2026</span>
-                        <button onclick="setCurrentPhotoAsWallpaper()" class="gb text-xs text-[#007AFF]">Set Wallpaper</button>
+                        <div class="flex items-center gap-1.5">
+                            <button onclick="setCurrentPhotoAsWallpaper()" class="gb text-xs text-[#007AFF] px-3">Wallpaper</button>
+                            <button onclick="deleteCurrentPhoto()" class="gb text-xs text-rose-500 px-3" title="Hapus Foto"><i class="fa-regular fa-trash-can"></i></button>
+                        </div>
                     </div>
 
-                    <div class="flex-1 bg-white flex items-center justify-center overflow-hidden p-2">
-                        <img id="viewerPhotoImg" src="" class="max-h-full max-w-full object-contain rounded-xl shadow-sm" alt="Full Photo">
+                    <div class="flex-1 bg-black flex items-center justify-center overflow-hidden relative my-1">
+                        <img id="viewerPhotoImg" src="" class="max-h-full max-w-full object-contain" alt="Full Photo">
                     </div>
 
-                    <div class="px-5 pt-3 bg-white border-t border-slate-100 space-y-2.5">
+                    <div class="px-5 pt-3 bg-white space-y-2.5">
                         <div class="flex items-center justify-between">
-                            <span id="viewerPhotoAlbum" class="text-xs font-extrabold text-[#007AFF] uppercase">Selca ❄️</span>
+                            <span id="viewerPhotoAlbum" class="text-xs font-extrabold uppercase tracking-wider text-[#007AFF]">Selca ❄️</span>
                             <div class="flex items-center gap-4">
-                                <button onclick="sendCurrentPhotoToChat()" class="text-xs font-bold text-[#007AFF] flex items-center gap-1">
+                                <button onclick="sendCurrentPhotoToChat()" class="text-xs font-semibold text-[#007AFF] flex items-center gap-1">
                                     <i class="fa-solid fa-paper-plane"></i> Kirim ke Chat
                                 </button>
                                 <button onclick="toggleCurrentPhotoFav()" id="viewerFavBtn" class="text-lg text-rose-500">
@@ -1614,80 +1765,235 @@
             </section>
 
             <!-- =================================================================
-                 INTERACTIVE APP 2: iOS MESSAGES (KTUAZON Style + Photo Bubbles)
+                 INTERACTIVE APP 2: iOS MESSAGES (Fake Chat Studio + Edit Contact)
             ================================================================== -->
             <section id="app-messages" class="ios-app-window bg-white text-slate-900 pt-12 pb-5">
                 <!-- VIEW A: CONVERSATIONS LIST -->
                 <div id="imessageListScreen" class="h-full flex flex-col relative">
-                    <div class="px-4 pt-2 pb-1 flex items-center justify-between">
+                    <div class="px-4 pt-1 pb-2 flex items-center justify-between">
                         <button onclick="closeAllApps()" class="gb text-sm">‹ Home</button>
-                        <button class="gb text-sm">≡</button>
+                        <div class="flex items-center gap-1.5">
+                            <button onclick="openNewContactModal()" class="gb text-xs px-3 bg-[#007AFF] text-white border-0" title="Tambah Kontak Chat Baru">＋ Kontak</button>
+                            <button onclick="pushChatsToGithubRepo()" class="gb text-xs px-2.5" title="Simpan Semua Chat ke GitHub"><i class="fa-brands fa-github"></i></button>
+                        </div>
                     </div>
 
-                    <div class="px-5 pt-2 pb-1">
-                        <h2 class="text-[34px] font-bold tracking-tight">Messages</h2>
+                    <div class="px-5 pb-1 flex items-baseline justify-between">
+                        <h1 class="text-[34px] font-bold tracking-tight">Messages</h1>
+                        <span class="text-[11px] text-slate-400 font-medium">Klik ✎ untuk ganti foto/nama</span>
                     </div>
 
                     <!-- Pinned Contacts Row -->
                     <div id="imessagePinnedRow" class="grid grid-cols-4 gap-2 px-4 py-2.5 border-b border-slate-100"></div>
 
-                    <!-- Thread Rows (.mrow with unread blue dot .ud) -->
-                    <div id="imessageThreadsList" class="flex-1 overflow-y-auto pb-24 no-scrollbar"></div>
+                    <!-- Thread Rows -->
+                    <div id="imessageThreadsList" class="flex-1 overflow-y-auto px-2 pb-20 no-scrollbar"></div>
 
-                    <!-- Bottom Search Pill (.bt from style.css) -->
-                    <div class="absolute bottom-5 left-4 right-4 flex items-center gap-2.5 z-10">
+                    <!-- Bottom Search Pill -->
+                    <div class="absolute bottom-4 left-4 right-4 flex items-center gap-2.5 z-10">
                         <div class="gb flex-1 justify-start gap-2 px-4">
                             <span class="text-sm">🔍</span>
-                            <input id="mqInput" oninput="renderMessagesApp()" type="text" placeholder="Search" class="bg-transparent border-0 outline-none text-sm font-normal w-full">
+                            <input id="mqInput" oninput="renderMessagesApp()" placeholder="Search" class="bg-transparent border-0 outline-none text-sm w-full">
+                        </div>
+                        <button onclick="openNewContactModal()" class="gb w-11 h-11 p-0 text-base" title="Buat Chat Baru">✎</button>
+                    </div>
+                </div>
+
+                <!-- VIEW B: INDIVIDUAL FAKE CHAT CONVERSATION -->
+                <div id="imessageChatScreen" class="hidden h-full flex flex-col bg-white relative">
+                    <!-- Translucent Top Header (Click Avatar or Name to Edit Profile & Name!) -->
+                    <div class="px-3.5 pt-1.5 pb-2 bg-white/95 backdrop-blur-md border-b border-slate-100 flex items-center justify-between z-10">
+                        <button onclick="backToMessagesList()" class="gb gap-1 px-3 h-10 text-sm">
+                            ‹ <span id="munBadge" class="text-xs bg-slate-200 px-1.5 py-0.5 rounded-full"></span>
+                        </button>
+
+                        <div onclick="openEditContactModal(activeThreadId)" class="flex flex-col items-center cursor-pointer group" title="Klik untuk ganti Foto Profil & Nama">
+                            <div class="relative">
+                                <img id="activeChatAvatar" src="" class="w-11 h-11 rounded-full object-cover border border-slate-200 shadow-sm group-hover:brightness-90 transition" alt="avatar">
+                                <span class="absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full bg-[#007AFF] text-white flex items-center justify-center text-[8px] border border-white">
+                                    <i class="fa-solid fa-pen"></i>
+                                </span>
+                            </div>
+                            <span id="activeChatName" class="text-[11px] font-bold text-slate-900 mt-0.5 flex items-center gap-1">Karina 💙 <i class="fa-solid fa-chevron-right text-[8px] text-slate-400"></i></span>
+                        </div>
+
+                        <button onclick="openEditContactModal(activeThreadId)" class="gb h-10 px-3 text-xs text-[#007AFF] font-bold" title="Ganti Foto & Nama">
+                            ✎ Edit
+                        </button>
+                    </div>
+
+                    <!-- Messages Scroll Area (Click any bubble to Edit/Delete) -->
+                    <div id="activeChatMessages" class="flex-1 overflow-y-auto px-3.5 py-3 flex flex-col gap-1.5 no-scrollbar bg-white"></div>
+
+                    <!-- FAKE CHAT SENDER SELECTOR BAR ("Kirim Sebagai Siapa") -->
+                    <div class="px-3 pt-2 pb-1 bg-slate-50 border-t border-slate-200/80 space-y-1.5">
+                        <div class="flex items-center justify-between gap-1.5">
+                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider pl-1">Kirim sbg:</span>
+                            <div class="flex-1 grid grid-cols-2 gap-1 bg-slate-200/90 p-0.5 rounded-xl">
+                                <button id="btnRoleMe" onclick="setSenderRole(false)" class="py-1 px-2 rounded-[10px] text-[11px] font-bold bg-[#007AFF] text-white shadow-sm truncate transition">
+                                    🔵 Winter (Kanan)
+                                </button>
+                                <button id="btnRoleThem" onclick="setSenderRole(true)" class="py-1 px-2 rounded-[10px] text-[11px] font-semibold text-slate-700 truncate transition">
+                                    ⚪ <span id="lblRoleThemName">Karina 💙</span> (Kiri)
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Optional Custom Timestamp & Photo Attachment Bar -->
+                        <div id="chatImageAttachmentPreview" class="hidden items-center justify-between bg-sky-50 border border-sky-200 rounded-xl px-2.5 py-1.5 text-xs">
+                            <div class="flex items-center gap-2 min-w-0">
+                                <img id="chatPendingImgThumb" src="" class="w-8 h-8 rounded-lg object-cover border border-sky-300">
+                                <span class="text-[11px] text-sky-800 font-semibold truncate">Foto siap dikirim</span>
+                            </div>
+                            <button onclick="clearPendingChatPhoto()" class="text-rose-500 text-xs font-bold px-1.5">✕</button>
+                        </div>
+                    </div>
+
+                    <!-- Message Input Composer -->
+                    <div class="px-3 pt-1.5 pb-4 flex items-center gap-2 bg-slate-50">
+                        <!-- Attach Photo to Chat Button -->
+                        <button onclick="openChatPhotoModal()" class="gb w-10 h-10 p-0 text-base text-[#007AFF] shrink-0" title="Kirim Foto di Chat">
+                            <i class="fa-solid fa-camera"></i>
+                        </button>
+
+                        <input id="imessageInput" type="text" placeholder="Ketik pesan fake chat..." class="flex-1 h-10 rounded-full border border-slate-300 px-3.5 text-xs outline-none bg-white focus:border-[#007AFF]" onkeydown="if(event.key==='Enter') sendImessage()">
+
+                        <button id="btnSendImessage" onclick="sendImessage()" class="gb w-10 h-10 p-0 bg-[#0a84ff] text-white border-0 shrink-0">↑</button>
+                    </div>
+                </div>
+
+                <!-- MODAL 1: EDIT FOTO PROFIL & NAMA KONTAK / TAMBAH KONTAK BARU -->
+                <div id="contactEditorModal" class="hidden absolute inset-0 z-50 bg-black/45 backdrop-blur-sm flex flex-col justify-end">
+                    <div class="bg-[#F2F2F7] rounded-t-[32px] p-5 pb-8 space-y-3 max-h-[90%] overflow-y-auto no-scrollbar shadow-2xl">
+                        <div class="flex items-center justify-between border-b border-slate-200 pb-2.5">
+                            <button onclick="closeContactEditorModal()" class="text-xs font-semibold text-slate-500">Batal</button>
+                            <b id="contactModalTitle" class="text-sm text-slate-900">Edit Profil & Nama Kontak</b>
+                            <button onclick="resetAllChatsToDefault()" class="text-[11px] font-semibold text-rose-500">Reset Semua</button>
+                        </div>
+
+                        <!-- Avatar Preview & Name Input -->
+                        <div class="bg-white p-3.5 rounded-2xl shadow-sm flex items-center gap-3.5">
+                            <img id="editContactAvatarPreview" src="" class="w-16 h-16 rounded-full object-cover border-2 border-sky-400 shrink-0 shadow" alt="Avatar">
+                            <div class="flex-1 space-y-2">
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-400 uppercase">Nama Kontak</label>
+                                    <input id="editContactNameInput" type="text" placeholder="Nama (misal: Karina 💙)" class="w-full bg-slate-100 rounded-xl px-3 py-1.5 text-xs font-bold text-slate-900 outline-none border border-slate-200 focus:border-[#007AFF]">
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-400 uppercase">Status / Keterangan</label>
+                                    <input id="editContactRoleInput" type="text" placeholder="Member aespa / Teman" class="w-full bg-slate-100 rounded-xl px-3 py-1.5 text-xs text-slate-700 outline-none border border-slate-200">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Change Contact Photo Options -->
+                        <div class="bg-white p-3.5 rounded-2xl shadow-sm space-y-2.5 text-xs">
+                            <p class="font-bold text-slate-800 text-[11px]">Ganti Foto Profil Kontak:</p>
+
+                            <label class="block text-[11px] font-bold text-[#007AFF] cursor-pointer bg-sky-50 hover:bg-sky-100 rounded-xl py-2 text-center border border-sky-200 transition">
+                                <i class="fa-solid fa-upload mr-1"></i> Upload Foto dari HP / Laptop
+                                <input type="file" accept="image/*" class="hidden" onchange="handleContactAvatarUpload(event)">
+                            </label>
+
+                            <div class="flex gap-1.5">
+                                <input id="editContactAvatarUrlInput" type="text" placeholder="Atau tempel Link URL foto..." class="flex-1 bg-slate-100 rounded-xl px-3 py-2 text-xs outline-none border border-slate-200" oninput="previewContactUrlAvatar(this.value)">
+                            </div>
+
+                            <div>
+                                <p class="text-[10px] font-semibold text-slate-400 mb-1.5">Atau pilih cepat dari Galeri Winter:</p>
+                                <div id="contactAvatarQuickGallery" class="flex gap-2 overflow-x-auto pb-1 no-scrollbar"></div>
+                            </div>
+                        </div>
+
+                        <!-- Save / Delete Contact Buttons -->
+                        <div class="space-y-2 pt-1">
+                            <button onclick="saveContactChanges()" class="w-full py-3 rounded-2xl bg-[#007AFF] text-white font-bold text-xs shadow-lg shadow-blue-500/25">
+                                💾 Simpan Profil Kontak
+                            </button>
+                            <div class="grid grid-cols-2 gap-2">
+                                <button id="btnClearThreadMsgs" onclick="clearCurrentThreadMessages()" class="py-2 rounded-xl bg-amber-100 text-amber-800 font-semibold text-[11px]">
+                                    🧹 Bersihkan Isi Chat
+                                </button>
+                                <button id="btnDeleteThread" onclick="deleteCurrentContactThread()" class="py-2 rounded-xl bg-rose-100 text-rose-600 font-semibold text-[11px]">
+                                    🗑️ Hapus Kontak
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- VIEW B: INDIVIDUAL CHAT CONVERSATION -->
-                <div id="imessageChatScreen" class="hidden h-full flex flex-col bg-white relative">
-                    <!-- Translucent Top Header (.thh from style.css) -->
-                    <div class="px-4 pt-2 pb-2.5 bg-white/90 backdrop-blur-md border-b border-slate-100 flex items-center justify-between z-10">
-                        <button onclick="backToMessagesList()" class="gb gap-1">
-                            ‹ <span id="munBadge" class="text-xs bg-slate-200 px-2 py-0.5 rounded-full"></span>
-                        </button>
-
-                        <div class="flex flex-col items-center">
-                            <img id="activeChatAvatar" src="" class="w-12 h-12 rounded-full object-cover border border-slate-200 shadow-sm" alt="avatar">
-                            <span id="activeChatName" class="text-xs font-bold text-slate-900 mt-1">Karina 💙 ›</span>
+                <!-- MODAL 2: EDIT / HAPUS GELEMBUNG PESAN TERTENTU -->
+                <div id="chatBubbleEditModal" class="hidden absolute inset-0 z-50 bg-black/45 backdrop-blur-sm flex flex-col justify-end">
+                    <div class="bg-[#F2F2F7] rounded-t-[32px] p-5 pb-8 space-y-3 shadow-2xl">
+                        <div class="flex items-center justify-between border-b border-slate-200 pb-2.5">
+                            <button onclick="closeChatBubbleEditModal()" class="text-xs font-semibold text-slate-500">Batal</button>
+                            <b class="text-sm text-slate-900">Edit Pesan Fake Chat</b>
+                            <button onclick="deleteSelectedChatBubble()" class="text-xs font-bold text-rose-600">Hapus</button>
                         </div>
 
-                        <button onclick="openApp('app-phone')" class="gb text-base">🎥</button>
+                        <div class="bg-white p-3.5 rounded-2xl shadow-sm space-y-2.5 text-xs">
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-400 uppercase mb-1">Pengirim Pesan (Posisi Gelembung)</label>
+                                <select id="editBubbleSenderSelect" class="w-full bg-slate-100 rounded-xl px-3 py-2 text-xs font-bold outline-none border border-slate-200">
+                                    <option value="me">🔵 Winter (Kanan - Biru)</option>
+                                    <option value="them">⚪ Lawan Bicara (Kiri - Abu-abu)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-400 uppercase mb-1">Keterangan Waktu (Timestamp)</label>
+                                <input id="editBubbleTimeInput" type="text" placeholder="Today 13:15" class="w-full bg-slate-100 rounded-xl px-3 py-1.5 text-xs outline-none border border-slate-200">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-400 uppercase mb-1">Isi Teks Pesan</label>
+                                <textarea id="editBubbleTextInput" rows="3" class="w-full bg-slate-100 rounded-xl p-2.5 text-xs outline-none border border-slate-200"></textarea>
+                            </div>
+                        </div>
+
+                        <button onclick="saveSelectedChatBubble()" class="w-full py-3 rounded-2xl bg-[#007AFF] text-white font-bold text-xs shadow-lg">
+                            Simpan Perubahan Pesan
+                        </button>
                     </div>
+                </div>
 
-                    <!-- Messages Scroll Area (.mbody) -->
-                    <div id="activeChatMessages" class="flex-1 overflow-y-auto px-3.5 py-3 flex flex-col gap-1.5 no-scrollbar bg-white"></div>
+                <!-- MODAL 3: PILIH FOTO UNTUK DIKIRIM DI FAKE CHAT -->
+                <div id="chatPhotoModal" class="hidden absolute inset-0 z-50 bg-black/45 backdrop-blur-sm flex flex-col justify-end">
+                    <div class="bg-[#F2F2F7] rounded-t-[32px] p-5 pb-8 space-y-3 shadow-2xl">
+                        <div class="flex items-center justify-between border-b border-slate-200 pb-2.5">
+                            <button onclick="closeChatPhotoModal()" class="text-xs font-semibold text-slate-500">Batal</button>
+                            <b class="text-sm text-slate-900">📷 Kirim Foto ke Chat</b>
+                            <span></span>
+                        </div>
 
-                    <!-- Sender Switch Banner (#mwho from style.css) -->
-                    <div id="mwhoBanner" class="text-center text-[11px] font-medium text-[#ff9f0a] py-1 bg-amber-50/80 hidden">
-                        Menulis pesan sebagai lawan bicara · ketuk ＋ untuk kembali jadi Winter
-                    </div>
+                        <div class="bg-white p-3.5 rounded-2xl shadow-sm space-y-2.5 text-xs">
+                            <label class="block text-[11px] font-bold text-[#007AFF] cursor-pointer bg-sky-50 hover:bg-sky-100 rounded-xl py-2.5 text-center border border-sky-200 transition">
+                                <i class="fa-solid fa-upload mr-1"></i> Pilih Foto dari HP / Laptop
+                                <input type="file" accept="image/*" class="hidden" onchange="handleChatPhotoUpload(event)">
+                            </label>
 
-                    <!-- Message Composer (.mcomp from style.css) -->
-                    <div class="px-3.5 pt-2 pb-4 flex items-center gap-2.5 bg-white">
-                        <button onclick="toggleSenderRole()" class="gb w-11 h-11 p-0 text-xl" title="Ketuk untuk ganti pengirim (Winter / Lawan Bicara)">＋</button>
-                        <input id="imessageInput" type="text" placeholder="iMessage" class="flex-1 h-11 rounded-full border border-slate-200 px-4 text-sm outline-none shadow-sm" onkeydown="if(event.key==='Enter') sendImessage()">
-                        <button onclick="sendImessage()" class="gb w-11 h-11 p-0 bg-[#0a84ff] text-white border-0">↑</button>
+                            <div class="flex gap-1.5">
+                                <input id="chatPhotoUrlInput" type="text" placeholder="Atau tempel Link URL foto..." class="flex-1 bg-slate-100 rounded-xl px-3 py-2 text-xs outline-none border border-slate-200">
+                                <button onclick="selectChatPhotoFromUrl()" class="px-3 py-2 rounded-xl bg-[#007AFF] text-white font-bold text-xs">Pilih</button>
+                            </div>
+
+                            <div>
+                                <p class="text-[10px] font-semibold text-slate-400 mb-1.5">Atau klik foto dari Galeri Winter:</p>
+                                <div id="chatPhotoQuickGallery" class="grid grid-cols-4 gap-1.5 max-h-36 overflow-y-auto no-scrollbar"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
             <!-- =================================================================
-                 INTERACTIVE APP 3: APPLE MUSIC (Full Player + Custom Audio)
+                 INTERACTIVE APP 3: APPLE MUSIC (Synced with Dynamic Island)
             ================================================================== -->
             <section id="app-music" class="ios-app-window bg-gradient-to-b from-slate-800 via-slate-950 to-black text-white pt-12 pb-6">
                 <div class="px-5 pt-1 pb-2 flex items-center justify-between">
-                    <button onclick="closeAllApps()" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs">
+                    <button onclick="closeAllApps()" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-xs">
                         <i class="fa-solid fa-chevron-down"></i>
                     </button>
                     <span class="text-[11px] font-bold tracking-wider uppercase text-white/70"> Music • Winter's Playlist</span>
-                    <span class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs">
-                        <i class="fa-solid fa-ellipsis"></i>
-                    </span>
+                    <span class="w-8"></span>
                 </div>
 
                 <div class="flex-1 overflow-y-auto px-6 py-2 flex flex-col justify-between no-scrollbar">
@@ -1720,11 +2026,15 @@
                     </div>
 
                     <div class="flex items-center justify-around my-2">
-                        <button onclick="prevSong()" class="text-2xl text-white/90 hover:text-white active:scale-90 transition"><i class="fa-solid fa-backward"></i></button>
+                        <button onclick="prevSong()" class="text-2xl text-white/90 hover:text-white active:scale-90 transition">
+                            <i class="fa-solid fa-backward"></i>
+                        </button>
                         <button onclick="togglePlayMusic()" class="w-16 h-16 rounded-full bg-white text-slate-950 flex items-center justify-center text-2xl shadow-xl hover:scale-105 active:scale-95 transition">
                             <i id="musicAppPlayIcon" class="fa-solid fa-play"></i>
                         </button>
-                        <button onclick="nextSong()" class="text-2xl text-white/90 hover:text-white active:scale-90 transition"><i class="fa-solid fa-forward"></i></button>
+                        <button onclick="nextSong()" class="text-2xl text-white/90 hover:text-white active:scale-90 transition">
+                            <i class="fa-solid fa-forward"></i>
+                        </button>
                     </div>
 
                     <div class="mt-1">
@@ -1737,155 +2047,119 @@
             </section>
 
             <!-- =================================================================
-                 STATIC DISPLAY APP 4: iOS SETTINGS (Authentic iOS 18 Pajangan)
+                 APP 4: iOS 18 SETTINGS (Interactive Profile Picture + Static UI)
             ================================================================== -->
             <section id="app-settings" class="ios-app-window bg-[#F2F2F7] text-slate-900 pt-12 pb-6 select-none">
-                <div class="px-4 pt-1 pb-2 flex items-center justify-between">
+                <div class="px-5 pt-1 pb-1 flex items-center justify-between bg-[#F2F2F7]">
                     <button onclick="closeAllApps()" class="gb text-sm">‹ Home</button>
-                    <span class="text-xs font-bold text-slate-400">iOS 18.2</span>
                 </div>
-
-                <div class="px-5 pb-2">
-                    <h2 class="text-[32px] font-bold tracking-tight text-slate-900">Settings</h2>
-                </div>
-
-                <div class="flex-1 overflow-y-auto px-4 space-y-4 pb-8 no-scrollbar pointer-events-none text-[13px]">
-                    <!-- Search Bar -->
-                    <div class="bg-[#E3E3E8] rounded-xl px-3 py-1.5 flex items-center gap-2 text-slate-500 text-xs">
-                        <i class="fa-solid fa-magnifying-glass"></i><span>Search</span>
+                <div class="px-5 pb-2 bg-[#F2F2F7]">
+                    <h1 class="text-[32px] font-extrabold tracking-tight text-slate-900">Settings</h1>
+                    <div class="mt-2 bg-[#E3E3E8] rounded-xl px-3 py-1.5 flex items-center gap-2 text-slate-500 text-xs">
+                        <i class="fa-solid fa-magnifying-glass text-[11px]"></i>
+                        <span>Search</span>
                     </div>
+                </div>
 
-                    <!-- Apple ID Profile Card (INTERACTIVE - Click to Change Profile Picture) -->
-                    <div onclick="openAvatarPickerModal()" class="pointer-events-auto cursor-pointer bg-white p-3.5 rounded-2xl shadow-sm flex items-center gap-3.5 hover:bg-slate-50 active:scale-[0.99] transition" title="Klik untuk mengganti foto profil Winter">
+                <div class="flex-1 overflow-y-auto px-4 space-y-4 pb-8 no-scrollbar text-xs">
+                    <!-- Interactive Apple ID Profile Card (Click to Change Avatar) -->
+                    <div onclick="openAvatarPickerModal()" class="bg-white p-3.5 rounded-2xl shadow-sm flex items-center gap-3.5 cursor-pointer hover:bg-slate-50 active:scale-[0.99] transition" title="Klik untuk mengganti Foto Profil">
                         <div class="relative shrink-0">
                             <img id="settingsAvatarImg" src="" class="w-14 h-14 rounded-full object-cover border border-slate-200" alt="Apple ID">
-                            <span class="absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-[#007AFF] text-white flex items-center justify-center text-[10px] border-2 border-white shadow">
+                            <span class="absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-[#007AFF] text-white flex items-center justify-center text-[10px] shadow border border-white">
                                 <i class="fa-solid fa-camera"></i>
                             </span>
                         </div>
                         <div class="flex-1 min-w-0">
-                            <h3 class="text-base font-bold text-slate-900 leading-tight">Kim Minjeong (WINTER)</h3>
-                            <p class="text-xs text-slate-500 truncate mt-0.5">Apple Account, iCloud+, and more</p>
+                            <h3 class="text-[15px] font-bold text-slate-900 leading-tight">Kim Minjeong (WINTER)</h3>
+                            <p class="text-[11px] text-slate-500 truncate mt-0.5">Apple Account, iCloud+, and more</p>
+                            <span class="inline-block text-[10px] text-[#007AFF] font-semibold mt-0.5">Ketuk untuk ganti foto profil</span>
                         </div>
-                        <i class="fa-solid fa-chevron-right text-xs text-slate-300"></i>
+                        <i class="fa-solid fa-chevron-right text-slate-300 text-xs"></i>
                     </div>
 
-                    <!-- AirPods Banner -->
-                    <div class="bg-white px-4 py-3 rounded-2xl shadow-sm flex items-center justify-between">
-                        <div class="flex items-center gap-3">
-                            <span class="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center text-slate-700"><i class="fa-solid fa-headphones"></i></span>
-                            <span class="font-medium">Winter's AirPods Pro</span>
+                    <!-- Static Settings Menu Rows -->
+                    <div class="space-y-4 pointer-events-none">
+                        <div class="bg-white px-3.5 py-2.5 rounded-2xl shadow-sm flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center text-slate-700 text-sm">
+                                    <i class="fa-solid fa-headphones"></i>
+                                </div>
+                                <span class="font-medium text-slate-900">Winter's AirPods Pro</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-slate-400">
+                                <span>Connected</span>
+                                <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                            </div>
                         </div>
-                        <span class="text-xs text-slate-400">Connected <i class="fa-solid fa-chevron-right ml-1"></i></span>
-                    </div>
 
-                    <!-- Connectivity Group -->
-                    <div class="bg-white rounded-2xl shadow-sm divide-y divide-slate-100 overflow-hidden">
-                        <div class="px-4 py-2.5 flex items-center justify-between">
-                            <div class="flex items-center gap-3">
-                                <span class="w-7 h-7 rounded-lg bg-[#FF9500] text-white flex items-center justify-center text-xs"><i class="fa-solid fa-plane"></i></span>
-                                <span class="font-medium">Airplane Mode</span>
+                        <div class="bg-white rounded-2xl shadow-sm divide-y divide-slate-100 overflow-hidden">
+                            <div class="px-3.5 py-2.5 flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <span class="w-7 h-7 rounded-lg bg-[#FF9500] text-white flex items-center justify-center text-xs"><i class="fa-solid fa-plane"></i></span>
+                                    <span class="font-medium text-slate-900">Airplane Mode</span>
+                                </div>
+                                <div class="w-10 h-6 rounded-full bg-slate-200 p-0.5 flex items-center"><div class="w-5 h-5 rounded-full bg-white shadow"></div></div>
                             </div>
-                            <div class="w-11 h-6 rounded-full bg-slate-200 p-0.5 flex items-center"><div class="w-5 h-5 rounded-full bg-white shadow"></div></div>
-                        </div>
-                        <div class="px-4 py-2.5 flex items-center justify-between">
-                            <div class="flex items-center gap-3">
-                                <span class="w-7 h-7 rounded-lg bg-[#007AFF] text-white flex items-center justify-center text-xs"><i class="fa-solid fa-wifi"></i></span>
-                                <span class="font-medium">Wi-Fi</span>
+                            <div class="px-3.5 py-2.5 flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <span class="w-7 h-7 rounded-lg bg-[#007AFF] text-white flex items-center justify-center text-xs"><i class="fa-solid fa-wifi"></i></span>
+                                    <span class="font-medium text-slate-900">Wi-Fi</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-slate-400"><span>KWANGYA_5G</span><i class="fa-solid fa-chevron-right text-[10px]"></i></div>
                             </div>
-                            <span class="text-xs text-slate-400">SM_KWANGYA_5G <i class="fa-solid fa-chevron-right ml-1"></i></span>
-                        </div>
-                        <div class="px-4 py-2.5 flex items-center justify-between">
-                            <div class="flex items-center gap-3">
-                                <span class="w-7 h-7 rounded-lg bg-[#007AFF] text-white flex items-center justify-center text-xs"><i class="fa-brands fa-bluetooth-b"></i></span>
-                                <span class="font-medium">Bluetooth</span>
+                            <div class="px-3.5 py-2.5 flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <span class="w-7 h-7 rounded-lg bg-[#007AFF] text-white flex items-center justify-center text-xs"><i class="fa-brands fa-bluetooth-b"></i></span>
+                                    <span class="font-medium text-slate-900">Bluetooth</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-slate-400"><span>On</span><i class="fa-solid fa-chevron-right text-[10px]"></i></div>
                             </div>
-                            <span class="text-xs text-slate-400">On <i class="fa-solid fa-chevron-right ml-1"></i></span>
-                        </div>
-                        <div class="px-4 py-2.5 flex items-center justify-between">
-                            <div class="flex items-center gap-3">
-                                <span class="w-7 h-7 rounded-lg bg-[#34C759] text-white flex items-center justify-center text-xs"><i class="fa-solid fa-tower-broadcast"></i></span>
-                                <span class="font-medium">Cellular</span>
+                            <div class="px-3.5 py-2.5 flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <span class="w-7 h-7 rounded-lg bg-[#34C759] text-white flex items-center justify-center text-xs"><i class="fa-solid fa-tower-broadcast"></i></span>
+                                    <span class="font-medium text-slate-900">Cellular</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-slate-400"><span>5G Auto</span><i class="fa-solid fa-chevron-right text-[10px]"></i></div>
                             </div>
-                            <span class="text-xs text-slate-400">SK Telecom 5G <i class="fa-solid fa-chevron-right ml-1"></i></span>
-                        </div>
-                    </div>
-
-                    <!-- System Group -->
-                    <div class="bg-white rounded-2xl shadow-sm divide-y divide-slate-100 overflow-hidden">
-                        <div class="px-4 py-2.5 flex items-center justify-between">
-                            <div class="flex items-center gap-3">
-                                <span class="w-7 h-7 rounded-lg bg-[#8E8E93] text-white flex items-center justify-center text-xs"><i class="fa-solid fa-gear"></i></span>
-                                <span class="font-medium">General</span>
-                            </div>
-                            <i class="fa-solid fa-chevron-right text-xs text-slate-300"></i>
-                        </div>
-                        <div class="px-4 py-2.5 flex items-center justify-between">
-                            <div class="flex items-center gap-3">
-                                <span class="w-7 h-7 rounded-lg bg-[#007AFF] text-white flex items-center justify-center text-xs"><i class="fa-solid fa-sun"></i></span>
-                                <span class="font-medium">Display & Brightness</span>
-                            </div>
-                            <i class="fa-solid fa-chevron-right text-xs text-slate-300"></i>
-                        </div>
-                        <div class="px-4 py-2.5 flex items-center justify-between">
-                            <div class="flex items-center gap-3">
-                                <span class="w-7 h-7 rounded-lg bg-[#5AC8FA] text-white flex items-center justify-center text-xs"><i class="fa-solid fa-image"></i></span>
-                                <span class="font-medium">Wallpaper</span>
-                            </div>
-                            <i class="fa-solid fa-chevron-right text-xs text-slate-300"></i>
-                        </div>
-                        <div class="px-4 py-2.5 flex items-center justify-between">
-                            <div class="flex items-center gap-3">
-                                <span class="w-7 h-7 rounded-lg bg-[#FF2D55] text-white flex items-center justify-center text-xs"><i class="fa-solid fa-volume-high"></i></span>
-                                <span class="font-medium">Sounds & Haptics</span>
-                            </div>
-                            <i class="fa-solid fa-chevron-right text-xs text-slate-300"></i>
-                        </div>
-                        <div class="px-4 py-2.5 flex items-center justify-between">
-                            <div class="flex items-center gap-3">
-                                <span class="w-7 h-7 rounded-lg bg-[#34C759] text-white flex items-center justify-center text-xs"><i class="fa-solid fa-face-smile"></i></span>
-                                <span class="font-medium">Face ID & Passcode</span>
-                            </div>
-                            <i class="fa-solid fa-chevron-right text-xs text-slate-300"></i>
                         </div>
                     </div>
                 </div>
 
-                <!-- iOS 18 Apple Account Profile Photo Picker Sheet Modal -->
-                <div id="avatarPickerModal" class="hidden absolute inset-0 z-50 bg-black/40 backdrop-blur-sm flex flex-col justify-end">
-                    <div class="bg-[#F2F2F7] rounded-t-[32px] p-5 pb-8 space-y-4 shadow-2xl animate-[ slideUp_0.25s_ease-out ]">
-                        <div class="flex items-center justify-between border-b border-slate-200 pb-3">
-                            <button onclick="closeAvatarPickerModal()" class="text-xs font-semibold text-slate-500">Cancel</button>
-                            <b class="text-sm text-slate-900">Edit Foto Profil Apple ID</b>
-                            <button onclick="resetDefaultAvatar()" class="text-xs font-semibold text-[#FF3B30]">Reset</button>
+                <!-- Avatar Picker Modal Sheet -->
+                <div id="avatarPickerModal" class="hidden absolute inset-0 z-50 bg-black/45 backdrop-blur-sm flex flex-col justify-end">
+                    <div class="bg-[#F2F2F7] rounded-t-[30px] p-5 pb-8 space-y-3.5 shadow-2xl">
+                        <div class="flex items-center justify-between border-b border-slate-200 pb-2.5">
+                            <button onclick="closeAvatarPickerModal()" class="text-xs font-semibold text-slate-500">Batal</button>
+                            <b class="text-sm text-slate-900">Ganti Foto Profil</b>
+                            <button onclick="resetDefaultAvatar()" class="text-xs font-semibold text-rose-500">Reset</button>
                         </div>
 
-                        <!-- Current Avatar Preview -->
-                        <div class="flex flex-col items-center py-1">
-                            <img id="modalAvatarPreview" src="" class="w-20 h-20 rounded-full object-cover border-2 border-white shadow-md" alt="Preview">
-                            <p class="text-xs font-bold text-slate-800 mt-2">Kim Minjeong (WINTER)</p>
-                        </div>
-
-                        <!-- Option 1: Upload File from Device -->
-                        <div class="bg-white p-3 rounded-2xl shadow-sm space-y-2">
-                            <label class="block text-[11px] font-bold text-[#007AFF] cursor-pointer text-center py-1">
-                                <i class="fa-solid fa-upload mr-1"></i> Pilih Foto dari Perangkat (HP / Laptop)
-                                <input id="avatarFileInput" type="file" accept="image/*" class="hidden" onchange="handleAvatarFileUpload(event)">
-                            </label>
-                        </div>
-
-                        <!-- Option 2: Paste Image URL -->
-                        <div class="bg-white p-3 rounded-2xl shadow-sm space-y-2">
-                            <p class="text-[11px] font-semibold text-slate-500">Atau Tempel Link URL Foto:</p>
-                            <div class="flex gap-2">
-                                <input id="avatarUrlInput" type="text" placeholder="https://..." class="flex-1 bg-slate-100 rounded-xl px-3 py-2 text-xs outline-none border border-slate-200 focus:border-[#007AFF]">
-                                <button onclick="applyAvatarFromUrl()" class="px-3.5 py-2 rounded-xl bg-[#007AFF] text-white text-xs font-bold">Pakai</button>
+                        <div class="flex items-center gap-3 bg-white p-3 rounded-2xl shadow-sm">
+                            <img id="modalAvatarPreview" src="" class="w-14 h-14 rounded-full object-cover border-2 border-sky-400 shrink-0" alt="Preview">
+                            <div class="flex-1 min-w-0">
+                                <p class="text-xs font-bold text-slate-900">Kim Minjeong (WINTER)</p>
+                                <p class="text-[11px] text-slate-500">Pilih file dari perangkat, tempel link URL, atau pilih dari galeri di bawah.</p>
                             </div>
                         </div>
 
-                        <!-- Option 3: Quick Pick from Winter's Gallery -->
                         <div class="bg-white p-3 rounded-2xl shadow-sm space-y-2">
-                            <p class="text-[11px] font-semibold text-slate-500">Pilih dari Galeri HP Winter:</p>
+                            <label class="block text-[11px] font-bold text-[#007AFF] cursor-pointer text-center py-1.5 rounded-xl bg-sky-50 hover:bg-sky-100 transition">
+                                <i class="fa-solid fa-camera mr-1"></i> Pilih Foto dari Perangkat (HP / Laptop)
+                                <input type="file" accept="image/*" class="hidden" onchange="handleAvatarFileUpload(event)">
+                            </label>
+                        </div>
+
+                        <div class="bg-white p-3 rounded-2xl shadow-sm space-y-2">
+                            <p class="text-[11px] font-semibold text-slate-600">Atau tempel Link URL Foto:</p>
+                            <div class="flex gap-2">
+                                <input id="avatarUrlInput" type="text" placeholder="https://..." class="flex-1 bg-slate-100 rounded-xl px-3 py-2 text-xs outline-none border border-slate-200">
+                                <button onclick="applyAvatarFromUrl()" class="px-3.5 py-2 rounded-xl bg-[#007AFF] text-white text-xs font-bold">Simpan</button>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-3 rounded-2xl shadow-sm space-y-2">
+                            <p class="text-[11px] font-semibold text-slate-600">Pilih Cepat dari Galeri Winter:</p>
                             <div id="avatarGalleryQuickPick" class="flex gap-2 overflow-x-auto pb-1 no-scrollbar"></div>
                         </div>
                     </div>
@@ -2042,203 +2316,331 @@
                     <div class="py-3 flex items-center justify-between opacity-45">
                         <div>
                             <b class="text-5xl font-light text-slate-900">22:00</b>
-                            <small class="block text-xs text-slate-500 mt-1">Sapa MYs di Bubble 🫧</small>
+                            <small class="block text-xs text-slate-500 mt-1">Live Bubble bareng MYs 🫧</small>
                         </div>
-                        <div class="w-12 h-7 rounded-full bg-slate-300 p-0.5 flex items-center"><div class="w-6 h-6 rounded-full bg-white shadow"></div></div>
+                        <div class="w-12 h-7 rounded-full bg-slate-300 p-0.5 flex items-center justify-start"><div class="w-6 h-6 rounded-full bg-white shadow"></div></div>
                     </div>
                 </div>
             </section>
 
             <!-- =================================================================
-                 STATIC DISPLAY APP 10: iOS CAMERA (Pajangan)
+                 STATIC DISPLAY APP 10–16: OTHER iOS PAJANGAN APPS
             ================================================================== -->
+            <!-- Camera (Pajangan) -->
             <section id="app-camera" class="ios-app-window bg-black text-white pt-12 pb-6 select-none">
                 <div class="px-5 py-2 flex items-center justify-between">
-                    <button onclick="closeAllApps()" class="text-amber-400 text-xs font-bold flex items-center gap-1">
-                        <i class="fa-solid fa-chevron-left"></i> Home
-                    </button>
-                    <span class="text-xs font-bold tracking-widest uppercase text-amber-400">PHOTO</span>
+                    <button onclick="closeAllApps()" class="text-amber-400 text-xs font-bold flex items-center gap-1">‹ Home</button>
+                    <span class="text-xs font-bold tracking-widest uppercase text-amber-400">PHOTO • WINTER CAM</span>
                     <i class="fa-solid fa-bolt text-xs text-white/70"></i>
                 </div>
-                <div class="flex-1 flex flex-col items-center justify-between p-4 pointer-events-none">
-                    <div class="relative w-full aspect-[3/4] rounded-3xl overflow-hidden bg-slate-900 border border-white/15">
-                        <img id="cameraPreviewImg" src="" class="w-full h-full object-cover" alt="Camera View">
-                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 border border-amber-400/80"></div>
+                <div class="flex-1 flex flex-col items-center justify-between p-5 pointer-events-none">
+                    <div class="bg-white text-slate-900 p-3 pb-5 rounded-2xl shadow-2xl w-full max-w-[255px]">
+                        <div class="relative aspect-square rounded-xl overflow-hidden bg-slate-200">
+                            <img id="cameraPreviewImg" src="" class="w-full h-full object-cover" alt="Camera View">
+                        </div>
+                        <p class="text-center font-bold text-xs text-slate-800 mt-3">Winter with MYs ⭐️❄️</p>
                     </div>
-                    <div class="w-full flex items-center justify-around">
+                    <div class="w-full flex items-center justify-around pt-2">
                         <div class="w-11 h-11 rounded-xl overflow-hidden border border-white/40">
                             <img id="cameraThumbMini" src="" class="w-full h-full object-cover" alt="last">
                         </div>
-                        <div class="w-16 h-16 rounded-full border-4 border-white p-1 flex items-center justify-center">
-                            <div class="w-full h-full bg-white rounded-full"></div>
-                        </div>
-                        <div class="w-11 h-11 rounded-full bg-white/15 flex items-center justify-center text-sm">
-                            <i class="fa-solid fa-rotate"></i>
-                        </div>
+                        <div class="w-16 h-16 rounded-full border-4 border-white p-1 flex items-center justify-center"><div class="w-full h-full bg-white rounded-full"></div></div>
+                        <div class="w-11 h-11 rounded-full bg-white/15 flex items-center justify-center text-sm"><i class="fa-solid fa-rotate"></i></div>
                     </div>
                 </div>
             </section>
 
-            <!-- =================================================================
-                 STATIC DISPLAY APPS 11-18 (Weather, Wallet, Safari, App Store, Health, Reminders, Mail, Shortcuts)
-            ================================================================== -->
-            <section id="app-weather" class="ios-app-window ios-weather-widget text-white pt-12 pb-6 select-none">
+            <!-- Weather (Pajangan) -->
+            <section id="app-weather" class="ios-app-window ios-weather-widget rounded-none text-white pt-12 pb-6 select-none">
                 <div class="px-5 pt-1 pb-2 flex items-center justify-between">
-                    <button onclick="closeAllApps()" class="text-white text-xs font-semibold flex items-center gap-1"><i class="fa-solid fa-chevron-left"></i> Home</button>
+                    <button onclick="closeAllApps()" class="text-white text-xs font-semibold flex items-center gap-1 bg-white/20 px-3 py-1.5 rounded-full">‹ Home</button>
                     <span class="text-xs font-semibold text-white/80"> Weather</span>
                 </div>
-                <div class="flex-1 px-5 py-4 text-center space-y-4 pointer-events-none">
-                    <h2 id="weatherAppCity" class="text-2xl font-semibold">Seoul</h2>
-                    <p id="weatherAppTemp" class="text-6xl font-thin">47°</p>
-                    <p id="weatherAppCond" class="text-sm font-semibold text-sky-100">Windy</p>
-                    <p id="weatherAppHL" class="text-xs text-white/85">H:56°  L:39°</p>
+                <div class="flex-1 flex flex-col items-center justify-center px-6 text-center pointer-events-none">
+                    <p id="weatherAppCity" class="text-2xl font-bold">Seoul</p>
+                    <p id="weatherAppTemp" class="text-7xl font-thin my-2">47°</p>
+                    <p id="weatherAppCond" class="text-base font-semibold text-sky-100">Windy</p>
+                    <p id="weatherAppHL" class="text-xs font-semibold text-white/80 mt-1">H:56° L:39°</p>
                 </div>
             </section>
 
-            <section id="app-wallet" class="ios-app-window bg-black text-white pt-12 pb-5 select-none">
-                <div class="px-5 pt-1 pb-3 flex items-center justify-between border-b border-white/10">
-                    <button onclick="closeAllApps()" class="text-sky-400 text-xs font-semibold">‹ Home</button>
-                    <h2 class="text-sm font-extrabold"> Wallet</h2>
-                    <span>+</span>
+            <!-- Wallet (Pajangan) -->
+            <section id="app-wallet" class="ios-app-window bg-slate-950 text-white pt-12 pb-5 select-none">
+                <div class="px-5 pt-1 pb-2 flex items-center justify-between border-b border-white/10">
+                    <button onclick="closeAllApps()" class="text-sky-400 text-xs font-semibold flex items-center gap-1">‹ Home</button>
+                    <h2 class="text-sm font-extrabold"> Wallet • Photocard</h2>
+                    <span class="text-xs text-sky-300">VIP</span>
                 </div>
-                <div class="flex-1 overflow-y-auto p-5 space-y-4 no-scrollbar pointer-events-none">
-                    <div class="p-4 rounded-3xl bg-gradient-to-br from-sky-500 via-blue-600 to-indigo-900 shadow-2xl border border-white/25">
-                        <span class="text-[10px] font-extrabold uppercase tracking-widest bg-white/20 px-2.5 py-0.5 rounded-full">SMTOWN ARTIST PASS</span>
-                        <div class="flex items-center gap-3.5 mt-4">
-                            <img id="walletAvatarImg" src="" class="w-14 h-14 rounded-2xl object-cover border-2 border-white/60" alt="Winter">
+                <div class="flex-1 overflow-y-auto p-4 space-y-4 no-scrollbar pointer-events-none">
+                    <div class="p-4 rounded-[26px] bg-gradient-to-br from-sky-500 via-indigo-600 to-slate-900 shadow-2xl border border-white/20">
+                        <div class="flex justify-between items-start">
                             <div>
-                                <p class="text-base font-extrabold">KIM MINJEONG (WINTER)</p>
-                                <p class="text-xs text-sky-100">aespa • 0101 KWANGYA ⭐️</p>
+                                <p class="text-[10px] font-bold uppercase tracking-widest text-sky-200">SM ENTERTAINMENT PASS</p>
+                                <h3 class="text-lg font-extrabold mt-0.5">KIM MINJEONG ⭐️</h3>
                             </div>
+                            <img id="walletAvatarImg" src="" class="w-12 h-12 rounded-2xl object-cover border-2 border-white/50" alt="Winter">
                         </div>
+                        <p class="text-xs text-sky-100 mt-4 font-mono">0101 • WINTER • AESPA OFFICIAL</p>
                     </div>
                     <div id="walletPhotocardGrid" class="grid grid-cols-2 gap-3"></div>
                 </div>
             </section>
 
-            <section id="app-safari" class="ios-app-window bg-[#F2F2F7] text-slate-900 pt-12 pb-5 select-none">
-                <div class="px-4 pt-1 pb-2 flex items-center justify-between bg-white border-b border-slate-200">
-                    <button onclick="closeAllApps()" class="gb text-sm">‹ Home</button>
-                    <span class="text-xs font-semibold text-slate-500">🔒 aespa.com/winter</span>
-                    <span class="w-8"></span>
-                </div>
-                <div class="flex-1 p-4 space-y-3 pointer-events-none text-xs">
-                    <div class="bg-white p-4 rounded-2xl shadow-sm space-y-2">
-                        <p class="font-bold text-[#007AFF]">Riwayat Pencarian Winter ❄️</p>
-                        <div class="p-2.5 rounded-xl bg-slate-50">🍓 Toko tanghulu stroberi terenak di Seoul</div>
-                        <div class="p-2.5 rounded-xl bg-slate-50">🎸 Efek pedal gitar biru untuk lagu Spark Solo</div>
-                        <div class="p-2.5 rounded-xl bg-slate-50">🐶 Cara merawat anak anjing Maltese putih</div>
-                    </div>
-                </div>
+            <!-- Shortcuts, Health, Reminders, Mail, App Store, Safari (Pajangan) -->
+            <section id="app-shortcuts" class="ios-app-window bg-[#16182f] text-white pt-12 pb-6 select-none">
+                <div class="px-5 pt-1 pb-2 flex items-center justify-between"><button onclick="closeAllApps()" class="gb text-sm">‹ Home</button><h2 class="text-sm font-extrabold">Shortcuts</h2><span></span></div>
             </section>
-
-            <section id="app-appstore" class="ios-app-window bg-[#F2F2F7] text-slate-900 pt-12 pb-5 select-none">
-                <div class="px-4 pt-1 pb-2 flex items-center justify-between">
-                    <button onclick="closeAllApps()" class="gb text-sm">‹ Home</button>
-                    <b class="text-sm">App Store</b>
-                    <span class="w-8"></span>
-                </div>
-                <div class="p-5 pointer-events-none">
-                    <h1 class="text-2xl font-extrabold mb-3">Today</h1>
-                    <div class="bg-white p-4 rounded-2xl shadow-sm text-xs space-y-2">
-                        <p class="font-bold">DearU bubble for SMTOWN 🫧</p>
-                        <p class="text-slate-500">Aplikasi favorit Winter untuk menyapa MYs setiap hari.</p>
-                    </div>
-                </div>
+            <section id="app-health" class="ios-app-window bg-[#F2F2F7] text-slate-900 pt-12 pb-6 select-none">
+                <div class="px-5 pt-1 pb-2 flex items-center justify-between"><button onclick="closeAllApps()" class="gb text-sm">‹ Home</button><h2 class="text-sm font-extrabold">Health</h2><span></span></div>
             </section>
-
-            <section id="app-health" class="ios-app-window bg-[#F2F2F7] text-slate-900 pt-12 pb-5 select-none">
-                <div class="px-4 pt-1 pb-2 flex items-center justify-between">
-                    <button onclick="closeAllApps()" class="gb text-sm text-[#FF2D55]">‹ Home</button>
-                    <b class="text-sm"> Health</b>
-                    <span class="w-8"></span>
-                </div>
-                <div class="p-5 space-y-3 pointer-events-none">
-                    <div class="bg-white p-4 rounded-2xl shadow-sm">
-                        <p class="text-xs font-bold text-orange-500">🔥 Steps & Koreografi</p>
-                        <p class="text-2xl font-extrabold mt-1">12,480 steps</p>
-                    </div>
-                    <div class="bg-white p-4 rounded-2xl shadow-sm">
-                        <p class="text-xs font-bold text-sky-500">🛏 Sleep</p>
-                        <p class="text-2xl font-extrabold mt-1">7 hr 45 min</p>
-                    </div>
-                </div>
+            <section id="app-reminders" class="ios-app-window bg-[#F2F2F7] text-slate-900 pt-12 pb-6 select-none">
+                <div class="px-5 pt-1 pb-2 flex items-center justify-between"><button onclick="closeAllApps()" class="gb text-sm">‹ Home</button><h2 class="text-sm font-extrabold">Reminders</h2><span></span></div>
             </section>
-
-            <section id="app-reminders" class="ios-app-window bg-[#F2F2F7] text-slate-900 pt-12 pb-5 select-none">
-                <div class="px-4 pt-1 pb-2 flex items-center justify-between">
-                    <button onclick="closeAllApps()" class="gb text-sm">‹ Home</button>
-                    <b class="text-sm">Reminders</b>
-                    <span class="w-8"></span>
-                </div>
-                <div class="p-5 space-y-2 pointer-events-none text-xs">
-                    <h2 class="text-2xl font-extrabold text-[#007AFF] mb-2">To-Do Winter ⭐️</h2>
-                    <div class="bg-white p-3.5 rounded-2xl shadow-sm">🍓 Beli tanghulu stroberi & es krim mint choco</div>
-                    <div class="bg-white p-3.5 rounded-2xl shadow-sm">🎸 Latihan solo gitar lagu Spark</div>
-                    <div class="bg-white p-3.5 rounded-2xl shadow-sm">🫧 Kirim selca ke MYs di Bubble</div>
-                </div>
+            <section id="app-mail" class="ios-app-window bg-[#F2F2F7] text-slate-900 pt-12 pb-6 select-none">
+                <div class="px-5 pt-1 pb-2 flex items-center justify-between"><button onclick="closeAllApps()" class="gb text-sm">‹ Home</button><h2 class="text-sm font-extrabold">Mail</h2><span></span></div>
             </section>
-
-            <section id="app-mail" class="ios-app-window bg-[#F2F2F7] text-slate-900 pt-12 pb-5 select-none">
-                <div class="px-4 pt-1 pb-2 flex items-center justify-between">
-                    <button onclick="closeAllApps()" class="gb text-sm">‹ Home</button>
-                    <b class="text-sm">Inbox</b>
-                    <span class="w-8"></span>
-                </div>
-                <div class="p-5 space-y-2 pointer-events-none text-xs">
-                    <div class="bg-white p-3.5 rounded-2xl shadow-sm">
-                        <b>SM Entertainment A&R</b>
-                        <p class="text-slate-500 mt-0.5">Demo Lagu Baru aespa & Jadwal Rekaman Studio</p>
-                    </div>
-                    <div class="bg-white p-3.5 rounded-2xl shadow-sm">
-                        <b>Polo Ralph Lauren Korea</b>
-                        <p class="text-slate-500 mt-0.5">Undangan VIP Fashion Show Ambassador Kim Minjeong</p>
-                    </div>
-                </div>
+            <section id="app-appstore" class="ios-app-window bg-[#F2F2F7] text-slate-900 pt-12 pb-6 select-none">
+                <div class="px-5 pt-1 pb-2 flex items-center justify-between"><button onclick="closeAllApps()" class="gb text-sm">‹ Home</button><h2 class="text-sm font-extrabold">App Store</h2><span></span></div>
             </section>
-
-            <section id="app-shortcuts" class="ios-app-window bg-[#F2F2F7] text-slate-900 pt-12 pb-5 select-none">
-                <div class="px-4 pt-1 pb-2 flex items-center justify-between">
-                    <button onclick="closeAllApps()" class="gb text-sm">‹ Home</button>
-                    <b class="text-sm">Shortcuts</b>
-                    <span class="w-8"></span>
-                </div>
-                <div class="p-5 grid grid-cols-2 gap-3 pointer-events-none text-white text-xs font-bold">
-                    <div class="p-4 rounded-2xl bg-sky-500">🎤 Mode Latihan Vokal</div>
-                    <div class="p-4 rounded-2xl bg-pink-500">🫧 Selca Bubble MYs</div>
-                </div>
+            <section id="app-safari" class="ios-app-window bg-[#F2F2F7] text-slate-900 pt-12 pb-6 select-none">
+                <div class="px-5 pt-1 pb-2 flex items-center justify-between"><button onclick="closeAllApps()" class="gb text-sm">‹ Home</button><h2 class="text-sm font-extrabold">Safari</h2><span></span></div>
             </section>
 
             <!-- iOS POPUP BANNER TOAST -->
-            <div id="iosBannerToast" class="pointer-events-none opacity-0 -translate-y-4 transition-all duration-300 absolute top-14 left-1/2 -translate-x-1/2 z-[95] ios-blur-dark text-white px-4 py-2 rounded-full text-xs font-semibold shadow-2xl flex items-center gap-2 whitespace-nowrap">
+            <div id="iosBannerToast" class="pointer-events-none opacity-0 -translate-y-4 transition-all duration-300 absolute top-12 left-1/2 -translate-x-1/2 z-[95] ios-blur-dark text-white px-4 py-2 rounded-full text-xs font-semibold shadow-2xl border border-white/20 flex items-center gap-2 whitespace-nowrap">
                 <i class="fa-solid fa-circle-check text-emerald-400"></i>
                 <span id="iosBannerToastText">Tersimpan</span>
             </div>
 
-            <!-- PERSISTENT HOME INDICATOR BAR (#hb from style.css) -->
-            <div class="hbar" id="hb" onclick="handleHomeBarClick()" style="display: none;" title="Klik untuk kembali ke Home Screen / Kunci Layar"></div>
+            <!-- PERSISTENT HOME INDICATOR BAR (#hb from KTUAZON) -->
+            <div class="hbar" id="hb" style="display: none" onclick="handleHomeBarClick()" title="Klik untuk kembali ke Home Screen"></div>
+
         </div>
     </div>
 
     <!-- ==========================================================
-         COMBINED JAVASCRIPT ENGINE (KTUAZON + WINTER'S PHONE)
+         COMBINED MODERN JAVASCRIPT ENGINE
     =========================================================== -->
     <script>
         const $ = s => document.querySelector(s);
         const $$ = s => [...document.querySelectorAll(s)];
 
-        // Build state directly from PUSAT_KONTEN_HP_WINTER at the top of the file
+        // Build state directly from PUSAT_KONTEN_HP_WINTER at the top of the file + saved custom photos/chats
+        function getInitialPhotos() {
+            const basePhotos = JSON.parse(JSON.stringify(PUSAT_KONTEN_HP_WINTER.galeriFoto));
+            try {
+                const savedCustom = JSON.parse(localStorage.getItem("winterCustomGalleryPhotos") || "[]");
+                if (Array.isArray(savedCustom) && savedCustom.length > 0) {
+                    const existingIds = new Set(basePhotos.map(p => p.id));
+                    const uniqueCustom = savedCustom.filter(p => !existingIds.has(p.id));
+                    return [...uniqueCustom, ...basePhotos];
+                }
+            } catch (e) {}
+            return basePhotos;
+        }
+
+        function getInitialThreads() {
+            try {
+                const savedThreads = JSON.parse(localStorage.getItem("winterCustomThreads") || "null");
+                if (Array.isArray(savedThreads) && savedThreads.length > 0) {
+                    return savedThreads;
+                }
+            } catch (e) {}
+            return JSON.parse(JSON.stringify(PUSAT_KONTEN_HP_WINTER.daftarChat));
+        }
+
+        function saveThreadsToStorage() {
+            try {
+                localStorage.setItem("winterCustomThreads", JSON.stringify(phoneData.threads));
+            } catch (e) {}
+        }
+
         let phoneData = {
             passcode: String(PUSAT_KONTEN_HP_WINTER.passcode || "0101"),
             wallpaperLock: PUSAT_KONTEN_HP_WINTER.wallpaperLockScreen,
             wallpaper: PUSAT_KONTEN_HP_WINTER.wallpaperHomeScreen,
             avatar: localStorage.getItem("winterCustomAvatar") || PUSAT_KONTEN_HP_WINTER.fotoProfilWinter,
             weather: PUSAT_KONTEN_HP_WINTER.cuaca,
-            photos: JSON.parse(JSON.stringify(PUSAT_KONTEN_HP_WINTER.galeriFoto)),
-            threads: JSON.parse(JSON.stringify(PUSAT_KONTEN_HP_WINTER.daftarChat)),
+            photos: getInitialPhotos(),
+            threads: getInitialThreads(),
             notes: JSON.parse(JSON.stringify(PUSAT_KONTEN_HP_WINTER.daftarCatatan)),
             songs: JSON.parse(JSON.stringify(PUSAT_KONTEN_HP_WINTER.daftarLagu))
         };
+
+        /* =========================================================
+           GALLERY ADD PHOTO + GITHUB AUTO-COMMIT ENGINE
+        ========================================================== */
+        let pendingUploadedDataUrl = null;
+
+        function openAddPhotoModal() {
+            pendingUploadedDataUrl = null;
+            $("#newPhotoUrlInput").value = "";
+            $("#newPhotoCaptionInput").value = "";
+            $("#selectedFileNameLabel").classList.add("hidden");
+            const savedRepo = localStorage.getItem("winterGhRepo") || "danilalfath/winter-phone";
+            const savedToken = localStorage.getItem("winterGhToken") || "";
+            $("#ghRepoInput").value = savedRepo;
+            $("#ghTokenInput").value = savedToken;
+            $("#addPhotoModal").classList.remove("hidden");
+        }
+
+        function closeAddPhotoModal() {
+            $("#addPhotoModal").classList.add("hidden");
+        }
+
+        function compressImageFile(file, maxDim, cb) {
+            const reader = new FileReader();
+            reader.onload = ev => {
+                const img = new Image();
+                img.onload = () => {
+                    const scale = Math.min(1, maxDim / Math.max(img.width, img.height));
+                    const canvas = document.createElement("canvas");
+                    canvas.width = Math.round(img.width * scale);
+                    canvas.height = Math.round(img.height * scale);
+                    canvas.getContext("2d").drawImage(img, 0, 0, canvas.width, canvas.height);
+                    cb(canvas.toDataURL("image/jpeg", 0.78));
+                };
+                img.src = ev.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function handleGalleryFileSelect(e) {
+            const file = e.target.files && e.target.files[0];
+            if (!file) return;
+            compressImageFile(file, 720, dataUrl => {
+                pendingUploadedDataUrl = dataUrl;
+                const lbl = $("#selectedFileNameLabel");
+                lbl.textContent = `✅ File siap: ${file.name}`;
+                lbl.classList.remove("hidden");
+            });
+        }
+
+        async function pushNewPhotoToGithubRepo(newPhotoObj, repo, token) {
+            const apiUrl = `https://api.github.com/repos/${repo}/contents/index.html`;
+            const resGet = await fetch(apiUrl, {
+                headers: {
+                    "Authorization": `Bearer ${token}`,
+                    "Accept": "application/vnd.github+json"
+                }
+            });
+            if (!resGet.ok) throw new Error("Gagal membaca repo GitHub. Periksa nama repo & Token.");
+            const fileData = await resGet.json();
+            const decodedContent = decodeURIComponent(escape(atob(fileData.content.replace(/\n/g, ""))));
+
+            const marker = "// <--- TAMBAHKAN LINK DI SINI UNTUK MENAMBAH FOTO BARU KE GALERI";
+            if (!decodedContent.includes(marker)) {
+                throw new Error("Penanda galeriFoto tidak ditemukan di index.html GitHub.");
+            }
+
+            const newEntryCode = `${marker}\n                {\n                    id: ${newPhotoObj.id},\n                    url: ${JSON.stringify(newPhotoObj.url)},\n                    date: ${JSON.stringify(newPhotoObj.date)},\n                    album: ${JSON.stringify(newPhotoObj.album)},\n                    fav: true,\n                    caption: ${JSON.stringify(newPhotoObj.caption)}\n                },`;
+            const updatedContent = decodedContent.replace(marker, newEntryCode);
+            const encodedBase64 = btoa(unescape(encodeURIComponent(updatedContent)));
+
+            const resPut = await fetch(apiUrl, {
+                method: "PUT",
+                headers: {
+                    "Authorization": `Bearer ${token}`,
+                    "Accept": "application/vnd.github+json",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    message: `Menambahkan foto baru ke galeri Winter (${newPhotoObj.album})`,
+                    content: encodedBase64,
+                    sha: fileData.sha
+                })
+            });
+
+            if (!resPut.ok) throw new Error("Gagal menyimpan commit ke GitHub.");
+        }
+
+        async function submitNewGalleryPhoto() {
+            const urlInput = $("#newPhotoUrlInput").value.trim();
+            const finalUrl = pendingUploadedDataUrl || urlInput;
+            if (!finalUrl) {
+                showToast("⚠️ Masukkan Link URL atau pilih file foto dulu!");
+                return;
+            }
+
+            const album = $("#newPhotoAlbumInput").value || "Selca ❄️";
+            const date = $("#newPhotoDateInput").value || "2026-11-04";
+            const caption = $("#newPhotoCaptionInput").value.trim() || "Koleksi foto Winter ⭐️❄️";
+
+            const newPhoto = {
+                id: Date.now(),
+                url: finalUrl,
+                date: date,
+                album: album,
+                fav: true,
+                caption: caption
+            };
+
+            phoneData.photos.unshift(newPhoto);
+            try {
+                const savedCustom = JSON.parse(localStorage.getItem("winterCustomGalleryPhotos") || "[]");
+                savedCustom.unshift(newPhoto);
+                localStorage.setItem("winterCustomGalleryPhotos", JSON.stringify(savedCustom));
+            } catch (e) {}
+
+            refreshAllViews();
+
+            const repo = $("#ghRepoInput").value.trim();
+            const token = $("#ghTokenInput").value.trim();
+            if (repo && token) {
+                try {
+                    localStorage.setItem("winterGhRepo", repo);
+                    localStorage.setItem("winterGhToken", token);
+                    const btn = $("#btnSubmitNewPhoto");
+                    btn.textContent = "⏳ Menyimpan ke Kode GitHub...";
+                    await pushNewPhotoToGithubRepo(newPhoto, repo, token);
+                    btn.textContent = "＋ Tambahkan ke Galeri (& Push ke GitHub)";
+                    closeAddPhotoModal();
+                    showToast("🚀 Tersimpan di Galeri & Kode GitHub!");
+                    return;
+                } catch (err) {
+                    const btn = $("#btnSubmitNewPhoto");
+                    btn.textContent = "＋ Tambahkan ke Galeri (& Push ke GitHub)";
+                    closeAddPhotoModal();
+                    showToast("✅ Tersimpan di HP (GitHub butuh Token valid)");
+                    return;
+                }
+            }
+
+            closeAddPhotoModal();
+            showToast("📸 Foto berhasil ditambahkan ke Galeri!");
+        }
+
+        function copyGalleryCodeForGithub() {
+            const codeStr = JSON.stringify(phoneData.photos, null, 4);
+            const temp = document.createElement("textarea");
+            temp.value = codeStr;
+            document.body.appendChild(temp);
+            temp.select();
+            document.execCommand("copy");
+            temp.remove();
+            showToast("📋 Kode galeriFoto berhasil disalin!");
+        }
+
+        function resetCustomGalleryPhotos() {
+            try { localStorage.removeItem("winterCustomGalleryPhotos"); } catch (e) {}
+            phoneData.photos = JSON.parse(JSON.stringify(PUSAT_KONTEN_HP_WINTER.galeriFoto));
+            refreshAllViews();
+            closeAddPhotoModal();
+            showToast("🔄 Galeri direset ke daftar kode awal");
+        }
+
+        function deleteCurrentPhoto() {
+            if (!currentViewingPhotoId) return;
+            phoneData.photos = phoneData.photos.filter(p => p.id !== currentViewingPhotoId);
+            try {
+                const savedCustom = JSON.parse(localStorage.getItem("winterCustomGalleryPhotos") || "[]");
+                const filteredCustom = savedCustom.filter(p => p.id !== currentViewingPhotoId);
+                localStorage.setItem("winterCustomGalleryPhotos", JSON.stringify(filteredCustom));
+            } catch (e) {}
+            closePhotoViewer();
+            refreshAllViews();
+            showToast("🗑️ Foto dihapus dari Galeri");
+        }
 
         /* ==========================================
            APPLE ID PROFILE PHOTO PICKER FUNCTIONS
@@ -2274,9 +2676,7 @@
         function handleAvatarFileUpload(event) {
             const file = event.target.files && event.target.files[0];
             if (!file) return;
-            const reader = new FileReader();
-            reader.onload = e => setNewProfileAvatar(e.target.result);
-            reader.readAsDataURL(file);
+            compressImageFile(file, 360, dataUrl => setNewProfileAvatar(dataUrl));
         }
 
         function applyAvatarFromUrl() {
@@ -2428,7 +2828,6 @@
             $("#phone").classList.remove("pass");
         };
 
-        // Pointer Drag Swipe-Up on Lockscreen (from KTUAZON script.js)
         const lk = $("#lock");
         let sw0 = null;
         const phoneScaleK = () => ($("#phone").getBoundingClientRect().height || 862) / 862;
@@ -2463,7 +2862,6 @@
         lk.addEventListener("pointerup", endLockSwipe);
         lk.addEventListener("pointercancel", endLockSwipe);
 
-        // Keyboard support for Passcode
         addEventListener("keydown", e => {
             if (e.target && /INPUT|TEXTAREA/.test(e.target.tagName)) return;
             if ($("#pass").classList.contains("on")) {
@@ -2507,7 +2905,6 @@
             if (anyOpen) {
                 closeAllApps();
             } else {
-                // Lock phone when tapping Home Bar on Home Screen (just like KTUAZON!)
                 $("#lock").classList.remove("up");
                 $("#phone").classList.add("locked");
                 $("#hb").style.display = "none";
@@ -2573,7 +2970,7 @@
         /* ==========================================
            5. INTERACTIVE APP 1: PHOTOS (Years / Months / All)
         =========================================== */
-        let photoViewMode = "a"; // 'y' | 'm' | 'a'
+        let photoViewMode = "a";
         let currentViewingPhotoId = null;
 
         function formatPhotoTimestamp(dateStr) {
@@ -2596,6 +2993,7 @@
 
         function renderPhotosApp(specialFilter = null) {
             const w = $("#pgw");
+            if (!w) return;
             let list = [...phoneData.photos];
             if (specialFilter === "Favorit ❤️") {
                 list = list.filter(p => p.fav);
@@ -2611,7 +3009,7 @@
 
             if (photoViewMode === "a") {
                 w.innerHTML = `<div class="pg">` + list.map(p => `
-                    <img onclick="openPhotoViewer(${p.id})" src="${p.url}" alt="${p.album}">
+                    <img onclick="openPhotoViewer(${p.id})" src="${p.url}" onerror="this.src='https://placehold.co/400x520/e2e8f0/475569?text=Upload+File+Ke+GitHub'" alt="${p.album}">
                 `).join("") + `</div>`;
             } else {
                 const groups = {};
@@ -2626,17 +3024,16 @@
                 w.innerHTML = `<div class="pgy">` + Object.keys(groups).map(k => {
                     const items = groups[k];
                     const cover = items[0].url;
-                    return `<div class="yr" onclick="setPhotoViewMode('a')"><img src="${cover}"><b>${k} (${items.length})</b></div>`;
+                    return `<div class="yr" onclick="setPhotoViewMode('a')"><img src="${cover}" onerror="this.src='https://placehold.co/400x520/e2e8f0/475569?text=Upload+File+Ke+GitHub'"><b>${k} (${items.length})</b></div>`;
                 }).join("") + `</div>`;
             }
 
-            // Sync Static Instagram Grid & Wallet Photocards
             const igGrid = $("#igFeedGrid");
             if (igGrid) {
                 $("#igPostCount").textContent = phoneData.photos.length;
                 igGrid.innerHTML = phoneData.photos.map(p => `
                     <div class="aspect-[3/4] bg-slate-100 overflow-hidden">
-                        <img src="${p.url}" class="w-full h-full object-cover" alt="IG">
+                        <img src="${p.url}" onerror="this.src='https://placehold.co/400x520/e2e8f0/475569?text=Winter+Photo'" class="w-full h-full object-cover" alt="IG">
                     </div>
                 `).join("");
             }
@@ -2645,7 +3042,7 @@
             if (walletGrid) {
                 walletGrid.innerHTML = phoneData.photos.map(p => `
                     <div class="rounded-2xl overflow-hidden bg-white/10 border border-white/15">
-                        <img src="${p.url}" class="w-full aspect-[3/4] object-cover" alt="Photocard">
+                        <img src="${p.url}" onerror="this.src='https://placehold.co/400x520/1e293b/94a3b8?text=Winter+PC'" class="w-full aspect-[3/4] object-cover" alt="Photocard">
                         <div class="p-2">
                             <p class="text-[11px] font-bold text-white truncate">${p.album}</p>
                             <p class="text-[9px] text-sky-300">${p.date}</p>
@@ -2668,7 +3065,8 @@
         }
 
         function closePhotoViewer() {
-            $("#photoDetailViewer").classList.add("hidden");
+            const viewer = $("#photoDetailViewer");
+            if (viewer) viewer.classList.add("hidden");
             currentViewingPhotoId = null;
         }
 
@@ -2700,22 +3098,27 @@
                 text: photo.caption || "Lihat foto ini deh! ⭐️",
                 image: photo.url
             });
+            saveThreadsToStorage();
             closePhotoViewer();
             openApp("app-messages");
             openChatThread(thread.id);
             showToast(`📸 Terkirim ke ${thread.name}`);
         }
 
-        /* ==========================================
-           6. INTERACTIVE APP 2: iMESSAGE (KTUAZON Style)
-        =========================================== */
+        /* =====================================================================
+           6. INTERACTIVE APP 2: iMESSAGE + CONTACT EDITOR + 2-WAY FAKE CHAT
+        ===================================================================== */
         let activeThreadId = "karina";
-        let asThem = false;
+        let asThem = false; // false = Winter (Blue/Right), true = Contact (Gray/Left)
+        let editingContactId = null;
+        let editingBubbleIndex = null;
+        let pendingChatPhotoUrl = null;
 
         function renderMessagesApp() {
             const q = ($("#mqInput")?.value || "").toLowerCase();
             const pinnedRow = $("#imessagePinnedRow");
             const listContainer = $("#imessageThreadsList");
+            if (!pinnedRow || !listContainer) return;
 
             const unreadTotal = phoneData.threads.filter(t => t.unread).length;
             $("#topMsgBadge").textContent = unreadTotal || 2;
@@ -2724,30 +3127,41 @@
             $("#munBadge").style.display = unreadTotal ? "inline-block" : "none";
 
             pinnedRow.innerHTML = phoneData.threads.slice(0, 4).map(t => `
-                <button onclick="openChatThread('${t.id}')" class="flex flex-col items-center gap-1 group">
-                    <img src="${t.avatar}" class="w-14 h-14 rounded-full object-cover border border-slate-200 shadow-sm group-hover:scale-105 transition" alt="${t.name}">
-                    <span class="text-[11px] font-semibold text-slate-700 truncate max-w-[68px]">${t.name}</span>
-                </button>
+                <div class="flex flex-col items-center gap-1 relative group">
+                    <div onclick="openChatThread('${t.id}')" class="relative cursor-pointer">
+                        <img src="${t.avatar}" onerror="this.src='https://placehold.co/120x120/bae6fd/0f172a?text=User'" class="w-14 h-14 rounded-full object-cover border border-slate-200 shadow-sm group-hover:scale-105 transition" alt="${t.name}">
+                    </div>
+                    <button onclick="openEditContactModal('${t.id}')" class="absolute top-0 right-1.5 w-5 h-5 rounded-full bg-white/95 text-[#007AFF] shadow border border-slate-200 flex items-center justify-center text-[10px]" title="Ganti Foto & Nama">
+                        ✎
+                    </button>
+                    <span onclick="openChatThread('${t.id}')" class="text-[11px] font-semibold text-slate-700 truncate max-w-[70px] cursor-pointer">${t.name}</span>
+                </div>
             `).join("");
 
             const filtered = phoneData.threads.filter(t =>
                 t.name.toLowerCase().includes(q) ||
-                t.messages.some(m => m.text.toLowerCase().includes(q))
+                t.messages.some(m => (m.text || "").toLowerCase().includes(q))
             );
 
             listContainer.innerHTML = filtered.map(t => {
-                const lastMsg = t.messages[t.messages.length - 1] || { text: "No messages", time: "" };
+                const lastMsg = t.messages[t.messages.length - 1] || { text: "Belum ada pesan", time: "" };
                 return `
-                    <div onclick="openChatThread('${t.id}')" class="mrow">
+                    <div class="mrow group">
                         ${t.unread ? '<i class="ud"></i>' : ''}
-                        <img src="${t.avatar}" class="w-13 h-13 rounded-full object-cover border border-slate-200 shrink-0" style="width:52px;height:52px" alt="${t.name}">
-                        <div class="flex-1 min-w-0 border-b border-slate-100 pb-2.5">
+                        <div onclick="openEditContactModal('${t.id}')" class="relative shrink-0" title="Klik untuk ganti foto profil & nama">
+                            <img src="${t.avatar}" onerror="this.src='https://placehold.co/120x120/bae6fd/0f172a?text=User'" class="rounded-full object-cover border border-slate-200" style="width:52px;height:52px" alt="${t.name}">
+                            <span class="absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full bg-slate-100 text-slate-600 border border-white flex items-center justify-center text-[8px] shadow-sm">✎</span>
+                        </div>
+                        <div onclick="openChatThread('${t.id}')" class="flex-1 min-w-0 border-b border-slate-100 pb-2.5">
                             <div class="flex justify-between items-baseline">
                                 <b class="text-[16px] text-slate-900 truncate">${t.name}</b>
                                 <span class="text-xs text-slate-400 ml-2 shrink-0">${lastMsg.time} ›</span>
                             </div>
-                            <p class="text-[14px] text-slate-500 line-clamp-2 mt-0.5">${lastMsg.text}</p>
+                            <p class="text-[14px] text-slate-500 line-clamp-2 mt-0.5">${lastMsg.image ? '📷 [Foto] ' : ''}${lastMsg.text}</p>
                         </div>
+                        <button onclick="openEditContactModal('${t.id}')" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-sky-100 text-[#007AFF] flex items-center justify-center text-xs shrink-0" title="Ganti Foto & Nama Kontak">
+                            ✎
+                        </button>
                     </div>
                 `;
             }).join("");
@@ -2758,11 +3172,14 @@
             const thread = phoneData.threads.find(t => t.id === threadId);
             if (!thread) return;
             thread.unread = 0;
-            asThem = false;
+            saveThreadsToStorage();
             $("#imessageListScreen").classList.add("hidden");
             $("#imessageChatScreen").classList.remove("hidden");
             $("#activeChatAvatar").src = thread.avatar;
-            $("#activeChatName").textContent = thread.name + " ›";
+            $("#activeChatName").innerHTML = `${thread.name} <i class="fa-solid fa-pen text-[9px] text-[#007AFF] ml-0.5"></i>`;
+            $("#lblRoleThemName").textContent = thread.name;
+            setSenderRole(false);
+            clearPendingChatPhoto();
             renderActiveChatMessages();
             renderMessagesApp();
         }
@@ -2773,14 +3190,32 @@
             renderMessagesApp();
         }
 
-        function toggleSenderRole() {
-            asThem = !asThem;
-            const banner = $("#mwhoBanner");
-            if (asThem) {
-                banner.classList.remove("hidden");
+        function setSenderRole(sendAsThem) {
+            asThem = !!sendAsThem;
+            const thread = phoneData.threads.find(t => t.id === activeThreadId);
+            const partnerName = thread ? thread.name : "Lawan Bicara";
+            $("#lblRoleThemName").textContent = partnerName;
+
+            const btnMe = $("#btnRoleMe");
+            const btnThem = $("#btnRoleThem");
+            const input = $("#imessageInput");
+            const sendBtn = $("#btnSendImessage");
+
+            if (!asThem) {
+                btnMe.className = "py-1 px-2 rounded-[10px] text-[11px] font-bold bg-[#007AFF] text-white shadow-sm truncate transition";
+                btnThem.className = "py-1 px-2 rounded-[10px] text-[11px] font-semibold text-slate-700 truncate transition";
+                if (input) input.placeholder = "Kirim pesan sbg Winter (Biru)...";
+                if (sendBtn) sendBtn.className = "gb w-10 h-10 p-0 bg-[#0a84ff] text-white border-0 shrink-0";
             } else {
-                banner.classList.add("hidden");
+                btnThem.className = "py-1 px-2 rounded-[10px] text-[11px] font-bold bg-slate-700 text-white shadow-sm truncate transition";
+                btnMe.className = "py-1 px-2 rounded-[10px] text-[11px] font-semibold text-slate-700 truncate transition";
+                if (input) input.placeholder = `Kirim balasan sbg ${partnerName} (Abu)...`;
+                if (sendBtn) sendBtn.className = "gb w-10 h-10 p-0 bg-slate-700 text-white border-0 shrink-0";
             }
+        }
+
+        function toggleSenderRole() {
+            setSenderRole(!asThem);
         }
 
         function renderActiveChatMessages() {
@@ -2788,16 +3223,16 @@
             if (!thread) return;
             const box = $("#activeChatMessages");
             let lastTime = "";
-            box.innerHTML = thread.messages.map(m => {
+            box.innerHTML = thread.messages.map((m, idx) => {
                 const showSep = m.time && m.time !== lastTime;
                 lastTime = m.time;
                 const isMe = m.from === "me";
                 return `
                     ${showSep ? `<div class="sepl">${m.time}</div>` : ''}
-                    <div class="mw ${isMe ? 'me' : 'rc'}">
-                        <div class="bb">
-                            ${m.image ? `<img src="${m.image}" onclick="zoomChatPhoto('${m.image}')" class="message-photo" alt="Photo">` : ''}
-                            <div>${m.text}</div>
+                    <div class="mw ${isMe ? 'me' : 'rc'} group">
+                        <div onclick="openChatBubbleEditModal(${idx})" class="bb cursor-pointer hover:brightness-95 transition" title="Klik gelembung ini untuk Edit / Hapus pesan">
+                            ${m.image ? `<img src="${m.image}" onclick="event.stopPropagation(); zoomChatPhoto('${m.image}')" class="message-photo" alt="Photo">` : ''}
+                            ${m.text ? `<div>${m.text}</div>` : ''}
                         </div>
                     </div>
                 `;
@@ -2819,18 +3254,309 @@
         function sendImessage() {
             const input = $("#imessageInput");
             const text = input.value.trim();
-            if (!text) return;
+            if (!text && !pendingChatPhotoUrl) return;
             const thread = phoneData.threads.find(t => t.id === activeThreadId);
             if (!thread) return;
             const now = new Date();
             const hm = p2(now.getHours()) + ":" + p2(now.getMinutes());
-            thread.messages.push({
+            const msgObj = {
                 from: asThem ? "them" : "me",
                 time: "Today " + hm,
-                text
-            });
+                text: text
+            };
+            if (pendingChatPhotoUrl) {
+                msgObj.image = pendingChatPhotoUrl;
+            }
+            thread.messages.push(msgObj);
             input.value = "";
+            clearPendingChatPhoto();
+            saveThreadsToStorage();
             renderActiveChatMessages();
+            renderMessagesApp();
+            renderStaticApps();
+        }
+
+        /* =========================================================
+           CONTACT PROFILE PICTURE & NAME EDITOR MODAL FUNCTIONS
+        ========================================================== */
+        function populateContactQuickGallery() {
+            const grid = $("#contactAvatarQuickGallery");
+            if (!grid) return;
+            grid.innerHTML = phoneData.photos.map(p => `
+                <img onclick="previewContactUrlAvatar('${p.url}')" src="${p.url}" onerror="this.style.display='none'" class="w-11 h-11 rounded-full object-cover border-2 border-slate-200 cursor-pointer hover:border-[#007AFF] shrink-0 transition" alt="pick">
+            `).join("");
+        }
+
+        function openEditContactModal(threadId) {
+            const thread = phoneData.threads.find(t => t.id === threadId);
+            if (!thread) return;
+            editingContactId = threadId;
+            $("#contactModalTitle").textContent = "Edit Foto Profil & Nama";
+            $("#editContactAvatarPreview").src = thread.avatar;
+            $("#editContactNameInput").value = thread.name;
+            $("#editContactRoleInput").value = thread.role || "Kontak Winter";
+            $("#editContactAvatarUrlInput").value = thread.avatar.startsWith("data:") ? "" : thread.avatar;
+            $("#btnClearThreadMsgs").classList.remove("hidden");
+            $("#btnDeleteThread").classList.remove("hidden");
+            populateContactQuickGallery();
+            $("#contactEditorModal").classList.remove("hidden");
+        }
+
+        function openNewContactModal() {
+            editingContactId = null;
+            const defaultAv = phoneData.photos[0] ? phoneData.photos[0].url : PUSAT_KONTEN_HP_WINTER.fotoProfilWinter;
+            $("#contactModalTitle").textContent = "＋ Tambah Kontak Fake Chat";
+            $("#editContactAvatarPreview").src = defaultAv;
+            $("#editContactNameInput").value = "";
+            $("#editContactRoleInput").value = "Member aespa / Teman";
+            $("#editContactAvatarUrlInput").value = "";
+            $("#btnClearThreadMsgs").classList.add("hidden");
+            $("#btnDeleteThread").classList.add("hidden");
+            populateContactQuickGallery();
+            $("#contactEditorModal").classList.remove("hidden");
+        }
+
+        function closeContactEditorModal() {
+            $("#contactEditorModal").classList.add("hidden");
+        }
+
+        function previewContactUrlAvatar(url) {
+            if (!url) return;
+            $("#editContactAvatarPreview").src = url;
+            $("#editContactAvatarUrlInput").value = url.startsWith("data:") ? "" : url;
+        }
+
+        function handleContactAvatarUpload(e) {
+            const file = e.target.files && e.target.files[0];
+            if (!file) return;
+            compressImageFile(file, 320, dataUrl => {
+                $("#editContactAvatarPreview").src = dataUrl;
+                $("#editContactAvatarUrlInput").value = "";
+            });
+        }
+
+        function saveContactChanges() {
+            const name = $("#editContactNameInput").value.trim();
+            if (!name) {
+                showToast("⚠️ Nama kontak tidak boleh kosong!");
+                return;
+            }
+            const role = $("#editContactRoleInput").value.trim() || "Kontak Winter";
+            const avatarSrc = $("#editContactAvatarUrlInput").value.trim() || $("#editContactAvatarPreview").src;
+
+            if (editingContactId) {
+                const thread = phoneData.threads.find(t => t.id === editingContactId);
+                if (thread) {
+                    thread.name = name;
+                    thread.role = role;
+                    thread.avatar = avatarSrc;
+                }
+                if (activeThreadId === editingContactId) {
+                    $("#activeChatAvatar").src = avatarSrc;
+                    $("#activeChatName").innerHTML = `${name} <i class="fa-solid fa-pen text-[9px] text-[#007AFF] ml-0.5"></i>`;
+                    $("#lblRoleThemName").textContent = name;
+                }
+                showToast(`✅ Profil ${name} diperbarui!`);
+            } else {
+                const newId = "chat_" + Date.now();
+                phoneData.threads.unshift({
+                    id: newId,
+                    name: name,
+                    role: role,
+                    unread: 1,
+                    pinned: true,
+                    avatar: avatarSrc,
+                    messages: [
+                        { from: "them", time: "Today Just now", text: `Halo Minjeong-ah! 👋` }
+                    ]
+                });
+                activeThreadId = newId;
+                showToast(`💬 Kontak ${name} ditambahkan!`);
+            }
+
+            saveThreadsToStorage();
+            renderMessagesApp();
+            renderStaticApps();
+            closeContactEditorModal();
+        }
+
+        function clearCurrentThreadMessages() {
+            if (!editingContactId) return;
+            const thread = phoneData.threads.find(t => t.id === editingContactId);
+            if (!thread) return;
+            thread.messages = [];
+            saveThreadsToStorage();
+            renderActiveChatMessages();
+            renderMessagesApp();
+            closeContactEditorModal();
+            showToast(`🧹 Riwayat chat ${thread.name} dibersihkan!`);
+        }
+
+        function deleteCurrentContactThread() {
+            if (!editingContactId) return;
+            if (phoneData.threads.length <= 1) {
+                showToast("⚠️ Sisakan minimal 1 kontak di Messages!");
+                return;
+            }
+            phoneData.threads = phoneData.threads.filter(t => t.id !== editingContactId);
+            saveThreadsToStorage();
+            closeContactEditorModal();
+            backToMessagesList();
+            renderStaticApps();
+            showToast("🗑️ Kontak berhasil dihapus");
+        }
+
+        function resetAllChatsToDefault() {
+            try { localStorage.removeItem("winterCustomThreads"); } catch (e) {}
+            phoneData.threads = JSON.parse(JSON.stringify(PUSAT_KONTEN_HP_WINTER.daftarChat));
+            closeContactEditorModal();
+            backToMessagesList();
+            renderStaticApps();
+            showToast("🔄 Semua kontak & chat direset ke awal");
+        }
+
+        /* =========================================================
+           EDIT / DELETE INDIVIDUAL CHAT BUBBLE MODAL
+        ========================================================== */
+        function openChatBubbleEditModal(msgIndex) {
+            const thread = phoneData.threads.find(t => t.id === activeThreadId);
+            if (!thread || !thread.messages[msgIndex]) return;
+            editingBubbleIndex = msgIndex;
+            const msg = thread.messages[msgIndex];
+            $("#editBubbleSenderSelect").value = msg.from === "me" ? "me" : "them";
+            $("#editBubbleTimeInput").value = msg.time || "Today 13:15";
+            $("#editBubbleTextInput").value = msg.text || "";
+            $("#chatBubbleEditModal").classList.remove("hidden");
+        }
+
+        function closeChatBubbleEditModal() {
+            $("#chatBubbleEditModal").classList.add("hidden");
+            editingBubbleIndex = null;
+        }
+
+        function saveSelectedChatBubble() {
+            const thread = phoneData.threads.find(t => t.id === activeThreadId);
+            if (!thread || editingBubbleIndex === null || !thread.messages[editingBubbleIndex]) return;
+            const msg = thread.messages[editingBubbleIndex];
+            msg.from = $("#editBubbleSenderSelect").value;
+            msg.time = $("#editBubbleTimeInput").value.trim() || msg.time;
+            msg.text = $("#editBubbleTextInput").value.trim();
+            saveThreadsToStorage();
+            renderActiveChatMessages();
+            renderMessagesApp();
+            closeChatBubbleEditModal();
+            showToast("✏️ Pesan berhasil diedit!");
+        }
+
+        function deleteSelectedChatBubble() {
+            const thread = phoneData.threads.find(t => t.id === activeThreadId);
+            if (!thread || editingBubbleIndex === null) return;
+            thread.messages.splice(editingBubbleIndex, 1);
+            saveThreadsToStorage();
+            renderActiveChatMessages();
+            renderMessagesApp();
+            closeChatBubbleEditModal();
+            showToast("🗑️ Pesan dihapus");
+        }
+
+        /* =========================================================
+           SEND PHOTO IN FAKE CHAT MODAL
+        ========================================================== */
+        function openChatPhotoModal() {
+            $("#chatPhotoUrlInput").value = "";
+            const grid = $("#chatPhotoQuickGallery");
+            if (grid) {
+                grid.innerHTML = phoneData.photos.map(p => `
+                    <img onclick="attachPhotoToChatComposer('${p.url}')" src="${p.url}" onerror="this.style.display='none'" class="w-full aspect-square object-cover rounded-xl cursor-pointer border border-slate-200 hover:border-[#007AFF] transition" alt="pick">
+                `).join("");
+            }
+            $("#chatPhotoModal").classList.remove("hidden");
+        }
+
+        function closeChatPhotoModal() {
+            $("#chatPhotoModal").classList.add("hidden");
+        }
+
+        function attachPhotoToChatComposer(url) {
+            if (!url) return;
+            pendingChatPhotoUrl = url;
+            $("#chatPendingImgThumb").src = url;
+            const bar = $("#chatImageAttachmentPreview");
+            bar.classList.remove("hidden");
+            bar.classList.add("flex");
+            closeChatPhotoModal();
+        }
+
+        function clearPendingChatPhoto() {
+            pendingChatPhotoUrl = null;
+            const bar = $("#chatImageAttachmentPreview");
+            if (bar) {
+                bar.classList.add("hidden");
+                bar.classList.remove("flex");
+            }
+        }
+
+        function handleChatPhotoUpload(e) {
+            const file = e.target.files && e.target.files[0];
+            if (!file) return;
+            compressImageFile(file, 640, dataUrl => attachPhotoToChatComposer(dataUrl));
+        }
+
+        function selectChatPhotoFromUrl() {
+            const url = $("#chatPhotoUrlInput").value.trim();
+            if (!url) {
+                showToast("⚠️ Tempel Link URL foto terlebih dahulu!");
+                return;
+            }
+            attachPhotoToChatComposer(url);
+        }
+
+        async function pushChatsToGithubRepo() {
+            const repo = localStorage.getItem("winterGhRepo") || "danilalfath/winter-phone";
+            const token = localStorage.getItem("winterGhToken") || "";
+            if (!token) {
+                const codeStr = JSON.stringify(phoneData.threads, null, 4);
+                const temp = document.createElement("textarea");
+                temp.value = codeStr;
+                document.body.appendChild(temp);
+                temp.select();
+                document.execCommand("copy");
+                temp.remove();
+                showToast("📋 JSON daftarChat disalin ke Clipboard!");
+                return;
+            }
+            try {
+                showToast("⏳ Menyimpan daftarChat ke GitHub...");
+                const apiUrl = `https://api.github.com/repos/${repo}/contents/index.html`;
+                const resGet = await fetch(apiUrl, {
+                    headers: { "Authorization": `Bearer ${token}`, "Accept": "application/vnd.github+json" }
+                });
+                if (!resGet.ok) throw new Error("Gagal akses GitHub");
+                const fileData = await resGet.json();
+                const decoded = decodeURIComponent(escape(atob(fileData.content.replace(/\n/g, ""))));
+                const regex = /daftarChat:\s*\[[\s\S]*?\],\s*\n\s*\/\/\s*7\.\s*DAFTAR CATATAN/;
+                if (!regex.test(decoded)) throw new Error("Blok daftarChat tidak ditemukan");
+                const replacement = `daftarChat: ${JSON.stringify(phoneData.threads, null, 16)},\n\n            // 7. DAFTAR CATATAN`;
+                const updated = decoded.replace(regex, replacement);
+                const encoded = btoa(unescape(encodeURIComponent(updated)));
+                const resPut = await fetch(apiUrl, {
+                    method: "PUT",
+                    headers: {
+                        "Authorization": `Bearer ${token}`,
+                        "Accept": "application/vnd.github+json",
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        message: "Update daftarChat & profil kontak HP Winter",
+                        content: encoded,
+                        sha: fileData.sha
+                    })
+                });
+                if (!resPut.ok) throw new Error("Gagal commit");
+                showToast("🚀 Semua Chat & Profil Tersimpan di GitHub!");
+            } catch (e) {
+                showToast("⚠️ Gagal push GitHub, JSON disalin ke clipboard");
+            }
         }
 
         /* ==========================================
@@ -2991,25 +3717,25 @@
            9. MASTER INITIALIZATION
         =========================================== */
         function refreshAllViews() {
-            $("#passHintText").textContent = phoneData.passcode;
-            $("#lock").style.backgroundImage = `url('${phoneData.wallpaperLock || phoneData.wallpaper}')`;
-            $("#iosHomeScreen").style.backgroundImage = `url('${phoneData.wallpaper}')`;
+            if ($("#passHintText")) $("#passHintText").textContent = phoneData.passcode;
+            if ($("#lock")) $("#lock").style.backgroundImage = `url('${phoneData.wallpaperLock || phoneData.wallpaper}')`;
+            if ($("#iosHomeScreen")) $("#iosHomeScreen").style.backgroundImage = `url('${phoneData.wallpaper}')`;
 
             if (phoneData.avatar) {
-                $("#igProfileAvatar").src = phoneData.avatar;
-                $("#settingsAvatarImg").src = phoneData.avatar;
-                $("#walletAvatarImg").src = phoneData.avatar;
+                if ($("#igProfileAvatar")) $("#igProfileAvatar").src = phoneData.avatar;
+                if ($("#settingsAvatarImg")) $("#settingsAvatarImg").src = phoneData.avatar;
+                if ($("#walletAvatarImg")) $("#walletAvatarImg").src = phoneData.avatar;
             }
 
             if (phoneData.weather) {
-                $("#widgetWeatherCity").textContent = phoneData.weather.kota;
-                $("#widgetWeatherTemp").textContent = phoneData.weather.suhu;
-                $("#widgetWeatherCond").textContent = phoneData.weather.kondisi;
-                $("#widgetWeatherHL").textContent = phoneData.weather.tinggiRendah;
-                $("#weatherAppCity").textContent = phoneData.weather.kota;
-                $("#weatherAppTemp").textContent = phoneData.weather.suhu;
-                $("#weatherAppCond").textContent = phoneData.weather.kondisi;
-                $("#weatherAppHL").textContent = phoneData.weather.tinggiRendah;
+                if ($("#widgetWeatherCity")) $("#widgetWeatherCity").textContent = phoneData.weather.kota;
+                if ($("#widgetWeatherTemp")) $("#widgetWeatherTemp").textContent = phoneData.weather.suhu;
+                if ($("#widgetWeatherCond")) $("#widgetWeatherCond").textContent = phoneData.weather.kondisi;
+                if ($("#widgetWeatherHL")) $("#widgetWeatherHL").textContent = phoneData.weather.tinggiRendah;
+                if ($("#weatherAppCity")) $("#weatherAppCity").textContent = phoneData.weather.kota;
+                if ($("#weatherAppTemp")) $("#weatherAppTemp").textContent = phoneData.weather.suhu;
+                if ($("#weatherAppCond")) $("#weatherAppCond").textContent = phoneData.weather.kondisi;
+                if ($("#weatherAppHL")) $("#weatherAppHL").textContent = phoneData.weather.tinggiRendah;
             }
 
             renderPhotosApp();
