@@ -3,13 +3,219 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Winter's iPhone 16 Pro ❄️ | iOS 18 Simulator</title>
+    <title>Winter's Phone</title>
+
+    <!-- ====================================================================================
+         🌟 PUSAT PENGATURAN ISI HP WINTER (SEMUA LINK GAMBAR & KONTEN ADA DI SINI) 🌟
+         Petunjuk:
+         - Anda TIDAK PERLU geser (scroll) jauh ke bawah untuk mengedit isi HP.
+         - Cukup ganti atau tambahkan link gambar/teks di dalam bagian ini saja!
+    ===================================================================================== -->
+    <script>
+        const PUSAT_KONTEN_HP_WINTER = {
+
+            // 1. GANTI WALLPAPER LOCK SCREEN & HOME SCREEN:
+            // <--- TEMPEL LINK GAMBAR WALLPAPER LOCK SCREEN DI SINI
+            wallpaperLockScreen: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=900&q=80',
+
+            // <--- TEMPEL LINK GAMBAR WALLPAPER HOME SCREEN DI SINI
+            wallpaperHomeScreen: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=900&q=80',
+
+            // 2. GANTI FOTO PROFIL UTAMA WINTER (Dipakai di Instagram, Apple ID & Chat):
+            // <--- TEMPEL LINK FOTO PROFIL WINTER DI SINI
+            fotoProfilWinter: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80',
+
+            // 3. PENGATURAN WIDGET CUACA KIRI ATAS (Sesuai Referensi iOS):
+            cuaca: {
+                kota: 'Seoul',             // <--- GANTI NAMA KOTA DI SINI
+                suhu: '47°',               // <--- GANTI ANGKA SUHU DI SINI (Misal: '-2°' atau '47°')
+                kondisi: 'Windy',          // <--- GANTI KONDISI CUACA DI SINI
+                tinggiRendah: 'H:56° L:39°'// <--- GANTI SUHU TERTINGGI/TERENDAH DI SINI
+            },
+
+            // 4. DAFTAR FOTO GALERI (Otomatis tampil di aplikasi Photos, Instagram & Camera):
+            // CARA MENAMBAH FOTO BARU:
+            // Copy-paste 1 blok { ... }, di bawah ini lalu ganti bagian url, album, date, dan caption.
+            galeriFoto: [
+                // <--- TAMBAHKAN LINK DI SINI UNTUK MENAMBAH FOTO BARU KE GALERI (Blok Foto 1)
+                {
+                    id: 1,
+                    url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80', // <--- TEMPEL LINK FOTO 1 DI SINI
+                    album: 'Selca ❄️',
+                    date: '3 Nov 2026',
+                    fav: true,
+                    caption: 'Selesai rekaman di studio! MYs sudah makan malam belum? Jangan sampai telat makan yaa ⭐️❄️'
+                },
+                // <--- Blok Foto 2
+                {
+                    id: 2,
+                    url: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80', // <--- TEMPEL LINK FOTO 2 DI SINI
+                    album: 'Stage ⭐',
+                    date: '29 Okt 2026',
+                    fav: true,
+                    caption: 'Backstage SYNK: PARALLEL LINE! Senang banget bisa tampil membawakan lagu solo Spark sambil pegang gitar biru favoritku 🎸💙'
+                },
+                // <--- Blok Foto 3
+                {
+                    id: 3,
+                    url: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=600&q=80', // <--- TEMPEL LINK FOTO 3 DI SINI
+                    album: 'aespa 🦋',
+                    date: '21 Okt 2026',
+                    fav: true,
+                    caption: 'Mirror selfie bareng Karina unnie, Giselle unnie & Ningning sehabis latihan Whiplash! 🌶️⭐️🌙🦋'
+                },
+                // <--- Blok Foto 4
+                {
+                    id: 4,
+                    url: 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=600&q=80', // <--- TEMPEL LINK FOTO 4 DI SINI
+                    album: 'Daily 🐶',
+                    date: '14 Okt 2026',
+                    fav: false,
+                    caption: 'Ketemu anak anjing Maltese lucu banget waktu jalan sore!! Mirip aku nggak kata MYs? 🐶🤍'
+                },
+                // <--- Blok Foto 5
+                {
+                    id: 5,
+                    url: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=600&q=80', // <--- TEMPEL LINK FOTO 5 DI SINI
+                    album: 'Stage ⭐',
+                    date: '2 Okt 2026',
+                    fav: true,
+                    caption: 'Lautan lightstick MYs dari atas panggung selalu kelihatan seperti bintang di galaksi ✨'
+                },
+                // <--- Blok Foto 6
+                {
+                    id: 6,
+                    url: 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=600&q=80', // <--- TEMPEL LINK FOTO 6 DI SINI
+                    album: 'Daily 🐶',
+                    date: '19 Sep 2026',
+                    fav: false,
+                    caption: 'Traktiran es krim mint choco porsi ekstra sehabis jadwal pemotretan! Tim Mint Choco mana suaranya~ 🍦🌿'
+                }
+                // <--- TEMPEL BLOK FOTO BARU DI ATAS BARIS INI (Jangan lupa beri tanda koma sebelumnya)
+            ],
+
+            // 5. DAFTAR LAGU APPLE MUSIC (Bisa diisi link MP3 asli pada bagian audioUrl):
+            daftarLagu: [
+                {
+                    title: 'Spark (Winter Solo)',
+                    artist: 'Winter • SYNK: PARALLEL LINE',
+                    cover: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=400&q=80', // <--- LINK COVER LAGU 1
+                    lyrics: 'Tiny little spark, menyala terang di tengah dinginnya malam...',
+                    duration: '03:18',
+                    audioUrl: '' // <--- TEMPEL LINK FILE MP3 DI SINI JIKA ADA
+                },
+                {
+                    title: 'Whiplash',
+                    artist: 'aespa • The 5th Mini Album',
+                    cover: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=400&q=80', // <--- LINK COVER LAGU 2
+                    lyrics: 'One look give \'em Whiplash! Beat drop with a big flash...',
+                    duration: '03:03',
+                    audioUrl: ''
+                },
+                {
+                    title: 'Supernova',
+                    artist: 'aespa • Armageddon',
+                    cover: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=400&q=80', // <--- LINK COVER LAGU 3
+                    lyrics: 'Su-su-su-Supernova! Nova, can\'t stop hyperstellar...',
+                    duration: '02:58',
+                    audioUrl: ''
+                },
+                {
+                    title: 'Armageddon',
+                    artist: 'aespa • The 1st Album',
+                    cover: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=400&q=80',
+                    lyrics: 'I\'ma get \'em, Shoot! Watch Uh, Imma bite back...',
+                    duration: '03:16',
+                    audioUrl: ''
+                }
+            ],
+
+            // 6. DAFTAR CHAT iMESSAGE & BUBBLE:
+            daftarChat: [
+                {
+                    id: 'karina',
+                    name: 'Karina 💙',
+                    role: 'Member aespa',
+                    pinned: true,
+                    avatar: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=200&q=80', // <--- LINK FOTO PROFIL KARINA
+                    voiceLine: 'Minjeong-ah! Aku sudah pesan tteokbokki buat kita makan di ruang latihan yaa~ 💙',
+                    messages: [
+                        { from: 'them', time: '13:10', text: 'Minjeong-ah, kamu sudah berangkat ke gedung SM?' },
+                        { from: 'me', time: '13:12', text: 'Sudah di mobil unnie! Aku lagi mampir beli tanghulu stroberi sebentar 🍓' },
+                        { from: 'them', time: '13:14', text: 'Asik!! Jangan lupa bawa jaket tebal ya, di luar lagi dingin banget ❄️' }
+                    ]
+                },
+                {
+                    id: 'ningning',
+                    name: 'Ningning 🦋',
+                    role: 'Maknae aespa',
+                    pinned: true,
+                    avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=200&q=80', // <--- LINK FOTO PROFIL NINGNING
+                    voiceLine: 'Unnie!! Ayo malam ini kita makan hotpot bareng lagi! 🦋🍲',
+                    messages: [
+                        { from: 'them', time: '11:40', text: 'Winter unnie! Lihat deh foto kucing lucu yang baru aku temuin 🐱' },
+                        { from: 'me', time: '11:42', text: 'Lucu bangeet!! Nanti sore kita latihan vokal bareng kan?' },
+                        { from: 'them', time: '11:45', text: 'Iya dong! Nitip kopi es americano satu yaa unnie hehe ☕️' }
+                    ]
+                },
+                {
+                    id: 'giselle',
+                    name: 'Giselle 🌙',
+                    role: 'Member aespa',
+                    pinned: true,
+                    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80', // <--- LINK FOTO PROFIL GISELLE
+                    voiceLine: 'That’s hot! Minjeong, lagu baru yang kamu rekomendasikan enak banget didengar! 🌙🎧',
+                    messages: [
+                        { from: 'them', time: 'Kemarin', text: 'Minjeong, headphone kamu ketinggalan di sofa ruang tunggu nih 🎧' },
+                        { from: 'me', time: 'Kemarin', text: 'Astaga untung unnie lihat!! Tolong simpankan dulu yaa Aeri unnie 🤍' }
+                    ]
+                },
+                {
+                    id: 'bubble',
+                    name: 'MYs Bubble 🫧',
+                    role: 'DearU bubble Official',
+                    pinned: true,
+                    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
+                    voiceLine: 'Kami selalu mendukungmu setiap hari, Kim Minjeong! ⭐️❄️',
+                    messages: [
+                        { from: 'me', time: '21:00', text: 'MYs~~ lagi ngapain sekarang?? ❄️' },
+                        { from: 'me', time: '21:01', text: 'Hari ini udaranya dingin, jangan lupa pakai selimut hangat ya waktu tidur!' },
+                        { from: 'them', time: '21:02', text: 'Minjeong-ah! Kami lagi streaming lagu Spark & Whiplash nih! ⭐️' }
+                    ]
+                }
+            ],
+
+            // 7. DAFTAR CATATAN HARIAN (Aplikasi Notes & Reminders):
+            daftarCatatan: [
+                {
+                    id: 101,
+                    title: '🍓 Daftar Camilan & Wishlist Winter',
+                    date: 'Hari ini • 18:30',
+                    body: '1. Tanghulu stroberi & anggur hijau\n2. Es krim Mint Choco 2 cup\n3. Tteokbokki rose level sedang bareng member\n4. Susu pisang dingin sehabis latihan dance'
+                },
+                {
+                    id: 102,
+                    title: '🎸 Catatan Latihan Gitar Konser',
+                    date: 'Kemarin • 21:15',
+                    body: 'Jangan lupa cek tuning gitar elektrik biru sebelum soundcheck. Latihan bagian solo intro lagu Spark & Armageddon Rock Version!'
+                },
+                {
+                    id: 103,
+                    title: '💌 Surat Kecil untuk MYs',
+                    date: '1 Januari • 00:01',
+                    body: 'Terima kasih sudah selalu menjadi musim semi yang hangat buat Winter. Ayo terus buat kenangan indah bersama-sama! ⭐️❄️'
+                }
+            ]
+        };
+    </script>
+    <!-- ================= AKHIR DARI PUSAT PENGATURAN ISI HP WINTER ================= -->
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome 6 Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Inter & SF Pro Display style fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -35,7 +241,6 @@
             user-select: none;
         }
 
-        /* Hide scrollbars inside iOS screens */
         .no-scrollbar::-webkit-scrollbar {
             display: none;
         }
@@ -68,7 +273,6 @@
                 0 0 70px rgba(186, 230, 253, 0.95);
         }
 
-        /* Inner Black Bezel */
         .iphone-bezel {
             width: 100%;
             height: 100%;
@@ -79,7 +283,6 @@
             box-shadow: inset 0 0 4px rgba(255,255,255,0.16);
         }
 
-        /* Top Earpiece Speaker Slit */
         .earpiece-slit {
             position: absolute;
             top: 4px;
@@ -92,7 +295,6 @@
             z-index: 80;
         }
 
-        /* Actual OLED Display Area */
         .iphone-display {
             width: 100%;
             height: 100%;
@@ -105,53 +307,28 @@
             transition: background-image 0.4s ease, filter 0.2s ease;
         }
 
-        /* Physical Side Buttons (Titanium) */
+        /* Physical Side Buttons */
         .hw-btn {
             position: absolute;
             background: linear-gradient(180deg, #e4e4e7, #71717a, #a1a1aa);
             box-shadow: -1px 0 2px rgba(0,0,0,0.55);
             cursor: pointer;
         }
-        .hw-action-btn {
-            left: -3.5px;
-            top: 128px;
-            width: 3.5px;
-            height: 30px;
-            border-radius: 4px 0 0 4px;
-        }
-        .hw-vol-up {
-            left: -3.5px;
-            top: 178px;
-            width: 3.5px;
-            height: 56px;
-            border-radius: 4px 0 0 4px;
-        }
-        .hw-vol-down {
-            left: -3.5px;
-            top: 246px;
-            width: 3.5px;
-            height: 56px;
-            border-radius: 4px 0 0 4px;
-        }
-        .hw-power-btn {
-            right: -3.5px;
-            top: 205px;
-            width: 3.5px;
-            height: 86px;
-            border-radius: 0 4px 4px 0;
-            box-shadow: 1px 0 2px rgba(0,0,0,0.55);
-        }
+        .hw-action-btn { left: -3.5px; top: 128px; width: 3.5px; height: 30px; border-radius: 4px 0 0 4px; }
+        .hw-vol-up { left: -3.5px; top: 178px; width: 3.5px; height: 56px; border-radius: 4px 0 0 4px; }
+        .hw-vol-down { left: -3.5px; top: 246px; width: 3.5px; height: 56px; border-radius: 4px 0 0 4px; }
+        .hw-power-btn { right: -3.5px; top: 205px; width: 3.5px; height: 86px; border-radius: 0 4px 4px 0; box-shadow: 1px 0 2px rgba(0,0,0,0.55); }
 
         /* ==========================================
-           iOS 18 DYNAMIC ISLAND
+           iOS DYNAMIC ISLAND (Matches Reference Image)
         =========================================== */
         .dynamic-island {
             position: absolute;
             top: 11px;
             left: 50%;
             transform: translateX(-50%);
-            width: 122px;
-            height: 35px;
+            width: 168px;
+            height: 36px;
             background: #000000;
             border-radius: 24px;
             z-index: 92;
@@ -161,17 +338,17 @@
             padding: 0 11px;
             cursor: pointer;
             transition: all 0.42s cubic-bezier(0.32, 1.45, 0.58, 1);
-            box-shadow: 0 6px 18px rgba(0,0,0,0.5), inset 0 0 1px rgba(255,255,255,0.22);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.45);
             overflow: hidden;
         }
 
         .dynamic-island:hover {
-            transform: translateX(-50%) scale(1.03);
+            transform: translateX(-50%) scale(1.02);
         }
 
         .dynamic-island.expanded {
             width: 344px;
-            height: 150px;
+            height: 152px;
             border-radius: 38px;
             padding: 16px 18px;
             background: rgba(10, 10, 14, 0.96);
@@ -180,110 +357,102 @@
             box-shadow: 0 24px 48px rgba(0,0,0,0.75), inset 0 1px 0 rgba(255,255,255,0.2);
         }
 
-        /* Front Camera Lens Reflection inside Island */
         .island-camera-dot {
             width: 11px;
             height: 11px;
             border-radius: 50%;
-            background: radial-gradient(circle at 35% 35%, #2563eb 0%, #0f172a 55%, #000 100%);
-            border: 1.5px solid #18181b;
+            background: radial-gradient(circle at 35% 35%, #1e3a8a 0%, #090d16 65%, #000 100%);
+            border: 1.5px solid #141418;
             flex-shrink: 0;
         }
 
-        /* Equalizer Animation in Dynamic Island */
-        @keyframes eqBar {
-            0%, 100% { height: 4px; }
-            50% { height: 13px; }
-        }
-        .eq-bar {
-            width: 2.5px;
-            background: #38bdf8;
-            border-radius: 2px;
-            display: inline-block;
-            animation: eqBar 0.7s ease-in-out infinite;
-            animation-play-state: paused;
-        }
-        .eq-playing .eq-bar {
-            animation-play-state: running;
-        }
-        .eq-bar:nth-child(2) { animation-delay: 0.2s; background: #a855f7; }
-        .eq-bar:nth-child(3) { animation-delay: 0.4s; background: #38bdf8; }
-        .eq-bar:nth-child(4) { animation-delay: 0.1s; background: #ec4899; }
-
         /* =========================================================
-           AUTHENTIC APPLE iOS 18 FROSTED GLASSMORPHISM MATERIALS
+           AUTHENTIC APPLE iOS FROSTED GLASSMORPHISM & SQUIRCLES
         ========================================================== */
         .ios-blur {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.26) 0%, rgba(255, 255, 255, 0.14) 100%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.14) 100%);
             backdrop-filter: blur(36px) saturate(200%) brightness(1.05);
             -webkit-backdrop-filter: blur(36px) saturate(200%) brightness(1.05);
-            border: 1px solid rgba(255, 255, 255, 0.26);
-            box-shadow:
-                inset 0 1px 0 0 rgba(255, 255, 255, 0.38),
-                0 10px 28px rgba(0, 0, 0, 0.22);
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.38), 0 10px 28px rgba(0, 0, 0, 0.22);
         }
 
         .ios-blur-dark {
-            background: linear-gradient(145deg, rgba(38, 40, 52, 0.62) 0%, rgba(20, 22, 30, 0.54) 100%);
+            background: linear-gradient(145deg, rgba(38, 40, 52, 0.65) 0%, rgba(20, 22, 30, 0.56) 100%);
             backdrop-filter: blur(40px) saturate(210%);
             -webkit-backdrop-filter: blur(40px) saturate(210%);
             border: 1px solid rgba(255, 255, 255, 0.18);
-            box-shadow:
-                inset 0 1px 0 0 rgba(255, 255, 255, 0.26),
-                0 12px 32px rgba(0, 0, 0, 0.34);
+            box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.26), 0 12px 32px rgba(0, 0, 0, 0.34);
         }
 
-        /* iOS Control Center Module Glass */
         .cc-module {
-            background: rgba(34, 36, 46, 0.52);
+            background: rgba(34, 36, 46, 0.54);
             backdrop-filter: blur(38px) saturate(200%);
             -webkit-backdrop-filter: blur(38px) saturate(200%);
             border: 1px solid rgba(255, 255, 255, 0.16);
-            box-shadow:
-                inset 0 1px 0 0 rgba(255, 255, 255, 0.24),
-                0 10px 24px rgba(0, 0, 0, 0.25);
+            box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.24), 0 10px 24px rgba(0, 0, 0, 0.25);
         }
 
-        /* iOS Lock Screen Notification Banner Glass */
         .ios-notif-glass {
             background: linear-gradient(135deg, rgba(44, 46, 58, 0.62) 0%, rgba(28, 30, 40, 0.52) 100%);
             backdrop-filter: blur(36px) saturate(210%);
             -webkit-backdrop-filter: blur(36px) saturate(210%);
             border: 1px solid rgba(255, 255, 255, 0.22);
-            box-shadow:
-                inset 0 1px 0 0 rgba(255, 255, 255, 0.3),
-                0 10px 28px rgba(0, 0, 0, 0.32);
+            box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.3), 0 10px 28px rgba(0, 0, 0, 0.32);
         }
 
+        /* Exact iOS Translucent Grey Frosted Dock from Reference Image */
         .ios-dock {
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.16) 100%);
-            backdrop-filter: blur(42px) saturate(210%);
-            -webkit-backdrop-filter: blur(42px) saturate(210%);
-            border-radius: 34px;
-            border: 1px solid rgba(255, 255, 255, 0.28);
-            box-shadow:
-                inset 0 1px 0 0 rgba(255, 255, 255, 0.4),
-                0 14px 34px rgba(0, 0, 0, 0.35);
+            background: rgba(145, 145, 150, 0.52);
+            backdrop-filter: blur(45px) saturate(200%);
+            -webkit-backdrop-filter: blur(45px) saturate(200%);
+            border-radius: 35px;
+            border: 1px solid rgba(255, 255, 255, 0.24);
+            box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.32), 0 12px 30px rgba(0, 0, 0, 0.28);
         }
 
-        /* Authentic iOS Squircle App Icon */
+        /* Exact iOS Weather Widget Gradient from Reference Image */
+        .ios-weather-widget {
+            background: linear-gradient(180deg, #1d3c6e 0%, #3d6499 52%, #7697bf 100%);
+            border-radius: 24px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+        }
+
+        /* Authentic iOS Squircle App Icon (60x60 with 14px continuous radius) */
         .ios-app-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 14.5px;
+            width: 58px;
+            height: 58px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            box-shadow:
-                0 8px 18px rgba(0, 0, 0, 0.26),
-                inset 0 1px 0.5px rgba(255, 255, 255, 0.45);
-            transition: transform 0.16s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.16s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+            transition: transform 0.15s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.15s ease;
         }
 
         .ios-app-btn:active .ios-app-icon {
             transform: scale(0.86);
-            filter: brightness(0.82);
+            filter: brightness(0.84);
+        }
+
+        .ios-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            min-width: 21px;
+            height: 21px;
+            padding: 0 5px;
+            border-radius: 999px;
+            background: #FF3B30;
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 6px rgba(255, 59, 48, 0.45);
+            z-index: 10;
         }
 
         /* iOS App Opening Spring Transition */
@@ -308,8 +477,7 @@
         }
 
         /* =========================================================
-           FIXED iOS 18 LOCK SCREEN & HOME SCREEN ISOLATION
-           Prevents Home Screen icons from bleeding through Lock Screen!
+           LOCK SCREEN & HOME SCREEN ISOLATION
         ========================================================== */
         .ios-lockscreen {
             position: absolute;
@@ -331,7 +499,6 @@
             pointer-events: none;
         }
 
-        /* Home Screen hides completely while phone is locked so it NEVER overlaps */
         .ios-homescreen {
             transition: transform 0.52s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease, visibility 0.4s;
         }
@@ -339,10 +506,9 @@
             opacity: 0 !important;
             visibility: hidden !important;
             pointer-events: none !important;
-            transform: scale(0.91);
+            transform: scale(0.92);
         }
 
-        /* iOS Control Center Pull-down */
         .ios-control-center {
             position: absolute;
             inset: 0;
@@ -361,41 +527,18 @@
             pointer-events: auto;
         }
 
-        /* Mobile Viewport Responsiveness */
         @media (max-width: 430px) {
-            body {
-                padding: 0 !important;
-                background: #000;
-            }
-            .iphone-16-pro {
-                width: 100vw;
-                height: 100dvh;
-                border-radius: 0;
-                padding: 0;
-                box-shadow: none;
-            }
-            .iphone-bezel {
-                border-radius: 0;
-                padding: 0;
-            }
-            .iphone-display, .ios-app-window, .ios-lockscreen {
-                border-radius: 0;
-            }
-            .hw-btn, .earpiece-slit {
-                display: none;
-            }
+            body { padding: 0 !important; background: #000; }
+            .iphone-16-pro { width: 100vw; height: 100dvh; border-radius: 0; padding: 0; box-shadow: none; }
+            .iphone-bezel { border-radius: 0; padding: 0; }
+            .iphone-display, .ios-app-window, .ios-lockscreen { border-radius: 0; }
+            .hw-btn, .earpiece-slit { display: none; }
         }
-
-        /* Auto-scale iPhone smoothly on smaller laptop screens so it never clips */
         @media (min-width: 431px) and (max-height: 900px) {
-            .iphone-16-pro {
-                transform: scale(0.9);
-            }
+            .iphone-16-pro { transform: scale(0.9); }
         }
         @media (min-width: 431px) and (max-height: 780px) {
-            .iphone-16-pro {
-                transform: scale(0.8);
-            }
+            .iphone-16-pro { transform: scale(0.8); }
         }
     </style>
 </head>
@@ -407,11 +550,11 @@
     </div>
 
     <!-- ==========================================================
-         STANDALONE CENTERED iPHONE 16 PRO SIMULATOR (NO SIDEBAR)
+         STANDALONE CENTERED iPHONE 16 PRO SIMULATOR
     =========================================================== -->
     <main class="z-10 flex items-center justify-center w-full h-full">
         <div id="iphoneChassis" class="iphone-16-pro">
-            <!-- Physical Titanium Side Buttons -->
+            <!-- Physical Side Buttons -->
             <div class="hw-btn hw-action-btn" onclick="toggleFlashlight()" title="Action Button: Senter"></div>
             <div class="hw-btn hw-vol-up" onclick="adjustVolume(10)" title="Volume Up"></div>
             <div class="hw-btn hw-vol-down" onclick="adjustVolume(-10)" title="Volume Down"></div>
@@ -423,31 +566,27 @@
                 <!-- MAIN OLED SCREEN -->
                 <div id="iphoneDisplay" class="iphone-display">
 
-                    <!-- Subtle Dark Vignette for iOS Contrast -->
-                    <div class="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/35 pointer-events-none z-0"></div>
+                    <!-- Subtle Vignette for iOS Contrast -->
+                    <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30 pointer-events-none z-0"></div>
 
                     <!-- ==========================================
                          iOS STATUS BAR (Always on Top)
                     =========================================== -->
                     <header class="relative z-[88] flex items-center justify-between px-7 pt-3.5 pb-1 text-white text-[13px] font-semibold tracking-tight select-none">
-                        <!-- Left: Time -->
-                        <div class="w-20 flex items-center">
+                        <div class="w-16 flex items-center">
                             <span id="iosStatusTime" class="font-bold tracking-tight drop-shadow">09:41</span>
                         </div>
 
-                        <!-- Right: Authentic iOS Cellular Bars, Wi-Fi/5G, Battery (Click to open Control Center) -->
-                        <div onclick="toggleControlCenter()" class="w-24 flex items-center justify-end gap-1.5 cursor-pointer hover:opacity-80 transition" title="Klik untuk membuka Control Center">
-                            <!-- Authentic iOS 4-bar Signal SVG -->
-                            <svg class="w-4 h-3 fill-white" viewBox="0 0 18 12">
+                        <div onclick="toggleControlCenter()" class="w-20 flex items-center justify-end gap-1.5 cursor-pointer hover:opacity-80 transition" title="Klik untuk membuka Control Center">
+                            <svg class="w-4 h-3 fill-white drop-shadow" viewBox="0 0 18 12">
                                 <rect x="0" y="8" width="3" height="4" rx="1"/>
                                 <rect x="4.5" y="6" width="3" height="6" rx="1"/>
                                 <rect x="9" y="3" width="3" height="9" rx="1"/>
                                 <rect x="13.5" y="0" width="3" height="12" rx="1"/>
                             </svg>
-                            <span class="text-[11px] font-bold tracking-tighter">5G</span>
-                            <!-- Authentic iOS Battery Icon with Nub -->
+                            <span class="text-[11px] font-bold tracking-tighter drop-shadow">5G</span>
                             <div class="flex items-center">
-                                <div class="w-[23px] h-[11.5px] rounded-[3.5px] border border-white/85 p-[1.5px] flex items-center">
+                                <div class="w-[22px] h-[11px] rounded-[3.5px] border border-white/85 p-[1.5px] flex items-center">
                                     <div class="w-full h-full bg-white rounded-[1.5px]"></div>
                                 </div>
                                 <div class="w-[1.5px] h-[4px] bg-white/80 rounded-r-full ml-[1px]"></div>
@@ -455,32 +594,41 @@
                         </div>
                     </header>
 
-                    <!-- ==========================================
-                         DYNAMIC ISLAND (Interactive Live Activity)
-                    =========================================== -->
+                    <!-- =========================================================
+                         DYNAMIC ISLAND (Exact AirPods + Camera + Green Battery Ring)
+                    ========================================================== -->
                     <div id="dynamicIsland" class="dynamic-island" onclick="toggleIslandExpand(event)">
-                        <!-- Collapsed State -->
+                        <!-- Collapsed State (Matches Reference Image Icon.webp) -->
                         <div id="islandCollapsedView" class="w-full flex items-center justify-between">
-                            <div class="flex items-center gap-2">
-                                <img id="islandMiniThumb" src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=120&q=80" class="w-5 h-5 rounded-full object-cover border border-white/30" alt="art">
+                            <!-- Left: Authentic White AirPods Pro SVG Icon -->
+                            <div class="flex items-center">
+                                <svg class="w-6 h-5 fill-white" viewBox="0 0 28 22">
+                                    <!-- Left AirPod -->
+                                    <path d="M7.5 2C4.5 2 2 4.2 2 7c0 2.1 1.4 3.9 3.4 4.6l1.3 1.1v6.3c0 1.1.9 2 2 2s2-.9 2-2V7c0-2.8-1.5-5-3.2-5zm-.5 5.2c-.8 0-1.5-.7-1.5-1.5S6.2 4.2 7 4.2s1.5.7 1.5 1.5-.7 1.5-1.5 1.5z"/>
+                                    <!-- Right AirPod -->
+                                    <path d="M20.5 2c3 0 5.5 2.2 5.5 5 0 2.1-1.4 3.9-3.4 4.6l-1.3 1.1v6.3c0 1.1-.9 2-2 2s-2-.9-2-2V7c0-2.8 1.5-5 3.2-5zm.5 5.2c.8 0 1.5-.7 1.5-1.5s-.7-1.5-1.5-1.5-1.5.7-1.5 1.5.7 1.5 1.5 1.5z"/>
+                                </svg>
                             </div>
-                            <div class="island-camera-dot"></div>
-                            <div id="islandEqContainer" class="flex items-end gap-[2px] h-3.5">
-                                <span class="eq-bar"></span>
-                                <span class="eq-bar"></span>
-                                <span class="eq-bar"></span>
-                                <span class="eq-bar"></span>
+
+                            <!-- Right-Center Camera Lens + Green Ring Indicator -->
+                            <div class="flex items-center gap-3">
+                                <div class="island-camera-dot"></div>
+                                <!-- Green Circular Battery Ring SVG -->
+                                <svg class="w-5 h-5 -rotate-90" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="9" fill="none" stroke="rgba(74, 222, 128, 0.25)" stroke-width="2.6"/>
+                                    <circle cx="12" cy="12" r="9" fill="none" stroke="#86efac" stroke-width="2.6" stroke-dasharray="56.5" stroke-dashoffset="10" stroke-linecap="round"/>
+                                </svg>
                             </div>
                         </div>
 
-                        <!-- Expanded State (Music & Status Live Activity) -->
+                        <!-- Expanded State (Apple Music & AirPods Live Activity) -->
                         <div id="islandExpandedView" class="hidden w-full h-full flex-col justify-between text-white">
                             <div class="flex items-center gap-3">
                                 <img id="islandBigCover" src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=200&q=80" class="w-14 h-14 rounded-2xl object-cover shadow-md border border-white/20" alt="Album">
                                 <div class="flex-1 min-w-0">
                                     <div class="flex items-center gap-1.5">
-                                        <i class="fa-brands fa-apple text-[11px] text-rose-400"></i>
-                                        <span class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Apple Music • Winter</span>
+                                        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400"></span>
+                                        <span class="text-[10px] font-semibold uppercase tracking-wider text-emerald-300">Winter's AirPods Pro • 98%</span>
                                     </div>
                                     <p id="islandBigTitle" class="text-sm font-bold text-white truncate mt-0.5">Spark (Winter Solo)</p>
                                     <p id="islandBigArtist" class="text-xs text-slate-300 truncate">aespa • SYNK: PARALLEL LINE</p>
@@ -490,7 +638,6 @@
                                 </button>
                             </div>
 
-                            <!-- Progress & Media Controls inside Dynamic Island -->
                             <div class="flex items-center justify-between gap-4 pt-2 border-t border-white/10">
                                 <span id="islandCurTime" class="text-[10px] text-slate-400 font-mono">01:04</span>
                                 <div class="flex-1 h-1 bg-white/20 rounded-full overflow-hidden">
@@ -508,15 +655,14 @@
                     </div>
 
                     <!-- =========================================================
-                         iOS 18 CONTROL CENTER (Authentic Vertical Sliders & Glass)
+                         iOS 18 CONTROL CENTER (Vertical Sliders & Frosted Glass)
                     ========================================================== -->
                     <div id="controlCenter" class="ios-control-center pt-14 pb-7 px-6 flex flex-col justify-between text-white select-none">
                         <div>
-                            <!-- Top Status Pill Row -->
                             <div class="flex items-center justify-between mb-3.5 px-1">
                                 <div class="flex items-center gap-1.5 text-white/85 text-xs font-semibold">
                                     <i class="fa-brands fa-apple text-sm"></i>
-                                    <span>Winter's iPhone • 5G</span>
+                                    <span>Winter's Phone • 5G</span>
                                 </div>
                                 <button onclick="toggleControlCenter()" class="w-7 h-7 rounded-full bg-white/15 flex items-center justify-center text-xs hover:bg-white/25 transition">
                                     <i class="fa-solid fa-chevron-up"></i>
@@ -525,27 +671,21 @@
 
                             <!-- ROW 1: 2x2 Connectivity Pod & Now Playing Pod -->
                             <div class="grid grid-cols-2 gap-3.5">
-                                <!-- Left: 2x2 Connectivity Glass Pod -->
                                 <div class="cc-module p-3.5 rounded-[28px] grid grid-cols-2 gap-2.5 place-items-center">
-                                    <!-- Airplane Mode -->
                                     <button onclick="this.classList.toggle('bg-[#FF9500]'); this.classList.toggle('bg-white/15')" class="w-12 h-12 rounded-full bg-white/15 flex items-center justify-center text-white text-lg transition active:scale-90">
                                         <i class="fa-solid fa-plane"></i>
                                     </button>
-                                    <!-- Cellular Data -->
                                     <button onclick="this.classList.toggle('bg-[#34C759]'); this.classList.toggle('bg-white/15')" class="w-12 h-12 rounded-full bg-[#34C759] flex items-center justify-center text-white text-base transition active:scale-90 shadow-lg shadow-emerald-500/30">
                                         <i class="fa-solid fa-tower-broadcast"></i>
                                     </button>
-                                    <!-- Wi-Fi -->
                                     <button onclick="this.classList.toggle('bg-[#007AFF]'); this.classList.toggle('bg-white/15')" class="w-12 h-12 rounded-full bg-[#007AFF] flex items-center justify-center text-white text-base transition active:scale-90 shadow-lg shadow-blue-500/30">
                                         <i class="fa-solid fa-wifi"></i>
                                     </button>
-                                    <!-- Bluetooth -->
                                     <button onclick="this.classList.toggle('bg-[#007AFF]'); this.classList.toggle('bg-white/15')" class="w-12 h-12 rounded-full bg-[#007AFF] flex items-center justify-center text-white text-base transition active:scale-90 shadow-lg shadow-blue-500/30">
                                         <i class="fa-brands fa-bluetooth-b"></i>
                                     </button>
                                 </div>
 
-                                <!-- Right: Now Playing Glass Pod -->
                                 <div class="cc-module p-3.5 rounded-[28px] flex flex-col justify-between">
                                     <div class="flex items-start justify-between gap-2">
                                         <img id="ccSongCover" src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=100&q=80" class="w-10 h-10 rounded-xl object-cover shadow border border-white/20" alt="cover">
@@ -567,9 +707,8 @@
                                 </div>
                             </div>
 
-                            <!-- ROW 2: Left (Rotation/Mirroring + Focus) & Right (2 Vertical Pill Sliders) -->
+                            <!-- ROW 2: Left Toggles + Right Vertical Sliders -->
                             <div class="grid grid-cols-2 gap-3.5 mt-3.5">
-                                <!-- Left Column: 2 Mini Toggles + Focus Pill -->
                                 <div class="flex flex-col justify-between gap-3.5">
                                     <div class="grid grid-cols-2 gap-3">
                                         <button onclick="this.classList.toggle('bg-white'); this.classList.toggle('text-rose-500')" class="cc-module h-[68px] rounded-[22px] flex flex-col items-center justify-center gap-1 transition active:scale-95">
@@ -582,7 +721,6 @@
                                         </button>
                                     </div>
 
-                                    <!-- Focus Mode Glass Pill -->
                                     <button onclick="this.classList.toggle('ring-2'); this.classList.toggle('ring-indigo-400')" class="cc-module h-[68px] px-3.5 rounded-[22px] flex items-center gap-2.5 text-left transition active:scale-95">
                                         <div class="w-9 h-9 rounded-full bg-indigo-500 flex items-center justify-center text-white shrink-0 shadow">
                                             <i class="fa-solid fa-moon text-xs"></i>
@@ -594,9 +732,7 @@
                                     </button>
                                 </div>
 
-                                <!-- Right Column: Authentic iOS Vertical Brightness & Volume Pill Sliders -->
                                 <div class="grid grid-cols-2 gap-3.5 h-[150px]">
-                                    <!-- Vertical Brightness Pill -->
                                     <div id="ccBrightnessPill" onclick="handleVerticalPillClick(event, 'brightness')" class="cc-module relative h-full rounded-[24px] overflow-hidden cursor-pointer flex flex-col justify-end select-none" title="Klik untuk atur kecerahan">
                                         <div id="ccBrightnessFill" class="w-full bg-white/95 transition-all duration-150" style="height: 100%;"></div>
                                         <div class="absolute inset-x-0 bottom-3.5 flex flex-col items-center pointer-events-none">
@@ -605,20 +741,18 @@
                                         </div>
                                     </div>
 
-                                    <!-- Vertical Volume Pill -->
                                     <div id="ccVolumePill" onclick="handleVerticalPillClick(event, 'volume')" class="cc-module relative h-full rounded-[24px] overflow-hidden cursor-pointer flex flex-col justify-end select-none" title="Klik untuk atur volume">
                                         <div id="ccVolumeFill" class="w-full bg-white/95 transition-all duration-150" style="height: 80%;"></div>
                                         <div class="absolute inset-x-0 bottom-3.5 flex flex-col items-center pointer-events-none">
                                             <i class="fa-solid fa-volume-high text-slate-800 text-base drop-shadow-sm"></i>
                                             <span id="volumeVal" class="text-[9px] font-bold text-slate-800 mt-0.5">80%</span>
                                         </div>
-                                        <!-- Hidden range for keyboard/button compatibility -->
                                         <input id="ccVolumeSlider" type="range" min="0" max="100" value="80" class="hidden">
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- ROW 3: Bottom 4 iOS Squircle Quick Shortcuts -->
+                            <!-- ROW 3: Bottom Shortcuts -->
                             <div class="grid grid-cols-4 gap-3 mt-3.5">
                                 <button onclick="toggleFlashlight()" id="ccFlashBtn" class="cc-module h-[62px] rounded-[20px] flex flex-col items-center justify-center gap-1 text-white hover:bg-white/20 active:scale-90 transition">
                                     <i class="fa-solid fa-bolt text-base"></i>
@@ -639,20 +773,17 @@
                             </div>
                         </div>
 
-                        <!-- Bottom Dismiss Bar -->
                         <button onclick="toggleControlCenter()" class="w-full py-2.5 rounded-full cc-module text-xs font-semibold text-white/90 hover:bg-white/20 transition text-center">
-                            Geser ke Atas / Tutup Control Center
+                            Tutup Control Center
                         </button>
                     </div>
 
                     <!-- =========================================================
-                         1. FIXED iOS 18 LOCK SCREEN (With Dedicated Wallpaper)
+                         1. iOS 18 LOCK SCREEN
                     ========================================================== -->
                     <section id="iosLockScreen" class="ios-lockscreen pt-14 pb-6 px-5 select-none">
-                        <!-- Dedicated Lock Screen Dark Gradient Overlay for Crisp Clock Contrast -->
                         <div class="absolute inset-0 bg-gradient-to-b from-black/35 via-black/10 to-black/55 pointer-events-none z-0"></div>
 
-                        <!-- Top Lock Icon, Date & Huge iOS 18 Stencil Clock -->
                         <div class="relative z-10 text-center mt-1">
                             <div class="inline-flex items-center gap-1.5 text-white/90 text-[13px] font-semibold tracking-tight mb-0.5 drop-shadow">
                                 <i class="fa-solid fa-lock text-[11px] text-white/85"></i>
@@ -662,11 +793,10 @@
                                 09:41
                             </div>
 
-                            <!-- Authentic iOS 18 Lock Screen Glass Widgets Row -->
                             <div class="flex items-center justify-center gap-2.5 mt-3.5">
                                 <div class="ios-blur px-3 py-1.5 rounded-2xl flex items-center gap-1.5 text-white text-xs font-semibold">
-                                    <i class="fa-solid fa-snowflake text-sky-200 text-xs"></i>
-                                    <span>Seoul -2°C</span>
+                                    <i class="fa-solid fa-wind text-sky-200 text-xs"></i>
+                                    <span id="lockWeatherPill">Seoul 47°</span>
                                 </div>
                                 <div class="ios-blur px-3 py-1.5 rounded-2xl flex items-center gap-1.5 text-white text-xs font-semibold">
                                     <i class="fa-solid fa-battery-full text-emerald-300 text-xs"></i>
@@ -679,7 +809,6 @@
                             </div>
                         </div>
 
-                        <!-- Center: Passcode Modal (Optional when user clicks PIN) -->
                         <div id="lockPasscodePanel" class="hidden relative z-20 my-auto ios-blur-dark p-5 rounded-[34px] text-center">
                             <p class="text-xs font-bold text-white mb-1">Masukkan Kode Sandi iPhone</p>
                             <p class="text-[11px] text-sky-200 mb-3">Petunjuk: Ultah Winter (0101)</p>
@@ -705,9 +834,7 @@
                             </div>
                         </div>
 
-                        <!-- Bottom Notifications Stack + Authentic iOS Lock Screen Bottom Bar -->
                         <div id="lockNotifStack" class="relative z-10 mt-auto space-y-2.5">
-                            <!-- Lock Screen Now Playing Widget (Appears when Apple Music plays) -->
                             <div id="lockMusicWidget" class="hidden ios-notif-glass p-3.5 rounded-[24px] text-white">
                                 <div class="flex items-center gap-3">
                                     <img id="lockMusicCover" src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=120&q=80" class="w-11 h-11 rounded-xl object-cover border border-white/20" alt="cover">
@@ -723,14 +850,13 @@
                                 </div>
                             </div>
 
-                            <!-- iMessage Notification Banner -->
                             <div onclick="unlockAndOpenApp('app-messages')" class="ios-notif-glass p-3.5 rounded-[24px] cursor-pointer hover:brightness-110 active:scale-[0.98] transition">
                                 <div class="flex items-center justify-between text-[11px] text-white/85 font-semibold mb-1">
                                     <div class="flex items-center gap-1.5">
-                                        <span class="w-5 h-5 rounded-[6px] bg-gradient-to-b from-[#5BF675] to-[#0ECC33] flex items-center justify-center text-white text-[10px] shadow-sm">
+                                        <span class="w-5 h-5 rounded-[6px] bg-gradient-to-b from-[#25e84b] to-[#05c229] flex items-center justify-center text-white text-[10px] shadow-sm">
                                             <i class="fa-solid fa-comment"></i>
                                         </span>
-                                        <span class="tracking-tight">PESAN • KARINA 💙</span>
+                                        <span class="tracking-tight">MESSAGES • KARINA 💙</span>
                                     </div>
                                     <span class="text-white/65 text-[10px]">Baru saja</span>
                                 </div>
@@ -738,7 +864,6 @@
                                 <p class="text-xs text-white/90 truncate">Minjeong-ah, jangan lupa latihan jam 2 siang! Bawa jaket hangat ❄️</p>
                             </div>
 
-                            <!-- Bubble Notification Banner -->
                             <div onclick="unlockAndOpenApp('app-messages')" class="ios-notif-glass p-3.5 rounded-[24px] cursor-pointer hover:brightness-110 active:scale-[0.98] transition">
                                 <div class="flex items-center justify-between text-[11px] text-white/85 font-semibold mb-1">
                                     <div class="flex items-center gap-1.5">
@@ -751,7 +876,6 @@
                                 <p class="text-xs text-white/90 truncate">Kirim foto selca terbaru ke MYs hari ini yuk!</p>
                             </div>
 
-                            <!-- Lock Screen Bottom Quick Actions (Flashlight, Unlock Pill, Camera) -->
                             <div class="flex items-center justify-between pt-3 px-2">
                                 <button onclick="toggleFlashlight()" id="lockFlashBtn" class="w-[50px] h-[50px] rounded-full ios-blur flex items-center justify-center text-white text-lg hover:bg-white/30 active:scale-90 transition">
                                     <i class="fa-solid fa-bolt"></i>
@@ -773,188 +897,328 @@
                         </div>
                     </section>
 
-                    <!-- =========================================================
-                         2. iOS 18 HOME SCREEN (With Authentic Apple SVG Icons)
-                    ========================================================== -->
-                    <section id="iosHomeScreen" class="ios-homescreen locked-hidden relative z-10 h-full flex flex-col justify-between pt-12 pb-6 px-5 select-none">
+                    <!-- =========================================================================
+                         2. iOS HOME SCREEN (EXACT LAYOUT & ICONS MATCHING REFERENCE Icon.webp)
+                    ========================================================================== -->
+                    <section id="iosHomeScreen" class="ios-homescreen locked-hidden relative z-10 h-full flex flex-col justify-between pt-14 pb-5 px-5 select-none">
 
-                        <!-- TOP iOS WIDGETS (2 Square iOS Frosted Glass Widgets) -->
-                        <div class="grid grid-cols-2 gap-3.5 mt-1">
-                            <!-- Left Widget: iOS Weather / Winter Status Note -->
-                            <div onclick="openApp('app-notes')" class="ios-blur-dark p-3.5 rounded-[26px] h-[148px] flex flex-col justify-between cursor-pointer hover:scale-[1.02] transition">
-                                <div class="flex items-center justify-between">
+                        <!-- MAIN HOME SCREEN GRID -->
+                        <div class="space-y-4 mt-1">
+
+                            <!-- TOP BLOCK: 2x2 Weather Widget (Left) + 2x2 App Icons (Right) -->
+                            <div class="grid grid-cols-4 gap-x-3.5 gap-y-3.5 items-center">
+
+                                <!-- LEFT (2x2 Span): Authentic iOS Weather Widget matching Icon.webp -->
+                                <div onclick="openApp('app-calendar')" class="col-span-2 row-span-2 ios-weather-widget p-4 h-[144px] flex flex-col justify-between text-white cursor-pointer hover:brightness-105 active:scale-[0.98] transition">
                                     <div>
-                                        <p class="text-[11px] font-bold text-sky-300 flex items-center gap-1">
-                                            <i class="fa-solid fa-location-arrow text-[9px]"></i> SEOUL
+                                        <p class="text-[14px] font-semibold tracking-tight flex items-center gap-1">
+                                            <span id="widgetWeatherCity">Seoul</span>
+                                            <i class="fa-solid fa-location-arrow text-[10px]"></i>
                                         </p>
-                                        <p class="text-2xl font-extrabold text-white tracking-tight">-2°C</p>
-                                    </div>
-                                    <i class="fa-solid fa-snowflake text-2xl text-sky-200 animate-spin" style="animation-duration: 12s;"></i>
-                                </div>
-                                <div class="pt-2 border-t border-white/15">
-                                    <p class="text-[10px] font-bold text-amber-300 uppercase">Catatan Minjeong ⭐️</p>
-                                    <p id="homeWidgetQuote" class="text-[11px] text-white/95 font-medium line-clamp-2 leading-snug mt-0.5">
-                                        "Pengen makan tanghulu stroberi & es krim mint choco! 🍓🍦"
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Right Widget: iOS Featured Photos Widget -->
-                            <div onclick="openApp('app-photos')" class="relative rounded-[26px] h-[148px] overflow-hidden cursor-pointer hover:scale-[1.02] transition shadow-xl border border-white/25 group">
-                                <img id="homeWidgetPhoto" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Winter Featured">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/20 p-3.5 flex flex-col justify-between">
-                                    <div class="flex justify-between items-center">
-                                        <span class="text-[9px] font-extrabold uppercase tracking-wider bg-white/25 backdrop-blur-md text-white px-2 py-0.5 rounded-full">Untukmu</span>
-                                        <i class="fa-solid fa-heart text-rose-400 text-xs"></i>
+                                        <p id="widgetWeatherTemp" class="text-[44px] font-light leading-none tracking-tight mt-0.5">47°</p>
                                     </div>
                                     <div>
-                                        <p class="text-xs font-bold text-white leading-tight">Kenangan Winter ❄️</p>
-                                        <p id="homeWidgetPhotoCount" class="text-[10px] text-sky-200">Ketuk untuk buka Photos</p>
+                                        <!-- Authentic iOS Wind SVG Icon -->
+                                        <svg class="w-5 h-4 stroke-white/90 fill-none mb-0.5" viewBox="0 0 24 18" stroke-width="1.8" stroke-linecap="round">
+                                            <path d="M2 6h13.5a2.5 2.5 0 1 0-2.5-2.5"/>
+                                            <path d="M2 10h16.5a2.5 2.5 0 1 1-2.5 2.5"/>
+                                            <path d="M2 14h9.5a2 2 0 1 1-2 2"/>
+                                        </svg>
+                                        <p id="widgetWeatherCond" class="text-[12px] font-semibold leading-tight">Windy</p>
+                                        <p id="widgetWeatherHL" class="text-[11px] font-medium text-white/85 leading-tight">H:56° L:39°</p>
                                     </div>
                                 </div>
+
+                                <!-- TOP RIGHT 1: Camera (Silver Metallic Gradient + Dark Camera Body) -->
+                                <button onclick="openApp('app-camera')" class="ios-app-btn flex flex-col items-center">
+                                    <div class="ios-app-icon" style="background: linear-gradient(180deg, #e5e6eb 0%, #9899a0 100%);">
+                                        <svg viewBox="0 0 60 60" class="w-11 h-11">
+                                            <rect x="20" y="13" width="8" height="3" rx="1" fill="#3a3a3c"/>
+                                            <path d="M21 15l2.5-3.5h13L39 15h7.5c3 0 5.5 2.5 5.5 5.5v21c0 3-2.5 5.5-5.5 5.5h-33c-3 0-5.5-2.5-5.5-5.5v-21c0-3 2.5-5.5 5.5-5.5H21z" fill="#323234"/>
+                                            <circle cx="30" cy="31" r="10.5" fill="#1c1c1e" stroke="#b5b6bc" stroke-width="2.4"/>
+                                            <circle cx="30" cy="31" r="4" fill="#2c2c2e"/>
+                                            <circle cx="40.5" cy="21.5" r="2" fill="#ffcc00"/>
+                                        </svg>
+                                    </div>
+                                </button>
+
+                                <!-- TOP RIGHT 2: Messages (Vibrant iOS Green + Red Badge "2") -->
+                                <button onclick="openApp('app-messages')" class="ios-app-btn flex flex-col items-center">
+                                    <div class="ios-app-icon" style="background: linear-gradient(180deg, #32f557 0%, #07c82b 100%);">
+                                        <span id="topMsgBadge" class="ios-badge">2</span>
+                                        <svg viewBox="0 0 60 60" class="w-10 h-10 fill-white">
+                                            <path d="M30 13c-11.6 0-21 7.7-21 17.2 0 5.1 2.7 9.7 7.1 12.9-.3 2.4-1.5 4.9-3.1 6.4-.4.4-.1.9.4.8 3.6-.6 7.1-2.1 9.5-3.6 2.3.5 4.7.7 7.1.7 11.6 0 21-7.7 21-17.2S41.6 13 30 13z"/>
+                                        </svg>
+                                    </div>
+                                </button>
+
+                                <!-- MID RIGHT 3: Photos (Exact 8-Petal Rainbow Flower on White Squircle) -->
+                                <button onclick="openApp('app-photos')" class="ios-app-btn flex flex-col items-center">
+                                    <div class="ios-app-icon bg-white">
+                                        <svg viewBox="0 0 60 60" class="w-12 h-12">
+                                            <g transform="translate(30,30)" style="mix-blend-mode: multiply;">
+                                                <rect x="-5.5" y="-22" width="11" height="18" rx="5.5" fill="#FF3B30" opacity="0.88" transform="rotate(0)"/>
+                                                <rect x="-5.5" y="-22" width="11" height="18" rx="5.5" fill="#FF9500" opacity="0.88" transform="rotate(45)"/>
+                                                <rect x="-5.5" y="-22" width="11" height="18" rx="5.5" fill="#FFCC00" opacity="0.88" transform="rotate(90)"/>
+                                                <rect x="-5.5" y="-22" width="11" height="18" rx="5.5" fill="#34C759" opacity="0.88" transform="rotate(135)"/>
+                                                <rect x="-5.5" y="-22" width="11" height="18" rx="5.5" fill="#5AC8FA" opacity="0.88" transform="rotate(180)"/>
+                                                <rect x="-5.5" y="-22" width="11" height="18" rx="5.5" fill="#007AFF" opacity="0.88" transform="rotate(225)"/>
+                                                <rect x="-5.5" y="-22" width="11" height="18" rx="5.5" fill="#5856D6" opacity="0.88" transform="rotate(270)"/>
+                                                <rect x="-5.5" y="-22" width="11" height="18" rx="5.5" fill="#AF52DE" opacity="0.88" transform="rotate(315)"/>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                </button>
+
+                                <!-- MID RIGHT 4: App Store (iOS Blue Gradient + 3 Rounded Popsicle Sticks 'A') -->
+                                <button onclick="openApp('app-instagram')" class="ios-app-btn flex flex-col items-center" title="Instagram @imwinter">
+                                    <div class="ios-app-icon" style="background: linear-gradient(180deg, #1ea6ff 0%, #0d65f0 100%);">
+                                        <svg viewBox="0 0 60 60" class="w-11 h-11 stroke-white fill-none" stroke-width="5" stroke-linecap="round">
+                                            <line x1="30" y1="13" x2="16" y2="45"/>
+                                            <line x1="30" y1="13" x2="44" y2="45"/>
+                                            <line x1="14" y1="36" x2="46" y2="36"/>
+                                        </svg>
+                                    </div>
+                                </button>
+                            </div>
+
+                            <!-- ROW 3: FaceTime, Calendar (MON 26), Clock (Analog 1-12), Shortcuts -->
+                            <div class="grid grid-cols-4 gap-x-3.5 place-items-center">
+                                <!-- 5. FaceTime -->
+                                <button onclick="openApp('app-phone')" class="ios-app-btn flex flex-col items-center">
+                                    <div class="ios-app-icon" style="background: linear-gradient(180deg, #32f557 0%, #07c82b 100%);">
+                                        <svg viewBox="0 0 60 60" class="w-11 h-11 fill-white">
+                                            <rect x="10" y="18" width="26" height="24" rx="5.5"/>
+                                            <path d="M39 25.5l10-5.5c1-.5 2 .2 2 1.3v17.4c0 1.1-1 1.8-2 1.3l-10-5.5v-9z"/>
+                                        </svg>
+                                    </div>
+                                </button>
+
+                                <!-- 6. Calendar (MON 26 matching Reference Image) -->
+                                <button onclick="openApp('app-calendar')" class="ios-app-btn flex flex-col items-center">
+                                    <div class="ios-app-icon bg-white flex flex-col items-center justify-center pt-1">
+                                        <span class="text-[10px] font-bold text-[#FF3B30] uppercase tracking-wider leading-none">MON</span>
+                                        <span class="text-[31px] font-light text-slate-900 leading-tight -mt-0.5">26</span>
+                                    </div>
+                                </button>
+
+                                <!-- 7. Clock (Black Squircle + White Dial + Numbers 1-12 + Hands) -->
+                                <button onclick="openApp('app-calendar')" class="ios-app-btn flex flex-col items-center">
+                                    <div class="ios-app-icon bg-[#1C1C1E]">
+                                        <svg viewBox="0 0 60 60" class="w-13 h-13">
+                                            <circle cx="30" cy="30" r="24" fill="#ffffff"/>
+                                            <!-- Numbers 12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 -->
+                                            <g fill="#000" font-size="5.5" font-weight="700" text-anchor="middle" dominant-baseline="central">
+                                                <text x="30" y="11">12</text>
+                                                <text x="39.5" y="13.5">1</text>
+                                                <text x="46.5" y="20.5">2</text>
+                                                <text x="49" y="30">3</text>
+                                                <text x="46.5" y="39.5">4</text>
+                                                <text x="39.5" y="46.5">5</text>
+                                                <text x="30" y="49">6</text>
+                                                <text x="20.5" y="46.5">7</text>
+                                                <text x="13.5" y="39.5">8</text>
+                                                <text x="11" y="30">9</text>
+                                                <text x="13.5" y="20.5">10</text>
+                                                <text x="20.5" y="13.5">11</text>
+                                            </g>
+                                            <!-- Clock Hands -->
+                                            <line x1="30" y1="30" x2="19" y2="23" stroke="#000" stroke-width="2" stroke-linecap="round"/>
+                                            <line x1="30" y1="30" x2="45" y2="21" stroke="#000" stroke-width="1.8" stroke-linecap="round"/>
+                                            <line x1="30" y1="30" x2="30" y2="47" stroke="#FF9500" stroke-width="1.2" stroke-linecap="round"/>
+                                            <circle cx="30" cy="30" r="2" fill="#000"/>
+                                        </svg>
+                                    </div>
+                                </button>
+
+                                <!-- 8. Shortcuts (Dark Navy + Pink/Orange & Cyan Overlapping Diamonds) -->
+                                <button onclick="openApp('app-settings')" class="ios-app-btn flex flex-col items-center">
+                                    <div class="ios-app-icon bg-[#16182f]">
+                                        <svg viewBox="0 0 60 60" class="w-11 h-11">
+                                            <defs>
+                                                <linearGradient id="scTop" x1="0" y1="0" x2="1" y2="1">
+                                                    <stop offset="0%" stop-color="#ff6b6b"/>
+                                                    <stop offset="100%" stop-color="#d63384"/>
+                                                </linearGradient>
+                                                <linearGradient id="scBot" x1="0" y1="0" x2="1" y2="1">
+                                                    <stop offset="0%" stop-color="#20c997"/>
+                                                    <stop offset="100%" stop-color="#0d6efd"/>
+                                                </linearGradient>
+                                            </defs>
+                                            <rect x="17" y="19" width="23" height="23" rx="6" transform="rotate(45 28.5 30.5) translate(5, 5)" fill="url(#scBot)" opacity="0.92"/>
+                                            <rect x="17" y="11" width="23" height="23" rx="6" transform="rotate(45 28.5 22.5)" fill="url(#scTop)" opacity="0.92"/>
+                                        </svg>
+                                    </div>
+                                </button>
+                            </div>
+
+                            <!-- ROW 4: Health, Wallet (Photocards), Reminders, Mail (Bubble) -->
+                            <div class="grid grid-cols-4 gap-x-3.5 place-items-center">
+                                <!-- 9. Health (White Squircle + Glossy Red/Pink Heart) -->
+                                <button onclick="openApp('app-photos'); filterPhotos('Favorit ❤️')" class="ios-app-btn flex flex-col items-center" title="Foto Favorit Winter">
+                                    <div class="ios-app-icon bg-white">
+                                        <svg viewBox="0 0 60 60" class="w-11 h-11">
+                                            <defs>
+                                                <linearGradient id="heartGrad" x1="0" y1="0" x2="0" y2="1">
+                                                    <stop offset="0%" stop-color="#ff5e7e"/>
+                                                    <stop offset="100%" stop-color="#ff2a4b"/>
+                                                </linearGradient>
+                                            </defs>
+                                            <path d="M34 20c-3 0-5.6 1.6-7 4-1.4-2.4-4-4-7-4-4.6 0-8.2 3.6-8.2 8.2 0 7.5 15.2 17.8 15.2 17.8s15.2-10.3 15.2-17.8c0-4.6-3.6-8.2-8.2-8.2z" fill="url(#heartGrad)"/>
+                                        </svg>
+                                    </div>
+                                </button>
+
+                                <!-- 10. Wallet (Black Squircle + Beige Holder + 4 Colored Cards) -->
+                                <button onclick="openApp('app-wallet')" class="ios-app-btn flex flex-col items-center" title="Koleksi Photocard Winter">
+                                    <div class="ios-app-icon bg-[#1C1C1E]">
+                                        <svg viewBox="0 0 60 60" class="w-12 h-12">
+                                            <rect x="9" y="13" width="42" height="34" rx="7" fill="#d9d5c9"/>
+                                            <rect x="13" y="16" width="34" height="8" rx="2.5" fill="#007AFF"/>
+                                            <rect x="13" y="20" width="34" height="8" rx="2.5" fill="#34C759"/>
+                                            <rect x="13" y="24" width="34" height="8" rx="2.5" fill="#FFCC00"/>
+                                            <rect x="13" y="28" width="34" height="8" rx="2.5" fill="#FF3B30"/>
+                                            <path d="M9 31h15c1.5 3.5 4.2 5 6 5s4.5-1.5 6-5h15v10c0 3.8-3.2 6-7 6H16c-3.8 0-7-2.2-7-6V31z" fill="#dcd8cc"/>
+                                        </svg>
+                                    </div>
+                                </button>
+
+                                <!-- 11. Reminders (White Squircle + Blue/Red/Orange Target Dots & Lines) -->
+                                <button onclick="openApp('app-notes')" class="ios-app-btn flex flex-col items-center">
+                                    <div class="ios-app-icon bg-white">
+                                        <svg viewBox="0 0 60 60" class="w-12 h-12">
+                                            <!-- Row 1 Blue -->
+                                            <circle cx="16" cy="18" r="4.5" fill="none" stroke="#007AFF" stroke-width="1.6"/>
+                                            <circle cx="16" cy="18" r="2.4" fill="#007AFF"/>
+                                            <line x1="25" y1="18" x2="48" y2="18" stroke="#c7c7cc" stroke-width="2" stroke-linecap="round"/>
+                                            <!-- Row 2 Red -->
+                                            <circle cx="16" cy="30" r="4.5" fill="none" stroke="#FF3B30" stroke-width="1.6"/>
+                                            <circle cx="16" cy="30" r="2.4" fill="#FF3B30"/>
+                                            <line x1="25" y1="30" x2="48" y2="30" stroke="#c7c7cc" stroke-width="2" stroke-linecap="round"/>
+                                            <!-- Row 3 Orange -->
+                                            <circle cx="16" cy="42" r="4.5" fill="none" stroke="#FF9500" stroke-width="1.6"/>
+                                            <circle cx="16" cy="42" r="2.4" fill="#FF9500"/>
+                                            <line x1="25" y1="42" x2="48" y2="42" stroke="#c7c7cc" stroke-width="2" stroke-linecap="round"/>
+                                        </svg>
+                                    </div>
+                                </button>
+
+                                <!-- 12. Mail (Sky Blue Gradient + White Envelope) -->
+                                <button onclick="openApp('app-messages'); openChatThread('bubble')" class="ios-app-btn flex flex-col items-center" title="DearU Bubble">
+                                    <div class="ios-app-icon" style="background: linear-gradient(180deg, #1aa0ff 0%, #36c6ff 100%);">
+                                        <svg viewBox="0 0 60 60" class="w-11 h-11">
+                                            <rect x="10" y="16" width="40" height="28" rx="4.5" fill="#ffffff"/>
+                                            <path d="M11 18l19 14.5L49 18" fill="none" stroke="#22b2ff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M11 42l12.5-10.5M49 42L36.5 31.5" fill="none" stroke="#22b2ff" stroke-width="2.4" stroke-linecap="round"/>
+                                        </svg>
+                                    </div>
+                                </button>
+                            </div>
+
+                            <!-- ROW 5: Settings (Detailed Gear), Instagram/News, Weather, Notes -->
+                            <div class="grid grid-cols-4 gap-x-3.5 place-items-center">
+                                <!-- 13. Settings (Authentic Apple Mechanical Gear matching Icon.webp) -->
+                                <button onclick="openApp('app-settings')" class="ios-app-btn flex flex-col items-center" title="Settings & CMS">
+                                    <div class="ios-app-icon" style="background: linear-gradient(180deg, #d4d6dc 0%, #8a8d94 100%);">
+                                        <svg viewBox="0 0 60 60" class="w-12 h-12">
+                                            <circle cx="30" cy="30" r="22" fill="#2c2c2e"/>
+                                            <circle cx="30" cy="30" r="19" fill="none" stroke="#c7c8ce" stroke-width="3.5" stroke-dasharray="2.4 1.6"/>
+                                            <circle cx="30" cy="30" r="15" fill="none" stroke="#b4b6bc" stroke-width="2.5"/>
+                                            <!-- 3 Inner Mechanical Spokes -->
+                                            <line x1="30" y1="15" x2="30" y2="45" stroke="#b4b6bc" stroke-width="3.2"/>
+                                            <line x1="17" y1="22.5" x2="43" y2="37.5" stroke="#b4b6bc" stroke-width="3.2"/>
+                                            <line x1="17" y1="37.5" x2="43" y2="22.5" stroke="#b4b6bc" stroke-width="3.2"/>
+                                            <circle cx="30" cy="30" r="6.5" fill="#2c2c2e" stroke="#d4d6dc" stroke-width="2.6"/>
+                                        </svg>
+                                    </div>
+                                </button>
+
+                                <!-- 14. Apple News / Winter IG Feed (White Squircle + Red Diagonal N Ribbon) -->
+                                <button onclick="openApp('app-instagram')" class="ios-app-btn flex flex-col items-center" title="Instagram @imwinter">
+                                    <div class="ios-app-icon bg-white">
+                                        <svg viewBox="0 0 60 60" class="w-11 h-11">
+                                            <rect x="16" y="16" width="28" height="28" rx="4" fill="#fa2d48"/>
+                                            <path d="M16 23l21 21h7v-5L21 16h-5v7z" fill="#ffffff"/>
+                                            <path d="M16 36l8 8h-8v-8zM36 16l8 8v-8h-8z" fill="#ffffff"/>
+                                        </svg>
+                                    </div>
+                                </button>
+
+                                <!-- 15. Weather App Icon (Blue Sky Gradient + Yellow Sun + White Cloud) -->
+                                <button onclick="openApp('app-calendar')" class="ios-app-btn flex flex-col items-center">
+                                    <div class="ios-app-icon" style="background: linear-gradient(180deg, #1877f2 0%, #44a8ff 100%);">
+                                        <svg viewBox="0 0 60 60" class="w-12 h-12">
+                                            <circle cx="38" cy="24" r="9.5" fill="#FFD60A"/>
+                                            <path d="M21 43h19a8.5 8.5 0 0 0 1-16.9A11 11 0 0 0 20.5 24 8.5 8.5 0 0 0 21 43z" fill="#ffffff" opacity="0.94"/>
+                                        </svg>
+                                    </div>
+                                </button>
+
+                                <!-- 16. Notes (White Squircle + Yellow Top Header + Perforated Dots + Lines) -->
+                                <button onclick="openApp('app-notes')" class="ios-app-btn flex flex-col items-center">
+                                    <div class="ios-app-icon bg-white overflow-hidden flex flex-col justify-start">
+                                        <div class="w-full h-[15px] bg-gradient-to-b from-[#f7ce46] to-[#e5b726]"></div>
+                                        <div class="w-full h-[2px] border-b border-dotted border-slate-300"></div>
+                                        <div class="w-full flex-1 flex flex-col justify-evenly px-0">
+                                            <div class="w-full h-[1px] bg-slate-200"></div>
+                                            <div class="w-full h-[1px] bg-slate-200"></div>
+                                            <div class="w-full h-[1px] bg-slate-200"></div>
+                                        </div>
+                                    </div>
+                                </button>
                             </div>
                         </div>
 
-                        <!-- AUTHENTIC iOS 18 APP ICONS GRID (Custom Pixel-Accurate SVGs) -->
-                        <div class="grid grid-cols-4 gap-y-5 gap-x-3 my-auto pt-2">
-                            <!-- 1. iOS Photos (Authentic Rainbow Multiplying Petals SVG) -->
-                            <button onclick="openApp('app-photos')" class="ios-app-btn flex flex-col items-center gap-1.5">
-                                <div class="ios-app-icon bg-white">
-                                    <svg viewBox="0 0 60 60" class="w-12 h-12">
-                                        <g transform="translate(30,30)" style="mix-blend-mode: multiply;">
-                                            <rect x="-5.5" y="-23" width="11" height="19" rx="5.5" fill="#FF3B30" opacity="0.9" transform="rotate(0)"/>
-                                            <rect x="-5.5" y="-23" width="11" height="19" rx="5.5" fill="#FF9500" opacity="0.9" transform="rotate(45)"/>
-                                            <rect x="-5.5" y="-23" width="11" height="19" rx="5.5" fill="#FFCC00" opacity="0.9" transform="rotate(90)"/>
-                                            <rect x="-5.5" y="-23" width="11" height="19" rx="5.5" fill="#34C759" opacity="0.9" transform="rotate(135)"/>
-                                            <rect x="-5.5" y="-23" width="11" height="19" rx="5.5" fill="#5AC8FA" opacity="0.9" transform="rotate(180)"/>
-                                            <rect x="-5.5" y="-23" width="11" height="19" rx="5.5" fill="#007AFF" opacity="0.9" transform="rotate(225)"/>
-                                            <rect x="-5.5" y="-23" width="11" height="19" rx="5.5" fill="#5856D6" opacity="0.9" transform="rotate(270)"/>
-                                            <rect x="-5.5" y="-23" width="11" height="19" rx="5.5" fill="#AF52DE" opacity="0.9" transform="rotate(315)"/>
-                                        </g>
+                        <!-- =========================================================
+                             BOTTOM FROSTED GLASS iOS DOCK (Matches Reference Icon.webp)
+                        ========================================================== -->
+                        <div class="ios-dock px-3.5 py-3 flex items-center justify-around mt-auto">
+                            <!-- Dock 1: Messages (with Red Badge 2) -->
+                            <button onclick="openApp('app-messages')" class="ios-app-btn">
+                                <div class="ios-app-icon" style="background: linear-gradient(180deg, #32f557 0%, #07c82b 100%);">
+                                    <span id="msgBadgeCount" class="ios-badge">2</span>
+                                    <svg viewBox="0 0 60 60" class="w-10 h-10 fill-white">
+                                        <path d="M30 13c-11.6 0-21 7.7-21 17.2 0 5.1 2.7 9.7 7.1 12.9-.3 2.4-1.5 4.9-3.1 6.4-.4.4-.1.9.4.8 3.6-.6 7.1-2.1 9.5-3.6 2.3.5 4.7.7 7.1.7 11.6 0 21-7.7 21-17.2S41.6 13 30 13z"/>
                                     </svg>
                                 </div>
-                                <span class="text-[11px] font-medium text-white drop-shadow">Photos</span>
                             </button>
 
-                            <!-- 2. iOS Messages (Authentic Apple iMessage Bubble SVG) -->
-                            <button onclick="openApp('app-messages')" class="ios-app-btn flex flex-col items-center gap-1.5 relative">
-                                <div class="ios-app-icon bg-gradient-to-b from-[#5BF675] to-[#0ECC33]">
-                                    <span id="msgBadgeCount" class="absolute -top-1.5 -right-1.5 min-w-[20px] h-5 px-1 rounded-full bg-[#FF3B30] text-white text-[11px] font-bold flex items-center justify-center shadow-md z-10">5</span>
-                                    <svg viewBox="0 0 60 60" class="w-10 h-10 fill-white drop-shadow-sm">
-                                        <path d="M30 12C17.85 12 8 20.16 8 30.22c0 5.43 2.88 10.3 7.45 13.63-.36 2.52-1.66 5.2-3.28 6.72-.42.4-.1.98.47.88 3.75-.64 7.39-2.25 9.88-3.82 2.38.53 4.89.81 7.48.81 12.15 0 22-8.16 22-18.22S42.15 12 30 12z"/>
-                                    </svg>
-                                </div>
-                                <span class="text-[11px] font-medium text-white drop-shadow">Messages</span>
-                            </button>
-
-                            <!-- 3. Apple Music (Authentic Beamed Note SVG) -->
-                            <button onclick="openApp('app-music')" class="ios-app-btn flex flex-col items-center gap-1.5">
-                                <div class="ios-app-icon bg-gradient-to-b from-[#FF546C] to-[#FA233B]">
-                                    <svg viewBox="0 0 60 60" class="w-10 h-10 fill-white drop-shadow-sm">
-                                        <path d="M44 13.5v25.2c0 3.7-3.1 6.8-7 6.8-3.6 0-6.5-2.6-6.5-5.9 0-3.3 2.9-5.9 6.5-5.9 1.3 0 2.5.3 3.5.9V21.8l-16 3.6v17.3c0 3.7-3.1 6.8-7 6.8-3.6 0-6.5-2.6-6.5-5.9 0-3.3 2.9-5.9 6.5-5.9 1.3 0 2.5.3 3.5.9V18.2c0-1.4 1-2.6 2.4-2.9l18-4c1.4-.3 2.6.8 2.6 2.2z"/>
-                                    </svg>
-                                </div>
-                                <span class="text-[11px] font-medium text-white drop-shadow">Music</span>
-                            </button>
-
-                            <!-- 4. iOS Notes (Authentic Yellow Header & Paper Lines) -->
-                            <button onclick="openApp('app-notes')" class="ios-app-btn flex flex-col items-center gap-1.5">
-                                <div class="ios-app-icon bg-white overflow-hidden flex flex-col justify-start">
-                                    <div class="w-full h-[17px] bg-gradient-to-b from-[#FFCC00] to-[#F5B800] border-b border-amber-500/30"></div>
-                                    <div class="w-full flex-1 px-2.5 py-2 flex flex-col justify-between bg-[#FFFEF9]">
-                                        <div class="w-full h-[1.5px] bg-slate-200 rounded-full"></div>
-                                        <div class="w-full h-[1.5px] bg-slate-200 rounded-full"></div>
-                                        <div class="w-4/5 h-[1.5px] bg-slate-200 rounded-full"></div>
-                                    </div>
-                                </div>
-                                <span class="text-[11px] font-medium text-white drop-shadow">Notes</span>
-                            </button>
-
-                            <!-- 5. Instagram (@imwinter Radial Gradient SVG) -->
-                            <button onclick="openApp('app-instagram')" class="ios-app-btn flex flex-col items-center gap-1.5">
-                                <div class="ios-app-icon" style="background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);">
-                                    <svg viewBox="0 0 60 60" class="w-10 h-10 stroke-white fill-none" stroke-width="3.8">
-                                        <rect x="13" y="13" width="34" height="34" rx="10"/>
-                                        <circle cx="30" cy="30" r="8"/>
-                                        <circle cx="40.5" cy="19.5" r="2.2" fill="white" stroke="none"/>
-                                    </svg>
-                                </div>
-                                <span class="text-[11px] font-medium text-white drop-shadow">Instagram</span>
-                            </button>
-
-                            <!-- 6. iOS Calendar -->
-                            <button onclick="openApp('app-calendar')" class="ios-app-btn flex flex-col items-center gap-1.5">
-                                <div class="ios-app-icon bg-white flex flex-col items-center justify-center pt-1">
-                                    <span class="text-[10px] font-extrabold text-[#FF3B30] uppercase tracking-widest leading-none">SEL</span>
-                                    <span class="text-[32px] font-light text-slate-900 leading-tight -mt-0.5">3</span>
-                                </div>
-                                <span class="text-[11px] font-medium text-white drop-shadow">Calendar</span>
-                            </button>
-
-                            <!-- 7. iOS Camera (Authentic Brushed Metallic + Sapphire Lens SVG) -->
-                            <button onclick="openApp('app-camera')" class="ios-app-btn flex flex-col items-center gap-1.5">
-                                <div class="ios-app-icon bg-gradient-to-b from-[#E5E5EA] to-[#AEAEB2]">
-                                    <svg viewBox="0 0 60 60" class="w-11 h-11">
-                                        <path d="M22 15l2.5-3.5h11L38 15h8c2.8 0 5 2.2 5 5v22c0 2.8-2.2 5-5 5H14c-2.8 0-5-2.2-5-5V20c0-2.8 2.2-5 5-5h8z" fill="#2C2C2E"/>
-                                        <circle cx="30" cy="31" r="10.5" fill="#1C1C1E" stroke="#636366" stroke-width="2"/>
-                                        <circle cx="30" cy="31" r="5.5" fill="#0A84FF" opacity="0.35"/>
-                                        <circle cx="32" cy="29" r="2" fill="#fff" opacity="0.7"/>
-                                        <circle cx="42" cy="21" r="1.8" fill="#FFD60A"/>
-                                    </svg>
-                                </div>
-                                <span class="text-[11px] font-medium text-white drop-shadow">Camera</span>
-                            </button>
-
-                            <!-- 8. iOS Settings / CMS Editor (Authentic Apple Gear SVG) -->
-                            <button onclick="openApp('app-settings')" class="ios-app-btn flex flex-col items-center gap-1.5 relative">
-                                <div class="ios-app-icon bg-gradient-to-b from-[#8E8E93] to-[#636366]">
-                                    <span class="absolute -top-1.5 -right-1.5 px-1.5 py-0.5 rounded-full bg-sky-400 text-slate-950 text-[8px] font-extrabold shadow z-10">CMS</span>
-                                    <svg viewBox="0 0 60 60" class="w-11 h-11 fill-white/95">
-                                        <path d="M49.2 32.6c.1-.8.2-1.7.2-2.6s-.1-1.8-.2-2.6l4.4-3.4c.4-.3.5-.9.2-1.4l-4.2-7.2c-.3-.5-.8-.6-1.3-.4l-5.2 2.1c-1.3-1-2.8-1.9-4.4-2.6l-.8-5.5c-.1-.5-.5-.9-1-.9h-8.4c-.5 0-1 .4-1 .9l-.8 5.5c-1.6.7-3.1 1.6-4.4 2.6l-5.2-2.1c-.5-.2-1.1 0-1.3.4l-4.2 7.2c-.3.5-.1 1.1.2 1.4l4.4 3.4c-.1.8-.2 1.7-.2 2.6s.1 1.8.2 2.6l-4.4 3.4c-.4.3-.5.9-.2 1.4l4.2 7.2c.3.5.8.6 1.3.4l5.2-2.1c1.3 1 2.8 1.9 4.4 2.6l.8 5.5c.1.5.5.9 1 .9h8.4c.5 0 1-.4 1-.9l.8-5.5c1.6-.7 3.1-1.6 4.4-2.6l5.2 2.1c.5.2 1.1 0 1.3-.4l4.2-7.2c.3-.5.1-1.1-.2-1.4l-4.4-3.4zM30 38c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z"/>
-                                    </svg>
-                                </div>
-                                <span class="text-[11px] font-medium text-white drop-shadow">Settings</span>
-                            </button>
-                        </div>
-
-                        <!-- iOS Spotlight Search Pill -->
-                        <div class="flex justify-center mb-2">
-                            <div onclick="openApp('app-settings')" class="ios-blur px-4 py-1 rounded-full text-[11px] font-semibold text-white flex items-center gap-1.5 cursor-pointer hover:bg-white/30 transition">
-                                <i class="fa-solid fa-magnifying-glass text-[9px]"></i>
-                                <span>Cari</span>
-                            </div>
-                        </div>
-
-                        <!-- BOTTOM iOS FROSTED GLASS DOCK -->
-                        <div class="ios-dock px-3.5 py-3 flex items-center justify-around">
-                            <!-- Dock 1: Phone -->
+                            <!-- Dock 2: Phone -->
                             <button onclick="openApp('app-phone')" class="ios-app-btn">
-                                <div class="ios-app-icon bg-gradient-to-b from-[#5BF675] to-[#0ECC33]">
+                                <div class="ios-app-icon" style="background: linear-gradient(180deg, #32f557 0%, #07c82b 100%);">
                                     <svg viewBox="0 0 60 60" class="w-9 h-9 fill-white">
                                         <path d="M43.8 37.9c-2.6-.3-5.1-.9-7.5-1.9-.8-.3-1.8-.1-2.4.5l-3.6 4.5c-5.4-2.8-9.8-7.2-12.6-12.6l4.5-3.6c.6-.6.8-1.6.5-2.4-1-2.4-1.6-4.9-1.9-7.5-.1-1.1-1.1-2-2.2-2H13c-1.2 0-2.2 1-2.2 2.2C11.6 32.9 27.1 48.4 44.9 49.2c1.2 0 2.2-1 2.2-2.2v-5.6c-.1-1.1-1-2-2.1-2.2z"/>
                                     </svg>
                                 </div>
                             </button>
-                            <!-- Dock 2: Messages -->
-                            <button onclick="openApp('app-messages')" class="ios-app-btn">
-                                <div class="ios-app-icon bg-gradient-to-b from-[#5BF675] to-[#0ECC33]">
-                                    <svg viewBox="0 0 60 60" class="w-10 h-10 fill-white">
-                                        <path d="M30 12C17.85 12 8 20.16 8 30.22c0 5.43 2.88 10.3 7.45 13.63-.36 2.52-1.66 5.2-3.28 6.72-.42.4-.1.98.47.88 3.75-.64 7.39-2.25 9.88-3.82 2.38.53 4.89.81 7.48.81 12.15 0 22-8.16 22-18.22S42.15 12 30 12z"/>
+
+                            <!-- Dock 3: Safari (White Squircle + Blue Dial + Ticks + Red/White Needle) -->
+                            <button onclick="openApp('app-safari')" class="ios-app-btn">
+                                <div class="ios-app-icon bg-white">
+                                    <svg viewBox="0 0 60 60" class="w-13 h-13">
+                                        <defs>
+                                            <linearGradient id="safBlue" x1="0" y1="0" x2="0" y2="1">
+                                                <stop offset="0%" stop-color="#22c0ff"/>
+                                                <stop offset="100%" stop-color="#0066ff"/>
+                                            </linearGradient>
+                                        </defs>
+                                        <circle cx="30" cy="30" r="24" fill="url(#safBlue)"/>
+                                        <circle cx="30" cy="30" r="20.5" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2.2" stroke-dasharray="1 2.2"/>
+                                        <!-- Compass Needle -->
+                                        <polygon points="30,30 26.5,26.5 43,17" fill="#FF3B30"/>
+                                        <polygon points="30,30 33.5,33.5 43,17" fill="#d9261c"/>
+                                        <polygon points="30,30 26.5,26.5 17,43" fill="#ffffff"/>
+                                        <polygon points="30,30 33.5,33.5 17,43" fill="#d1d5db"/>
                                     </svg>
                                 </div>
                             </button>
-                            <!-- Dock 3: Apple Music -->
+
+                            <!-- Dock 4: Apple Music -->
                             <button onclick="openApp('app-music')" class="ios-app-btn">
-                                <div class="ios-app-icon bg-gradient-to-b from-[#FF546C] to-[#FA233B]">
+                                <div class="ios-app-icon" style="background: linear-gradient(180deg, #ff5869 0%, #f3273f 100%);">
                                     <svg viewBox="0 0 60 60" class="w-10 h-10 fill-white">
                                         <path d="M44 13.5v25.2c0 3.7-3.1 6.8-7 6.8-3.6 0-6.5-2.6-6.5-5.9 0-3.3 2.9-5.9 6.5-5.9 1.3 0 2.5.3 3.5.9V21.8l-16 3.6v17.3c0 3.7-3.1 6.8-7 6.8-3.6 0-6.5-2.6-6.5-5.9 0-3.3 2.9-5.9 6.5-5.9 1.3 0 2.5.3 3.5.9V18.2c0-1.4 1-2.6 2.4-2.9l18-4c1.4-.3 2.6.8 2.6 2.2z"/>
                                     </svg>
-                                </div>
-                            </button>
-                            <!-- Dock 4: Settings / CMS Studio -->
-                            <button onclick="openApp('app-settings')" class="ios-app-btn" title="Edit Isi HP Winter">
-                                <div class="ios-app-icon bg-gradient-to-b from-[#38BDF8] to-[#0284C7]">
-                                    <i class="fa-solid fa-sliders text-white text-[25px]"></i>
                                 </div>
                             </button>
                         </div>
@@ -1661,6 +1925,99 @@
                         </div>
                     </section>
 
+                    <!-- =================================================================
+                         APP 10: iOS WALLET (Koleksi Photocard & ID Pass Winter aespa)
+                    ================================================================== -->
+                    <section id="app-wallet" class="ios-app-window bg-black text-white pt-12 pb-5">
+                        <div class="px-5 pt-1 pb-3 flex items-center justify-between border-b border-white/10">
+                            <button onclick="closeAllApps()" class="text-sky-400 text-xs font-semibold flex items-center gap-1">
+                                <i class="fa-solid fa-chevron-left"></i> Home
+                            </button>
+                            <h2 class="text-sm font-extrabold tracking-tight"> Wallet • Winter Pass</h2>
+                            <button onclick="openApp('app-photos')" class="text-xs text-sky-400 font-semibold">+ Card</button>
+                        </div>
+                        <div class="flex-1 overflow-y-auto p-5 space-y-4 no-scrollbar">
+                            <!-- SM Entertainment Artist ID Card -->
+                            <div class="p-4 rounded-3xl bg-gradient-to-br from-sky-500 via-blue-600 to-indigo-900 shadow-2xl border border-white/25">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-[10px] font-extrabold uppercase tracking-widest bg-white/20 px-2.5 py-0.5 rounded-full">SMTOWN OFFICIAL PASS</span>
+                                    <i class="fa-solid fa-snowflake text-lg"></i>
+                                </div>
+                                <div class="flex items-center gap-3.5 mt-4">
+                                    <img id="walletAvatarImg" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" class="w-14 h-14 rounded-2xl object-cover border-2 border-white/60" alt="Winter">
+                                    <div>
+                                        <p class="text-base font-extrabold">KIM MINJEONG (WINTER)</p>
+                                        <p class="text-xs text-sky-100">aespa • Lead Vocal & Visual ⭐️</p>
+                                        <p class="text-[10px] text-white/75 font-mono mt-0.5">ID: 2001-0101-KWANGYA</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Collectible Photocard Grid from Gallery -->
+                            <p class="text-xs font-bold text-white/60 uppercase tracking-wider">Koleksi Photocard Winter</p>
+                            <div id="walletPhotocardGrid" class="grid grid-cols-2 gap-3">
+                                <!-- Populated dynamically from Gallery Photos -->
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- =================================================================
+                         APP 11: iOS SAFARI BROWSER (Pencarian & Portal Fancam Winter)
+                    ================================================================== -->
+                    <section id="app-safari" class="ios-app-window bg-[#F2F2F7] text-slate-900 pt-12 pb-5">
+                        <div class="px-5 pt-1 pb-2 flex items-center justify-between bg-white border-b border-slate-200">
+                            <button onclick="closeAllApps()" class="text-[#007AFF] text-xs font-semibold flex items-center gap-1">
+                                <i class="fa-solid fa-chevron-left"></i> Home
+                            </button>
+                            <div class="flex items-center gap-1.5 bg-slate-100 px-3 py-1 rounded-full text-xs text-slate-600">
+                                <i class="fa-solid fa-lock text-[10px]"></i>
+                                <span class="font-medium">aespa.com/winter</span>
+                            </div>
+                            <button onclick="openApp('app-instagram')" class="text-[#007AFF] text-xs font-semibold">IG</button>
+                        </div>
+                        <div class="flex-1 overflow-y-auto p-4 space-y-4 no-scrollbar">
+                            <div class="bg-white p-4 rounded-3xl shadow-sm border border-slate-200/60">
+                                <p class="text-[10px] font-extrabold uppercase text-[#007AFF]"> Riwayat Pencarian Winter ❄️</p>
+                                <div class="mt-2.5 space-y-2 text-xs">
+                                    <div onclick="openApp('app-notes')" class="p-2.5 rounded-xl bg-slate-50 flex items-center justify-between cursor-pointer hover:bg-sky-50">
+                                        <span>🍓 Toko tanghulu stroberi terenak di Seoul</span>
+                                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i>
+                                    </div>
+                                    <div onclick="openApp('app-music')" class="p-2.5 rounded-xl bg-slate-50 flex items-center justify-between cursor-pointer hover:bg-sky-50">
+                                        <span>🎸 Efek pedal gitar biru untuk lagu Spark Solo</span>
+                                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i>
+                                    </div>
+                                    <div onclick="openApp('app-photos')" class="p-2.5 rounded-xl bg-slate-50 flex items-center justify-between cursor-pointer hover:bg-sky-50">
+                                        <span>🐶 Cara merawat anak anjing Maltese putih</span>
+                                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white p-4 rounded-3xl shadow-sm border border-slate-200/60">
+                                <p class="text-[10px] font-extrabold uppercase text-slate-400 mb-2.5">Favorit Safari</p>
+                                <div class="grid grid-cols-4 gap-2 text-center text-[11px] font-semibold">
+                                    <button onclick="openApp('app-instagram')" class="p-2 rounded-2xl bg-pink-50 text-pink-600 flex flex-col items-center gap-1">
+                                        <i class="fa-brands fa-instagram text-lg"></i>
+                                        <span>@imwinter</span>
+                                    </button>
+                                    <button onclick="openApp('app-music')" class="p-2 rounded-2xl bg-rose-50 text-rose-600 flex flex-col items-center gap-1">
+                                        <i class="fa-solid fa-music text-lg"></i>
+                                        <span>Music</span>
+                                    </button>
+                                    <button onclick="openApp('app-photos')" class="p-2 rounded-2xl bg-sky-50 text-sky-600 flex flex-col items-center gap-1">
+                                        <i class="fa-solid fa-images text-lg"></i>
+                                        <span>Galeri</span>
+                                    </button>
+                                    <button onclick="openApp('app-settings')" class="p-2 rounded-2xl bg-slate-100 text-slate-700 flex flex-col items-center gap-1">
+                                        <i class="fa-solid fa-sliders text-lg"></i>
+                                        <span>CMS</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
                     <!-- iOS POPUP BANNER TOAST -->
                     <div id="iosBannerToast" class="pointer-events-none opacity-0 -translate-y-4 transition-all duration-300 absolute top-12 left-1/2 -translate-x-1/2 z-[95] ios-blur-dark text-white px-4 py-2 rounded-full text-xs font-semibold shadow-2xl border border-white/20 flex items-center gap-2 whitespace-nowrap">
                         <i class="fa-solid fa-circle-check text-emerald-400"></i>
@@ -1678,65 +2035,60 @@
     </main>
 
     <!-- ==========================================================
-         JAVASCRIPT ENGINE (Complete iOS 18 State & Interactivity)
+         JAVASCRIPT ENGINE (Reads directly from PUSAT_KONTEN_HP_WINTER at top)
     =========================================================== -->
     <script>
-        const STORAGE_KEY = 'WINTER_IOS18_SIMULATOR_V2';
+        const STORAGE_KEY = 'WINTER_IOS18_SIMULATOR_V3';
 
-        // Default Pre-loaded Content for Winter (Kim Minjeong)
+        // Build defaultData directly from PUSAT_KONTEN_HP_WINTER at the top of the file!
         const defaultData = {
-            wallpaper: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=900&q=80',
+            wallpaperLock: PUSAT_KONTEN_HP_WINTER.wallpaperLockScreen,
+            wallpaper: PUSAT_KONTEN_HP_WINTER.wallpaperHomeScreen,
             quote: '"Pengen makan tanghulu stroberi & es krim mint choco! 🍓🍦"',
-            avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80',
-            photos: [
-                {
-                    id: 1,
-                    url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80',
-                    album: 'Selca ❄️',
-                    date: '3 Nov 2026',
-                    fav: true,
-                    caption: 'Selesai rekaman di studio! MYs sudah makan malam belum? Jangan sampai telat makan yaa ⭐️❄️'
-                },
-                {
-                    id: 2,
-                    url: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80',
-                    album: 'Stage ⭐',
-                    date: '29 Okt 2026',
-                    fav: true,
-                    caption: 'Backstage SYNK: PARALLEL LINE! Senang banget bisa tampil membawakan lagu solo Spark sambil pegang gitar biru favoritku 🎸💙'
-                },
-                {
-                    id: 3,
-                    url: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=600&q=80',
-                    album: 'aespa 🦋',
-                    date: '21 Okt 2026',
-                    fav: true,
-                    caption: 'Mirror selfie bareng Karina unnie, Giselle unnie & Ningning sehabis latihan Whiplash! 🌶️⭐️🌙🦋'
-                },
-                {
-                    id: 4,
-                    url: 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=600&q=80',
-                    album: 'Daily 🐶',
-                    date: '14 Okt 2026',
-                    fav: false,
-                    caption: 'Ketemu anak anjing Maltese lucu banget waktu jalan sore!! Mirip aku nggak kata MYs? 🐶🤍'
-                },
-                {
-                    id: 5,
-                    url: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=600&q=80',
-                    album: 'Stage ⭐',
-                    date: '2 Okt 2026',
-                    fav: true,
-                    caption: 'Lautan lightstick MYs dari atas panggung selalu kelihatan seperti bintang di galaksi ✨'
-                },
-                {
-                    id: 6,
-                    url: 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=600&q=80',
-                    album: 'Daily 🐶',
-                    date: '19 Sep 2026',
-                    fav: false,
-                    caption: 'Traktiran es krim mint choco porsi ekstra sehabis jadwal pemotretan! Tim Mint Choco mana suaranya~ 🍦🌿'
+            avatar: PUSAT_KONTEN_HP_WINTER.fotoProfilWinter,
+            weather: PUSAT_KONTEN_HP_WINTER.cuaca,
+            photos: PUSAT_KONTEN_HP_WINTER.galeriFoto,
+            threads: PUSAT_KONTEN_HP_WINTER.daftarChat,
+            notes: PUSAT_KONTEN_HP_WINTER.daftarCatatan,
+            songs: PUSAT_KONTEN_HP_WINTER.daftarLagu
+        };
+
+        // App State Variables
+        let phoneData = loadPhoneData();
+        let isLocked = true;
+        let currentPinInput = '';
+        let activePhotoFilter = 'Semua';
+        let currentViewingPhotoId = null;
+        let activeThreadId = 'karina';
+        let chatSenderRole = 'me'; // 'me' (Winter) or 'them' (Partner)
+        let currentSongIndex = 0;
+        let isMusicPlaying = false;
+        let musicTimer = null;
+        let musicProgressPercent = 24;
+        let audioCtx = null;
+        let callInterval = null;
+        let callSeconds = 0;
+        let cameraPhotoIndex = 0;
+
+        // Load data while ensuring top-of-file edits in PUSAT_KONTEN_HP_WINTER always apply!
+        function loadPhoneData() {
+            const base = JSON.parse(JSON.stringify(defaultData));
+            try {
+                const raw = localStorage.getItem(STORAGE_KEY);
+                if (raw) {
+                    const saved = JSON.parse(raw);
+                    return {
+                        ...base,
+                        ...saved,
+                        // Always sync top-of-file config if user edited PUSAT_KONTEN_HP_WINTER
+                        weather: PUSAT_KONTEN_HP_WINTER.cuaca
+                    };
                 }
+            } catch (err) {
+                console.warn('Menggunakan data PUSAT_KONTEN_HP_WINTER.', err);
+            }
+            return base;
+        }
             ],
             threads: [
                 {
@@ -2148,10 +2500,8 @@
             });
 
             document.getElementById('photosSubtitleCount').textContent = `${filtered.length} Foto • Koleksi Winter ❄️`;
-            document.getElementById('homeWidgetPhotoCount').textContent = `${phoneData.photos.length} Foto di Library`;
 
             if (phoneData.photos.length > 0) {
-                document.getElementById('homeWidgetPhoto').src = phoneData.photos[0].url;
                 document.getElementById('cameraThumbMini').src = phoneData.photos[0].url;
             }
 
@@ -2170,161 +2520,19 @@
                     <img src="${photo.url}" onerror="this.src='https://placehold.co/400x400/bae6fd/0f172a?text=Winter'" class="w-full h-full object-cover hover:opacity-90 transition" alt="IG Post">
                 </div>
             `).join('');
-        }
 
-        function openIgPostModal(photoId) {
-            playUiClick();
-            const photo = phoneData.photos.find(p => p.id === photoId);
-            if (!photo) return;
-            document.getElementById('igModalImg').src = photo.url;
-            document.getElementById('igModalDate').textContent = `${photo.album} • ${photo.date}`;
-            document.getElementById('igModalCaption').textContent = photo.caption;
-            document.getElementById('igPostModal').classList.remove('hidden');
-        }
-
-        function closeIgPostModal() {
-            playUiClick();
-            document.getElementById('igPostModal').classList.add('hidden');
-        }
-
-        function toggleIgLike() {
-            playUiClick(820, 0.04);
-            const btn = document.getElementById('igLikeBtn');
-            btn.classList.toggle('text-rose-500');
-            btn.classList.toggle('text-slate-900');
-        }
-
-        function openPhotoViewer(photoId) {
-            playUiClick();
-            const photo = phoneData.photos.find(p => p.id === photoId);
-            if (!photo) return;
-            currentViewingPhotoId = photoId;
-            document.getElementById('viewerPhotoAlbum').textContent = photo.album;
-            document.getElementById('viewerPhotoDate').textContent = photo.date;
-            document.getElementById('viewerPhotoImg').src = photo.url;
-            document.getElementById('viewerPhotoCaption').textContent = photo.caption;
-            document.getElementById('viewerFavBtn').innerHTML = photo.fav
-                ? '<i class="fa-solid fa-heart"></i>'
-                : '<i class="fa-regular fa-heart"></i>';
-            document.getElementById('photoDetailViewer').classList.remove('hidden');
-        }
-
-        function closePhotoViewer() {
-            document.getElementById('photoDetailViewer').classList.add('hidden');
-            currentViewingPhotoId = null;
-        }
-
-        function toggleCurrentPhotoFav() {
-            const photo = phoneData.photos.find(p => p.id === currentViewingPhotoId);
-            if (!photo) return;
-            photo.fav = !photo.fav;
-            savePhoneData();
-            openPhotoViewer(currentViewingPhotoId);
-            showToast(photo.fav ? '❤️ Ditambahkan ke Favorit' : 'Dihapus dari Favorit');
-        }
-
-        function setCurrentPhotoAsWallpaper() {
-            const photo = phoneData.photos.find(p => p.id === currentViewingPhotoId);
-            if (!photo) return;
-            phoneData.wallpaper = photo.url;
-            savePhoneData();
-            showToast('✨ Wallpaper iPhone Berhasil Diganti!');
-        }
-
-        function deleteCurrentPhoto() {
-            if (phoneData.photos.length <= 1) {
-                showToast('Sisakan minimal 1 foto di Galeri!');
-                return;
-            }
-            phoneData.photos = phoneData.photos.filter(p => p.id !== currentViewingPhotoId);
-            closePhotoViewer();
-            savePhoneData();
-            showToast('🗑️ Foto Dihapus');
-        }
-
-        function sendCurrentPhotoToChat() {
-            const photo = phoneData.photos.find(p => p.id === currentViewingPhotoId);
-            if (!photo) return;
-            const thread = phoneData.threads.find(t => t.id === activeThreadId) || phoneData.threads[0];
-            thread.messages.push({
-                from: 'me',
-                time: 'Baru saja',
-                text: photo.caption || 'Lihat foto ini deh! ⭐️',
-                image: photo.url
-            });
-            closePhotoViewer();
-            savePhoneData();
-            openApp('app-messages');
-            openChatThread(thread.id);
-            showToast(`📸 Foto dikirim ke ${thread.name}`);
-        }
-
-        /* ==========================================
-           iMESSAGE APP (Pinned & Conversations)
-        =========================================== */
-        function renderMessagesApp() {
-            const pinnedRow = document.getElementById('imessagePinnedRow');
-            const listContainer = document.getElementById('imessageThreadsList');
-
-            const pinnedThreads = phoneData.threads.slice(0, 4);
-            pinnedRow.innerHTML = pinnedThreads.map(t => `
-                <button onclick="openChatThread('${t.id}')" class="flex flex-col items-center gap-1 group">
-                    <div class="relative">
-                        <img src="${t.avatar}" onerror="this.src='https://placehold.co/100x100/bae6fd/0f172a?text=MY'" class="w-14 h-14 rounded-full object-cover border border-slate-200 shadow-sm group-hover:scale-105 transition" alt="${t.name}">
-                    </div>
-                    <span class="text-[10px] font-semibold text-slate-700 truncate max-w-[65px]">${t.name}</span>
-                </button>
-            `).join('');
-
-            listContainer.innerHTML = phoneData.threads.map(t => {
-                const lastMsg = t.messages[t.messages.length - 1] || { text: 'Belum ada pesan', time: '' };
-                return `
-                    <div onclick="openChatThread('${t.id}')" class="py-3 flex items-center gap-3 cursor-pointer hover:bg-slate-50 transition">
-                        <img src="${t.avatar}" onerror="this.src='https://placehold.co/100x100/bae6fd/0f172a?text=MY'" class="w-12 h-12 rounded-full object-cover border border-slate-200 shrink-0" alt="${t.name}">
-                        <div class="flex-1 min-w-0">
-                            <div class="flex justify-between items-baseline">
-                                <h4 class="text-xs font-bold text-slate-900 truncate">${t.name}</h4>
-                                <span class="text-[10px] text-slate-400">${lastMsg.time}</span>
-                            </div>
-                            <p class="text-[11px] text-slate-500 truncate mt-0.5">${lastMsg.text}</p>
+            // Sync Wallet Photocards
+            const walletGrid = document.getElementById('walletPhotocardGrid');
+            if (walletGrid) {
+                walletGrid.innerHTML = phoneData.photos.map(photo => `
+                    <div onclick="openApp('app-photos'); openPhotoViewer(${photo.id})" class="rounded-2xl overflow-hidden bg-white/10 border border-white/15 cursor-pointer group">
+                        <img src="${photo.url}" class="w-full aspect-[3/4] object-cover group-hover:scale-105 transition" alt="Photocard">
+                        <div class="p-2">
+                            <p class="text-[11px] font-bold text-white truncate">${photo.album}</p>
+                            <p class="text-[9px] text-sky-300">${photo.date}</p>
                         </div>
-                        <i class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i>
                     </div>
-                `;
-            }).join('');
-        }
-
-        function openChatThread(threadId) {
-            playUiClick();
-            activeThreadId = threadId;
-            const thread = phoneData.threads.find(t => t.id === threadId);
-            if (!thread) return;
-
-            document.getElementById('imessageListScreen').classList.add('hidden');
-            document.getElementById('imessageChatScreen').classList.remove('hidden');
-            document.getElementById('activeChatAvatar').src = thread.avatar;
-            document.getElementById('activeChatName').textContent = thread.name;
-
-            renderActiveChatMessages();
-        }
-
-        function backToMessagesList() {
-            playUiClick();
-            document.getElementById('imessageChatScreen').classList.add('hidden');
-            document.getElementById('imessageListScreen').classList.remove('hidden');
-            renderMessagesApp();
-        }
-
-        function setChatSenderRole(role) {
-            chatSenderRole = role;
-            const btnMe = document.getElementById('roleBtnWinter');
-            const btnThem = document.getElementById('roleBtnPartner');
-            if (role === 'me') {
-                btnMe.className = 'px-2.5 py-0.5 rounded-full bg-[#007AFF] text-white font-bold transition';
-                btnThem.className = 'px-2.5 py-0.5 rounded-full text-slate-700 font-semibold transition';
-            } else {
-                btnThem.className = 'px-2.5 py-0.5 rounded-full bg-slate-700 text-white font-bold transition';
-                btnMe.className = 'px-2.5 py-0.5 rounded-full text-slate-700 font-semibold transition';
+                `).join('');
             }
         }
 
@@ -2815,15 +3023,28 @@
            MASTER RENDER FUNCTION
         =========================================== */
         function refreshAllViews() {
-            // Wallpaper & Quotes (Applied to both Lock Screen & Home Screen so Lock Screen is 100% opaque)
+            // Apply Wallpapers & Profile Photos from PUSAT_KONTEN_HP_WINTER
+            const lockWall = phoneData.wallpaperLock || phoneData.wallpaper;
             document.getElementById('iphoneDisplay').style.backgroundImage = `url('${phoneData.wallpaper}')`;
-            document.getElementById('iosLockScreen').style.backgroundImage = `url('${phoneData.wallpaper}')`;
-            document.getElementById('homeWidgetQuote').textContent = phoneData.quote;
+            document.getElementById('iosLockScreen').style.backgroundImage = `url('${lockWall}')`;
             document.getElementById('cmsWallpaperInput').value = phoneData.wallpaper;
             document.getElementById('cmsQuoteInput').value = phoneData.quote;
 
-            // Badge counts
-            document.getElementById('msgBadgeCount').textContent = phoneData.threads.length;
+            if (phoneData.avatar) {
+                document.getElementById('igProfileAvatar').src = phoneData.avatar;
+                document.getElementById('settingsAvatarImg').src = phoneData.avatar;
+                const walletAv = document.getElementById('walletAvatarImg');
+                if (walletAv) walletAv.src = phoneData.avatar;
+            }
+
+            // Apply Weather Widget Info
+            if (phoneData.weather) {
+                document.getElementById('widgetWeatherCity').textContent = phoneData.weather.kota;
+                document.getElementById('widgetWeatherTemp').textContent = phoneData.weather.suhu;
+                document.getElementById('widgetWeatherCond').textContent = phoneData.weather.kondisi;
+                document.getElementById('widgetWeatherHL').textContent = phoneData.weather.tinggiRendah;
+                document.getElementById('lockWeatherPill').textContent = `${phoneData.weather.kota} ${phoneData.weather.suhu}`;
+            }
 
             renderPhotosApp();
             renderMessagesApp();
