@@ -28,10 +28,10 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter', sans-serif;
-            background: radial-gradient(circle at 15% 20%, #1e293b 0%, #090d16 55%, #020617 100%);
+            background: radial-gradient(circle at 50% 25%, #1e293b 0%, #090d16 60%, #020617 100%);
             min-height: 100vh;
             margin: 0;
-            overflow-x: hidden;
+            overflow: hidden;
             user-select: none;
         }
 
@@ -50,22 +50,22 @@
         .iphone-16-pro {
             width: 393px;
             height: 852px;
-            border-radius: 60px;
+            border-radius: 62px;
             padding: 11px;
-            background: linear-gradient(135deg, #e4e4e7 0%, #a1a1aa 25%, #d4d4d8 50%, #71717a 80%, #f4f4f5 100%);
+            background: linear-gradient(135deg, #f4f4f5 0%, #a1a1aa 22%, #d4d4d8 48%, #52525b 78%, #e4e4e7 100%);
             box-shadow:
-                0 35px 80px -15px rgba(0, 0, 0, 0.85),
-                0 0 50px rgba(186, 230, 253, 0.18),
-                inset 0 0 2px 1px rgba(255, 255, 255, 0.8);
+                0 40px 95px -15px rgba(0, 0, 0, 0.9),
+                0 0 55px rgba(186, 230, 253, 0.14),
+                inset 0 0 2px 1.5px rgba(255, 255, 255, 0.85);
             position: relative;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.35s ease;
             flex-shrink: 0;
         }
 
         .iphone-16-pro.flashlight-on {
             box-shadow:
-                0 0 120px 35px rgba(255, 255, 255, 0.75),
-                0 0 60px rgba(186, 230, 253, 0.9);
+                0 0 130px 42px rgba(255, 255, 255, 0.82),
+                0 0 70px rgba(186, 230, 253, 0.95);
         }
 
         /* Inner Black Bezel */
@@ -73,10 +73,10 @@
             width: 100%;
             height: 100%;
             background: #000000;
-            border-radius: 50px;
+            border-radius: 52px;
             padding: 7px;
             position: relative;
-            box-shadow: inset 0 0 4px rgba(255,255,255,0.15);
+            box-shadow: inset 0 0 4px rgba(255,255,255,0.16);
         }
 
         /* Top Earpiece Speaker Slit */
@@ -85,7 +85,7 @@
             top: 4px;
             left: 50%;
             transform: translateX(-50%);
-            width: 48px;
+            width: 50px;
             height: 3px;
             background: #18181b;
             border-radius: 4px;
@@ -96,7 +96,7 @@
         .iphone-display {
             width: 100%;
             height: 100%;
-            border-radius: 43px;
+            border-radius: 45px;
             position: relative;
             overflow: hidden;
             background-color: #000;
@@ -108,8 +108,8 @@
         /* Physical Side Buttons (Titanium) */
         .hw-btn {
             position: absolute;
-            background: linear-gradient(180deg, #d4d4d8, #71717a, #a1a1aa);
-            box-shadow: -1px 0 2px rgba(0,0,0,0.5);
+            background: linear-gradient(180deg, #e4e4e7, #71717a, #a1a1aa);
+            box-shadow: -1px 0 2px rgba(0,0,0,0.55);
             cursor: pointer;
         }
         .hw-action-btn {
@@ -139,7 +139,7 @@
             width: 3.5px;
             height: 86px;
             border-radius: 0 4px 4px 0;
-            box-shadow: 1px 0 2px rgba(0,0,0,0.5);
+            box-shadow: 1px 0 2px rgba(0,0,0,0.55);
         }
 
         /* ==========================================
@@ -154,14 +154,14 @@
             height: 35px;
             background: #000000;
             border-radius: 24px;
-            z-index: 90;
+            z-index: 92;
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 0 11px;
             cursor: pointer;
             transition: all 0.42s cubic-bezier(0.32, 1.45, 0.58, 1);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.45), inset 0 0 1px rgba(255,255,255,0.18);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.5), inset 0 0 1px rgba(255,255,255,0.22);
             overflow: hidden;
         }
 
@@ -170,12 +170,14 @@
         }
 
         .dynamic-island.expanded {
-            width: 342px;
-            height: 148px;
-            border-radius: 36px;
+            width: 344px;
+            height: 150px;
+            border-radius: 38px;
             padding: 16px 18px;
-            background: rgba(8, 8, 10, 0.96);
-            backdrop-filter: blur(25px);
+            background: rgba(10, 10, 14, 0.96);
+            backdrop-filter: blur(32px) saturate(200%);
+            -webkit-backdrop-filter: blur(32px) saturate(200%);
+            box-shadow: 0 24px 48px rgba(0,0,0,0.75), inset 0 1px 0 rgba(255,255,255,0.2);
         }
 
         /* Front Camera Lens Reflection inside Island */
@@ -183,7 +185,7 @@
             width: 11px;
             height: 11px;
             border-radius: 50%;
-            background: radial-gradient(circle at 35% 35%, #1e3a8a 0%, #090d16 55%, #000 100%);
+            background: radial-gradient(circle at 35% 35%, #2563eb 0%, #0f172a 55%, #000 100%);
             border: 1.5px solid #18181b;
             flex-shrink: 0;
         }
@@ -208,45 +210,80 @@
         .eq-bar:nth-child(3) { animation-delay: 0.4s; background: #38bdf8; }
         .eq-bar:nth-child(4) { animation-delay: 0.1s; background: #ec4899; }
 
-        /* ==========================================
-           iOS FROSTED GLASS & SQUIRCLE ICONS
-        =========================================== */
+        /* =========================================================
+           AUTHENTIC APPLE iOS 18 FROSTED GLASSMORPHISM MATERIALS
+        ========================================================== */
         .ios-blur {
-            background: rgba(255, 255, 255, 0.22);
-            backdrop-filter: blur(28px) saturate(180%);
-            -webkit-backdrop-filter: blur(28px) saturate(180%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.26) 0%, rgba(255, 255, 255, 0.14) 100%);
+            backdrop-filter: blur(36px) saturate(200%) brightness(1.05);
+            -webkit-backdrop-filter: blur(36px) saturate(200%) brightness(1.05);
+            border: 1px solid rgba(255, 255, 255, 0.26);
+            box-shadow:
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.38),
+                0 10px 28px rgba(0, 0, 0, 0.22);
         }
 
         .ios-blur-dark {
-            background: rgba(24, 24, 28, 0.72);
-            backdrop-filter: blur(32px) saturate(190%);
-            -webkit-backdrop-filter: blur(32px) saturate(190%);
+            background: linear-gradient(145deg, rgba(38, 40, 52, 0.62) 0%, rgba(20, 22, 30, 0.54) 100%);
+            backdrop-filter: blur(40px) saturate(210%);
+            -webkit-backdrop-filter: blur(40px) saturate(210%);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow:
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.26),
+                0 12px 32px rgba(0, 0, 0, 0.34);
+        }
+
+        /* iOS Control Center Module Glass */
+        .cc-module {
+            background: rgba(34, 36, 46, 0.52);
+            backdrop-filter: blur(38px) saturate(200%);
+            -webkit-backdrop-filter: blur(38px) saturate(200%);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            box-shadow:
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.24),
+                0 10px 24px rgba(0, 0, 0, 0.25);
+        }
+
+        /* iOS Lock Screen Notification Banner Glass */
+        .ios-notif-glass {
+            background: linear-gradient(135deg, rgba(44, 46, 58, 0.62) 0%, rgba(28, 30, 40, 0.52) 100%);
+            backdrop-filter: blur(36px) saturate(210%);
+            -webkit-backdrop-filter: blur(36px) saturate(210%);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            box-shadow:
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.3),
+                0 10px 28px rgba(0, 0, 0, 0.32);
         }
 
         .ios-dock {
-            background: rgba(255, 255, 255, 0.24);
-            backdrop-filter: blur(35px) saturate(190%);
-            -webkit-backdrop-filter: blur(35px) saturate(190%);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.16) 100%);
+            backdrop-filter: blur(42px) saturate(210%);
+            -webkit-backdrop-filter: blur(42px) saturate(210%);
             border-radius: 34px;
-            border: 1px solid rgba(255, 255, 255, 0.22);
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            box-shadow:
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.4),
+                0 14px 34px rgba(0, 0, 0, 0.35);
         }
 
         /* Authentic iOS Squircle App Icon */
         .ios-app-icon {
             width: 60px;
             height: 60px;
-            border-radius: 14px;
+            border-radius: 14.5px;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22);
-            transition: transform 0.15s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.15s ease;
+            box-shadow:
+                0 8px 18px rgba(0, 0, 0, 0.26),
+                inset 0 1px 0.5px rgba(255, 255, 255, 0.45);
+            transition: transform 0.16s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.16s ease;
         }
 
         .ios-app-btn:active .ios-app-icon {
-            transform: scale(0.88);
-            filter: brightness(0.85);
+            transform: scale(0.86);
+            filter: brightness(0.82);
         }
 
         /* iOS App Opening Spring Transition */
@@ -254,7 +291,7 @@
             position: absolute;
             inset: 0;
             z-index: 50;
-            border-radius: 43px;
+            border-radius: 45px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
@@ -270,34 +307,53 @@
             pointer-events: auto;
         }
 
-        /* iOS Lock Screen Unlock Transition */
+        /* =========================================================
+           FIXED iOS 18 LOCK SCREEN & HOME SCREEN ISOLATION
+           Prevents Home Screen icons from bleeding through Lock Screen!
+        ========================================================== */
         .ios-lockscreen {
             position: absolute;
             inset: 0;
-            z-index: 65;
+            z-index: 68;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: transform 0.55s cubic-bezier(0.32, 0.72, 0, 1), opacity 0.45s ease;
+            overflow: hidden;
+            border-radius: 45px;
+            background-color: #090d16;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.58s cubic-bezier(0.32, 0.72, 0, 1), opacity 0.45s ease;
         }
         .ios-lockscreen.unlocked {
-            transform: translateY(-105%);
+            transform: translateY(-104%);
             opacity: 0;
             pointer-events: none;
+        }
+
+        /* Home Screen hides completely while phone is locked so it NEVER overlaps */
+        .ios-homescreen {
+            transition: transform 0.52s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease, visibility 0.4s;
+        }
+        .ios-homescreen.locked-hidden {
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+            transform: scale(0.91);
         }
 
         /* iOS Control Center Pull-down */
         .ios-control-center {
             position: absolute;
             inset: 0;
-            z-index: 85;
-            background: rgba(15, 23, 42, 0.55);
-            backdrop-filter: blur(36px) saturate(190%);
-            -webkit-backdrop-filter: blur(36px) saturate(190%);
+            z-index: 86;
+            background: rgba(14, 16, 24, 0.46);
+            backdrop-filter: blur(48px) saturate(210%);
+            -webkit-backdrop-filter: blur(48px) saturate(210%);
             transform: translateY(-105%);
             opacity: 0;
             pointer-events: none;
-            transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.28s ease;
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.28s ease;
         }
         .ios-control-center.open {
             transform: translateY(0);
@@ -322,7 +378,7 @@
                 border-radius: 0;
                 padding: 0;
             }
-            .iphone-display, .ios-app-window {
+            .iphone-display, .ios-app-window, .ios-lockscreen {
                 border-radius: 0;
             }
             .hw-btn, .earpiece-slit {
@@ -376,17 +432,25 @@
                     <header class="relative z-[88] flex items-center justify-between px-7 pt-3.5 pb-1 text-white text-[13px] font-semibold tracking-tight select-none">
                         <!-- Left: Time -->
                         <div class="w-20 flex items-center">
-                            <span id="iosStatusTime" class="font-bold tracking-tight">09:41</span>
+                            <span id="iosStatusTime" class="font-bold tracking-tight drop-shadow">09:41</span>
                         </div>
 
-                        <!-- Right: Cellular, 5G, Battery (Click to open Control Center) -->
-                        <div onclick="toggleControlCenter()" class="w-20 flex items-center justify-end gap-1.5 cursor-pointer hover:opacity-80 transition" title="Klik untuk membuka Control Center">
-                            <i class="fa-solid fa-signal text-[11px]"></i>
-                            <span class="text-[11px] font-bold">5G</span>
-                            <div class="flex items-center gap-0.5">
-                                <div class="w-[22px] h-[11px] rounded-[3.5px] border border-white/80 p-[1.5px] flex items-center">
+                        <!-- Right: Authentic iOS Cellular Bars, Wi-Fi/5G, Battery (Click to open Control Center) -->
+                        <div onclick="toggleControlCenter()" class="w-24 flex items-center justify-end gap-1.5 cursor-pointer hover:opacity-80 transition" title="Klik untuk membuka Control Center">
+                            <!-- Authentic iOS 4-bar Signal SVG -->
+                            <svg class="w-4 h-3 fill-white" viewBox="0 0 18 12">
+                                <rect x="0" y="8" width="3" height="4" rx="1"/>
+                                <rect x="4.5" y="6" width="3" height="6" rx="1"/>
+                                <rect x="9" y="3" width="3" height="9" rx="1"/>
+                                <rect x="13.5" y="0" width="3" height="12" rx="1"/>
+                            </svg>
+                            <span class="text-[11px] font-bold tracking-tighter">5G</span>
+                            <!-- Authentic iOS Battery Icon with Nub -->
+                            <div class="flex items-center">
+                                <div class="w-[23px] h-[11.5px] rounded-[3.5px] border border-white/85 p-[1.5px] flex items-center">
                                     <div class="w-full h-full bg-white rounded-[1.5px]"></div>
                                 </div>
+                                <div class="w-[1.5px] h-[4px] bg-white/80 rounded-r-full ml-[1px]"></div>
                             </div>
                         </div>
                     </header>
@@ -443,145 +507,180 @@
                         </div>
                     </div>
 
-                    <!-- ==========================================
-                         iOS 18 CONTROL CENTER (Pull down from top-right)
-                    =========================================== -->
-                    <div id="controlCenter" class="ios-control-center pt-14 pb-8 px-6 flex flex-col justify-between text-white">
+                    <!-- =========================================================
+                         iOS 18 CONTROL CENTER (Authentic Vertical Sliders & Glass)
+                    ========================================================== -->
+                    <div id="controlCenter" class="ios-control-center pt-14 pb-7 px-6 flex flex-col justify-between text-white select-none">
                         <div>
-                            <div class="flex items-center justify-between mb-4">
-                                <span class="text-xs font-bold text-white/80 tracking-wide"> Control Center</span>
-                                <button onclick="toggleControlCenter()" class="px-3 py-1 rounded-full bg-white/15 text-xs font-semibold hover:bg-white/25">
-                                    Selesai
+                            <!-- Top Status Pill Row -->
+                            <div class="flex items-center justify-between mb-3.5 px-1">
+                                <div class="flex items-center gap-1.5 text-white/85 text-xs font-semibold">
+                                    <i class="fa-brands fa-apple text-sm"></i>
+                                    <span>Winter's iPhone • 5G</span>
+                                </div>
+                                <button onclick="toggleControlCenter()" class="w-7 h-7 rounded-full bg-white/15 flex items-center justify-center text-xs hover:bg-white/25 transition">
+                                    <i class="fa-solid fa-chevron-up"></i>
                                 </button>
                             </div>
 
-                            <!-- Top Grid: Connectivity & Now Playing -->
+                            <!-- ROW 1: 2x2 Connectivity Pod & Now Playing Pod -->
                             <div class="grid grid-cols-2 gap-3.5">
-                                <!-- Connectivity Box -->
-                                <div class="ios-blur p-3.5 rounded-[26px] grid grid-cols-2 gap-2.5">
-                                    <button onclick="this.classList.toggle('bg-amber-500'); this.classList.toggle('bg-white/20')" class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center text-white transition">
+                                <!-- Left: 2x2 Connectivity Glass Pod -->
+                                <div class="cc-module p-3.5 rounded-[28px] grid grid-cols-2 gap-2.5 place-items-center">
+                                    <!-- Airplane Mode -->
+                                    <button onclick="this.classList.toggle('bg-[#FF9500]'); this.classList.toggle('bg-white/15')" class="w-12 h-12 rounded-full bg-white/15 flex items-center justify-center text-white text-lg transition active:scale-90">
                                         <i class="fa-solid fa-plane"></i>
                                     </button>
-                                    <button onclick="this.classList.toggle('bg-sky-500'); this.classList.toggle('bg-white/20')" class="w-12 h-12 rounded-full bg-sky-500 flex items-center justify-center text-white transition">
+                                    <!-- Cellular Data -->
+                                    <button onclick="this.classList.toggle('bg-[#34C759]'); this.classList.toggle('bg-white/15')" class="w-12 h-12 rounded-full bg-[#34C759] flex items-center justify-center text-white text-base transition active:scale-90 shadow-lg shadow-emerald-500/30">
+                                        <i class="fa-solid fa-tower-broadcast"></i>
+                                    </button>
+                                    <!-- Wi-Fi -->
+                                    <button onclick="this.classList.toggle('bg-[#007AFF]'); this.classList.toggle('bg-white/15')" class="w-12 h-12 rounded-full bg-[#007AFF] flex items-center justify-center text-white text-base transition active:scale-90 shadow-lg shadow-blue-500/30">
                                         <i class="fa-solid fa-wifi"></i>
                                     </button>
-                                    <button onclick="this.classList.toggle('bg-blue-600'); this.classList.toggle('bg-white/20')" class="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white transition">
+                                    <!-- Bluetooth -->
+                                    <button onclick="this.classList.toggle('bg-[#007AFF]'); this.classList.toggle('bg-white/15')" class="w-12 h-12 rounded-full bg-[#007AFF] flex items-center justify-center text-white text-base transition active:scale-90 shadow-lg shadow-blue-500/30">
                                         <i class="fa-brands fa-bluetooth-b"></i>
                                     </button>
-                                    <button onclick="this.classList.toggle('bg-emerald-500'); this.classList.toggle('bg-white/20')" class="w-12 h-12 rounded-full bg-emerald-500 flex items-center justify-center text-white transition">
-                                        <i class="fa-solid fa-tower-cell"></i>
+                                </div>
+
+                                <!-- Right: Now Playing Glass Pod -->
+                                <div class="cc-module p-3.5 rounded-[28px] flex flex-col justify-between">
+                                    <div class="flex items-start justify-between gap-2">
+                                        <img id="ccSongCover" src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=100&q=80" class="w-10 h-10 rounded-xl object-cover shadow border border-white/20" alt="cover">
+                                        <button onclick="toggleControlCenter(); openApp('app-music')" class="w-7 h-7 rounded-full bg-white/15 flex items-center justify-center text-[11px] text-sky-300">
+                                            <i class="fa-solid fa-wave-square"></i>
+                                        </button>
+                                    </div>
+                                    <div class="my-1">
+                                        <p id="ccSongTitle" class="text-xs font-bold text-white truncate">Spark (Winter Solo)</p>
+                                        <p id="ccSongArtist" class="text-[10px] text-white/65 truncate">Winter • aespa</p>
+                                    </div>
+                                    <div class="flex items-center justify-between px-1 pt-1 text-base">
+                                        <button onclick="prevSong()" class="hover:opacity-75 active:scale-90 transition"><i class="fa-solid fa-backward-step"></i></button>
+                                        <button onclick="togglePlayMusic()" class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 active:scale-90 transition">
+                                            <i id="ccPlayIcon" class="fa-solid fa-play text-xs"></i>
+                                        </button>
+                                        <button onclick="nextSong()" class="hover:opacity-75 active:scale-90 transition"><i class="fa-solid fa-forward-step"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ROW 2: Left (Rotation/Mirroring + Focus) & Right (2 Vertical Pill Sliders) -->
+                            <div class="grid grid-cols-2 gap-3.5 mt-3.5">
+                                <!-- Left Column: 2 Mini Toggles + Focus Pill -->
+                                <div class="flex flex-col justify-between gap-3.5">
+                                    <div class="grid grid-cols-2 gap-3">
+                                        <button onclick="this.classList.toggle('bg-white'); this.classList.toggle('text-rose-500')" class="cc-module h-[68px] rounded-[22px] flex flex-col items-center justify-center gap-1 transition active:scale-95">
+                                            <i class="fa-solid fa-rotate-right text-base"></i>
+                                            <span class="text-[9px] font-semibold opacity-80">Kunci Putar</span>
+                                        </button>
+                                        <button onclick="this.classList.toggle('bg-white'); this.classList.toggle('text-indigo-600')" class="cc-module h-[68px] rounded-[22px] flex flex-col items-center justify-center gap-1 transition active:scale-95">
+                                            <i class="fa-regular fa-clone text-base"></i>
+                                            <span class="text-[9px] font-semibold opacity-80">Mirroring</span>
+                                        </button>
+                                    </div>
+
+                                    <!-- Focus Mode Glass Pill -->
+                                    <button onclick="this.classList.toggle('ring-2'); this.classList.toggle('ring-indigo-400')" class="cc-module h-[68px] px-3.5 rounded-[22px] flex items-center gap-2.5 text-left transition active:scale-95">
+                                        <div class="w-9 h-9 rounded-full bg-indigo-500 flex items-center justify-center text-white shrink-0 shadow">
+                                            <i class="fa-solid fa-moon text-xs"></i>
+                                        </div>
+                                        <div class="min-w-0">
+                                            <p class="text-[11px] font-bold text-white truncate">Fokus</p>
+                                            <p class="text-[9px] text-indigo-200 truncate">Latihan aespa ⭐️</p>
+                                        </div>
                                     </button>
                                 </div>
 
-                                <!-- Now Playing Card -->
-                                <div class="ios-blur p-3.5 rounded-[26px] flex flex-col justify-between">
-                                    <div class="flex items-center gap-2">
-                                        <img id="ccSongCover" src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=100&q=80" class="w-9 h-9 rounded-xl object-cover" alt="cover">
-                                        <div class="min-w-0">
-                                            <p id="ccSongTitle" class="text-xs font-bold truncate">Spark</p>
-                                            <p id="ccSongArtist" class="text-[10px] text-white/70 truncate">Winter (aespa)</p>
+                                <!-- Right Column: Authentic iOS Vertical Brightness & Volume Pill Sliders -->
+                                <div class="grid grid-cols-2 gap-3.5 h-[150px]">
+                                    <!-- Vertical Brightness Pill -->
+                                    <div id="ccBrightnessPill" onclick="handleVerticalPillClick(event, 'brightness')" class="cc-module relative h-full rounded-[24px] overflow-hidden cursor-pointer flex flex-col justify-end select-none" title="Klik untuk atur kecerahan">
+                                        <div id="ccBrightnessFill" class="w-full bg-white/95 transition-all duration-150" style="height: 100%;"></div>
+                                        <div class="absolute inset-x-0 bottom-3.5 flex flex-col items-center pointer-events-none">
+                                            <i class="fa-solid fa-sun text-slate-800 text-base drop-shadow-sm"></i>
+                                            <span id="brightnessVal" class="text-[9px] font-bold text-slate-800 mt-0.5">100%</span>
                                         </div>
                                     </div>
-                                    <div class="flex items-center justify-around pt-2 text-sm">
-                                        <button onclick="prevSong()"><i class="fa-solid fa-backward-step"></i></button>
-                                        <button onclick="togglePlayMusic()" class="w-8 h-8 rounded-full bg-white text-slate-900 flex items-center justify-center">
-                                            <i id="ccPlayIcon" class="fa-solid fa-play text-xs"></i>
-                                        </button>
-                                        <button onclick="nextSong()"><i class="fa-solid fa-forward-step"></i></button>
+
+                                    <!-- Vertical Volume Pill -->
+                                    <div id="ccVolumePill" onclick="handleVerticalPillClick(event, 'volume')" class="cc-module relative h-full rounded-[24px] overflow-hidden cursor-pointer flex flex-col justify-end select-none" title="Klik untuk atur volume">
+                                        <div id="ccVolumeFill" class="w-full bg-white/95 transition-all duration-150" style="height: 80%;"></div>
+                                        <div class="absolute inset-x-0 bottom-3.5 flex flex-col items-center pointer-events-none">
+                                            <i class="fa-solid fa-volume-high text-slate-800 text-base drop-shadow-sm"></i>
+                                            <span id="volumeVal" class="text-[9px] font-bold text-slate-800 mt-0.5">80%</span>
+                                        </div>
+                                        <!-- Hidden range for keyboard/button compatibility -->
+                                        <input id="ccVolumeSlider" type="range" min="0" max="100" value="80" class="hidden">
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Focus Mode Banner -->
-                            <div class="mt-3.5 ios-blur p-3.5 rounded-[24px] flex items-center justify-between">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-full bg-indigo-500 flex items-center justify-center">
-                                        <i class="fa-solid fa-moon"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-xs font-bold">Mode Fokus: Latihan aespa ⭐️</p>
-                                        <p class="text-[10px] text-white/70">Notifikasi MYs Bubble tetap aktif</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Brightness & Volume Sliders -->
-                            <div class="mt-3.5 space-y-3 ios-blur p-4 rounded-[26px]">
-                                <div>
-                                    <div class="flex justify-between text-[11px] font-semibold mb-1">
-                                        <span><i class="fa-solid fa-sun mr-1 text-amber-300"></i> Kecerahan Layar</span>
-                                        <span id="brightnessVal">100%</span>
-                                    </div>
-                                    <input type="range" min="45" max="100" value="100" oninput="setScreenBrightness(this.value)" class="w-full accent-white h-2 bg-white/30 rounded-lg cursor-pointer">
-                                </div>
-                                <div>
-                                    <div class="flex justify-between text-[11px] font-semibold mb-1">
-                                        <span><i class="fa-solid fa-volume-high mr-1 text-sky-300"></i> Volume Audio</span>
-                                        <span id="volumeVal">80%</span>
-                                    </div>
-                                    <input id="ccVolumeSlider" type="range" min="0" max="100" value="80" oninput="setVolumeSlider(this.value)" class="w-full accent-white h-2 bg-white/30 rounded-lg cursor-pointer">
-                                </div>
-                            </div>
-
-                            <!-- Bottom Quick Tiles -->
+                            <!-- ROW 3: Bottom 4 iOS Squircle Quick Shortcuts -->
                             <div class="grid grid-cols-4 gap-3 mt-3.5">
-                                <button onclick="toggleFlashlight()" id="ccFlashBtn" class="ios-blur h-14 rounded-2xl flex flex-col items-center justify-center gap-1 text-xs font-semibold">
-                                    <i class="fa-solid fa-bolt"></i>
-                                    <span class="text-[9px]">Senter</span>
+                                <button onclick="toggleFlashlight()" id="ccFlashBtn" class="cc-module h-[62px] rounded-[20px] flex flex-col items-center justify-center gap-1 text-white hover:bg-white/20 active:scale-90 transition">
+                                    <i class="fa-solid fa-bolt text-base"></i>
+                                    <span class="text-[9px] font-medium opacity-85">Senter</span>
                                 </button>
-                                <button onclick="toggleControlCenter(); openApp('app-camera')" class="ios-blur h-14 rounded-2xl flex flex-col items-center justify-center gap-1 text-xs font-semibold">
-                                    <i class="fa-solid fa-camera"></i>
-                                    <span class="text-[9px]">Kamera</span>
+                                <button onclick="toggleControlCenter(); openApp('app-calendar')" class="cc-module h-[62px] rounded-[20px] flex flex-col items-center justify-center gap-1 text-white hover:bg-white/20 active:scale-90 transition">
+                                    <i class="fa-regular fa-clock text-base"></i>
+                                    <span class="text-[9px] font-medium opacity-85">Jadwal</span>
                                 </button>
-                                <button onclick="toggleControlCenter(); openApp('app-notes')" class="ios-blur h-14 rounded-2xl flex flex-col items-center justify-center gap-1 text-xs font-semibold">
-                                    <i class="fa-solid fa-note-sticky"></i>
-                                    <span class="text-[9px]">Notes</span>
+                                <button onclick="toggleControlCenter(); openApp('app-camera')" class="cc-module h-[62px] rounded-[20px] flex flex-col items-center justify-center gap-1 text-white hover:bg-white/20 active:scale-90 transition">
+                                    <i class="fa-solid fa-camera text-base"></i>
+                                    <span class="text-[9px] font-medium opacity-85">Kamera</span>
                                 </button>
-                                <button onclick="toggleControlCenter(); openApp('app-settings')" class="ios-blur h-14 rounded-2xl flex flex-col items-center justify-center gap-1 text-xs font-semibold">
-                                    <i class="fa-solid fa-gear"></i>
-                                    <span class="text-[9px]">Settings</span>
+                                <button onclick="toggleControlCenter(); openApp('app-settings')" class="cc-module h-[62px] rounded-[20px] flex flex-col items-center justify-center gap-1 text-white hover:bg-white/20 active:scale-90 transition">
+                                    <i class="fa-solid fa-sliders text-base text-sky-300"></i>
+                                    <span class="text-[9px] font-medium opacity-85">CMS</span>
                                 </button>
                             </div>
                         </div>
 
-                        <button onclick="toggleControlCenter()" class="w-full py-2.5 rounded-full bg-white/15 text-xs font-bold text-center">
-                            Tutup Control Center
+                        <!-- Bottom Dismiss Bar -->
+                        <button onclick="toggleControlCenter()" class="w-full py-2.5 rounded-full cc-module text-xs font-semibold text-white/90 hover:bg-white/20 transition text-center">
+                            Geser ke Atas / Tutup Control Center
                         </button>
                     </div>
 
-                    <!-- ==========================================
-                         1. iOS 18 LOCK SCREEN
-                    =========================================== -->
-                    <section id="iosLockScreen" class="ios-lockscreen pt-14 pb-6 px-6 select-none">
-                        <!-- Top Lock Icon, Date & Huge iOS 18 Clock -->
-                        <div class="text-center mt-1">
-                            <div class="inline-flex items-center gap-1.5 text-white/90 text-xs font-semibold mb-1 drop-shadow">
-                                <i class="fa-solid fa-lock text-[10px]"></i>
-                                <span>Selasa, 3 November • ❄️ Winter's iPhone</span>
+                    <!-- =========================================================
+                         1. FIXED iOS 18 LOCK SCREEN (With Dedicated Wallpaper)
+                    ========================================================== -->
+                    <section id="iosLockScreen" class="ios-lockscreen pt-14 pb-6 px-5 select-none">
+                        <!-- Dedicated Lock Screen Dark Gradient Overlay for Crisp Clock Contrast -->
+                        <div class="absolute inset-0 bg-gradient-to-b from-black/35 via-black/10 to-black/55 pointer-events-none z-0"></div>
+
+                        <!-- Top Lock Icon, Date & Huge iOS 18 Stencil Clock -->
+                        <div class="relative z-10 text-center mt-1">
+                            <div class="inline-flex items-center gap-1.5 text-white/90 text-[13px] font-semibold tracking-tight mb-0.5 drop-shadow">
+                                <i class="fa-solid fa-lock text-[11px] text-white/85"></i>
+                                <span>Selasa, 3 November</span>
                             </div>
-                            <div id="lockScreenClock" class="text-[82px] leading-none font-extrabold tracking-tight text-white/95 drop-shadow-[0_8px_24px_rgba(0,0,0,0.35)]">
+                            <div id="lockScreenClock" class="text-[86px] leading-[0.95] font-extrabold tracking-tight text-white/95 drop-shadow-[0_10px_28px_rgba(0,0,0,0.45)]" style="font-variant-numeric: tabular-nums;">
                                 09:41
                             </div>
 
-                            <!-- Lock Screen Widgets Row (iOS 18 Style) -->
-                            <div class="flex items-center justify-center gap-2.5 mt-3">
-                                <div class="ios-blur px-3 py-1.5 rounded-2xl flex items-center gap-2 text-white text-xs font-semibold">
-                                    <i class="fa-solid fa-snowflake text-sky-200"></i>
+                            <!-- Authentic iOS 18 Lock Screen Glass Widgets Row -->
+                            <div class="flex items-center justify-center gap-2.5 mt-3.5">
+                                <div class="ios-blur px-3 py-1.5 rounded-2xl flex items-center gap-1.5 text-white text-xs font-semibold">
+                                    <i class="fa-solid fa-snowflake text-sky-200 text-xs"></i>
                                     <span>Seoul -2°C</span>
                                 </div>
-                                <div class="ios-blur px-3 py-1.5 rounded-2xl flex items-center gap-2 text-white text-xs font-semibold">
-                                    <i class="fa-solid fa-battery-full text-emerald-300"></i>
+                                <div class="ios-blur px-3 py-1.5 rounded-2xl flex items-center gap-1.5 text-white text-xs font-semibold">
+                                    <i class="fa-solid fa-battery-full text-emerald-300 text-xs"></i>
                                     <span>98%</span>
                                 </div>
                                 <div class="ios-blur px-3 py-1.5 rounded-2xl flex items-center gap-1.5 text-white text-xs font-semibold">
                                     <span>⭐️</span>
-                                    <span>MYs D-Day</span>
+                                    <span>0101 Winter</span>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Center: Passcode Modal (Optional when user clicks PIN) -->
-                        <div id="lockPasscodePanel" class="hidden my-auto ios-blur-dark p-5 rounded-[34px] border border-white/20 text-center">
+                        <div id="lockPasscodePanel" class="hidden relative z-20 my-auto ios-blur-dark p-5 rounded-[34px] text-center">
                             <p class="text-xs font-bold text-white mb-1">Masukkan Kode Sandi iPhone</p>
                             <p class="text-[11px] text-sky-200 mb-3">Petunjuk: Ultah Winter (0101)</p>
                             <div id="pinDotsContainer" class="flex justify-center gap-3.5 mb-4">
@@ -606,10 +705,10 @@
                             </div>
                         </div>
 
-                        <!-- Bottom Notifications Stack + Quick Actions -->
-                        <div id="lockNotifStack" class="mt-auto space-y-2.5">
+                        <!-- Bottom Notifications Stack + Authentic iOS Lock Screen Bottom Bar -->
+                        <div id="lockNotifStack" class="relative z-10 mt-auto space-y-2.5">
                             <!-- Lock Screen Now Playing Widget (Appears when Apple Music plays) -->
-                            <div id="lockMusicWidget" class="hidden ios-blur-dark p-3.5 rounded-[24px] border border-white/20 text-white shadow-xl">
+                            <div id="lockMusicWidget" class="hidden ios-notif-glass p-3.5 rounded-[24px] text-white">
                                 <div class="flex items-center gap-3">
                                     <img id="lockMusicCover" src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=120&q=80" class="w-11 h-11 rounded-xl object-cover border border-white/20" alt="cover">
                                     <div class="flex-1 min-w-0">
@@ -624,66 +723,65 @@
                                 </div>
                             </div>
 
-                            <!-- iMessage Notification -->
-                            <div onclick="unlockAndOpenApp('app-messages')" class="ios-blur p-3.5 rounded-[24px] cursor-pointer hover:bg-white/30 transition shadow-lg border border-white/25">
-                                <div class="flex items-center justify-between text-[11px] text-white/90 font-semibold mb-1">
+                            <!-- iMessage Notification Banner -->
+                            <div onclick="unlockAndOpenApp('app-messages')" class="ios-notif-glass p-3.5 rounded-[24px] cursor-pointer hover:brightness-110 active:scale-[0.98] transition">
+                                <div class="flex items-center justify-between text-[11px] text-white/85 font-semibold mb-1">
                                     <div class="flex items-center gap-1.5">
-                                        <span class="w-5 h-5 rounded-md bg-emerald-500 flex items-center justify-center text-white text-[10px]">
+                                        <span class="w-5 h-5 rounded-[6px] bg-gradient-to-b from-[#5BF675] to-[#0ECC33] flex items-center justify-center text-white text-[10px] shadow-sm">
                                             <i class="fa-solid fa-comment"></i>
                                         </span>
-                                        <span>PESAN • KARINA 💙</span>
+                                        <span class="tracking-tight">PESAN • KARINA 💙</span>
                                     </div>
-                                    <span class="text-white/75">Baru saja</span>
+                                    <span class="text-white/65 text-[10px]">Baru saja</span>
                                 </div>
                                 <p class="text-xs font-bold text-white">Karina (Yoo Jimin) 💙</p>
-                                <p class="text-xs text-white/95 truncate">Minjeong-ah, jangan lupa latihan jam 2 siang! Bawa jaket hangat ❄️</p>
+                                <p class="text-xs text-white/90 truncate">Minjeong-ah, jangan lupa latihan jam 2 siang! Bawa jaket hangat ❄️</p>
                             </div>
 
-                            <!-- Bubble Notification -->
-                            <div onclick="unlockAndOpenApp('app-messages')" class="ios-blur p-3.5 rounded-[24px] cursor-pointer hover:bg-white/30 transition shadow-lg border border-white/25">
-                                <div class="flex items-center justify-between text-[11px] text-white/90 font-semibold mb-1">
+                            <!-- Bubble Notification Banner -->
+                            <div onclick="unlockAndOpenApp('app-messages')" class="ios-notif-glass p-3.5 rounded-[24px] cursor-pointer hover:brightness-110 active:scale-[0.98] transition">
+                                <div class="flex items-center justify-between text-[11px] text-white/85 font-semibold mb-1">
                                     <div class="flex items-center gap-1.5">
-                                        <span class="w-5 h-5 rounded-md bg-sky-500 flex items-center justify-center text-white text-[10px]">🫧</span>
-                                        <span>DearU bubble • MYs</span>
+                                        <span class="w-5 h-5 rounded-[6px] bg-gradient-to-b from-sky-400 to-blue-600 flex items-center justify-center text-white text-[10px] shadow-sm">🫧</span>
+                                        <span class="tracking-tight">DearU bubble • MYs</span>
                                     </div>
-                                    <span class="text-white/75">10m lalu</span>
+                                    <span class="text-white/65 text-[10px]">10m lalu</span>
                                 </div>
                                 <p class="text-xs font-bold text-white">MYs Menunggu Pesanmu ⭐️</p>
-                                <p class="text-xs text-white/95 truncate">Kirim foto selca terbaru ke MYs hari ini yuk!</p>
+                                <p class="text-xs text-white/90 truncate">Kirim foto selca terbaru ke MYs hari ini yuk!</p>
                             </div>
 
-                            <!-- Lock Screen Bottom Buttons (Flashlight, Unlock Pill, Camera) -->
-                            <div class="flex items-center justify-between pt-3 px-1">
-                                <button onclick="toggleFlashlight()" id="lockFlashBtn" class="w-12 h-12 rounded-full ios-blur flex items-center justify-center text-white text-lg hover:bg-white/30 active:scale-90 transition shadow-lg">
-                                    <i class="fa-solid fa-flashlight"></i>
+                            <!-- Lock Screen Bottom Quick Actions (Flashlight, Unlock Pill, Camera) -->
+                            <div class="flex items-center justify-between pt-3 px-2">
+                                <button onclick="toggleFlashlight()" id="lockFlashBtn" class="w-[50px] h-[50px] rounded-full ios-blur flex items-center justify-center text-white text-lg hover:bg-white/30 active:scale-90 transition">
                                     <i class="fa-solid fa-bolt"></i>
                                 </button>
 
-                                <div class="flex flex-col items-center gap-1.5">
-                                    <button onclick="unlockPhone()" class="px-5 py-2 rounded-full ios-blur text-white font-bold text-xs tracking-tight hover:bg-white/30 active:scale-95 transition shadow-lg border border-white/30">
+                                <div class="flex flex-col items-center gap-1">
+                                    <button onclick="unlockPhone()" class="px-5 py-2 rounded-full ios-blur text-white font-bold text-xs tracking-tight hover:bg-white/30 active:scale-95 transition">
                                         Klik untuk Buka iPhone ⭐️
                                     </button>
-                                    <button onclick="showPasscodeBox()" class="text-[10px] text-white/75 hover:underline">
-                                        Atau gunakan Passcode (0101)
+                                    <button onclick="showPasscodeBox()" class="text-[10px] text-white/75 hover:text-white transition">
+                                        Passcode: 0101
                                     </button>
                                 </div>
 
-                                <button onclick="unlockAndOpenApp('app-camera')" class="w-12 h-12 rounded-full ios-blur flex items-center justify-center text-white text-lg hover:bg-white/30 active:scale-90 transition shadow-lg">
+                                <button onclick="unlockAndOpenApp('app-camera')" class="w-[50px] h-[50px] rounded-full ios-blur flex items-center justify-center text-white text-lg hover:bg-white/30 active:scale-90 transition">
                                     <i class="fa-solid fa-camera"></i>
                                 </button>
                             </div>
                         </div>
                     </section>
 
-                    <!-- ==========================================
-                         2. iOS 18 HOME SCREEN
-                    =========================================== -->
-                    <section id="iosHomeScreen" class="relative z-10 h-full flex flex-col justify-between pt-12 pb-6 px-5 select-none">
+                    <!-- =========================================================
+                         2. iOS 18 HOME SCREEN (With Authentic Apple SVG Icons)
+                    ========================================================== -->
+                    <section id="iosHomeScreen" class="ios-homescreen locked-hidden relative z-10 h-full flex flex-col justify-between pt-12 pb-6 px-5 select-none">
 
-                        <!-- TOP iOS WIDGETS (2 Square iOS Widgets) -->
+                        <!-- TOP iOS WIDGETS (2 Square iOS Frosted Glass Widgets) -->
                         <div class="grid grid-cols-2 gap-3.5 mt-1">
                             <!-- Left Widget: iOS Weather / Winter Status Note -->
-                            <div onclick="openApp('app-notes')" class="ios-blur-dark p-3.5 rounded-[26px] h-[148px] flex flex-col justify-between cursor-pointer hover:scale-[1.02] transition shadow-xl border border-white/15">
+                            <div onclick="openApp('app-notes')" class="ios-blur-dark p-3.5 rounded-[26px] h-[148px] flex flex-col justify-between cursor-pointer hover:scale-[1.02] transition">
                                 <div class="flex items-center justify-between">
                                     <div>
                                         <p class="text-[11px] font-bold text-sky-300 flex items-center gap-1">
@@ -717,125 +815,146 @@
                             </div>
                         </div>
 
-                        <!-- AUTHENTIC iOS APP ICONS GRID (4x2 + Mini Page Dots) -->
+                        <!-- AUTHENTIC iOS 18 APP ICONS GRID (Custom Pixel-Accurate SVGs) -->
                         <div class="grid grid-cols-4 gap-y-5 gap-x-3 my-auto pt-2">
-                            <!-- 1. iOS Photos -->
+                            <!-- 1. iOS Photos (Authentic Rainbow Multiplying Petals SVG) -->
                             <button onclick="openApp('app-photos')" class="ios-app-btn flex flex-col items-center gap-1.5">
                                 <div class="ios-app-icon bg-white">
-                                    <!-- Authentic iOS Photos Flower SVG -->
-                                    <svg viewBox="0 0 60 60" class="w-11 h-11">
-                                        <g transform="translate(30,30)">
-                                            <rect x="-5" y="-22" width="10" height="18" rx="5" fill="#FF3B30" opacity="0.85" transform="rotate(0)"/>
-                                            <rect x="-5" y="-22" width="10" height="18" rx="5" fill="#FF9500" opacity="0.85" transform="rotate(45)"/>
-                                            <rect x="-5" y="-22" width="10" height="18" rx="5" fill="#FFCC00" opacity="0.85" transform="rotate(90)"/>
-                                            <rect x="-5" y="-22" width="10" height="18" rx="5" fill="#34C759" opacity="0.85" transform="rotate(135)"/>
-                                            <rect x="-5" y="-22" width="10" height="18" rx="5" fill="#5AC8FA" opacity="0.85" transform="rotate(180)"/>
-                                            <rect x="-5" y="-22" width="10" height="18" rx="5" fill="#007AFF" opacity="0.85" transform="rotate(225)"/>
-                                            <rect x="-5" y="-22" width="10" height="18" rx="5" fill="#5856D6" opacity="0.85" transform="rotate(270)"/>
-                                            <rect x="-5" y="-22" width="10" height="18" rx="5" fill="#AF52DE" opacity="0.85" transform="rotate(315)"/>
+                                    <svg viewBox="0 0 60 60" class="w-12 h-12">
+                                        <g transform="translate(30,30)" style="mix-blend-mode: multiply;">
+                                            <rect x="-5.5" y="-23" width="11" height="19" rx="5.5" fill="#FF3B30" opacity="0.9" transform="rotate(0)"/>
+                                            <rect x="-5.5" y="-23" width="11" height="19" rx="5.5" fill="#FF9500" opacity="0.9" transform="rotate(45)"/>
+                                            <rect x="-5.5" y="-23" width="11" height="19" rx="5.5" fill="#FFCC00" opacity="0.9" transform="rotate(90)"/>
+                                            <rect x="-5.5" y="-23" width="11" height="19" rx="5.5" fill="#34C759" opacity="0.9" transform="rotate(135)"/>
+                                            <rect x="-5.5" y="-23" width="11" height="19" rx="5.5" fill="#5AC8FA" opacity="0.9" transform="rotate(180)"/>
+                                            <rect x="-5.5" y="-23" width="11" height="19" rx="5.5" fill="#007AFF" opacity="0.9" transform="rotate(225)"/>
+                                            <rect x="-5.5" y="-23" width="11" height="19" rx="5.5" fill="#5856D6" opacity="0.9" transform="rotate(270)"/>
+                                            <rect x="-5.5" y="-23" width="11" height="19" rx="5.5" fill="#AF52DE" opacity="0.9" transform="rotate(315)"/>
                                         </g>
                                     </svg>
                                 </div>
                                 <span class="text-[11px] font-medium text-white drop-shadow">Photos</span>
                             </button>
 
-                            <!-- 2. iOS Messages (iMessage) -->
+                            <!-- 2. iOS Messages (Authentic Apple iMessage Bubble SVG) -->
                             <button onclick="openApp('app-messages')" class="ios-app-btn flex flex-col items-center gap-1.5 relative">
-                                <div class="ios-app-icon bg-gradient-to-b from-[#52E575] to-[#24C34B]">
-                                    <span id="msgBadgeCount" class="absolute -top-1.5 -right-1.5 min-w-[20px] h-5 px-1 rounded-full bg-[#FF3B30] text-white text-[11px] font-bold flex items-center justify-center shadow">4</span>
-                                    <i class="fa-solid fa-comment text-white text-[31px]"></i>
+                                <div class="ios-app-icon bg-gradient-to-b from-[#5BF675] to-[#0ECC33]">
+                                    <span id="msgBadgeCount" class="absolute -top-1.5 -right-1.5 min-w-[20px] h-5 px-1 rounded-full bg-[#FF3B30] text-white text-[11px] font-bold flex items-center justify-center shadow-md z-10">5</span>
+                                    <svg viewBox="0 0 60 60" class="w-10 h-10 fill-white drop-shadow-sm">
+                                        <path d="M30 12C17.85 12 8 20.16 8 30.22c0 5.43 2.88 10.3 7.45 13.63-.36 2.52-1.66 5.2-3.28 6.72-.42.4-.1.98.47.88 3.75-.64 7.39-2.25 9.88-3.82 2.38.53 4.89.81 7.48.81 12.15 0 22-8.16 22-18.22S42.15 12 30 12z"/>
+                                    </svg>
                                 </div>
                                 <span class="text-[11px] font-medium text-white drop-shadow">Messages</span>
                             </button>
 
-                            <!-- 3. Apple Music -->
+                            <!-- 3. Apple Music (Authentic Beamed Note SVG) -->
                             <button onclick="openApp('app-music')" class="ios-app-btn flex flex-col items-center gap-1.5">
-                                <div class="ios-app-icon bg-gradient-to-b from-[#FF5E7E] to-[#FA243C]">
-                                    <i class="fa-solid fa-music text-white text-[28px]"></i>
+                                <div class="ios-app-icon bg-gradient-to-b from-[#FF546C] to-[#FA233B]">
+                                    <svg viewBox="0 0 60 60" class="w-10 h-10 fill-white drop-shadow-sm">
+                                        <path d="M44 13.5v25.2c0 3.7-3.1 6.8-7 6.8-3.6 0-6.5-2.6-6.5-5.9 0-3.3 2.9-5.9 6.5-5.9 1.3 0 2.5.3 3.5.9V21.8l-16 3.6v17.3c0 3.7-3.1 6.8-7 6.8-3.6 0-6.5-2.6-6.5-5.9 0-3.3 2.9-5.9 6.5-5.9 1.3 0 2.5.3 3.5.9V18.2c0-1.4 1-2.6 2.4-2.9l18-4c1.4-.3 2.6.8 2.6 2.2z"/>
+                                    </svg>
                                 </div>
                                 <span class="text-[11px] font-medium text-white drop-shadow">Music</span>
                             </button>
 
-                            <!-- 4. iOS Notes -->
+                            <!-- 4. iOS Notes (Authentic Yellow Header & Paper Lines) -->
                             <button onclick="openApp('app-notes')" class="ios-app-btn flex flex-col items-center gap-1.5">
                                 <div class="ios-app-icon bg-white overflow-hidden flex flex-col justify-start">
-                                    <div class="w-full h-4 bg-gradient-to-r from-amber-400 to-yellow-400"></div>
-                                    <div class="w-full flex-1 p-2 flex flex-col justify-around">
-                                        <div class="w-full h-[2px] bg-slate-200"></div>
-                                        <div class="w-4/5 h-[2px] bg-slate-200"></div>
-                                        <div class="w-full h-[2px] bg-slate-200"></div>
+                                    <div class="w-full h-[17px] bg-gradient-to-b from-[#FFCC00] to-[#F5B800] border-b border-amber-500/30"></div>
+                                    <div class="w-full flex-1 px-2.5 py-2 flex flex-col justify-between bg-[#FFFEF9]">
+                                        <div class="w-full h-[1.5px] bg-slate-200 rounded-full"></div>
+                                        <div class="w-full h-[1.5px] bg-slate-200 rounded-full"></div>
+                                        <div class="w-4/5 h-[1.5px] bg-slate-200 rounded-full"></div>
                                     </div>
                                 </div>
                                 <span class="text-[11px] font-medium text-white drop-shadow">Notes</span>
                             </button>
 
-                            <!-- 5. Instagram (@imwinter) -->
+                            <!-- 5. Instagram (@imwinter Radial Gradient SVG) -->
                             <button onclick="openApp('app-instagram')" class="ios-app-btn flex flex-col items-center gap-1.5">
-                                <div class="ios-app-icon bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600">
-                                    <i class="fa-brands fa-instagram text-white text-[34px]"></i>
+                                <div class="ios-app-icon" style="background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);">
+                                    <svg viewBox="0 0 60 60" class="w-10 h-10 stroke-white fill-none" stroke-width="3.8">
+                                        <rect x="13" y="13" width="34" height="34" rx="10"/>
+                                        <circle cx="30" cy="30" r="8"/>
+                                        <circle cx="40.5" cy="19.5" r="2.2" fill="white" stroke="none"/>
+                                    </svg>
                                 </div>
                                 <span class="text-[11px] font-medium text-white drop-shadow">Instagram</span>
                             </button>
 
                             <!-- 6. iOS Calendar -->
                             <button onclick="openApp('app-calendar')" class="ios-app-btn flex flex-col items-center gap-1.5">
-                                <div class="ios-app-icon bg-white flex flex-col items-center justify-center">
-                                    <span class="text-[9px] font-bold text-[#FF3B30] uppercase tracking-wider">SEL</span>
-                                    <span class="text-2xl font-light text-slate-900 leading-none">3</span>
+                                <div class="ios-app-icon bg-white flex flex-col items-center justify-center pt-1">
+                                    <span class="text-[10px] font-extrabold text-[#FF3B30] uppercase tracking-widest leading-none">SEL</span>
+                                    <span class="text-[32px] font-light text-slate-900 leading-tight -mt-0.5">3</span>
                                 </div>
                                 <span class="text-[11px] font-medium text-white drop-shadow">Calendar</span>
                             </button>
 
-                            <!-- 7. iOS Camera / Polaroid -->
+                            <!-- 7. iOS Camera (Authentic Brushed Metallic + Sapphire Lens SVG) -->
                             <button onclick="openApp('app-camera')" class="ios-app-btn flex flex-col items-center gap-1.5">
-                                <div class="ios-app-icon bg-gradient-to-b from-zinc-200 to-zinc-400">
-                                    <i class="fa-solid fa-camera text-zinc-800 text-[28px]"></i>
+                                <div class="ios-app-icon bg-gradient-to-b from-[#E5E5EA] to-[#AEAEB2]">
+                                    <svg viewBox="0 0 60 60" class="w-11 h-11">
+                                        <path d="M22 15l2.5-3.5h11L38 15h8c2.8 0 5 2.2 5 5v22c0 2.8-2.2 5-5 5H14c-2.8 0-5-2.2-5-5V20c0-2.8 2.2-5 5-5h8z" fill="#2C2C2E"/>
+                                        <circle cx="30" cy="31" r="10.5" fill="#1C1C1E" stroke="#636366" stroke-width="2"/>
+                                        <circle cx="30" cy="31" r="5.5" fill="#0A84FF" opacity="0.35"/>
+                                        <circle cx="32" cy="29" r="2" fill="#fff" opacity="0.7"/>
+                                        <circle cx="42" cy="21" r="1.8" fill="#FFD60A"/>
+                                    </svg>
                                 </div>
                                 <span class="text-[11px] font-medium text-white drop-shadow">Camera</span>
                             </button>
 
-                            <!-- 8. iOS Settings (CMS Editor) -->
+                            <!-- 8. iOS Settings / CMS Editor (Authentic Apple Gear SVG) -->
                             <button onclick="openApp('app-settings')" class="ios-app-btn flex flex-col items-center gap-1.5 relative">
-                                <div class="ios-app-icon bg-gradient-to-b from-slate-400 to-slate-600">
-                                    <span class="absolute -top-1.5 -right-1.5 px-1.5 py-0.5 rounded-full bg-sky-400 text-slate-950 text-[8px] font-extrabold shadow">CMS</span>
-                                    <i class="fa-solid fa-gear text-white text-[31px]"></i>
+                                <div class="ios-app-icon bg-gradient-to-b from-[#8E8E93] to-[#636366]">
+                                    <span class="absolute -top-1.5 -right-1.5 px-1.5 py-0.5 rounded-full bg-sky-400 text-slate-950 text-[8px] font-extrabold shadow z-10">CMS</span>
+                                    <svg viewBox="0 0 60 60" class="w-11 h-11 fill-white/95">
+                                        <path d="M49.2 32.6c.1-.8.2-1.7.2-2.6s-.1-1.8-.2-2.6l4.4-3.4c.4-.3.5-.9.2-1.4l-4.2-7.2c-.3-.5-.8-.6-1.3-.4l-5.2 2.1c-1.3-1-2.8-1.9-4.4-2.6l-.8-5.5c-.1-.5-.5-.9-1-.9h-8.4c-.5 0-1 .4-1 .9l-.8 5.5c-1.6.7-3.1 1.6-4.4 2.6l-5.2-2.1c-.5-.2-1.1 0-1.3.4l-4.2 7.2c-.3.5-.1 1.1.2 1.4l4.4 3.4c-.1.8-.2 1.7-.2 2.6s.1 1.8.2 2.6l-4.4 3.4c-.4.3-.5.9-.2 1.4l4.2 7.2c.3.5.8.6 1.3.4l5.2-2.1c1.3 1 2.8 1.9 4.4 2.6l.8 5.5c.1.5.5.9 1 .9h8.4c.5 0 1-.4 1-.9l.8-5.5c1.6-.7 3.1-1.6 4.4-2.6l5.2 2.1c.5.2 1.1 0 1.3-.4l4.2-7.2c.3-.5.1-1.1-.2-1.4l-4.4-3.4zM30 38c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z"/>
+                                    </svg>
                                 </div>
                                 <span class="text-[11px] font-medium text-white drop-shadow">Settings</span>
                             </button>
                         </div>
 
-                        <!-- iOS Search Pill -->
+                        <!-- iOS Spotlight Search Pill -->
                         <div class="flex justify-center mb-2">
-                            <div onclick="openApp('app-settings')" class="ios-blur px-3.5 py-1 rounded-full text-[11px] font-medium text-white flex items-center gap-1.5 cursor-pointer">
+                            <div onclick="openApp('app-settings')" class="ios-blur px-4 py-1 rounded-full text-[11px] font-semibold text-white flex items-center gap-1.5 cursor-pointer hover:bg-white/30 transition">
                                 <i class="fa-solid fa-magnifying-glass text-[9px]"></i>
                                 <span>Cari</span>
                             </div>
                         </div>
 
-                        <!-- BOTTOM iOS FROSTED DOCK -->
-                        <div class="ios-dock px-4 py-3 flex items-center justify-around shadow-2xl">
+                        <!-- BOTTOM iOS FROSTED GLASS DOCK -->
+                        <div class="ios-dock px-3.5 py-3 flex items-center justify-around">
                             <!-- Dock 1: Phone -->
                             <button onclick="openApp('app-phone')" class="ios-app-btn">
-                                <div class="ios-app-icon bg-gradient-to-b from-[#52E575] to-[#24C34B]">
-                                    <i class="fa-solid fa-phone text-white text-[28px]"></i>
+                                <div class="ios-app-icon bg-gradient-to-b from-[#5BF675] to-[#0ECC33]">
+                                    <svg viewBox="0 0 60 60" class="w-9 h-9 fill-white">
+                                        <path d="M43.8 37.9c-2.6-.3-5.1-.9-7.5-1.9-.8-.3-1.8-.1-2.4.5l-3.6 4.5c-5.4-2.8-9.8-7.2-12.6-12.6l4.5-3.6c.6-.6.8-1.6.5-2.4-1-2.4-1.6-4.9-1.9-7.5-.1-1.1-1.1-2-2.2-2H13c-1.2 0-2.2 1-2.2 2.2C11.6 32.9 27.1 48.4 44.9 49.2c1.2 0 2.2-1 2.2-2.2v-5.6c-.1-1.1-1-2-2.1-2.2z"/>
+                                    </svg>
                                 </div>
                             </button>
                             <!-- Dock 2: Messages -->
                             <button onclick="openApp('app-messages')" class="ios-app-btn">
-                                <div class="ios-app-icon bg-gradient-to-b from-[#52E575] to-[#24C34B]">
-                                    <i class="fa-solid fa-comment text-white text-[29px]"></i>
+                                <div class="ios-app-icon bg-gradient-to-b from-[#5BF675] to-[#0ECC33]">
+                                    <svg viewBox="0 0 60 60" class="w-10 h-10 fill-white">
+                                        <path d="M30 12C17.85 12 8 20.16 8 30.22c0 5.43 2.88 10.3 7.45 13.63-.36 2.52-1.66 5.2-3.28 6.72-.42.4-.1.98.47.88 3.75-.64 7.39-2.25 9.88-3.82 2.38.53 4.89.81 7.48.81 12.15 0 22-8.16 22-18.22S42.15 12 30 12z"/>
+                                    </svg>
                                 </div>
                             </button>
                             <!-- Dock 3: Apple Music -->
                             <button onclick="openApp('app-music')" class="ios-app-btn">
-                                <div class="ios-app-icon bg-gradient-to-b from-[#FF5E7E] to-[#FA243C]">
-                                    <i class="fa-solid fa-music text-white text-[27px]"></i>
+                                <div class="ios-app-icon bg-gradient-to-b from-[#FF546C] to-[#FA233B]">
+                                    <svg viewBox="0 0 60 60" class="w-10 h-10 fill-white">
+                                        <path d="M44 13.5v25.2c0 3.7-3.1 6.8-7 6.8-3.6 0-6.5-2.6-6.5-5.9 0-3.3 2.9-5.9 6.5-5.9 1.3 0 2.5.3 3.5.9V21.8l-16 3.6v17.3c0 3.7-3.1 6.8-7 6.8-3.6 0-6.5-2.6-6.5-5.9 0-3.3 2.9-5.9 6.5-5.9 1.3 0 2.5.3 3.5.9V18.2c0-1.4 1-2.6 2.4-2.9l18-4c1.4-.3 2.6.8 2.6 2.2z"/>
+                                    </svg>
                                 </div>
                             </button>
                             <!-- Dock 4: Settings / CMS Studio -->
                             <button onclick="openApp('app-settings')" class="ios-app-btn" title="Edit Isi HP Winter">
-                                <div class="ios-app-icon bg-gradient-to-b from-slate-300 to-slate-600">
-                                    <i class="fa-solid fa-sliders text-white text-[26px]"></i>
+                                <div class="ios-app-icon bg-gradient-to-b from-[#38BDF8] to-[#0284C7]">
+                                    <i class="fa-solid fa-sliders text-white text-[25px]"></i>
                                 </div>
                             </button>
                         </div>
@@ -1844,6 +1963,7 @@
             playUiClick(880, 0.06);
             isLocked = false;
             document.getElementById('iosLockScreen').classList.add('unlocked');
+            document.getElementById('iosHomeScreen').classList.remove('locked-hidden');
             document.getElementById('lockPasscodePanel').classList.add('hidden');
             currentPinInput = '';
             renderPinDots();
@@ -1855,6 +1975,7 @@
             document.getElementById('controlCenter').classList.remove('open');
             isLocked = true;
             document.getElementById('iosLockScreen').classList.remove('unlocked');
+            document.getElementById('iosHomeScreen').classList.add('locked-hidden');
         }
 
         function toggleLockState() {
@@ -1965,20 +2086,39 @@
         }
 
         function setScreenBrightness(val) {
-            document.getElementById('brightnessVal').textContent = `${val}%`;
-            document.getElementById('iphoneDisplay').style.filter = `brightness(${val}%)`;
+            const pct = Math.min(100, Math.max(35, parseInt(val, 10)));
+            document.getElementById('brightnessVal').textContent = `${pct}%`;
+            const fill = document.getElementById('ccBrightnessFill');
+            if (fill) fill.style.height = `${pct}%`;
+            document.getElementById('iphoneDisplay').style.filter = `brightness(${pct}%)`;
         }
 
         function setVolumeSlider(val) {
-            document.getElementById('volumeVal').textContent = `${val}%`;
+            const pct = Math.min(100, Math.max(0, parseInt(val, 10)));
+            document.getElementById('volumeVal').textContent = `${pct}%`;
+            const fill = document.getElementById('ccVolumeFill');
+            if (fill) fill.style.height = `${pct}%`;
+            const slider = document.getElementById('ccVolumeSlider');
+            if (slider) slider.value = pct;
             const audio = document.getElementById('customAudioPlayer');
-            if (audio) audio.volume = val / 100;
+            if (audio) audio.volume = pct / 100;
+        }
+
+        function handleVerticalPillClick(e, type) {
+            const rect = e.currentTarget.getBoundingClientRect();
+            const clickY = e.clientY - rect.top;
+            const pct = Math.round(100 - (clickY / rect.height) * 100);
+            playUiClick(700, 0.03);
+            if (type === 'brightness') {
+                setScreenBrightness(pct);
+            } else {
+                setVolumeSlider(pct);
+            }
         }
 
         function adjustVolume(delta) {
             const slider = document.getElementById('ccVolumeSlider');
             let next = Math.min(100, Math.max(0, parseInt(slider.value, 10) + delta));
-            slider.value = next;
             setVolumeSlider(next);
             showToast(`🔊 Volume: ${next}%`);
         }
@@ -2675,8 +2815,9 @@
            MASTER RENDER FUNCTION
         =========================================== */
         function refreshAllViews() {
-            // Wallpaper & Quotes
+            // Wallpaper & Quotes (Applied to both Lock Screen & Home Screen so Lock Screen is 100% opaque)
             document.getElementById('iphoneDisplay').style.backgroundImage = `url('${phoneData.wallpaper}')`;
+            document.getElementById('iosLockScreen').style.backgroundImage = `url('${phoneData.wallpaper}')`;
             document.getElementById('homeWidgetQuote').textContent = phoneData.quote;
             document.getElementById('cmsWallpaperInput').value = phoneData.wallpaper;
             document.getElementById('cmsQuoteInput').value = phoneData.quote;
