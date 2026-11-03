@@ -758,17 +758,17 @@
                                     <i class="fa-solid fa-bolt text-base"></i>
                                     <span class="text-[9px] font-medium opacity-85">Senter</span>
                                 </button>
-                                <button onclick="toggleControlCenter(); openApp('app-calendar')" class="cc-module h-[62px] rounded-[20px] flex flex-col items-center justify-center gap-1 text-white hover:bg-white/20 active:scale-90 transition">
+                                <button onclick="toggleControlCenter(); openApp('app-clock')" class="cc-module h-[62px] rounded-[20px] flex flex-col items-center justify-center gap-1 text-white hover:bg-white/20 active:scale-90 transition">
                                     <i class="fa-regular fa-clock text-base"></i>
-                                    <span class="text-[9px] font-medium opacity-85">Jadwal</span>
+                                    <span class="text-[9px] font-medium opacity-85">Clock</span>
                                 </button>
                                 <button onclick="toggleControlCenter(); openApp('app-camera')" class="cc-module h-[62px] rounded-[20px] flex flex-col items-center justify-center gap-1 text-white hover:bg-white/20 active:scale-90 transition">
                                     <i class="fa-solid fa-camera text-base"></i>
                                     <span class="text-[9px] font-medium opacity-85">Kamera</span>
                                 </button>
                                 <button onclick="toggleControlCenter(); openApp('app-settings')" class="cc-module h-[62px] rounded-[20px] flex flex-col items-center justify-center gap-1 text-white hover:bg-white/20 active:scale-90 transition">
-                                    <i class="fa-solid fa-sliders text-base text-sky-300"></i>
-                                    <span class="text-[9px] font-medium opacity-85">CMS</span>
+                                    <i class="fa-solid fa-gear text-base text-white"></i>
+                                    <span class="text-[9px] font-medium opacity-85">Settings</span>
                                 </button>
                             </div>
                         </div>
@@ -909,7 +909,7 @@
                             <div class="grid grid-cols-4 gap-x-3.5 gap-y-3.5 items-center">
 
                                 <!-- LEFT (2x2 Span): Authentic iOS Weather Widget matching Icon.webp -->
-                                <div onclick="openApp('app-calendar')" class="col-span-2 row-span-2 ios-weather-widget p-4 h-[144px] flex flex-col justify-between text-white cursor-pointer hover:brightness-105 active:scale-[0.98] transition">
+                                <div onclick="openApp('app-weather')" class="col-span-2 row-span-2 ios-weather-widget p-4 h-[144px] flex flex-col justify-between text-white cursor-pointer hover:brightness-105 active:scale-[0.98] transition">
                                     <div>
                                         <p class="text-[14px] font-semibold tracking-tight flex items-center gap-1">
                                             <span id="widgetWeatherCity">Seoul</span>
@@ -971,7 +971,7 @@
                                 </button>
 
                                 <!-- MID RIGHT 4: App Store (iOS Blue Gradient + 3 Rounded Popsicle Sticks 'A') -->
-                                <button onclick="openApp('app-instagram')" class="ios-app-btn flex flex-col items-center" title="Instagram @imwinter">
+                                <button onclick="openApp('app-appstore')" class="ios-app-btn flex flex-col items-center">
                                     <div class="ios-app-icon" style="background: linear-gradient(180deg, #1ea6ff 0%, #0d65f0 100%);">
                                         <svg viewBox="0 0 60 60" class="w-11 h-11 stroke-white fill-none" stroke-width="5" stroke-linecap="round">
                                             <line x1="30" y1="13" x2="16" y2="45"/>
@@ -1003,11 +1003,10 @@
                                 </button>
 
                                 <!-- 7. Clock (Black Squircle + White Dial + Numbers 1-12 + Hands) -->
-                                <button onclick="openApp('app-calendar')" class="ios-app-btn flex flex-col items-center">
+                                <button onclick="openApp('app-clock')" class="ios-app-btn flex flex-col items-center">
                                     <div class="ios-app-icon bg-[#1C1C1E]">
                                         <svg viewBox="0 0 60 60" class="w-13 h-13">
                                             <circle cx="30" cy="30" r="24" fill="#ffffff"/>
-                                            <!-- Numbers 12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 -->
                                             <g fill="#000" font-size="5.5" font-weight="700" text-anchor="middle" dominant-baseline="central">
                                                 <text x="30" y="11">12</text>
                                                 <text x="39.5" y="13.5">1</text>
@@ -1022,7 +1021,6 @@
                                                 <text x="13.5" y="20.5">10</text>
                                                 <text x="20.5" y="13.5">11</text>
                                             </g>
-                                            <!-- Clock Hands -->
                                             <line x1="30" y1="30" x2="19" y2="23" stroke="#000" stroke-width="2" stroke-linecap="round"/>
                                             <line x1="30" y1="30" x2="45" y2="21" stroke="#000" stroke-width="1.8" stroke-linecap="round"/>
                                             <line x1="30" y1="30" x2="30" y2="47" stroke="#FF9500" stroke-width="1.2" stroke-linecap="round"/>
@@ -1032,7 +1030,7 @@
                                 </button>
 
                                 <!-- 8. Shortcuts (Dark Navy + Pink/Orange & Cyan Overlapping Diamonds) -->
-                                <button onclick="openApp('app-settings')" class="ios-app-btn flex flex-col items-center">
+                                <button onclick="openApp('app-shortcuts')" class="ios-app-btn flex flex-col items-center">
                                     <div class="ios-app-icon bg-[#16182f]">
                                         <svg viewBox="0 0 60 60" class="w-11 h-11">
                                             <defs>
@@ -1052,10 +1050,10 @@
                                 </button>
                             </div>
 
-                            <!-- ROW 4: Health, Wallet (Photocards), Reminders, Mail (Bubble) -->
+                            <!-- ROW 4: Health, Wallet, Reminders, Mail -->
                             <div class="grid grid-cols-4 gap-x-3.5 place-items-center">
                                 <!-- 9. Health (White Squircle + Glossy Red/Pink Heart) -->
-                                <button onclick="openApp('app-photos'); filterPhotos('Favorit ❤️')" class="ios-app-btn flex flex-col items-center" title="Foto Favorit Winter">
+                                <button onclick="openApp('app-health')" class="ios-app-btn flex flex-col items-center">
                                     <div class="ios-app-icon bg-white">
                                         <svg viewBox="0 0 60 60" class="w-11 h-11">
                                             <defs>
@@ -1070,7 +1068,7 @@
                                 </button>
 
                                 <!-- 10. Wallet (Black Squircle + Beige Holder + 4 Colored Cards) -->
-                                <button onclick="openApp('app-wallet')" class="ios-app-btn flex flex-col items-center" title="Koleksi Photocard Winter">
+                                <button onclick="openApp('app-wallet')" class="ios-app-btn flex flex-col items-center">
                                     <div class="ios-app-icon bg-[#1C1C1E]">
                                         <svg viewBox="0 0 60 60" class="w-12 h-12">
                                             <rect x="9" y="13" width="42" height="34" rx="7" fill="#d9d5c9"/>
@@ -1084,18 +1082,15 @@
                                 </button>
 
                                 <!-- 11. Reminders (White Squircle + Blue/Red/Orange Target Dots & Lines) -->
-                                <button onclick="openApp('app-notes')" class="ios-app-btn flex flex-col items-center">
+                                <button onclick="openApp('app-reminders')" class="ios-app-btn flex flex-col items-center">
                                     <div class="ios-app-icon bg-white">
                                         <svg viewBox="0 0 60 60" class="w-12 h-12">
-                                            <!-- Row 1 Blue -->
                                             <circle cx="16" cy="18" r="4.5" fill="none" stroke="#007AFF" stroke-width="1.6"/>
                                             <circle cx="16" cy="18" r="2.4" fill="#007AFF"/>
                                             <line x1="25" y1="18" x2="48" y2="18" stroke="#c7c7cc" stroke-width="2" stroke-linecap="round"/>
-                                            <!-- Row 2 Red -->
                                             <circle cx="16" cy="30" r="4.5" fill="none" stroke="#FF3B30" stroke-width="1.6"/>
                                             <circle cx="16" cy="30" r="2.4" fill="#FF3B30"/>
                                             <line x1="25" y1="30" x2="48" y2="30" stroke="#c7c7cc" stroke-width="2" stroke-linecap="round"/>
-                                            <!-- Row 3 Orange -->
                                             <circle cx="16" cy="42" r="4.5" fill="none" stroke="#FF9500" stroke-width="1.6"/>
                                             <circle cx="16" cy="42" r="2.4" fill="#FF9500"/>
                                             <line x1="25" y1="42" x2="48" y2="42" stroke="#c7c7cc" stroke-width="2" stroke-linecap="round"/>
@@ -1104,7 +1099,7 @@
                                 </button>
 
                                 <!-- 12. Mail (Sky Blue Gradient + White Envelope) -->
-                                <button onclick="openApp('app-messages'); openChatThread('bubble')" class="ios-app-btn flex flex-col items-center" title="DearU Bubble">
+                                <button onclick="openApp('app-mail')" class="ios-app-btn flex flex-col items-center">
                                     <div class="ios-app-icon" style="background: linear-gradient(180deg, #1aa0ff 0%, #36c6ff 100%);">
                                         <svg viewBox="0 0 60 60" class="w-11 h-11">
                                             <rect x="10" y="16" width="40" height="28" rx="4.5" fill="#ffffff"/>
@@ -1115,16 +1110,15 @@
                                 </button>
                             </div>
 
-                            <!-- ROW 5: Settings (Detailed Gear), Instagram/News, Weather, Notes -->
+                            <!-- ROW 5: Settings, News/IG, Weather, Notes -->
                             <div class="grid grid-cols-4 gap-x-3.5 place-items-center">
                                 <!-- 13. Settings (Authentic Apple Mechanical Gear matching Icon.webp) -->
-                                <button onclick="openApp('app-settings')" class="ios-app-btn flex flex-col items-center" title="Settings & CMS">
+                                <button onclick="openApp('app-settings')" class="ios-app-btn flex flex-col items-center">
                                     <div class="ios-app-icon" style="background: linear-gradient(180deg, #d4d6dc 0%, #8a8d94 100%);">
                                         <svg viewBox="0 0 60 60" class="w-12 h-12">
                                             <circle cx="30" cy="30" r="22" fill="#2c2c2e"/>
                                             <circle cx="30" cy="30" r="19" fill="none" stroke="#c7c8ce" stroke-width="3.5" stroke-dasharray="2.4 1.6"/>
                                             <circle cx="30" cy="30" r="15" fill="none" stroke="#b4b6bc" stroke-width="2.5"/>
-                                            <!-- 3 Inner Mechanical Spokes -->
                                             <line x1="30" y1="15" x2="30" y2="45" stroke="#b4b6bc" stroke-width="3.2"/>
                                             <line x1="17" y1="22.5" x2="43" y2="37.5" stroke="#b4b6bc" stroke-width="3.2"/>
                                             <line x1="17" y1="37.5" x2="43" y2="22.5" stroke="#b4b6bc" stroke-width="3.2"/>
@@ -1134,7 +1128,7 @@
                                 </button>
 
                                 <!-- 14. Apple News / Winter IG Feed (White Squircle + Red Diagonal N Ribbon) -->
-                                <button onclick="openApp('app-instagram')" class="ios-app-btn flex flex-col items-center" title="Instagram @imwinter">
+                                <button onclick="openApp('app-instagram')" class="ios-app-btn flex flex-col items-center">
                                     <div class="ios-app-icon bg-white">
                                         <svg viewBox="0 0 60 60" class="w-11 h-11">
                                             <rect x="16" y="16" width="28" height="28" rx="4" fill="#fa2d48"/>
@@ -1145,7 +1139,7 @@
                                 </button>
 
                                 <!-- 15. Weather App Icon (Blue Sky Gradient + Yellow Sun + White Cloud) -->
-                                <button onclick="openApp('app-calendar')" class="ios-app-btn flex flex-col items-center">
+                                <button onclick="openApp('app-weather')" class="ios-app-btn flex flex-col items-center">
                                     <div class="ios-app-icon" style="background: linear-gradient(180deg, #1877f2 0%, #44a8ff 100%);">
                                         <svg viewBox="0 0 60 60" class="w-12 h-12">
                                             <circle cx="38" cy="24" r="9.5" fill="#FFD60A"/>
@@ -1235,9 +1229,9 @@
                                 <p id="photosSubtitleCount" class="text-[11px] text-slate-500 font-medium">Koleksi Pribadi Winter ❄️</p>
                             </div>
                             <div class="flex items-center gap-2">
-                                <button onclick="openApp('app-settings'); switchSettingsTab('tab-add-photo')" class="px-3 py-1 rounded-full bg-[#007AFF] text-white text-xs font-semibold">
-                                    + Tambah Foto
-                                </button>
+                                <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-semibold">
+                                    Pilih
+                                </span>
                                 <button onclick="closeAllApps()" class="w-7 h-7 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center text-xs">
                                     <i class="fa-solid fa-xmark"></i>
                                 </button>
@@ -1269,9 +1263,9 @@
                                 <i class="fa-solid fa-heart text-sm"></i>
                                 <span>For You</span>
                             </button>
-                            <button onclick="openApp('app-settings'); switchSettingsTab('tab-add-photo')" class="flex flex-col items-center gap-0.5 hover:text-[#007AFF]">
-                                <i class="fa-solid fa-circle-plus text-sm"></i>
-                                <span>Upload</span>
+                            <button onclick="filterPhotos('Selca ❄️')" class="flex flex-col items-center gap-0.5 hover:text-[#007AFF]">
+                                <i class="fa-solid fa-rectangle-list text-sm"></i>
+                                <span>Albums</span>
                             </button>
                         </div>
 
@@ -1322,9 +1316,9 @@
                                     <i class="fa-solid fa-chevron-left"></i> Home
                                 </button>
                                 <span class="text-xs font-bold text-slate-400">iMessage</span>
-                                <button onclick="openApp('app-settings'); switchSettingsTab('tab-add-chat')" class="text-[#007AFF] text-sm" title="Tambah Pesan Baru">
+                                <span class="text-[#007AFF] text-sm">
                                     <i class="fa-regular fa-pen-to-square"></i>
-                                </button>
+                                </span>
                             </div>
 
                             <div class="px-5 pb-2">
@@ -1399,9 +1393,9 @@
                                 <i class="fa-solid fa-chevron-down"></i>
                             </button>
                             <span class="text-[11px] font-bold tracking-wider uppercase text-white/70"> Music • Winter's Playlist</span>
-                            <button onclick="openApp('app-settings'); switchSettingsTab('tab-add-song')" class="text-xs bg-white/15 px-2.5 py-1 rounded-full font-semibold">
-                                + Lagu
-                            </button>
+                            <span class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-xs">
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </span>
                         </div>
 
                         <div class="flex-1 overflow-y-auto px-6 py-2 flex flex-col justify-between no-scrollbar">
@@ -1464,125 +1458,119 @@
                     </section>
 
                     <!-- =================================================================
-                         APP 4: iOS NOTES APP (Yellow Accents, List & Editor)
+                         APP 4: iOS NOTES APP (Static Display UI / Pajangan)
                     ================================================================== -->
-                    <section id="app-notes" class="ios-app-window bg-[#F2F2F7] text-slate-900 pt-12 pb-5">
+                    <section id="app-notes" class="ios-app-window bg-[#F2F2F7] text-slate-900 pt-12 pb-5 select-none">
                         <div class="px-5 pt-1 pb-2 flex items-center justify-between">
                             <button onclick="closeAllApps()" class="text-[#EAB308] text-xs font-bold flex items-center gap-1">
                                 <i class="fa-solid fa-chevron-left"></i> Home
                             </button>
                             <span class="text-xs font-bold text-slate-400">iCloud Notes</span>
-                            <button onclick="toggleNewNoteForm()" class="text-[#EAB308] text-sm font-bold">
-                                <i class="fa-regular fa-pen-to-square"></i> Baru
-                            </button>
+                            <span class="text-[#EAB308] text-sm cursor-default">
+                                <i class="fa-solid fa-ellipsis-circle"></i>
+                            </span>
                         </div>
 
                         <div class="px-5 pb-2">
                             <h2 class="text-2xl font-extrabold tracking-tight text-slate-900">Notes</h2>
-                        </div>
-
-                        <!-- Quick New Note Form (Collapsible) -->
-                        <div id="quickNoteForm" class="hidden mx-4 mb-3 p-3.5 bg-white rounded-2xl shadow border border-amber-300 space-y-2">
-                            <input id="quickNoteTitle" type="text" placeholder="Judul Catatan..." class="w-full text-xs font-bold text-slate-900 border-b border-slate-100 pb-1.5 focus:outline-none">
-                            <textarea id="quickNoteBody" rows="3" placeholder="Tulis catatan harian Winter di sini..." class="w-full text-xs text-slate-700 focus:outline-none"></textarea>
-                            <div class="flex justify-end gap-2">
-                                <button onclick="toggleNewNoteForm()" class="px-3 py-1 rounded-lg bg-slate-100 text-slate-600 text-xs font-semibold">Batal</button>
-                                <button onclick="saveNewNoteInline()" class="px-3 py-1 rounded-lg bg-[#EAB308] text-white text-xs font-bold">Simpan</button>
+                            <div class="mt-2 bg-[#E3E3E8] rounded-xl px-3 py-1.5 flex items-center gap-2 text-slate-500 text-xs">
+                                <i class="fa-solid fa-magnifying-glass text-[11px]"></i>
+                                <span>Search</span>
                             </div>
                         </div>
 
-                        <!-- Notes Cards List -->
-                        <div id="iosNotesContainer" class="flex-1 overflow-y-auto px-4 space-y-2.5 pb-4 no-scrollbar">
+                        <!-- Notes Cards List (Read-only Display) -->
+                        <div id="iosNotesContainer" class="flex-1 overflow-y-auto px-4 space-y-2.5 pb-4 no-scrollbar pointer-events-none">
                             <!-- Populated by JS -->
+                        </div>
+
+                        <div class="px-5 py-2 border-t border-slate-200/80 bg-[#F2F2F7] flex items-center justify-between text-xs text-slate-500 cursor-default">
+                            <span></span>
+                            <span class="text-[11px] font-medium">3 Notes</span>
+                            <i class="fa-regular fa-pen-to-square text-[#EAB308] text-sm"></i>
                         </div>
                     </section>
 
                     <!-- =================================================================
-                         APP 5: iOS PHONE & FACETIME CALL SIMULATOR
+                         APP 5: iOS PHONE & FACETIME (Static Display UI / Pajangan)
                     ================================================================== -->
-                    <section id="app-phone" class="ios-app-window bg-white text-slate-900 pt-12 pb-5">
-                        <div class="px-5 pt-1 pb-2 flex items-center justify-between border-b border-slate-100">
+                    <section id="app-phone" class="ios-app-window bg-[#F2F2F7] text-slate-900 pt-12 pb-5 select-none">
+                        <div class="px-5 pt-1 pb-2 flex items-center justify-between">
                             <button onclick="closeAllApps()" class="text-[#007AFF] text-xs font-semibold flex items-center gap-1">
                                 <i class="fa-solid fa-chevron-left"></i> Home
                             </button>
-                            <h2 class="text-sm font-extrabold">Phone & FaceTime</h2>
-                            <span class="text-xs text-emerald-600 font-bold">5G</span>
+                            <span class="text-xs font-semibold text-[#007AFF] cursor-default">Edit</span>
                         </div>
 
-                        <div class="flex-1 overflow-y-auto p-4 space-y-4 no-scrollbar">
-                            <div>
-                                <p class="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2"> ⭐️ Kontak Favorit Winter (Ketuk untuk Telepon)</p>
-                                <div id="phoneContactsList" class="divide-y divide-slate-100 bg-slate-50 rounded-2xl border border-slate-200/70 overflow-hidden">
-                                    <!-- Populated by JS -->
-                                </div>
+                        <div class="px-5 pb-2">
+                            <h2 class="text-2xl font-extrabold tracking-tight text-slate-900">Favorites</h2>
+                        </div>
+
+                        <div class="flex-1 overflow-y-auto px-4 space-y-4 no-scrollbar pointer-events-none">
+                            <div id="phoneContactsList" class="divide-y divide-slate-100 bg-white rounded-2xl shadow-[0_1px_2px_rgba(0,0,0,0.04)] overflow-hidden">
+                                <!-- Populated by JS -->
                             </div>
 
-                            <!-- Mini Interactive Dial Pad -->
-                            <div class="bg-slate-50 p-4 rounded-3xl border border-slate-200/70 text-center">
-                                <p id="dialDisplay" class="text-xl font-bold tracking-widest text-slate-900 h-7 mb-2">010-2001-0101</p>
-                                <div class="grid grid-cols-3 gap-2 max-w-[210px] mx-auto">
-                                    <button onclick="appendDial('1')" class="h-11 rounded-full bg-white shadow-sm font-bold text-sm">1</button>
-                                    <button onclick="appendDial('2')" class="h-11 rounded-full bg-white shadow-sm font-bold text-sm">2</button>
-                                    <button onclick="appendDial('3')" class="h-11 rounded-full bg-white shadow-sm font-bold text-sm">3</button>
-                                    <button onclick="appendDial('4')" class="h-11 rounded-full bg-white shadow-sm font-bold text-sm">4</button>
-                                    <button onclick="appendDial('5')" class="h-11 rounded-full bg-white shadow-sm font-bold text-sm">5</button>
-                                    <button onclick="appendDial('6')" class="h-11 rounded-full bg-white shadow-sm font-bold text-sm">6</button>
-                                    <button onclick="appendDial('7')" class="h-11 rounded-full bg-white shadow-sm font-bold text-sm">7</button>
-                                    <button onclick="appendDial('8')" class="h-11 rounded-full bg-white shadow-sm font-bold text-sm">8</button>
-                                    <button onclick="appendDial('9')" class="h-11 rounded-full bg-white shadow-sm font-bold text-sm">9</button>
-                                    <button onclick="clearDial()" class="h-11 rounded-full bg-slate-200 text-xs font-semibold">Hapus</button>
-                                    <button onclick="appendDial('0')" class="h-11 rounded-full bg-white shadow-sm font-bold text-sm">0</button>
-                                    <button onclick="startSimulatedCall('Nomor Kustom', 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80', 'Halo? Ini siapa yaa? ❄️')" class="h-11 rounded-full bg-[#34C759] text-white text-base">
-                                        <i class="fa-solid fa-phone"></i>
-                                    </button>
+                            <div class="bg-white rounded-2xl p-3.5 shadow-[0_1px_2px_rgba(0,0,0,0.04)] space-y-2.5">
+                                <p class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Recents • FaceTime Audio</p>
+                                <div class="flex items-center justify-between text-xs py-1">
+                                    <div class="flex items-center gap-2.5">
+                                        <i class="fa-solid fa-phone-arrow-up-right text-slate-400 text-[11px]"></i>
+                                        <div>
+                                            <p class="font-bold text-slate-900">Karina 💙</p>
+                                            <p class="text-[10px] text-slate-400">FaceTime Audio</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-2 text-slate-400">
+                                        <span class="text-[11px]">13:15</span>
+                                        <i class="fa-solid fa-circle-info text-[#007AFF] text-sm"></i>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between text-xs py-1 border-t border-slate-100 pt-2">
+                                    <div class="flex items-center gap-2.5">
+                                        <i class="fa-solid fa-video text-slate-400 text-[11px]"></i>
+                                        <div>
+                                            <p class="font-bold text-slate-900">Ningning 🦋</p>
+                                            <p class="text-[10px] text-slate-400">FaceTime Video</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-2 text-slate-400">
+                                        <span class="text-[11px]">Kemarin</span>
+                                        <i class="fa-solid fa-circle-info text-[#007AFF] text-sm"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- ACTIVE iOS INCOMING / OUTGOING CALL OVERLAY -->
-                        <div id="iosCallOverlay" class="hidden absolute inset-0 z-50 bg-gradient-to-b from-slate-900 via-slate-950 to-black text-white p-6 pt-14 flex flex-col justify-between text-center">
-                            <div>
-                                <span class="text-xs text-emerald-400 font-semibold uppercase tracking-widest"> FaceTime Audio</span>
-                                <h3 id="callContactName" class="text-2xl font-extrabold mt-1">Karina 💙</h3>
-                                <p id="callTimerText" class="text-xs text-slate-300 mt-1">Memanggil...</p>
+                        <!-- Static iOS Phone Tab Bar -->
+                        <div class="pt-2 pb-1 px-4 border-t border-slate-200 bg-white/95 flex justify-around text-[10px] font-semibold text-slate-400 cursor-default">
+                            <div class="flex flex-col items-center gap-0.5 text-[#007AFF]">
+                                <i class="fa-solid fa-star text-sm"></i>
+                                <span>Favorites</span>
                             </div>
-
-                            <div class="my-auto flex flex-col items-center">
-                                <div class="relative">
-                                    <span class="absolute inset-0 rounded-full bg-sky-400/30 animate-ping"></span>
-                                    <img id="callContactAvatar" src="" class="relative w-28 h-28 rounded-full object-cover border-2 border-white/40 shadow-2xl" alt="Caller">
-                                </div>
-                                <div class="mt-5 px-4 py-2.5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 max-w-[260px]">
-                                    <p id="callVoiceLine" class="text-xs text-sky-200 italic">"Halo Minjeong-ah! Kamu lagi di mana sekarang?"</p>
-                                </div>
+                            <div class="flex flex-col items-center gap-0.5">
+                                <i class="fa-solid fa-clock text-sm"></i>
+                                <span>Recents</span>
                             </div>
-
-                            <div class="space-y-5 pb-4">
-                                <div class="grid grid-cols-3 gap-4 max-w-[240px] mx-auto">
-                                    <button onclick="this.classList.toggle('bg-white'); this.classList.toggle('text-black')" class="w-14 h-14 rounded-full bg-white/15 flex flex-col items-center justify-center gap-1 mx-auto">
-                                        <i class="fa-solid fa-microphone-slash text-base"></i>
-                                        <span class="text-[9px]">Mute</span>
-                                    </button>
-                                    <button onclick="this.classList.toggle('bg-white'); this.classList.toggle('text-black')" class="w-14 h-14 rounded-full bg-white/15 flex flex-col items-center justify-center gap-1 mx-auto">
-                                        <i class="fa-solid fa-volume-high text-base"></i>
-                                        <span class="text-[9px]">Speaker</span>
-                                    </button>
-                                    <button onclick="endSimulatedCall(); openApp('app-messages')" class="w-14 h-14 rounded-full bg-white/15 flex flex-col items-center justify-center gap-1 mx-auto">
-                                        <i class="fa-solid fa-comment text-base"></i>
-                                        <span class="text-[9px]">Chat</span>
-                                    </button>
-                                </div>
-                                <button onclick="endSimulatedCall()" class="w-16 h-16 rounded-full bg-[#FF3B30] text-white text-2xl flex items-center justify-center mx-auto shadow-lg shadow-rose-500/40 hover:scale-105 transition">
-                                    <i class="fa-solid fa-phone-slash"></i>
-                                </button>
+                            <div class="flex flex-col items-center gap-0.5">
+                                <i class="fa-solid fa-circle-user text-sm"></i>
+                                <span>Contacts</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-0.5">
+                                <i class="fa-solid fa-grip text-sm"></i>
+                                <span>Keypad</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-0.5">
+                                <i class="fa-solid fa-voicemail text-sm"></i>
+                                <span>Voicemail</span>
                             </div>
                         </div>
                     </section>
 
                     <!-- =================================================================
-                         APP 6: INSTAGRAM (@imwinter Official Profile Feed)
+                         APP 6: INSTAGRAM (@imwinter Static Display UI / Pajangan)
                     ================================================================== -->
-                    <section id="app-instagram" class="ios-app-window bg-white text-slate-900 pt-12 pb-5">
+                    <section id="app-instagram" class="ios-app-window bg-white text-slate-900 pt-12 pb-5 select-none">
                         <div class="px-4 py-2 flex items-center justify-between border-b border-slate-100">
                             <button onclick="closeAllApps()" class="text-slate-800 text-xs font-bold flex items-center gap-1">
                                 <i class="fa-solid fa-chevron-left"></i> Home
@@ -1591,12 +1579,12 @@
                                 <span>imwinter</span>
                                 <i class="fa-solid fa-circle-check text-sky-500 text-xs"></i>
                             </div>
-                            <button onclick="openApp('app-settings'); switchSettingsTab('tab-add-photo')" class="text-slate-800 text-sm">
-                                <i class="fa-regular fa-square-plus"></i>
-                            </button>
+                            <span class="text-slate-800 text-sm cursor-default">
+                                <i class="fa-solid fa-bars"></i>
+                            </span>
                         </div>
 
-                        <div class="flex-1 overflow-y-auto no-scrollbar">
+                        <div class="flex-1 overflow-y-auto no-scrollbar pointer-events-none">
                             <!-- Profile Bio Header -->
                             <div class="p-4">
                                 <div class="flex items-center justify-between">
@@ -1623,75 +1611,38 @@
                                     <p class="text-slate-500 text-[11px]">Artist • @aespa_official ❄️🎸</p>
                                     <p id="igBioQuote" class="text-slate-700 text-[11px] mt-0.5">0101 • Baby Maltese 🐶🤍</p>
                                 </div>
+                                <div class="grid grid-cols-2 gap-1.5 mt-3 text-xs font-semibold text-center">
+                                    <div class="py-1.5 rounded-lg bg-slate-100 text-slate-800">Edit profile</div>
+                                    <div class="py-1.5 rounded-lg bg-slate-100 text-slate-800">Share profile</div>
+                                </div>
                             </div>
 
-                            <!-- 3-Column IG Feed Grid (Synced with Photos) -->
+                            <!-- 3-Column IG Feed Grid (Static Display) -->
                             <div id="igFeedGrid" class="grid grid-cols-3 gap-[1.5px] border-t border-slate-200">
                                 <!-- Populated by JS -->
-                            </div>
-                        </div>
-
-                        <!-- IG Post Detail Modal (Likes & Comments inside Instagram) -->
-                        <div id="igPostModal" class="hidden absolute inset-0 z-50 bg-white flex flex-col pt-12 pb-5">
-                            <div class="px-4 py-2 flex items-center justify-between border-b border-slate-100">
-                                <button onclick="closeIgPostModal()" class="text-slate-900 text-xs font-bold flex items-center gap-1">
-                                    <i class="fa-solid fa-chevron-left"></i> Postingan
-                                </button>
-                                <span class="text-xs font-extrabold">imwinter</span>
-                                <span class="w-8"></span>
-                            </div>
-                            <div class="flex-1 overflow-y-auto no-scrollbar">
-                                <div class="px-3.5 py-2.5 flex items-center gap-2.5">
-                                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" class="w-8 h-8 rounded-full object-cover" alt="imwinter">
-                                    <div>
-                                        <p class="text-xs font-bold flex items-center gap-1">imwinter <i class="fa-solid fa-circle-check text-sky-500 text-[10px]"></i></p>
-                                        <p id="igModalDate" class="text-[10px] text-slate-400">Seoul, Korea</p>
-                                    </div>
-                                </div>
-                                <img id="igModalImg" src="" class="w-full aspect-square object-cover bg-slate-100" alt="IG Post">
-                                <div class="p-3.5 space-y-2">
-                                    <div class="flex items-center justify-between text-lg text-slate-900">
-                                        <div class="flex items-center gap-4">
-                                            <button onclick="toggleIgLike()" id="igLikeBtn" class="text-rose-500"><i class="fa-solid fa-heart"></i></button>
-                                            <button><i class="fa-regular fa-comment"></i></button>
-                                            <button><i class="fa-regular fa-paper-plane"></i></button>
-                                        </div>
-                                        <button><i class="fa-regular fa-bookmark"></i></button>
-                                    </div>
-                                    <p id="igLikeCountText" class="text-xs font-extrabold">Disukai oleh <span class="text-slate-900">katarinabluu</span> dan <span class="text-slate-900">1.284.910 lainnya</span></p>
-                                    <p class="text-xs leading-relaxed">
-                                        <span class="font-bold mr-1">imwinter</span>
-                                        <span id="igModalCaption" class="text-slate-700"></span>
-                                    </p>
-                                    <div class="pt-2 border-t border-slate-100 space-y-1.5 text-[11px]">
-                                        <p><span class="font-bold">katarinabluu</span> Cantik banget adikku ❄️💙</p>
-                                        <p><span class="font-bold">imnotningning</span> Unnie beliin aku tanghulu juga!! 🍓</p>
-                                        <p><span class="font-bold">aerichandesu</span> Super star Minjeong ⭐️🎸</p>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </section>
 
                     <!-- =================================================================
-                         APP 7: iOS CALENDAR & AESPA SCHEDULE
+                         APP 7: iOS CALENDAR (Static Display UI / Pajangan)
                     ================================================================== -->
-                    <section id="app-calendar" class="ios-app-window bg-white text-slate-900 pt-12 pb-5">
+                    <section id="app-calendar" class="ios-app-window bg-white text-slate-900 pt-12 pb-5 select-none">
                         <div class="px-5 pt-1 pb-2 flex items-center justify-between border-b border-slate-100">
                             <button onclick="closeAllApps()" class="text-[#FF3B30] text-xs font-semibold flex items-center gap-1">
                                 <i class="fa-solid fa-chevron-left"></i> Home
                             </button>
                             <h2 class="text-sm font-extrabold">Calendar</h2>
-                            <span class="text-xs font-bold text-[#FF3B30]">2026</span>
+                            <span class="text-xs font-bold text-[#FF3B30] cursor-default">+</span>
                         </div>
-                        <div class="flex-1 overflow-y-auto p-5 space-y-3 no-scrollbar">
+                        <div class="flex-1 overflow-y-auto p-5 space-y-3 no-scrollbar pointer-events-none">
                             <div class="p-4 rounded-3xl bg-rose-50 border border-rose-100">
                                 <span class="text-[10px] font-extrabold uppercase text-[#FF3B30]">Spesial D-Day</span>
                                 <h3 class="text-base font-extrabold text-slate-900 mt-0.5">🎂 Ulang Tahun Winter (1 Januari)</h3>
                                 <p class="text-xs text-slate-600 mt-1">Rayakan Winter Day setiap 01.01 bersama seluruh MYs! ⭐️❄️</p>
                             </div>
 
-                            <p class="text-xs font-bold text-slate-400 uppercase tracking-wider pt-2">Jadwal Hari Ini</p>
+                            <p class="text-xs font-bold text-slate-400 uppercase tracking-wider pt-2">Jadwal Hari Ini • MON 26</p>
                             <div class="space-y-2.5">
                                 <div class="p-3.5 rounded-2xl bg-slate-50 border-l-4 border-[#007AFF] flex justify-between items-center">
                                     <div>
@@ -1719,228 +1670,67 @@
                     </section>
 
                     <!-- =================================================================
-                         APP 8: iOS CAMERA / WINTER Y2K POLAROID BOOTH
+                         APP 8: iOS CAMERA (Static Viewfinder UI / Pajangan)
                     ================================================================== -->
-                    <section id="app-camera" class="ios-app-window bg-black text-white pt-12 pb-6">
+                    <section id="app-camera" class="ios-app-window bg-black text-white pt-12 pb-6 select-none">
                         <div class="px-5 py-2 flex items-center justify-between">
                             <button onclick="closeAllApps()" class="text-amber-400 text-xs font-bold flex items-center gap-1">
                                 <i class="fa-solid fa-chevron-left"></i> Home
                             </button>
-                            <span class="text-xs font-bold tracking-widest uppercase text-amber-400">PHOTO • POLAROID</span>
+                            <span class="text-xs font-bold tracking-widest uppercase text-amber-400">PHOTO</span>
                             <i class="fa-solid fa-bolt text-xs text-white/70"></i>
                         </div>
 
-                        <div class="flex-1 flex flex-col items-center justify-between p-5">
-                            <!-- Viewfinder / Polaroid Preview -->
-                            <div class="bg-white text-slate-900 p-3 pb-5 rounded-2xl shadow-2xl w-full max-w-[255px]">
-                                <div class="relative aspect-square rounded-xl overflow-hidden bg-slate-200">
-                                    <img id="cameraPreviewImg" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover" alt="Camera View">
-                                    <div class="absolute inset-0 p-3 flex flex-col justify-between pointer-events-none">
-                                        <div class="flex justify-between text-lg">
-                                            <span>❄️</span>
-                                            <span>⭐️</span>
-                                        </div>
-                                        <div class="flex justify-between items-end">
-                                            <span class="bg-sky-400 text-slate-950 text-[9px] font-extrabold px-2 py-0.5 rounded-full">0101 MINJEONG</span>
-                                            <span class="text-lg">🐶</span>
-                                        </div>
-                                    </div>
+                        <div class="flex-1 flex flex-col items-center justify-between p-4 pointer-events-none">
+                            <!-- Authentic iOS Viewfinder Frame -->
+                            <div class="relative w-full aspect-[3/4] rounded-3xl overflow-hidden bg-slate-900 border border-white/15">
+                                <img id="cameraPreviewImg" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover" alt="Camera View">
+                                <!-- Focus Square -->
+                                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 border border-amber-400/80"></div>
+                                <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold">
+                                    <span class="text-white/70">.5</span>
+                                    <span class="text-amber-400">1x</span>
+                                    <span class="text-white/70">2</span>
+                                    <span class="text-white/70">5</span>
                                 </div>
-                                <p id="cameraPolaroidText" class="text-center font-bold text-xs text-slate-800 mt-3">
-                                    Winter with MYs ⭐️❄️
-                                </p>
                             </div>
 
-                            <!-- Camera Shutter Bar -->
-                            <div class="w-full flex items-center justify-around pt-2">
-                                <button onclick="openApp('app-photos')" class="w-11 h-11 rounded-xl overflow-hidden border border-white/40">
+                            <div class="flex gap-5 text-[10px] font-bold tracking-wider uppercase text-white/60">
+                                <span>VIDEO</span>
+                                <span class="text-amber-400">PHOTO</span>
+                                <span>PORTRAIT</span>
+                            </div>
+
+                            <div class="w-full flex items-center justify-around">
+                                <div class="w-11 h-11 rounded-xl overflow-hidden border border-white/40">
                                     <img id="cameraThumbMini" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" class="w-full h-full object-cover" alt="last">
-                                </button>
-                                <button onclick="cycleCameraPhoto()" class="w-16 h-16 rounded-full border-4 border-white p-1 flex items-center justify-center active:scale-90 transition" title="Jepret / Ganti Foto">
+                                </div>
+                                <div class="w-16 h-16 rounded-full border-4 border-white p-1 flex items-center justify-center">
                                     <div class="w-full h-full bg-white rounded-full"></div>
-                                </button>
-                                <button onclick="cycleCameraPhoto()" class="w-11 h-11 rounded-full bg-white/15 flex items-center justify-center text-sm">
+                                </div>
+                                <div class="w-11 h-11 rounded-full bg-white/15 flex items-center justify-center text-sm">
                                     <i class="fa-solid fa-rotate"></i>
-                                </button>
+                                </div>
                             </div>
                         </div>
                     </section>
 
                     <!-- =================================================================
-                         APP 9: iOS SETTINGS & CONTENT MANAGER (CMS STUDIO)
-                         Allows the user to easily collect & manage all content!
+                         APP 10: iOS WALLET (Static Display UI / Pajangan)
                     ================================================================== -->
-                    <section id="app-settings" class="ios-app-window bg-[#F2F2F7] text-slate-900 pt-12 pb-5">
-                        <div class="px-5 pt-1 pb-2 flex items-center justify-between bg-[#F2F2F7] border-b border-slate-200">
-                            <button onclick="closeAllApps()" class="text-[#007AFF] text-xs font-semibold flex items-center gap-1">
-                                <i class="fa-solid fa-chevron-left"></i> Home
-                            </button>
-                            <h2 class="text-sm font-extrabold">Settings & CMS Studio</h2>
-                            <button onclick="resetToDefaultPhoneData()" class="text-[11px] text-rose-600 font-semibold">
-                                Reset
-                            </button>
-                        </div>
-
-                        <div class="flex-1 overflow-y-auto p-4 space-y-4 no-scrollbar text-xs">
-                            <!-- Authentic iOS Apple ID Card -->
-                            <div class="bg-white p-3.5 rounded-2xl shadow-sm flex items-center gap-3">
-                                <img id="settingsAvatarImg" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" class="w-14 h-14 rounded-full object-cover border border-slate-200" alt="Apple ID">
-                                <div class="flex-1 min-w-0">
-                                    <h3 class="text-sm font-extrabold text-slate-900">Kim Minjeong (WINTER)</h3>
-                                    <p class="text-[11px] text-slate-500 truncate">Apple Account, iCloud+, KWANGYA Sync</p>
-                                    <span class="inline-block mt-1 text-[10px] font-bold bg-sky-100 text-[#007AFF] px-2 py-0.5 rounded-full">
-                                        ✨ Studio Pengelola Konten HP
-                                    </span>
-                                </div>
-                            </div>
-
-                            <!-- CMS Category Selector Tabs -->
-                            <div class="grid grid-cols-4 gap-1.5 bg-slate-200/80 p-1 rounded-2xl">
-                                <button onclick="switchSettingsTab('tab-add-photo')" class="settings-tab-btn py-1.5 rounded-xl font-bold text-[11px] bg-white text-[#007AFF] shadow-sm">📸 Foto</button>
-                                <button onclick="switchSettingsTab('tab-add-chat')" class="settings-tab-btn py-1.5 rounded-xl font-bold text-[11px] text-slate-600">💬 Chat</button>
-                                <button onclick="switchSettingsTab('tab-add-song')" class="settings-tab-btn py-1.5 rounded-xl font-bold text-[11px] text-slate-600">🎵 Musik</button>
-                                <button onclick="switchSettingsTab('tab-wallpaper')" class="settings-tab-btn py-1.5 rounded-xl font-bold text-[11px] text-slate-600">💾 Backup</button>
-                            </div>
-
-                            <!-- TAB 1: TAMBAH FOTO KE PHOTOS & IG -->
-                            <div id="tab-add-photo" class="settings-panel bg-white p-4 rounded-2xl shadow-sm space-y-3">
-                                <h4 class="font-extrabold text-slate-900 text-xs flex items-center gap-1.5">
-                                    <i class="fa-solid fa-images text-[#007AFF]"></i> Tambah Foto ke Galeri Winter
-                                </h4>
-                                <div>
-                                    <label class="block text-[11px] font-semibold text-slate-600 mb-1">Pilih File Gambar (Dari HP / Laptop)</label>
-                                    <input id="cmsPhotoFileInput" type="file" accept="image/*" class="w-full text-[11px] bg-slate-50 border border-slate-200 rounded-xl p-2">
-                                </div>
-                                <div>
-                                    <label class="block text-[11px] font-semibold text-slate-600 mb-1">Atau Tempel Link URL Foto</label>
-                                    <input id="cmsPhotoUrlInput" type="text" placeholder="https://..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 focus:outline-none focus:border-[#007AFF]">
-                                </div>
-                                <div class="grid grid-cols-2 gap-2">
-                                    <div>
-                                        <label class="block text-[11px] font-semibold text-slate-600 mb-1">Album</label>
-                                        <select id="cmsPhotoAlbumInput" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-2.5 py-2">
-                                            <option value="Selca ❄️">Selca ❄️</option>
-                                            <option value="Stage ⭐">Stage ⭐</option>
-                                            <option value="aespa 🦋">aespa 🦋</option>
-                                            <option value="Daily 🐶">Daily 🐶</option>
-                                        </select>
-                                    </div>
-                                    <div>
-                                        <label class="block text-[11px] font-semibold text-slate-600 mb-1">Tanggal</label>
-                                        <input id="cmsPhotoDateInput" type="text" value="3 Nov 2026" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-2.5 py-2">
-                                    </div>
-                                </div>
-                                <div>
-                                    <label class="block text-[11px] font-semibold text-slate-600 mb-1">Caption Cerita Foto</label>
-                                    <textarea id="cmsPhotoCaptionInput" rows="2" placeholder="Tulis caption foto ala Winter..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2"></textarea>
-                                </div>
-                                <button onclick="cmsAddPhoto()" class="w-full py-2.5 rounded-xl bg-[#007AFF] text-white font-bold shadow hover:brightness-105 transition">
-                                    + Simpan Foto ke iPhone
-                                </button>
-                            </div>
-
-                            <!-- TAB 2: TAMBAH KONTAK / CHAT iMESSAGE -->
-                            <div id="tab-add-chat" class="settings-panel hidden bg-white p-4 rounded-2xl shadow-sm space-y-3">
-                                <h4 class="font-extrabold text-slate-900 text-xs flex items-center gap-1.5">
-                                    <i class="fa-solid fa-comment text-emerald-500"></i> Tambah Kontak / Pesan iMessage
-                                </h4>
-                                <div>
-                                    <label class="block text-[11px] font-semibold text-slate-600 mb-1">Nama Kontak</label>
-                                    <input id="cmsContactName" type="text" placeholder="Misal: Heejin / Manager SM" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2">
-                                </div>
-                                <div>
-                                    <label class="block text-[11px] font-semibold text-slate-600 mb-1">URL Foto Profil Kontak (Opsional)</label>
-                                    <input id="cmsContactAvatar" type="text" placeholder="https://..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2">
-                                </div>
-                                <div>
-                                    <label class="block text-[11px] font-semibold text-slate-600 mb-1">Pesan Pertama</label>
-                                    <input id="cmsContactFirstMsg" type="text" placeholder="Halo Minjeong-ah!" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2">
-                                </div>
-                                <button onclick="cmsAddContactThread()" class="w-full py-2.5 rounded-xl bg-emerald-500 text-white font-bold shadow">
-                                    + Buat Ruang Chat Baru
-                                </button>
-                            </div>
-
-                            <!-- TAB 3: TAMBAH LAGU APPLE MUSIC -->
-                            <div id="tab-add-song" class="settings-panel hidden bg-white p-4 rounded-2xl shadow-sm space-y-3">
-                                <h4 class="font-extrabold text-slate-900 text-xs flex items-center gap-1.5">
-                                    <i class="fa-solid fa-music text-rose-500"></i> Tambah Lagu ke Apple Music
-                                </h4>
-                                <div>
-                                    <label class="block text-[11px] font-semibold text-slate-600 mb-1">Judul Lagu</label>
-                                    <input id="cmsSongTitle" type="text" placeholder="Misal: Whiplash" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2">
-                                </div>
-                                <div>
-                                    <label class="block text-[11px] font-semibold text-slate-600 mb-1">Artis / Album</label>
-                                    <input id="cmsSongArtist" type="text" value="aespa" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2">
-                                </div>
-                                <div>
-                                    <label class="block text-[11px] font-semibold text-slate-600 mb-1">Link URL Cover Album (Opsional)</label>
-                                    <input id="cmsSongCover" type="text" placeholder="https://..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2">
-                                </div>
-                                <div>
-                                    <label class="block text-[11px] font-semibold text-slate-600 mb-1">Link File Audio MP3 (Opsional)</label>
-                                    <input id="cmsSongAudioUrl" type="text" placeholder="https://.../lagu.mp3" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2">
-                                </div>
-                                <div>
-                                    <label class="block text-[11px] font-semibold text-slate-600 mb-1">Potongan Lirik</label>
-                                    <input id="cmsSongLyrics" type="text" placeholder="One look give 'em Whiplash..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2">
-                                </div>
-                                <button onclick="cmsAddSong()" class="w-full py-2.5 rounded-xl bg-rose-500 text-white font-bold shadow">
-                                    + Tambah ke Playlist
-                                </button>
-                            </div>
-
-                            <!-- TAB 4: WALLPAPER & EXPORT/IMPORT JSON -->
-                            <div id="tab-wallpaper" class="settings-panel hidden bg-white p-4 rounded-2xl shadow-sm space-y-3">
-                                <h4 class="font-extrabold text-slate-900 text-xs">🎨 Ganti Wallpaper & Status iPhone</h4>
-                                <div>
-                                    <label class="block text-[11px] font-semibold text-slate-600 mb-1">URL Gambar Wallpaper iOS</label>
-                                    <input id="cmsWallpaperInput" type="text" placeholder="Tempel link gambar wallpaper..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2">
-                                </div>
-                                <div class="grid grid-cols-3 gap-1.5">
-                                    <button onclick="applyWallpaperUrl('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=900&q=80')" class="py-1.5 rounded-lg bg-sky-100 text-[#007AFF] font-bold text-[10px]">❄️ Icy Star</button>
-                                    <button onclick="applyWallpaperUrl('https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=900&q=80')" class="py-1.5 rounded-lg bg-indigo-100 text-indigo-700 font-bold text-[10px]">🌌 iOS Dark</button>
-                                    <button onclick="applyWallpaperUrl('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80')" class="py-1.5 rounded-lg bg-pink-100 text-pink-700 font-bold text-[10px]">🌅 Soft Sky</button>
-                                </div>
-                                <div>
-                                    <label class="block text-[11px] font-semibold text-slate-600 mb-1">Kutipan Widget Home Screen</label>
-                                    <input id="cmsQuoteInput" type="text" placeholder="Tulis status baru..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2">
-                                </div>
-                                <button onclick="cmsSaveAppearance()" class="w-full py-2 rounded-xl bg-[#007AFF] text-white font-bold">
-                                    Terapkan Tampilan
-                                </button>
-
-                                <hr class="border-slate-200 my-2">
-                                <h4 class="font-extrabold text-slate-900 text-xs">💾 Backup / Ekspor Data JSON</h4>
-                                <p class="text-[10px] text-slate-500 leading-relaxed">
-                                    Salin data JSON di bawah ini untuk menyimpan cadangan seluruh foto, chat, dan lagu yang sudah kamu kumpulkan.
-                                </p>
-                                <div class="flex gap-2">
-                                    <button onclick="exportPhoneJson()" class="flex-1 py-2 rounded-xl bg-slate-900 text-white font-bold text-[11px]">Salin JSON</button>
-                                    <button onclick="importPhoneJson()" class="flex-1 py-2 rounded-xl bg-slate-200 text-slate-800 font-bold text-[11px]">Muat JSON</button>
-                                </div>
-                                <textarea id="cmsJsonTextarea" rows="3" placeholder="Kode JSON akan tampil di sini..." class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 text-[10px] font-mono"></textarea>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- =================================================================
-                         APP 10: iOS WALLET (Koleksi Photocard & ID Pass Winter aespa)
-                    ================================================================== -->
-                    <section id="app-wallet" class="ios-app-window bg-black text-white pt-12 pb-5">
+                    <section id="app-wallet" class="ios-app-window bg-black text-white pt-12 pb-5 select-none">
                         <div class="px-5 pt-1 pb-3 flex items-center justify-between border-b border-white/10">
                             <button onclick="closeAllApps()" class="text-sky-400 text-xs font-semibold flex items-center gap-1">
                                 <i class="fa-solid fa-chevron-left"></i> Home
                             </button>
-                            <h2 class="text-sm font-extrabold tracking-tight"> Wallet • Winter Pass</h2>
-                            <button onclick="openApp('app-photos')" class="text-xs text-sky-400 font-semibold">+ Card</button>
+                            <h2 class="text-sm font-extrabold tracking-tight"> Wallet</h2>
+                            <span class="w-6 h-6 rounded-full bg-white/15 flex items-center justify-center text-xs cursor-default">+</span>
                         </div>
-                        <div class="flex-1 overflow-y-auto p-5 space-y-4 no-scrollbar">
+                        <div class="flex-1 overflow-y-auto p-5 space-y-4 no-scrollbar pointer-events-none">
                             <!-- SM Entertainment Artist ID Card -->
                             <div class="p-4 rounded-3xl bg-gradient-to-br from-sky-500 via-blue-600 to-indigo-900 shadow-2xl border border-white/25">
                                 <div class="flex justify-between items-center">
-                                    <span class="text-[10px] font-extrabold uppercase tracking-widest bg-white/20 px-2.5 py-0.5 rounded-full">SMTOWN OFFICIAL PASS</span>
+                                    <span class="text-[10px] font-extrabold uppercase tracking-widest bg-white/20 px-2.5 py-0.5 rounded-full">SMTOWN ARTIST PASS</span>
                                     <i class="fa-solid fa-snowflake text-lg"></i>
                                 </div>
                                 <div class="flex items-center gap-3.5 mt-4">
@@ -1953,7 +1743,25 @@
                                 </div>
                             </div>
 
-                            <!-- Collectible Photocard Grid from Gallery -->
+                            <!-- Korean Air Boarding Pass Mock -->
+                            <div class="p-4 rounded-3xl bg-gradient-to-r from-slate-800 to-slate-900 border border-white/15 space-y-2">
+                                <div class="flex justify-between items-center text-[10px] text-sky-300 font-bold uppercase">
+                                    <span>✈️ Korean Air • First Class</span>
+                                    <span>GATE 01</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <p class="text-xl font-extrabold">ICN</p>
+                                        <p class="text-[10px] text-white/60">Seoul</p>
+                                    </div>
+                                    <i class="fa-solid fa-plane text-sky-400"></i>
+                                    <div class="text-right">
+                                        <p class="text-xl font-extrabold">NRT</p>
+                                        <p class="text-[10px] text-white/60">Tokyo Dome</p>
+                                    </div>
+                                </div>
+                            </div>
+
                             <p class="text-xs font-bold text-white/60 uppercase tracking-wider">Koleksi Photocard Winter</p>
                             <div id="walletPhotocardGrid" class="grid grid-cols-2 gap-3">
                                 <!-- Populated dynamically from Gallery Photos -->
@@ -1962,9 +1770,9 @@
                     </section>
 
                     <!-- =================================================================
-                         APP 11: iOS SAFARI BROWSER (Pencarian & Portal Fancam Winter)
+                         APP 11: iOS SAFARI BROWSER (Static Display UI / Pajangan)
                     ================================================================== -->
-                    <section id="app-safari" class="ios-app-window bg-[#F2F2F7] text-slate-900 pt-12 pb-5">
+                    <section id="app-safari" class="ios-app-window bg-[#F2F2F7] text-slate-900 pt-12 pb-5 select-none">
                         <div class="px-5 pt-1 pb-2 flex items-center justify-between bg-white border-b border-slate-200">
                             <button onclick="closeAllApps()" class="text-[#007AFF] text-xs font-semibold flex items-center gap-1">
                                 <i class="fa-solid fa-chevron-left"></i> Home
@@ -1973,47 +1781,334 @@
                                 <i class="fa-solid fa-lock text-[10px]"></i>
                                 <span class="font-medium">aespa.com/winter</span>
                             </div>
-                            <button onclick="openApp('app-instagram')" class="text-[#007AFF] text-xs font-semibold">IG</button>
+                            <span class="w-8"></span>
                         </div>
-                        <div class="flex-1 overflow-y-auto p-4 space-y-4 no-scrollbar">
+                        <div class="flex-1 overflow-y-auto p-4 space-y-4 no-scrollbar pointer-events-none">
                             <div class="bg-white p-4 rounded-3xl shadow-sm border border-slate-200/60">
                                 <p class="text-[10px] font-extrabold uppercase text-[#007AFF]"> Riwayat Pencarian Winter ❄️</p>
                                 <div class="mt-2.5 space-y-2 text-xs">
-                                    <div onclick="openApp('app-notes')" class="p-2.5 rounded-xl bg-slate-50 flex items-center justify-between cursor-pointer hover:bg-sky-50">
+                                    <div class="p-2.5 rounded-xl bg-slate-50 flex items-center justify-between">
                                         <span>🍓 Toko tanghulu stroberi terenak di Seoul</span>
-                                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i>
+                                        <i class="fa-solid fa-magnifying-glass text-[10px] text-slate-400"></i>
                                     </div>
-                                    <div onclick="openApp('app-music')" class="p-2.5 rounded-xl bg-slate-50 flex items-center justify-between cursor-pointer hover:bg-sky-50">
+                                    <div class="p-2.5 rounded-xl bg-slate-50 flex items-center justify-between">
                                         <span>🎸 Efek pedal gitar biru untuk lagu Spark Solo</span>
-                                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i>
+                                        <i class="fa-solid fa-magnifying-glass text-[10px] text-slate-400"></i>
                                     </div>
-                                    <div onclick="openApp('app-photos')" class="p-2.5 rounded-xl bg-slate-50 flex items-center justify-between cursor-pointer hover:bg-sky-50">
+                                    <div class="p-2.5 rounded-xl bg-slate-50 flex items-center justify-between">
                                         <span>🐶 Cara merawat anak anjing Maltese putih</span>
-                                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i>
+                                        <i class="fa-solid fa-magnifying-glass text-[10px] text-slate-400"></i>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="bg-white p-4 rounded-3xl shadow-sm border border-slate-200/60">
-                                <p class="text-[10px] font-extrabold uppercase text-slate-400 mb-2.5">Favorit Safari</p>
+                                <p class="text-[10px] font-extrabold uppercase text-slate-400 mb-2.5">Favorites</p>
                                 <div class="grid grid-cols-4 gap-2 text-center text-[11px] font-semibold">
-                                    <button onclick="openApp('app-instagram')" class="p-2 rounded-2xl bg-pink-50 text-pink-600 flex flex-col items-center gap-1">
+                                    <div class="p-2 rounded-2xl bg-pink-50 text-pink-600 flex flex-col items-center gap-1">
                                         <i class="fa-brands fa-instagram text-lg"></i>
                                         <span>@imwinter</span>
-                                    </button>
-                                    <button onclick="openApp('app-music')" class="p-2 rounded-2xl bg-rose-50 text-rose-600 flex flex-col items-center gap-1">
-                                        <i class="fa-solid fa-music text-lg"></i>
-                                        <span>Music</span>
-                                    </button>
-                                    <button onclick="openApp('app-photos')" class="p-2 rounded-2xl bg-sky-50 text-sky-600 flex flex-col items-center gap-1">
-                                        <i class="fa-solid fa-images text-lg"></i>
-                                        <span>Galeri</span>
-                                    </button>
-                                    <button onclick="openApp('app-settings')" class="p-2 rounded-2xl bg-slate-100 text-slate-700 flex flex-col items-center gap-1">
-                                        <i class="fa-solid fa-sliders text-lg"></i>
-                                        <span>CMS</span>
-                                    </button>
+                                    </div>
+                                    <div class="p-2 rounded-2xl bg-rose-50 text-rose-600 flex flex-col items-center gap-1">
+                                        <i class="fa-brands fa-youtube text-lg"></i>
+                                        <span>aespa</span>
+                                    </div>
+                                    <div class="p-2 rounded-2xl bg-sky-50 text-sky-600 flex flex-col items-center gap-1">
+                                        <i class="fa-solid fa-cloud text-lg"></i>
+                                        <span>KWANGYA</span>
+                                    </div>
+                                    <div class="p-2 rounded-2xl bg-slate-100 text-slate-700 flex flex-col items-center gap-1">
+                                        <i class="fa-brands fa-apple text-lg"></i>
+                                        <span>Apple</span>
+                                    </div>
                                 </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- =================================================================
+                         APP 12: iOS WEATHER (Static Full-Screen Display UI / Pajangan)
+                    ================================================================== -->
+                    <section id="app-weather" class="ios-app-window ios-weather-widget text-white pt-12 pb-6 select-none" style="border-radius: 45px;">
+                        <div class="px-5 pt-1 pb-2 flex items-center justify-between">
+                            <button onclick="closeAllApps()" class="text-white/90 text-xs font-semibold flex items-center gap-1">
+                                <i class="fa-solid fa-chevron-left"></i> Home
+                            </button>
+                            <span class="text-xs font-semibold text-white/80"> Weather</span>
+                            <i class="fa-solid fa-list-ul text-xs text-white/80"></i>
+                        </div>
+                        <div class="flex-1 overflow-y-auto px-5 py-3 space-y-4 no-scrollbar pointer-events-none text-center">
+                            <div class="pt-2">
+                                <h2 id="weatherAppCity" class="text-2xl font-semibold">Seoul</h2>
+                                <p id="weatherAppTemp" class="text-6xl font-thin tracking-tight my-1">47°</p>
+                                <p id="weatherAppCond" class="text-sm font-semibold text-sky-100">Windy</p>
+                                <p id="weatherAppHL" class="text-xs font-medium text-white/85">H:56°  L:39°</p>
+                            </div>
+                            <div class="p-3.5 rounded-2xl bg-white/15 backdrop-blur-md border border-white/20 text-left space-y-2.5">
+                                <p class="text-[10px] font-semibold uppercase tracking-wider text-white/75 border-b border-white/15 pb-1.5">
+                                    Prakiraan Cuaca Hari Ini • Udara Dingin Musim Dingin ❄️
+                                </p>
+                                <div class="grid grid-cols-5 gap-2 text-center text-xs">
+                                    <div><p class="text-[10px] opacity-80">Now</p><i class="fa-solid fa-wind my-1.5"></i><p class="font-bold">47°</p></div>
+                                    <div><p class="text-[10px] opacity-80">15:00</p><i class="fa-solid fa-cloud-sun my-1.5"></i><p class="font-bold">49°</p></div>
+                                    <div><p class="text-[10px] opacity-80">18:00</p><i class="fa-solid fa-cloud my-1.5"></i><p class="font-bold">44°</p></div>
+                                    <div><p class="text-[10px] opacity-80">21:00</p><i class="fa-solid fa-snowflake my-1.5 text-sky-200"></i><p class="font-bold">40°</p></div>
+                                    <div><p class="text-[10px] opacity-80">00:00</p><i class="fa-solid fa-snowflake my-1.5 text-sky-200"></i><p class="font-bold">39°</p></div>
+                                </div>
+                            </div>
+                            <div class="p-3.5 rounded-2xl bg-white/15 backdrop-blur-md border border-white/20 text-left space-y-2 text-xs">
+                                <p class="text-[10px] font-semibold uppercase tracking-wider text-white/75">10-Day Forecast</p>
+                                <div class="flex justify-between py-1 border-t border-white/10"><span>Today</span><span>❄️ Windy</span><span>39° — 56°</span></div>
+                                <div class="flex justify-between py-1 border-t border-white/10"><span>Tue</span><span>☀️ Sunny</span><span>41° — 58°</span></div>
+                                <div class="flex justify-between py-1 border-t border-white/10"><span>Wed</span><span>🌨️ Snow</span><span>34° — 45°</span></div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- =================================================================
+                         APP 13: iOS CLOCK (Static Display UI / Pajangan)
+                    ================================================================== -->
+                    <section id="app-clock" class="ios-app-window bg-black text-white pt-12 pb-5 select-none">
+                        <div class="px-5 pt-1 pb-2 flex items-center justify-between">
+                            <button onclick="closeAllApps()" class="text-[#FF9500] text-xs font-semibold flex items-center gap-1">
+                                <i class="fa-solid fa-chevron-left"></i> Home
+                            </button>
+                            <span class="text-[#FF9500] text-sm">+</span>
+                        </div>
+                        <div class="px-5 pb-2">
+                            <h2 class="text-2xl font-extrabold tracking-tight">Alarms</h2>
+                        </div>
+                        <div class="flex-1 overflow-y-auto px-5 divide-y divide-white/15 no-scrollbar pointer-events-none">
+                            <div class="py-3.5 flex items-center justify-between">
+                                <div>
+                                    <p class="text-3xl font-light text-white">07:30</p>
+                                    <p class="text-xs text-white/60">Bangun Pagi & Vokal ❄️</p>
+                                </div>
+                                <div class="w-11 h-6 rounded-full bg-[#34C759] p-0.5 flex items-center justify-end">
+                                    <div class="w-5 h-5 rounded-full bg-white shadow"></div>
+                                </div>
+                            </div>
+                            <div class="py-3.5 flex items-center justify-between">
+                                <div>
+                                    <p class="text-3xl font-light text-white">13:30</p>
+                                    <p class="text-xs text-white/60">Berangkat Latihan aespa ⭐️</p>
+                                </div>
+                                <div class="w-11 h-6 rounded-full bg-[#34C759] p-0.5 flex items-center justify-end">
+                                    <div class="w-5 h-5 rounded-full bg-white shadow"></div>
+                                </div>
+                            </div>
+                            <div class="py-3.5 flex items-center justify-between opacity-50">
+                                <div>
+                                    <p class="text-3xl font-light text-white">22:00</p>
+                                    <p class="text-xs text-white/60">Kirim Pesan Bubble ke MYs 🫧</p>
+                                </div>
+                                <div class="w-11 h-6 rounded-full bg-white/20 p-0.5 flex items-center">
+                                    <div class="w-5 h-5 rounded-full bg-white shadow"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-2 pb-1 px-4 border-t border-white/15 flex justify-around text-[10px] text-white/50 pointer-events-none">
+                            <div class="flex flex-col items-center gap-0.5"><i class="fa-solid fa-globe text-sm"></i><span>World Clock</span></div>
+                            <div class="flex flex-col items-center gap-0.5 text-[#FF9500]"><i class="fa-solid fa-bell text-sm"></i><span>Alarms</span></div>
+                            <div class="flex flex-col items-center gap-0.5"><i class="fa-solid fa-stopwatch text-sm"></i><span>Stopwatch</span></div>
+                            <div class="flex flex-col items-center gap-0.5"><i class="fa-solid fa-hourglass text-sm"></i><span>Timers</span></div>
+                        </div>
+                    </section>
+
+                    <!-- =================================================================
+                         APP 14: iOS APP STORE (Static Display UI / Pajangan)
+                    ================================================================== -->
+                    <section id="app-appstore" class="ios-app-window bg-[#F2F2F7] text-slate-900 pt-12 pb-5 select-none">
+                        <div class="px-5 pt-1 pb-2 flex items-center justify-between">
+                            <button onclick="closeAllApps()" class="text-[#007AFF] text-xs font-semibold flex items-center gap-1">
+                                <i class="fa-solid fa-chevron-left"></i> Home
+                            </button>
+                            <span class="text-xs font-bold text-slate-400">App Store</span>
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" class="w-7 h-7 rounded-full object-cover" alt="profile">
+                        </div>
+                        <div class="px-5 pb-2">
+                            <h2 class="text-2xl font-extrabold tracking-tight">Today</h2>
+                        </div>
+                        <div class="flex-1 overflow-y-auto px-4 space-y-3.5 no-scrollbar pointer-events-none">
+                            <div class="rounded-3xl overflow-hidden bg-slate-900 text-white shadow-md relative h-48">
+                                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover opacity-75" alt="App Store Banner">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-4 flex flex-col justify-end">
+                                    <span class="text-[10px] font-bold uppercase tracking-widest text-sky-300">Pilihan Utama Winter</span>
+                                    <h3 class="text-base font-extrabold">DearU bubble for SMTOWN</h3>
+                                    <p class="text-[11px] text-white/80">Ngobrol setiap hari bareng MYs ⭐️🫧</p>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-2xl p-3.5 shadow-sm divide-y divide-slate-100">
+                                <p class="text-xs font-extrabold pb-2">Aplikasi Terinstal di iPhone Winter</p>
+                                <div class="py-2.5 flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-sky-500 flex items-center justify-center text-white text-base">🫧</div>
+                                        <div><p class="text-xs font-bold">Lysn / DearU bubble</p><p class="text-[10px] text-slate-400">Social Networking</p></div>
+                                    </div>
+                                    <span class="px-3 py-1 rounded-full bg-slate-100 text-[#007AFF] text-xs font-bold">OPEN</span>
+                                </div>
+                                <div class="py-2.5 flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 flex items-center justify-center text-white text-base"><i class="fa-brands fa-instagram"></i></div>
+                                        <div><p class="text-xs font-bold">Instagram</p><p class="text-[10px] text-slate-400">@imwinter Official</p></div>
+                                    </div>
+                                    <span class="px-3 py-1 rounded-full bg-slate-100 text-[#007AFF] text-xs font-bold">OPEN</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- =================================================================
+                         APP 15: iOS HEALTH (Static Display UI / Pajangan)
+                    ================================================================== -->
+                    <section id="app-health" class="ios-app-window bg-[#F2F2F7] text-slate-900 pt-12 pb-5 select-none">
+                        <div class="px-5 pt-1 pb-2 flex items-center justify-between">
+                            <button onclick="closeAllApps()" class="text-[#FF2D55] text-xs font-semibold flex items-center gap-1">
+                                <i class="fa-solid fa-chevron-left"></i> Home
+                            </button>
+                            <span class="text-xs font-bold text-slate-400"> Health</span>
+                            <span class="w-6"></span>
+                        </div>
+                        <div class="px-5 pb-2">
+                            <h2 class="text-2xl font-extrabold tracking-tight">Summary</h2>
+                        </div>
+                        <div class="flex-1 overflow-y-auto px-4 space-y-3 no-scrollbar pointer-events-none">
+                            <div class="bg-white p-4 rounded-2xl shadow-sm">
+                                <div class="flex items-center justify-between text-xs font-bold text-orange-500 mb-1">
+                                    <span><i class="fa-solid fa-fire"></i> Steps & Latihan Koreografi</span>
+                                    <span class="text-slate-400 font-normal">Hari Ini</span>
+                                </div>
+                                <p class="text-2xl font-extrabold text-slate-900">12,480 <span class="text-xs font-medium text-slate-500">steps</span></p>
+                                <p class="text-[11px] text-slate-500 mt-1">Latihan dance Whiplash & Supernova selama 3 jam</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-2xl shadow-sm">
+                                <div class="flex items-center justify-between text-xs font-bold text-sky-500 mb-1">
+                                    <span><i class="fa-solid fa-bed"></i> Sleep</span>
+                                    <span class="text-slate-400 font-normal">Tadi Malam</span>
+                                </div>
+                                <p class="text-2xl font-extrabold text-slate-900">7 hr 45 min</p>
+                                <p class="text-[11px] text-slate-500 mt-1">Tidur nyenyak pakai selimut hangat ❄️</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-2xl shadow-sm">
+                                <div class="flex items-center justify-between text-xs font-bold text-rose-500 mb-1">
+                                    <span><i class="fa-solid fa-heart-pulse"></i> Heart Rate</span>
+                                    <span class="text-slate-400 font-normal">Normal</span>
+                                </div>
+                                <p class="text-2xl font-extrabold text-slate-900">68 <span class="text-xs font-medium text-slate-500">BPM</span></p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- =================================================================
+                         APP 16: iOS REMINDERS (Static Display UI / Pajangan)
+                    ================================================================== -->
+                    <section id="app-reminders" class="ios-app-window bg-[#F2F2F7] text-slate-900 pt-12 pb-5 select-none">
+                        <div class="px-5 pt-1 pb-2 flex items-center justify-between">
+                            <button onclick="closeAllApps()" class="text-[#007AFF] text-xs font-semibold flex items-center gap-1">
+                                <i class="fa-solid fa-chevron-left"></i> Home
+                            </button>
+                            <span class="text-xs font-bold text-slate-400">Reminders</span>
+                            <span class="w-6"></span>
+                        </div>
+                        <div class="px-5 pb-2">
+                            <h2 class="text-2xl font-extrabold tracking-tight text-[#007AFF]">To-Do Winter ⭐️</h2>
+                        </div>
+                        <div class="flex-1 overflow-y-auto px-4 space-y-2.5 no-scrollbar pointer-events-none">
+                            <div class="bg-white rounded-2xl divide-y divide-slate-100 shadow-sm text-xs">
+                                <div class="p-3.5 flex items-center gap-3">
+                                    <span class="w-4 h-4 rounded-full border-2 border-[#007AFF]"></span>
+                                    <span>Beli tanghulu stroberi & es krim mint choco 🍓🍦</span>
+                                </div>
+                                <div class="p-3.5 flex items-center gap-3">
+                                    <span class="w-4 h-4 rounded-full border-2 border-[#FF3B30]"></span>
+                                    <span>Ganti senar gitar elektrik biru untuk konser 🎸</span>
+                                </div>
+                                <div class="p-3.5 flex items-center gap-3">
+                                    <span class="w-4 h-4 rounded-full border-2 border-[#FF9500]"></span>
+                                    <span>Kirim foto selca terbaru ke MYs di Bubble 🫧</span>
+                                </div>
+                                <div class="p-3.5 flex items-center gap-3">
+                                    <span class="w-4 h-4 rounded-full border-2 border-[#34C759]"></span>
+                                    <span>Makan malam hotpot bareng Karina, Giselle & Ningning 🍲</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- =================================================================
+                         APP 17: iOS MAIL (Static Display UI / Pajangan)
+                    ================================================================== -->
+                    <section id="app-mail" class="ios-app-window bg-[#F2F2F7] text-slate-900 pt-12 pb-5 select-none">
+                        <div class="px-5 pt-1 pb-2 flex items-center justify-between">
+                            <button onclick="closeAllApps()" class="text-[#007AFF] text-xs font-semibold flex items-center gap-1">
+                                <i class="fa-solid fa-chevron-left"></i> Home
+                            </button>
+                            <span class="text-xs font-bold text-slate-400">iCloud Mail</span>
+                            <span class="text-xs text-[#007AFF]">Edit</span>
+                        </div>
+                        <div class="px-5 pb-2">
+                            <h2 class="text-2xl font-extrabold tracking-tight">Inbox</h2>
+                        </div>
+                        <div class="flex-1 overflow-y-auto px-4 no-scrollbar pointer-events-none">
+                            <div class="bg-white rounded-2xl divide-y divide-slate-100 shadow-sm text-xs">
+                                <div class="p-3.5 space-y-0.5">
+                                    <div class="flex justify-between font-bold text-slate-900">
+                                        <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#007AFF]"></span> SM Entertainment A&R</span>
+                                        <span class="text-[10px] text-slate-400 font-normal">10:30</span>
+                                    </div>
+                                    <p class="font-semibold text-slate-800">Demo Lagu Baru aespa & Jadwal Rekaman</p>
+                                    <p class="text-[11px] text-slate-500 line-clamp-1">Halo Winter, berikut lampiran file guide vokal untuk lagu utama berikutnya...</p>
+                                </div>
+                                <div class="p-3.5 space-y-0.5">
+                                    <div class="flex justify-between font-bold text-slate-900">
+                                        <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#007AFF]"></span> Polo Ralph Lauren Korea</span>
+                                        <span class="text-[10px] text-slate-400 font-normal">Kemarin</span>
+                                    </div>
+                                    <p class="font-semibold text-slate-800">Undangan VIP Fashion Show & Lookbook</p>
+                                    <p class="text-[11px] text-slate-500 line-clamp-1">Terima kasih kepada Ambassador kami Kim Minjeong atas kolaborasi musim ini...</p>
+                                </div>
+                                <div class="p-3.5 space-y-0.5">
+                                    <div class="flex justify-between font-bold text-slate-900">
+                                        <span>Espoir Official Beauty</span>
+                                        <span class="text-[10px] text-slate-400 font-normal">Senin</span>
+                                    </div>
+                                    <p class="font-semibold text-slate-800">Jadwal Pemotretan Kampanye Musim Dingin</p>
+                                    <p class="text-[11px] text-slate-500 line-clamp-1">Konsep riasan Winter Glow sudah siap untuk sesi pemotretan minggu depan...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- =================================================================
+                         APP 18: iOS SHORTCUTS (Static Display UI / Pajangan)
+                    ================================================================== -->
+                    <section id="app-shortcuts" class="ios-app-window bg-[#F2F2F7] text-slate-900 pt-12 pb-5 select-none">
+                        <div class="px-5 pt-1 pb-2 flex items-center justify-between">
+                            <button onclick="closeAllApps()" class="text-[#007AFF] text-xs font-semibold flex items-center gap-1">
+                                <i class="fa-solid fa-chevron-left"></i> Home
+                            </button>
+                            <span class="text-xs font-bold text-slate-400">Shortcuts</span>
+                            <span class="text-[#007AFF] text-sm">+</span>
+                        </div>
+                        <div class="px-5 pb-2">
+                            <h2 class="text-2xl font-extrabold tracking-tight">All Shortcuts</h2>
+                        </div>
+                        <div class="flex-1 overflow-y-auto p-4 grid grid-cols-2 gap-3 content-start no-scrollbar pointer-events-none text-white text-xs font-bold">
+                            <div class="p-3.5 rounded-2xl bg-gradient-to-br from-sky-500 to-blue-600 h-24 flex flex-col justify-between shadow-sm">
+                                <i class="fa-solid fa-headphones text-base"></i>
+                                <span>Mode Latihan Vokal 🎤</span>
+                            </div>
+                            <div class="p-3.5 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-600 h-24 flex flex-col justify-between shadow-sm">
+                                <i class="fa-solid fa-camera text-base"></i>
+                                <span>Selca Bubble MYs 🫧</span>
+                            </div>
+                            <div class="p-3.5 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 h-24 flex flex-col justify-between shadow-sm">
+                                <i class="fa-solid fa-moon text-base"></i>
+                                <span>Jangan Ganggu Tidur ❄️</span>
+                            </div>
+                            <div class="p-3.5 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 h-24 flex flex-col justify-between shadow-sm">
+                                <i class="fa-solid fa-guitar text-base"></i>
+                                <span>Tuner Gitar Biru 🎸</span>
                             </div>
                         </div>
                     </section>
@@ -2090,12 +2185,12 @@
             return base;
         }
 
+        // Load data directly from PUSAT_KONTEN_HP_WINTER at the top of the file!
+        function loadPhoneData() {
+            return JSON.parse(JSON.stringify(defaultData));
+        }
+
         function savePhoneData() {
-            try {
-                localStorage.setItem(STORAGE_KEY, JSON.stringify(phoneData));
-            } catch (err) {
-                console.warn('Storage penuh atau diblokir.', err);
-            }
             refreshAllViews();
         }
 
@@ -2343,7 +2438,10 @@
             document.getElementById('photosSubtitleCount').textContent = `${filtered.length} Foto • Koleksi Winter ❄️`;
 
             if (phoneData.photos.length > 0) {
-                document.getElementById('cameraThumbMini').src = phoneData.photos[0].url;
+                const camThumb = document.getElementById('cameraThumbMini');
+                if (camThumb) camThumb.src = phoneData.photos[0].url;
+                const camPreview = document.getElementById('cameraPreviewImg');
+                if (camPreview) camPreview.src = phoneData.photos[0].url;
             }
 
             grid.innerHTML = filtered.map(photo => `
@@ -2366,8 +2464,8 @@
             const walletGrid = document.getElementById('walletPhotocardGrid');
             if (walletGrid) {
                 walletGrid.innerHTML = phoneData.photos.map(photo => `
-                    <div onclick="openApp('app-photos'); openPhotoViewer(${photo.id})" class="rounded-2xl overflow-hidden bg-white/10 border border-white/15 cursor-pointer group">
-                        <img src="${photo.url}" class="w-full aspect-[3/4] object-cover group-hover:scale-105 transition" alt="Photocard">
+                    <div class="rounded-2xl overflow-hidden bg-white/10 border border-white/15">
+                        <img src="${photo.url}" class="w-full aspect-[3/4] object-cover" alt="Photocard">
                         <div class="p-2">
                             <p class="text-[11px] font-bold text-white truncate">${photo.album}</p>
                             <p class="text-[9px] text-sky-300">${photo.date}</p>
@@ -2729,16 +2827,13 @@
         }
 
         /* ==========================================
-           iOS NOTES APP
+           iOS NOTES APP (Static Display)
         =========================================== */
         function renderNotesApp() {
             const box = document.getElementById('iosNotesContainer');
             box.innerHTML = phoneData.notes.map(note => `
-                <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70 relative group">
-                    <button onclick="deleteNoteItem(${note.id})" class="absolute top-3 right-3 text-slate-300 hover:text-rose-500 text-xs">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                    <h4 class="text-xs font-extrabold text-slate-900 pr-6">${note.title}</h4>
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70 relative">
+                    <h4 class="text-xs font-extrabold text-slate-900">${note.title}</h4>
                     <p class="text-[10px] text-amber-600 font-semibold mt-0.5">${note.date}</p>
                     <p class="text-xs text-slate-600 whitespace-pre-line leading-relaxed mt-2">${note.body}</p>
                 </div>
@@ -2777,12 +2872,12 @@
         }
 
         /* ==========================================
-           PHONE & FACETIME CALL SIMULATOR
+           PHONE & FACETIME (Static Display)
         =========================================== */
         function renderPhoneContacts() {
             const list = document.getElementById('phoneContactsList');
             list.innerHTML = phoneData.threads.map(t => `
-                <div onclick="startSimulatedCall('${t.name}', '${t.avatar}', '${(t.voiceLine || 'Halo Minjeong-ah! ❄️').replace(/'/g, "\\'")}')" class="p-3 flex items-center justify-between hover:bg-slate-100 cursor-pointer transition">
+                <div class="p-3 flex items-center justify-between">
                     <div class="flex items-center gap-3">
                         <img src="${t.avatar}" class="w-10 h-10 rounded-full object-cover" alt="${t.name}">
                         <div>
@@ -2790,8 +2885,8 @@
                             <p class="text-[10px] text-slate-400">${t.role || 'Kontak Winter'}</p>
                         </div>
                     </div>
-                    <div class="w-8 h-8 rounded-full bg-emerald-50 text-[#34C759] flex items-center justify-center text-xs">
-                        <i class="fa-solid fa-phone"></i>
+                    <div class="w-8 h-8 rounded-full bg-slate-100 text-[#007AFF] flex items-center justify-center text-xs">
+                        <i class="fa-solid fa-circle-info"></i>
                     </div>
                 </div>
             `).join('');
@@ -3026,8 +3121,6 @@
             const lockWall = phoneData.wallpaperLock || phoneData.wallpaper;
             document.getElementById('iphoneDisplay').style.backgroundImage = `url('${phoneData.wallpaper}')`;
             document.getElementById('iosLockScreen').style.backgroundImage = `url('${lockWall}')`;
-            document.getElementById('cmsWallpaperInput').value = phoneData.wallpaper;
-            document.getElementById('cmsQuoteInput').value = phoneData.quote;
 
             if (phoneData.avatar) {
                 document.getElementById('igProfileAvatar').src = phoneData.avatar;
@@ -3043,6 +3136,14 @@
                 document.getElementById('widgetWeatherCond').textContent = phoneData.weather.kondisi;
                 document.getElementById('widgetWeatherHL').textContent = phoneData.weather.tinggiRendah;
                 document.getElementById('lockWeatherPill').textContent = `${phoneData.weather.kota} ${phoneData.weather.suhu}`;
+
+                const wCity = document.getElementById('weatherAppCity');
+                if (wCity) {
+                    wCity.textContent = phoneData.weather.kota;
+                    document.getElementById('weatherAppTemp').textContent = phoneData.weather.suhu;
+                    document.getElementById('weatherAppCond').textContent = phoneData.weather.kondisi;
+                    document.getElementById('weatherAppHL').textContent = phoneData.weather.tinggiRendah;
+                }
             }
 
             renderPhotosApp();
