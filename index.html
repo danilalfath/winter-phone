@@ -158,7 +158,7 @@
                     id: 6,
                     url: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=600&q=80",
                     date: "2025-08-19",
-                    album: "Daily jl",
+                    album: "Daily 🐶",
                     fav: false,
                     caption: "Traktiran es krim mint choco porsi ekstra sehabis jadwal pemotretan! Tim Mint Choco mana suaranya~ 🍦🌿"
                 }
@@ -1250,19 +1250,19 @@
                         </div>
                     </div>
 
-                    <!-- Notification Banner -->
+                    <!-- Notification Banner (Synced Dynamically with Latest iMessage) -->
                     <div onclick="askPass('app-messages')" class="ios-notif-glass p-3.5 rounded-[24px] cursor-pointer hover:brightness-110 transition">
                         <div class="flex items-center justify-between text-[11px] text-white/85 font-semibold mb-1">
                             <div class="flex items-center gap-1.5">
                                 <span class="w-5 h-5 rounded-[6px] bg-gradient-to-b from-[#32f557] to-[#07c82b] flex items-center justify-center text-white text-[10px]">
                                     <i class="fa-solid fa-comment"></i>
                                 </span>
-                                <span>MESSAGES • KARINA 💙</span>
+                                <span id="lockNotifHeader">MESSAGES • KARINA 💙</span>
                             </div>
-                            <span class="text-white/65 text-[10px]">Now</span>
+                            <span id="lockNotifTime" class="text-white/65 text-[10px]">Now</span>
                         </div>
-                        <p class="text-xs font-bold text-white">Karina 💙</p>
-                        <p class="text-xs text-white/90 truncate">Jangan lupa latihan jam 2 siang ya, bawa jaket hangat ❄️</p>
+                        <p id="lockNotifSender" class="text-xs font-bold text-white">Karina 💙</p>
+                        <p id="lockNotifBody" class="text-xs text-white/90 truncate">Jangan lupa latihan jam 2 siang ya, bawa jaket hangat ❄️</p>
                     </div>
 
                     <!-- Bottom Lock Screen Controls -->
@@ -1735,14 +1735,7 @@
                             <button id="btnSubmitNewPhoto" onclick="submitNewGalleryPhoto()" class="w-full py-3 rounded-2xl bg-[#007AFF] text-white font-bold text-xs shadow-lg shadow-blue-500/25 active:scale-[0.98] transition">
                                 💾 Simpan Foto ke Galeri
                             </button>
-                            <button onclick="copyGalleryCodeForGithub()" class="w-full py-2 rounded-xl bg-slate-200 text-slate-700 font-semibold text-[11px] hover:bg-slate-300 transition">
-                                📋 Salin Kode JSON Galeri (Untuk Paste Manual)
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Fullscreen Photo Detail Modal (#big + caption bar) -->
+                <!-- Fullscreen Photo Detail Modal (#big + caption bar + Prev/Next navigation) -->
                 <div id="photoDetailViewer" class="hidden absolute inset-0 z-50 bg-white flex flex-col justify-between pt-14 pb-7">
                     <div class="px-4 pb-2 flex items-center justify-between">
                         <button onclick="closePhotoViewer()" class="gb">‹</button>
@@ -1754,8 +1747,15 @@
                         </div>
                     </div>
 
-                    <div class="flex-1 bg-black flex items-center justify-center overflow-hidden relative my-1">
-                        <img id="viewerPhotoImg" src="" class="max-h-full max-w-full object-contain" alt="Full Photo">
+                    <div class="flex-1 bg-black flex items-center justify-center overflow-hidden relative my-1 group">
+                        <img id="viewerPhotoImg" src="" class="max-h-full max-w-full object-contain transition-all duration-200" alt="Full Photo">
+                        <!-- Prev / Next Photo Overlay Buttons -->
+                        <button onclick="navigatePhotoViewer(-1)" class="absolute left-2.5 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/45 hover:bg-black/70 text-white flex items-center justify-center text-sm backdrop-blur-md transition" title="Foto Sebelumnya">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                        <button onclick="navigatePhotoViewer(1)" class="absolute right-2.5 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/45 hover:bg-black/70 text-white flex items-center justify-center text-sm backdrop-blur-md transition" title="Foto Berikutnya">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
                     </div>
 
                     <div class="px-5 pt-3 bg-white space-y-2.5">
@@ -1821,16 +1821,21 @@
                         <div onclick="openEditContactModal(activeThreadId)" class="flex flex-col items-center cursor-pointer group" title="Klik untuk ganti Foto Profil & Nama">
                             <div class="relative">
                                 <img id="activeChatAvatar" src="" class="w-11 h-11 rounded-full object-cover border border-slate-200 shadow-sm group-hover:brightness-90 transition" alt="avatar">
-                                <span class="absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full bg-[#007AFF] text-white flex items-center justify-center text-[8px] border border-white">
+                                <span id="chatHeaderEditBadge" class="absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full bg-[#007AFF] text-white flex items-center justify-center text-[8px] border border-white">
                                     <i class="fa-solid fa-pen"></i>
                                 </span>
                             </div>
                             <span id="activeChatName" class="text-[11px] font-bold text-slate-900 mt-0.5 flex items-center gap-1">Karina 💙 <i class="fa-solid fa-chevron-right text-[8px] text-slate-400"></i></span>
                         </div>
 
-                        <button onclick="openEditContactModal(activeThreadId)" class="gb h-10 px-3 text-xs text-[#007AFF] font-bold" title="Ganti Foto & Nama">
-                            ✎ Edit
-                        </button>
+                        <div class="flex items-center gap-1">
+                            <button id="btnScreenshotMode" onclick="toggleChatCleanMode()" class="gb h-9 px-2.5 text-xs text-slate-600" title="Mode Screenshot (Sembunyikan Tombol Edit)">
+                                <i class="fa-regular fa-eye"></i>
+                            </button>
+                            <button id="btnHeaderEditContact" onclick="openEditContactModal(activeThreadId)" class="gb h-9 px-2.5 text-xs text-[#007AFF] font-bold" title="Ganti Foto & Nama">
+                                ✎
+                            </button>
+                        </div>
                     </div>
 
                     <!-- Messages Scroll Area (Click any bubble to Edit/Delete) -->
@@ -1846,7 +1851,7 @@
                     </div>
 
                     <!-- FAKE CHAT SENDER SELECTOR BAR ("Kirim Sebagai Siapa") -->
-                    <div class="px-3 pt-2 pb-1 bg-slate-50 border-t border-slate-200/80 space-y-1.5">
+                    <div id="fakeChatStudioToolbar" class="px-3 pt-2 pb-1 bg-slate-50 border-t border-slate-200/80 space-y-1.5">
                         <div class="flex items-center justify-between gap-1.5">
                             <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider pl-1">Kirim sbg:</span>
                             <div class="flex-1 grid grid-cols-2 gap-1 bg-slate-200/90 p-0.5 rounded-xl">
@@ -1955,6 +1960,13 @@
                         </div>
 
                         <div class="bg-white p-3.5 rounded-2xl shadow-sm space-y-2.5 text-xs">
+                            <div class="flex items-center justify-between gap-2 pb-1 border-b border-slate-100">
+                                <span class="text-[10px] font-bold text-slate-400 uppercase">Urutan Posisi Pesan</span>
+                                <div class="flex items-center gap-1.5">
+                                    <button type="button" onclick="moveSelectedChatBubble(-1)" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-[11px]">↑ Geser Atas</button>
+                                    <button type="button" onclick="moveSelectedChatBubble(1)" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-[11px]">↓ Geser Bawah</button>
+                                </div>
+                            </div>
                             <div>
                                 <label class="block text-[10px] font-bold text-slate-400 uppercase mb-1">Pengirim Pesan (Posisi Gelembung)</label>
                                 <select id="editBubbleSenderSelect" class="w-full bg-slate-100 rounded-xl px-3 py-2 text-xs font-bold outline-none border border-slate-200">
@@ -1968,7 +1980,14 @@
                             </div>
                             <div>
                                 <label class="block text-[10px] font-bold text-slate-400 uppercase mb-1">Isi Teks Pesan</label>
-                                <textarea id="editBubbleTextInput" rows="3" class="w-full bg-slate-100 rounded-xl p-2.5 text-xs outline-none border border-slate-200"></textarea>
+                                <textarea id="editBubbleTextInput" rows="2" class="w-full bg-slate-100 rounded-xl p-2.5 text-xs outline-none border border-slate-200"></textarea>
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-400 uppercase mb-1">Lampiran Gambar di Pesan Ini (Opsional)</label>
+                                <div class="flex gap-1.5">
+                                    <input id="editBubbleImageInput" type="text" placeholder="Kosongkan atau tempel URL gambar..." class="flex-1 bg-slate-100 rounded-xl px-2.5 py-1.5 text-xs outline-none border border-slate-200">
+                                    <button type="button" onclick="document.getElementById('editBubbleImageInput').value=''" class="px-2.5 py-1.5 rounded-xl bg-rose-50 text-rose-600 text-[11px] font-bold">Hapus Foto</button>
+                                </div>
                             </div>
                             <div>
                                 <label class="block text-[10px] font-bold text-slate-400 uppercase mb-1">Reaksi Tapback iMessage (Opsional)</label>
@@ -2401,132 +2420,132 @@
                         <span class="text-xs font-bold text-[#007AFF]">14:00</span>
                     </div>
                     <div class="p-3.5 rounded-2xl bg-slate-50 border-l-4 border-pink-500 flex justify-between items-center">
-                        <div>
-                            <p class="text-xs font-bold text-slate-900">Pemotretan Konsep Album Baru 📸</p>
-                            <p class="text-[11px] text-slate-500">Bersama Karina, Giselle, Ningning</p>
-                        </div>
-                        <span class="text-xs font-bold text-pink-500">17:30</span>
-                    </div>
-                </div>
-            </section>
-
-            <!-- =================================================================
-                 STATIC DISPLAY APP 9: iOS CLOCK & ALARMS (KTUAZON Style Pajangan)
-            ================================================================== -->
-            <section id="app-clock" class="ios-app-window bg-white text-slate-900 pt-12 pb-6 select-none">
-                <div class="px-4 pt-1 pb-2 flex items-center justify-between">
-                    <button onclick="closeAllApps()" class="gb text-sm">‹ Home</button>
-                    <span class="gb text-base">＋</span>
-                </div>
-                <div class="px-5 pt-2 pb-2">
-                    <h1 class="text-[34px] font-bold">Alarms</h1>
-                </div>
-                <div class="flex-1 overflow-y-auto px-5 divide-y divide-slate-200 no-scrollbar pointer-events-none">
-                    <div class="py-3 flex items-center justify-between">
-                        <div>
-                            <b class="text-5xl font-light text-slate-900">07:30</b>
-                            <small class="block text-xs text-slate-500 mt-1">Bangun Pagi & Latihan Vokal ❄️</small>
-                        </div>
-                        <div class="w-12 h-7 rounded-full bg-[#34c759] p-0.5 flex items-center justify-end"><div class="w-6 h-6 rounded-full bg-white shadow"></div></div>
-                    </div>
-                    <div class="py-3 flex items-center justify-between">
-                        <div>
-                            <b class="text-5xl font-light text-slate-900">13:30</b>
-                            <small class="block text-xs text-slate-500 mt-1">Jadwal Studio aespa ⭐️</small>
-                        </div>
-                        <div class="w-12 h-7 rounded-full bg-[#34c759] p-0.5 flex items-center justify-end"><div class="w-6 h-6 rounded-full bg-white shadow"></div></div>
-                    </div>
-                    <div class="py-3 flex items-center justify-between opacity-45">
-                        <div>
-                            <b class="text-5xl font-light text-slate-900">22:00</b>
-                            <small class="block text-xs text-slate-500 mt-1">Live Bubble bareng MYs 🫧</small>
-                        </div>
-                        <div class="w-12 h-7 rounded-full bg-slate-300 p-0.5 flex items-center justify-start"><div class="w-6 h-6 rounded-full bg-white shadow"></div></div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- =================================================================
-                 STATIC DISPLAY APP 10–16: OTHER iOS PAJANGAN APPS
-            ================================================================== -->
-            <!-- Camera (Pajangan) -->
-            <section id="app-camera" class="ios-app-window bg-black text-white pt-12 pb-6 select-none">
-                <div class="px-5 py-2 flex items-center justify-between">
-                    <button onclick="closeAllApps()" class="text-amber-400 text-xs font-bold flex items-center gap-1">‹ Home</button>
-                    <span class="text-xs font-bold tracking-widest uppercase text-amber-400">PHOTO • WINTER CAM</span>
-                    <i class="fa-solid fa-bolt text-xs text-white/70"></i>
-                </div>
-                <div class="flex-1 flex flex-col items-center justify-between p-5 pointer-events-none">
-                    <div class="bg-white text-slate-900 p-3 pb-5 rounded-2xl shadow-2xl w-full max-w-[255px]">
-                        <div class="relative aspect-square rounded-xl overflow-hidden bg-slate-200">
-                            <img id="cameraPreviewImg" src="" class="w-full h-full object-cover" alt="Camera View">
-                        </div>
-                        <p class="text-center font-bold text-xs text-slate-800 mt-3">Winter with MYs ⭐️❄️</p>
-                    </div>
-                    <div class="w-full flex items-center justify-around pt-2">
-                        <div class="w-11 h-11 rounded-xl overflow-hidden border border-white/40">
-                            <img id="cameraThumbMini" src="" class="w-full h-full object-cover" alt="last">
-                        </div>
-                        <div class="w-16 h-16 rounded-full border-4 border-white p-1 flex items-center justify-center"><div class="w-full h-full bg-white rounded-full"></div></div>
-                        <div class="w-11 h-11 rounded-full bg-white/15 flex items-center justify-center text-sm"><i class="fa-solid fa-rotate"></i></div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Weather (Pajangan) -->
-            <section id="app-weather" class="ios-app-window ios-weather-widget rounded-none text-white pt-12 pb-6 select-none">
-                <div class="px-5 pt-1 pb-2 flex items-center justify-between">
-                    <button onclick="closeAllApps()" class="text-white text-xs font-semibold flex items-center gap-1 bg-white/20 px-3 py-1.5 rounded-full">‹ Home</button>
-                    <span class="text-xs font-semibold text-white/80"> Weather</span>
-                </div>
-                <div class="flex-1 flex flex-col items-center justify-center px-6 text-center pointer-events-none">
-                    <p id="weatherAppCity" class="text-2xl font-bold">Seoul</p>
-                    <p id="weatherAppTemp" class="text-7xl font-thin my-2">47°</p>
-                    <p id="weatherAppCond" class="text-base font-semibold text-sky-100">Windy</p>
-                    <p id="weatherAppHL" class="text-xs font-semibold text-white/80 mt-1">H:56° L:39°</p>
-                </div>
-            </section>
-
-            <!-- Wallet (Pajangan) -->
-            <section id="app-wallet" class="ios-app-window bg-slate-950 text-white pt-12 pb-5 select-none">
-                <div class="px-5 pt-1 pb-2 flex items-center justify-between border-b border-white/10">
-                    <button onclick="closeAllApps()" class="text-sky-400 text-xs font-semibold flex items-center gap-1">‹ Home</button>
-                    <h2 class="text-sm font-extrabold"> Wallet • Photocard</h2>
-                    <span class="text-xs text-sky-300">VIP</span>
-                </div>
-                <div class="flex-1 overflow-y-auto p-4 space-y-4 no-scrollbar pointer-events-none">
-                    <div class="p-4 rounded-[26px] bg-gradient-to-br from-sky-500 via-indigo-600 to-slate-900 shadow-2xl border border-white/20">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <p class="text-[10px] font-bold uppercase tracking-widest text-sky-200">SM ENTERTAINMENT PASS</p>
-                                <h3 class="text-lg font-extrabold mt-0.5">KIM MINJEONG ⭐️</h3>
-                            </div>
-                            <img id="walletAvatarImg" src="" class="w-12 h-12 rounded-2xl object-cover border-2 border-white/50" alt="Winter">
-                        </div>
-                        <p class="text-xs text-sky-100 mt-4 font-mono">0101 • WINTER • AESPA OFFICIAL</p>
-                    </div>
-                    <div id="walletPhotocardGrid" class="grid grid-cols-2 gap-3"></div>
-                </div>
-            </section>
-
-            <!-- Shortcuts, Health, Reminders, Mail, App Store, Safari (Pajangan) -->
+            <!-- Shortcuts, Health, Reminders, Mail, App Store, Safari (Authentic Static Display Pajangan) -->
             <section id="app-shortcuts" class="ios-app-window bg-[#16182f] text-white pt-12 pb-6 select-none">
-                <div class="px-5 pt-1 pb-2 flex items-center justify-between"><button onclick="closeAllApps()" class="gb text-sm">‹ Home</button><h2 class="text-sm font-extrabold">Shortcuts</h2><span></span></div>
+                <div class="px-5 pt-1 pb-2 flex items-center justify-between">
+                    <button onclick="closeAllApps()" class="gb text-sm">‹ Home</button>
+                    <h2 class="text-sm font-extrabold">Shortcuts</h2>
+                    <span class="w-10"></span>
+                </div>
+                <div class="p-5 space-y-3 pointer-events-none">
+                    <h1 class="text-2xl font-bold">Winter's Shortcuts</h1>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="p-3.5 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-600 shadow-lg">
+                            <i class="fa-solid fa-music text-lg mb-2 block"></i>
+                            <b class="text-xs block">Practice Playlist</b>
+                            <span class="text-[10px] opacity-80">4 Songs • Apple Music</span>
+                        </div>
+                        <div class="p-3.5 rounded-2xl bg-gradient-to-br from-sky-500 to-blue-600 shadow-lg">
+                            <i class="fa-solid fa-comment-dots text-lg mb-2 block"></i>
+                            <b class="text-xs block">Greet MYs 🫧</b>
+                            <span class="text-[10px] opacity-80">DearU bubble Auto</span>
+                        </div>
+                        <div class="p-3.5 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 shadow-lg">
+                            <i class="fa-solid fa-mug-hot text-lg mb-2 block"></i>
+                            <b class="text-xs block">Iced Americano</b>
+                            <span class="text-[10px] opacity-80">SM Cafe Order</span>
+                        </div>
+                        <div class="p-3.5 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 shadow-lg">
+                            <i class="fa-solid fa-moon text-lg mb-2 block"></i>
+                            <b class="text-xs block">Dorm Rest Mode</b>
+                            <span class="text-[10px] opacity-80">DND + Alarm 07:30</span>
+                        </div>
+                    </div>
+                </div>
             </section>
+
             <section id="app-health" class="ios-app-window bg-[#F2F2F7] text-slate-900 pt-12 pb-6 select-none">
-                <div class="px-5 pt-1 pb-2 flex items-center justify-between"><button onclick="closeAllApps()" class="gb text-sm">‹ Home</button><h2 class="text-sm font-extrabold">Health</h2><span></span></div>
+                <div class="px-5 pt-1 pb-2 flex items-center justify-between">
+                    <button onclick="closeAllApps()" class="gb text-sm">‹ Home</button>
+                    <h2 class="text-sm font-extrabold">Summary</h2>
+                    <span class="w-10"></span>
+                </div>
+                <div class="p-5 space-y-3 pointer-events-none">
+                    <h1 class="text-2xl font-extrabold">Health • Winter</h1>
+                    <div class="bg-white p-4 rounded-2xl shadow-sm space-y-1">
+                        <div class="flex justify-between text-xs font-bold text-orange-500"><span><i class="fa-solid fa-fire"></i> Steps (Dance Practice)</span><span>Today</span></div>
+                        <p class="text-2xl font-extrabold text-slate-900">12,480 <span class="text-xs font-normal text-slate-400">steps</span></p>
+                    </div>
+                    <div class="bg-white p-4 rounded-2xl shadow-sm space-y-1">
+                        <div class="flex justify-between text-xs font-bold text-sky-500"><span><i class="fa-solid fa-bed"></i> Sleep</span><span>Today</span></div>
+                        <p class="text-2xl font-extrabold text-slate-900">7h 45m <span class="text-xs font-normal text-slate-400">in bed</span></p>
+                    </div>
+                    <div class="bg-white p-4 rounded-2xl shadow-sm space-y-1">
+                        <div class="flex justify-between text-xs font-bold text-rose-500"><span><i class="fa-solid fa-heart-pulse"></i> Heart Rate</span><span>10m ago</span></div>
+                        <p class="text-2xl font-extrabold text-slate-900">68 <span class="text-xs font-normal text-slate-400">BPM</span></p>
+                    </div>
+                </div>
             </section>
+
             <section id="app-reminders" class="ios-app-window bg-[#F2F2F7] text-slate-900 pt-12 pb-6 select-none">
-                <div class="px-5 pt-1 pb-2 flex items-center justify-between"><button onclick="closeAllApps()" class="gb text-sm">‹ Home</button><h2 class="text-sm font-extrabold">Reminders</h2><span></span></div>
+                <div class="px-5 pt-1 pb-2 flex items-center justify-between">
+                    <button onclick="closeAllApps()" class="gb text-sm">‹ Home</button>
+                    <h2 class="text-sm font-extrabold">Reminders</h2>
+                    <span class="w-10"></span>
+                </div>
+                <div class="p-5 space-y-3 pointer-events-none">
+                    <h1 class="text-2xl font-extrabold text-[#007AFF]">Today's To-Do ⭐️</h1>
+                    <div class="bg-white rounded-2xl p-4 shadow-sm divide-y divide-slate-100 space-y-2.5 text-xs">
+                        <div class="flex items-center gap-3 pt-1"><span class="w-4 h-4 rounded-full border-2 border-[#007AFF]"></span><span>Latihan koreografi Whiplash & Supernova (14:00)</span></div>
+                        <div class="flex items-center gap-3 pt-2.5"><span class="w-4 h-4 rounded-full border-2 border-rose-500"></span><span>Beli tanghulu stroberi & es krim mint choco 🍓🍦</span></div>
+                        <div class="flex items-center gap-3 pt-2.5"><span class="w-4 h-4 rounded-full border-2 border-amber-500"></span><span>Kirim selca malam ke MYs di DearU bubble 🫧</span></div>
+                    </div>
+                </div>
             </section>
-            <section id="app-mail" class="ios-app-window bg-[#F2F2F7] text-slate-900 pt-12 pb-6 select-none">
-                <div class="px-5 pt-1 pb-2 flex items-center justify-between"><button onclick="closeAllApps()" class="gb text-sm">‹ Home</button><h2 class="text-sm font-extrabold">Mail</h2><span></span></div>
+
+            <section id="app-mail" class="ios-app-window bg-white text-slate-900 pt-12 pb-6 select-none">
+                <div class="px-5 pt-1 pb-2 flex items-center justify-between border-b border-slate-100">
+                    <button onclick="closeAllApps()" class="gb text-sm">‹ Home</button>
+                    <h2 class="text-sm font-extrabold">Inbox</h2>
+                    <span class="w-10"></span>
+                </div>
+                <div class="p-5 divide-y divide-slate-100 space-y-3 pointer-events-none text-xs">
+                    <div class="pt-1">
+                        <div class="flex justify-between font-bold"><span>SM Entertainment A&R</span><span class="text-slate-400 font-normal">10:30</span></div>
+                        <p class="font-semibold text-slate-800">Demo Guide: Winter Solo Track (Final Mix)</p>
+                        <p class="text-slate-400 truncate">Attached: Spark_Rock_Arrangement_v3.wav</p>
+                    </div>
+                    <div class="pt-3">
+                        <div class="flex justify-between font-bold"><span>Ralph Lauren Korea</span><span class="text-slate-400 font-normal">Yesterday</span></div>
+                        <p class="font-semibold text-slate-800">Polo Ralph Lauren Campaign Lookbook</p>
+                        <p class="text-slate-400 truncate">Thank you Minjeong for attending the showcase...</p>
+                    </div>
+                </div>
             </section>
+
             <section id="app-appstore" class="ios-app-window bg-[#F2F2F7] text-slate-900 pt-12 pb-6 select-none">
-                <div class="px-5 pt-1 pb-2 flex items-center justify-between"><button onclick="closeAllApps()" class="gb text-sm">‹ Home</button><h2 class="text-sm font-extrabold">App Store</h2><span></span></div>
+                <div class="px-5 pt-1 pb-2 flex items-center justify-between">
+                    <button onclick="closeAllApps()" class="gb text-sm">‹ Home</button>
+                    <h2 class="text-sm font-extrabold">App Store</h2>
+                    <span class="w-10"></span>
+                </div>
+                <div class="p-5 space-y-3 pointer-events-none">
+                    <h1 class="text-2xl font-extrabold">Today</h1>
+                    <div class="rounded-3xl overflow-hidden bg-gradient-to-br from-sky-600 to-indigo-900 text-white p-5 shadow-lg">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-sky-200">FEATURED APP</span>
+                        <h3 class="text-xl font-extrabold mt-1">DearU bubble for SMtown</h3>
+                        <p class="text-xs text-sky-100 mt-1">Stay connected daily with Winter & MYs ⭐️🫧</p>
+                    </div>
+                </div>
             </section>
+
             <section id="app-safari" class="ios-app-window bg-[#F2F2F7] text-slate-900 pt-12 pb-6 select-none">
-                <div class="px-5 pt-1 pb-2 flex items-center justify-between"><button onclick="closeAllApps()" class="gb text-sm">‹ Home</button><h2 class="text-sm font-extrabold">Safari</h2><span></span></div>
+                <div class="px-5 pt-1 pb-2 flex items-center justify-between">
+                    <button onclick="closeAllApps()" class="gb text-sm">‹ Home</button>
+                    <h2 class="text-sm font-extrabold">Safari</h2>
+                    <span class="w-10"></span>
+                </div>
+                <div class="p-5 space-y-4 pointer-events-none">
+                    <div class="bg-white rounded-2xl p-4 shadow-sm text-center space-y-2">
+                        <span class="text-3xl">❄️⭐️</span>
+                        <h3 class="text-base font-extrabold">aespa Official KWANGYA Portal</h3>
+                        <p class="text-xs text-slate-500">WINTER (Kim Minjeong) • Born Jan 1, 2001</p>
+                    </div>
+                    <div class="bg-white rounded-xl px-4 py-2.5 shadow-sm flex items-center justify-between text-xs text-slate-600">
+                        <span>🔒 aespa.com/winter</span>
+                        <i class="fa-solid fa-rotate-right"></i>
+                    </div>
+                </div>
             </section>
 
             <!-- iOS POPUP BANNER TOAST -->
@@ -2559,16 +2578,30 @@
         function getInitialPhotos() {
             const basePhotos = JSON.parse(JSON.stringify(PUSAT_KONTEN_HP_WINTER.galeriFoto));
             try {
+                // Full gallery state v2 persistence (preserves edits, deletes, favorites & new uploads)
+                const savedFull = JSON.parse(localStorage.getItem("winterGalleryStateV2") || "null");
+                if (Array.isArray(savedFull) && savedFull.length > 0) {
+                    const cleanList = savedFull.filter(p => p && isCleanImageUrl(p.url));
+                    if (cleanList.length > 0) return cleanList;
+                }
+                // Migrate any legacy custom uploads
                 const rawCustom = JSON.parse(localStorage.getItem("winterCustomGalleryPhotos") || "[]");
                 if (Array.isArray(rawCustom) && rawCustom.length > 0) {
                     const validCustom = rawCustom.filter(p => p && isCleanImageUrl(p.url));
-                    localStorage.setItem("winterCustomGalleryPhotos", JSON.stringify(validCustom));
                     const existingIds = new Set(basePhotos.map(p => p.id));
                     const uniqueCustom = validCustom.filter(p => !existingIds.has(p.id));
-                    return [...uniqueCustom, ...basePhotos];
+                    const merged = [...uniqueCustom, ...basePhotos];
+                    localStorage.setItem("winterGalleryStateV2", JSON.stringify(merged));
+                    return merged;
                 }
             } catch (e) {}
             return basePhotos;
+        }
+
+        function savePhotosToStorage() {
+            try {
+                localStorage.setItem("winterGalleryStateV2", JSON.stringify(phoneData.photos));
+            } catch (e) {}
         }
 
         function getInitialThreads() {
@@ -2736,9 +2769,7 @@
                 existingPhoto.album = album;
                 existingPhoto.date = date;
                 existingPhoto.caption = caption;
-                try {
-                    localStorage.setItem("winterCustomGalleryPhotos", JSON.stringify(phoneData.photos));
-                } catch (e) {}
+                savePhotosToStorage();
                 refreshAllViews();
                 openPhotoViewer(editingGalleryPhotoId);
                 closeAddPhotoModal();
@@ -2756,11 +2787,7 @@
             };
 
             phoneData.photos.unshift(newPhoto);
-            try {
-                const savedCustom = JSON.parse(localStorage.getItem("winterCustomGalleryPhotos") || "[]");
-                savedCustom.unshift(newPhoto);
-                localStorage.setItem("winterCustomGalleryPhotos", JSON.stringify(savedCustom));
-            } catch (e) {}
+            savePhotosToStorage();
 
             refreshAllViews();
 
@@ -2802,7 +2829,10 @@
         }
 
         function resetCustomGalleryPhotos() {
-            try { localStorage.removeItem("winterCustomGalleryPhotos"); } catch (e) {}
+            try {
+                localStorage.removeItem("winterCustomGalleryPhotos");
+                localStorage.removeItem("winterGalleryStateV2");
+            } catch (e) {}
             phoneData.photos = JSON.parse(JSON.stringify(PUSAT_KONTEN_HP_WINTER.galeriFoto));
             refreshAllViews();
             closeAddPhotoModal();
@@ -2811,12 +2841,12 @@
 
         function deleteCurrentPhoto() {
             if (!currentViewingPhotoId) return;
+            if (phoneData.photos.length <= 1) {
+                showToast("⚠️ Sisakan minimal 1 foto di Galeri!");
+                return;
+            }
             phoneData.photos = phoneData.photos.filter(p => p.id !== currentViewingPhotoId);
-            try {
-                const savedCustom = JSON.parse(localStorage.getItem("winterCustomGalleryPhotos") || "[]");
-                const filteredCustom = savedCustom.filter(p => p.id !== currentViewingPhotoId);
-                localStorage.setItem("winterCustomGalleryPhotos", JSON.stringify(filteredCustom));
-            } catch (e) {}
+            savePhotosToStorage();
             closePhotoViewer();
             refreshAllViews();
             showToast("🗑️ Foto dihapus dari Galeri");
@@ -3083,7 +3113,12 @@
         lk.addEventListener("pointercancel", endLockSwipe);
 
         addEventListener("keydown", e => {
-            if (e.target && /INPUT|TEXTAREA/.test(e.target.tagName)) return;
+            if (e.target && /INPUT|TEXTAREA|SELECT/.test(e.target.tagName)) return;
+            if ($("#photoDetailViewer") && !$("#photoDetailViewer").classList.contains("hidden")) {
+                if (e.key === "ArrowLeft") { navigatePhotoViewer(-1); e.preventDefault(); return; }
+                if (e.key === "ArrowRight") { navigatePhotoViewer(1); e.preventDefault(); return; }
+                if (e.key === "Escape") { closePhotoViewer(); e.preventDefault(); return; }
+            }
             if ($("#pass").classList.contains("on")) {
                 if (/^[0-9]$/.test(e.key)) { pressDigit(e.key); e.preventDefault(); }
                 else if (e.key === "Backspace" || e.key === "Delete") { pressDel(); e.preventDefault(); }
@@ -3097,7 +3132,7 @@
         /* ==========================================
            4. APP NAVIGATION & ADAPTIVE STATUS BAR
         =========================================== */
-        const DARK_APPS = ["app-music", "app-camera", "app-weather", "app-wallet"];
+        const DARK_APPS = ["app-music", "app-camera", "app-weather", "app-wallet", "app-shortcuts"];
 
         function openApp(appId) {
             collapseIsland();
@@ -3237,7 +3272,9 @@
                 }
             }
 
-            $("#pdt").textContent = `${list.length} Photos • ${specialFilter || "All"}`;
+            const albumLabel = (!specialFilter || specialFilter === "Semua") ? "Winter's Library" : specialFilter;
+            $("#pdt").textContent = `${list.length} Photos • ${albumLabel}`;
+
             if (phoneData.photos.length > 0) {
                 const camThumb = $("#cameraThumbMini");
                 if (camThumb) camThumb.src = phoneData.photos[0].url;
@@ -3245,17 +3282,14 @@
                 if (camPrev) camPrev.src = phoneData.photos[0].url;
             }
 
-            if (list.length > 0) {
-                $("#pdt").textContent = `${list.length} Photos • Winter's Library`;
-                const camThumb = $("#cameraThumbMini");
-                if (camThumb) camThumb.src = list[0].url;
-                const camPrev = $("#cameraPreviewImg");
-                if (camPrev) camPrev.src = list[0].url;
-            }
-
-            if (photoViewMode === "a") {
+            if (list.length === 0) {
+                w.innerHTML = `<div class="text-center text-slate-400 py-20 text-xs font-medium">Belum ada foto di kategori ${albumLabel}</div>`;
+            } else if (photoViewMode === "a") {
                 w.innerHTML = `<div class="pg">` + list.map(p => `
-                    <img onclick="openPhotoViewer(${p.id})" src="${p.url}" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80'" alt="${p.album}">
+                    <div class="relative overflow-hidden group cursor-pointer" onclick="openPhotoViewer(${p.id})">
+                        <img src="${p.url}" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80'" class="group-hover:scale-105 transition duration-200" alt="${p.album}">
+                        ${p.fav ? '<i class="fa-solid fa-heart text-white text-[10px] absolute bottom-1.5 right-1.5 drop-shadow"></i>' : ''}
+                    </div>
                 `).join("") + `</div>`;
             } else {
                 const groups = {};
@@ -3270,7 +3304,7 @@
                 w.innerHTML = `<div class="pgy">` + Object.keys(groups).map(k => {
                     const items = groups[k];
                     const cover = items[0].url;
-                    return `<div class="yr" onclick="setPhotoViewMode('a')"><img src="${cover}" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80'"><b>${k} (${items.length})</b></div>`;
+                    return `<div class="yr" onclick="openPhotoViewer(${items[0].id})"><img src="${cover}" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80'"><b>${k} (${items.length})</b></div>`;
                 }).join("") + `</div>`;
             }
 
@@ -3310,6 +3344,14 @@
             $("#photoDetailViewer").classList.remove("hidden");
         }
 
+        function navigatePhotoViewer(dir) {
+            if (!currentViewingPhotoId || phoneData.photos.length < 2) return;
+            const idx = phoneData.photos.findIndex(p => p.id === currentViewingPhotoId);
+            if (idx === -1) return;
+            const nextIdx = (idx + dir + phoneData.photos.length) % phoneData.photos.length;
+            openPhotoViewer(phoneData.photos[nextIdx].id);
+        }
+
         function closePhotoViewer() {
             const viewer = $("#photoDetailViewer");
             if (viewer) viewer.classList.add("hidden");
@@ -3320,6 +3362,7 @@
             const photo = phoneData.photos.find(p => p.id === currentViewingPhotoId);
             if (!photo) return;
             photo.fav = !photo.fav;
+            savePhotosToStorage();
             openPhotoViewer(currentViewingPhotoId);
             renderPhotosApp();
             showToast(photo.fav ? "❤️ Disimpan ke Favorit" : "Dihapus dari Favorit");
@@ -3330,6 +3373,10 @@
             if (!photo) return;
             phoneData.wallpaper = photo.url;
             phoneData.wallpaperLock = photo.url;
+            try {
+                localStorage.setItem("winterHomeWall", photo.url);
+                localStorage.setItem("winterLockWall", photo.url);
+            } catch (e) {}
             refreshAllViews();
             showToast("✨ Wallpaper Berhasil Diganti!");
         }
@@ -3359,6 +3406,62 @@
         let editingContactId = null;
         let editingBubbleIndex = null;
         let pendingChatPhotoUrl = null;
+        let isChatCleanMode = false;
+
+        function toggleChatCleanMode() {
+            isChatCleanMode = !isChatCleanMode;
+            const studioBar = $("#fakeChatStudioToolbar");
+            const editBadge = $("#chatHeaderEditBadge");
+            const btnEdit = $("#btnHeaderEditContact");
+            const btnClean = $("#btnScreenshotMode");
+            const input = $("#imessageInput");
+
+            if (isChatCleanMode) {
+                if (studioBar) studioBar.classList.add("hidden");
+                if (editBadge) editBadge.classList.add("hidden");
+                if (btnEdit) btnEdit.classList.add("hidden");
+                if (btnClean) btnClean.innerHTML = '<i class="fa-solid fa-eye-slash text-[#007AFF]"></i>';
+                if (input) input.placeholder = "iMessage";
+                showToast("📸 Mode Screenshot Aktif (UI Bersih)");
+            } else {
+                if (studioBar) studioBar.classList.remove("hidden");
+                if (editBadge) editBadge.classList.remove("hidden");
+                if (btnEdit) btnEdit.classList.remove("hidden");
+                if (btnClean) btnClean.innerHTML = '<i class="fa-regular fa-eye"></i>';
+                setSenderRole(asThem);
+                showToast("🛠️ Mode Studio Fake Chat Aktif");
+            }
+        }
+
+        function syncLockScreenNotification() {
+            const topThread = phoneData.threads.find(t => t.id === activeThreadId) || phoneData.threads[0];
+            if (!topThread || !topThread.messages.length) return;
+            const lastMsg = topThread.messages[topThread.messages.length - 1];
+            if ($("#lockNotifHeader")) $("#lockNotifHeader").textContent = `MESSAGES • ${topThread.name.toUpperCase()}`;
+            if ($("#lockNotifSender")) $("#lockNotifSender").textContent = topThread.name;
+            if ($("#lockNotifBody")) $("#lockNotifBody").textContent = lastMsg.image ? `📷 [Foto] ${lastMsg.text || ""}` : lastMsg.text;
+            if ($("#lockNotifTime")) $("#lockNotifTime").textContent = lastMsg.time || "Now";
+        }
+
+        function playImessageTone(isOutgoing) {
+            try {
+                if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                if (audioCtx.state === "suspended") audioCtx.resume();
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = "sine";
+                const startFreq = isOutgoing ? 580 : 740;
+                const endFreq = isOutgoing ? 880 : 520;
+                osc.frequency.setValueAtTime(startFreq, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(endFreq, audioCtx.currentTime + 0.09);
+                gain.gain.setValueAtTime(0.035, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.1);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.1);
+            } catch (e) {}
+        }
 
         function renderMessagesApp() {
             const q = ($("#mqInput")?.value || "").toLowerCase();
@@ -3525,10 +3628,12 @@
             thread.messages.push(msgObj);
             input.value = "";
             clearPendingChatPhoto();
+            playImessageTone(!asThem);
             saveThreadsToStorage();
             renderActiveChatMessages();
             renderMessagesApp();
             renderStaticApps();
+            syncLockScreenNotification();
         }
 
         /* =========================================================
@@ -3681,8 +3786,23 @@
             $("#editBubbleSenderSelect").value = msg.from === "me" ? "me" : "them";
             $("#editBubbleTimeInput").value = msg.time || "Today 13:15";
             $("#editBubbleTextInput").value = msg.text || "";
+            $("#editBubbleImageInput").value = msg.image || "";
             $("#editBubbleReactionInput").value = msg.reaction || "";
             $("#chatBubbleEditModal").classList.remove("hidden");
+        }
+
+        function moveSelectedChatBubble(direction) {
+            const thread = phoneData.threads.find(t => t.id === activeThreadId);
+            if (!thread || editingBubbleIndex === null) return;
+            const targetIdx = editingBubbleIndex + direction;
+            if (targetIdx < 0 || targetIdx >= thread.messages.length) return;
+            const temp = thread.messages[editingBubbleIndex];
+            thread.messages[editingBubbleIndex] = thread.messages[targetIdx];
+            thread.messages[targetIdx] = temp;
+            editingBubbleIndex = targetIdx;
+            saveThreadsToStorage();
+            renderActiveChatMessages();
+            showToast(direction < 0 ? "↑ Pesan digeser ke atas" : "↓ Pesan digeser ke bawah");
         }
 
         function selectBubbleReaction(emoji) {
@@ -3701,10 +3821,17 @@
             msg.from = $("#editBubbleSenderSelect").value;
             msg.time = $("#editBubbleTimeInput").value.trim() || msg.time;
             msg.text = $("#editBubbleTextInput").value.trim();
+            const imgVal = $("#editBubbleImageInput").value.trim();
+            if (imgVal) {
+                msg.image = imgVal;
+            } else {
+                delete msg.image;
+            }
             msg.reaction = $("#editBubbleReactionInput").value.trim();
             saveThreadsToStorage();
             renderActiveChatMessages();
             renderMessagesApp();
+            syncLockScreenNotification();
             closeChatBubbleEditModal();
             showToast("✏️ Pesan berhasil diedit!");
         }
@@ -3716,6 +3843,7 @@
             saveThreadsToStorage();
             renderActiveChatMessages();
             renderMessagesApp();
+            syncLockScreenNotification();
             closeChatBubbleEditModal();
             showToast("🗑️ Pesan dihapus");
         }
@@ -4015,6 +4143,15 @@
 
         function scrubMusic(val) {
             musicProgressPercent = parseInt(val, 10);
+            $("#islandProgFill").style.width = `${musicProgressPercent}%`;
+            const totalSec = Math.floor((musicProgressPercent / 100) * 198);
+            const timeStr = `${p2(Math.floor(totalSec / 60))}:${p2(totalSec % 60)}`;
+            $("#musicAppCurTime").textContent = timeStr;
+            $("#islandCurTime").textContent = timeStr;
+            const audioEl = $("#customAudioPlayer");
+            if (audioEl && audioEl.duration && !isNaN(audioEl.duration)) {
+                audioEl.currentTime = (musicProgressPercent / 100) * audioEl.duration;
+            }
         }
 
         /* ==========================================
@@ -4076,6 +4213,7 @@
             renderMessagesApp();
             renderMusicApp();
             renderStaticApps();
+            syncLockScreenNotification();
         }
 
         window.onload = function () {
